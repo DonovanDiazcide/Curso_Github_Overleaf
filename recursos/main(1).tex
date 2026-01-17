@@ -1,0 +1,42 @@
+\documentclass[12pt,a4paper]{article}
+
+% Paquetes básicos
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{amsmath,amsfonts,amssymb}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{natbib}
+
+% Configuración de márgenes
+\usepackage[margin=2.5cm]{geometry}
+
+% Título y autores
+\title{Artículo de Práctica: Colaboración con Git y LaTeX}
+\author{
+    Mauricio\textsuperscript{1} \and 
+    José Miguel\textsuperscript{1} \and 
+    Rodrigo\textsuperscript{1}
+}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+Este documento es un ejercicio práctico para aprender a colaborar en artículos académicos usando Git, GitHub, Overleaf y VS Code. Cada autor contribuirá una sección diferente.
+\end{abstract}
+
+% Incluir secciones desde archivos separados
+\input{sections/introduction}
+\input{sections/related-work}
+\input{sections/methods}
+\input{sections/results}
+\input{sections/conclusion}
+
+% Bibliografía
+\bibliographystyle{apalike}
+\bibliography{references}
+
+\end{document}
