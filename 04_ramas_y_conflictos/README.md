@@ -1,7 +1,7 @@
-# Parte 3: Flujo de Trabajo Básico
+# Parte 4: Ramas, Pull Requests y Resolución de Conflictos
 
-> **Duración**: 30 minutos  
-> **Objetivo**: Dominar el ciclo diario de trabajo: Editar → Commit → Push → Sync
+> **Duración**: 20 minutos  
+> **Objetivo**: Usar ramas para trabajar en paralelo y aprender a resolver conflictos
 
 ---
 
@@ -9,568 +9,525 @@
 
 | Paso | Descripción | Tiempo |
 |------|-------------|--------|
-| 3.1 | Entender el concepto de "foto" (commit) | 5 min |
-| 3.2 | Mauricio crea el archivo inicial en Overleaf | 5 min |
-| 3.3 | Todos sincronizan y obtienen el archivo | 3 min |
-| 3.4 | Cada quien edita su sección localmente | 10 min |
-| 3.5 | Preparar y tomar la foto (add + commit) | 5 min |
-| 3.6 | Subir cambios (push) | 2 min |
+| 4.1 | Entender qué son las ramas y por qué usarlas | 5 min |
+| 4.2 | Crear y trabajar en tu propia rama | 5 min |
+| 4.3 | Crear un Pull Request en GitHub | 3 min |
+| 4.4 | Resolver conflictos (ejercicio guiado) | 5 min |
+| 4.5 | Usar ramas para versiones alternativas | 2 min |
 
 ---
 
-## 3.1 El concepto de "tomarle una foto al proyecto"
+## 4.1 ¿Qué son las ramas?
 
-En Git, un **commit** es como tomar una **foto instantánea** de tu proyecto en un momento específico.
+Una **rama** (branch) es una línea paralela de desarrollo. Es como tener una **copia del proyecto** donde puedes experimentar sin afectar la versión principal.
+
+### Analogía: El árbol de versiones
 
 ```
-📸 Foto 1: "Estructura inicial"
-    Estado: main.tex, introduction.tex (vacíos)
-    Fecha: 2024-01-15 10:00
-    Autor: Mauricio
-
-📸 Foto 2: "Agregué contenido a la introducción"  
-    Estado: introduction.tex (con 3 párrafos)
-    Fecha: 2024-01-15 11:30
-    Autor: José Miguel
-
-📸 Foto 3: "Completé la metodología"
-    Estado: methods.tex (con contenido)
-    Fecha: 2024-01-15 12:00
-    Autor: Rodrigo
+                            ┌─── 📝 rama: rodrigo-metodologia
+                            │    "Estoy probando una nueva estructura"
+                            │
+main ●────●────●────●───────●────●────● versión estable
+                   │                 ↑
+                   │                 │ merge (integrar)
+                   │                 │
+                   └─── 📝 rama: jose-introduccion
+                        "Reescribí la introducción"
 ```
 
-### ¿Por qué es útil?
+### ¿Por qué usar ramas?
 
-- **Historial completo**: Puedes ver exactamente qué cambió, cuándo y quién lo hizo
-- **Máquina del tiempo**: Puedes volver a cualquier foto anterior si algo sale mal
-- **Propuestas de versión**: Puedes tener diferentes "álbumes" (ramas) con versiones alternativas del artículo
+| Sin ramas | Con ramas |
+|-----------|-----------|
+| Todos trabajan en `main` | Cada quien tiene su espacio |
+| Un error afecta a todos inmediatamente | Los errores se contienen en la rama |
+| No hay revisión antes de integrar | Pull Requests permiten revisar antes de integrar |
+| Difícil experimentar | Puedes probar ideas sin riesgo |
 
-### Buenas prácticas para commits
+### Flujo de trabajo con ramas (GitHub Flow)
 
-| ✅ Hacer | ❌ Evitar |
-|----------|----------|
-| Commits pequeños y frecuentes | Un solo commit gigante con todo |
-| Mensajes descriptivos: "Agregué análisis de resultados" | Mensajes vagos: "cambios" o "asdf" |
-| Un commit por idea/tarea completada | Mezclar cambios no relacionados |
+```
+1. Crear rama desde main      →  git checkout -b mi-rama
+2. Hacer cambios y commits    →  git add . && git commit -m "..."
+3. Subir rama a GitHub        →  git push -u origin mi-rama
+4. Crear Pull Request         →  En GitHub, pedir revisión
+5. Revisión y aprobación      →  Compañeros revisan
+6. Merge a main               →  Integrar cambios aprobados
+7. Actualizar local           →  git checkout main && git pull
+```
+
+> 📖 Fuente oficial: [GitHub Flow](https://docs.github.com/en/get-started/using-github/github-flow)
 
 ---
 
-## 3.2 Archivo inicial del artículo (Mauricio)
+## 4.2 Crear y trabajar en tu propia rama (Todos)
 
-> **Mauricio**: Copia este contenido y pégalo en tu proyecto de Overleaf.
+Cada participante creará su propia rama para trabajar de forma aislada.
 
-### Estructura de archivos a crear
+### Paso 1: Asegurarse de estar actualizado
 
-```
-articulo-taller-colaboracion/
-├── main.tex                 ← Archivo principal
-├── sections/
-│   ├── introduction.tex     ← José Miguel editará esto
-│   ├── methods.tex          ← Rodrigo editará esto
-│   ├── results.tex          ← Mauricio editará esto
-│   └── conclusion.tex       ← Para después
-├── references.bib           ← Bibliografía
-└── .gitignore               ← Ignorar archivos auxiliares
+```bash
+# Ir a la rama principal
+git checkout main
+
+# Obtener los últimos cambios
+git pull origin main
 ```
 
-### Archivo: `main.tex`
+### Paso 2: Crear tu rama
 
-```latex
-\documentclass[12pt,a4paper]{article}
+El nombre de la rama debe ser descriptivo. Convención sugerida: `nombre-seccion` o `feature/descripcion`.
 
-% Paquetes básicos
-\usepackage[utf8]{inputenc}
-\usepackage[spanish]{babel}
-\usepackage{amsmath,amsfonts,amssymb}
-\usepackage{graphicx}
-\usepackage{hyperref}
-\usepackage{natbib}
+<details>
+<summary><strong>José Miguel</strong></summary>
 
-% Configuración de márgenes
-\usepackage[margin=2.5cm]{geometry}
+```bash
+# Crear y cambiar a la nueva rama
+git checkout -b jose-introduccion
 
-% Título y autores
-\title{Artículo de Práctica: Colaboración con Git y LaTeX}
-\author{
-    Mauricio\textsuperscript{1} \and 
-    José Miguel\textsuperscript{1} \and 
-    Rodrigo\textsuperscript{1}
-}
-\date{\today}
-
-\begin{document}
-
-\maketitle
-
-\begin{abstract}
-Este documento es un ejercicio práctico para aprender a colaborar en artículos académicos usando Git, GitHub, Overleaf y VS Code. Cada autor contribuirá una sección diferente.
-\end{abstract}
-
-% Incluir secciones desde archivos separados
-\input{sections/introduction}
-\input{sections/methods}
-\input{sections/results}
-\input{sections/conclusion}
-
-% Bibliografía
-\bibliographystyle{apalike}
-\bibliography{references}
-
-\end{document}
+# Verificar que estás en la rama correcta
+git branch
 ```
 
-### Archivo: `sections/introduction.tex`
-
-```latex
-\section{Introducción}
-
-% === JOSÉ MIGUEL: Edita esta sección ===
-
-Este es el texto inicial de la introducción. 
-
-José Miguel reemplazará este contenido con una introducción sobre la importancia de la colaboración en proyectos académicos.
-
-\subsection{Motivación}
-
-[Pendiente: explicar por qué es importante tener un flujo de trabajo colaborativo]
-
-\subsection{Objetivos}
-
-[Pendiente: listar los objetivos del artículo]
+Salida esperada:
+```
+  main
+* jose-introduccion    ← El asterisco indica tu rama actual
 ```
 
-### Archivo: `sections/methods.tex`
+</details>
 
-```latex
-\section{Metodología}
+<details>
+<summary><strong>Rodrigo</strong></summary>
 
-% === RODRIGO: Edita esta sección ===
+```bash
+# Crear y cambiar a la nueva rama
+git checkout -b rodrigo-metodologia
 
-Este es el texto inicial de la metodología.
-
-Rodrigo reemplazará este contenido con una descripción del flujo de trabajo propuesto.
-
-\subsection{Herramientas utilizadas}
-
-[Pendiente: describir Git, GitHub, Overleaf, VS Code]
-
-\subsection{Flujo de trabajo}
-
-[Pendiente: describir el ciclo de trabajo diario]
+# Verificar
+git branch
 ```
 
-### Archivo: `sections/results.tex`
+</details>
 
-```latex
-\section{Resultados}
+<details>
+<summary><strong>Mauricio</strong></summary>
 
-% === MAURICIO: Edita esta sección ===
+```bash
+# Crear y cambiar a la nueva rama
+git checkout -b mauricio-resultados
 
-Este es el texto inicial de resultados.
-
-Mauricio agregará contenido sobre los beneficios observados del flujo de trabajo.
-
-\subsection{Beneficios de la colaboración}
-
-[Pendiente: describir ventajas encontradas]
-
-\subsection{Comparación con métodos tradicionales}
-
-[Pendiente: tabla comparativa]
+# Verificar
+git branch
 ```
 
-### Archivo: `sections/conclusion.tex`
+</details>
 
-```latex
-\section{Conclusión}
+### Paso 3: Hacer cambios en tu rama
 
-% === PARA DESPUÉS ===
+1. Edita tu sección asignada en VS Code
+2. Guarda los cambios
+3. Haz commit:
 
-[Esta sección se completará en la Parte 5 del taller]
+```bash
+git add sections/tu-seccion.tex
+git commit -m "Descripción de tus cambios"
 ```
 
-### Archivo: `references.bib`
+Puedes hacer **múltiples commits** en tu rama antes de compartirla.
 
-```bibtex
-@article{perez2024github,
-  title={GitHub is an effective platform for collaborative and reproducible laboratory research},
-  author={P{\'e}rez, Fernando and others},
-  journal={arXiv preprint arXiv:2408.09344},
-  year={2024}
-}
+### Paso 4: Subir tu rama a GitHub
 
-@book{chacon2014pro,
-  title={Pro Git},
-  author={Chacon, Scott and Straub, Ben},
-  year={2014},
-  publisher={Apress},
-  note={Disponible en \url{https://git-scm.com/book}}
-}
-
-@misc{overleaf2024docs,
-  title={Overleaf Documentation},
-  author={{Overleaf}},
-  year={2024},
-  howpublished={\url{https://www.overleaf.com/learn}}
-}
+```bash
+# Primera vez que subes esta rama
+git push -u origin nombre-de-tu-rama
 ```
 
-### Archivo: `.gitignore`
+Por ejemplo:
+- José Miguel: `git push -u origin jose-introduccion`
+- Rodrigo: `git push -u origin rodrigo-metodologia`
+- Mauricio: `git push -u origin mauricio-resultados`
 
-```
-# Archivos auxiliares de LaTeX
-*.aux
-*.log
-*.out
-*.toc
-*.lof
-*.lot
-*.bbl
-*.blg
-*.synctex.gz
-*.fdb_latexmk
-*.fls
+> **Nota**: El `-u` configura el "upstream" para que futuros `git push` sepan a dónde ir.
 
-# Archivos de respaldo
-*.bak
-*~
+---
 
-# Carpeta de output de algunos editores
-output/
+## 4.3 Crear un Pull Request en GitHub
 
-# Archivos del sistema
-.DS_Store
-Thumbs.db
+Un **Pull Request (PR)** es una solicitud para integrar los cambios de tu rama a `main`. Permite que otros revisen tu trabajo antes de integrarlo.
+
+### Paso 1: Ir a GitHub
+
+1. Abre el repositorio en GitHub
+2. Verás un mensaje amarillo: **"nombre-de-tu-rama had recent pushes"**
+3. Click en **"Compare & pull request"**
+
+(Si no ves el mensaje, ve a la pestaña "Pull requests" → "New pull request")
+
+### Paso 2: Configurar el Pull Request
+
+| Campo | Qué poner |
+|-------|-----------|
+| **base** | `main` (la rama destino) |
+| **compare** | tu rama (ej: `jose-introduccion`) |
+| **Title** | Descripción breve: "Completé la sección de introducción" |
+| **Description** | Detalles de qué cambiaste, por qué, etc. |
+
+### Paso 3: Crear el PR
+
+1. Click en **"Create pull request"**
+2. GitHub mostrará los cambios que hiciste
+3. Tus compañeros pueden revisar, comentar y aprobar
+
+### Paso 4: Revisión (compañeros)
+
+Los revisores pueden:
+- 👀 Ver los cambios línea por línea
+- 💬 Agregar comentarios en líneas específicas
+- ✅ Aprobar: "Approve"
+- 🔄 Pedir cambios: "Request changes"
+
+### Paso 5: Merge (después de aprobación)
+
+Una vez aprobado:
+1. Click en **"Merge pull request"**
+2. Click en **"Confirm merge"**
+3. (Opcional) Click en **"Delete branch"** para limpiar
+
+### Paso 6: Actualizar tu copia local
+
+Después del merge, actualiza tu `main` local:
+
+```bash
+git checkout main
+git pull origin main
 ```
 
 ---
 
-## 3.3 Sincronizar y obtener el archivo (Todos)
+## 4.4 Resolver conflictos (Ejercicio guiado)
 
-Una vez que Mauricio ha creado los archivos en Overleaf y los ha subido a GitHub:
+### ¿Cuándo ocurren conflictos?
 
-### Mauricio: Subir cambios de Overleaf a GitHub
+Un conflicto ocurre cuando **dos personas modifican la misma línea** del mismo archivo.
 
-1. En Overleaf, ir a **Menu** → **GitHub**
-2. Click en **"Push Overleaf changes to GitHub"**
-3. Escribir un mensaje: "Estructura inicial del artículo"
-4. Click en **"Push"**
+```
+       José Miguel                    Rodrigo
+            │                             │
+            ▼                             ▼
+   Cambió línea 15 de              Cambió línea 15 de
+   introduction.tex                introduction.tex
+            │                             │
+            └──────────┬──────────────────┘
+                       │
+                       ▼
+                  CONFLICTO
+            Git no sabe cuál versión elegir
+```
 
-### José Miguel y Rodrigo: Obtener los archivos
+### ¿Quién resuelve los conflictos?
 
-En la terminal (dentro de la carpeta del proyecto):
+| Tipo de conflicto | Responsable |
+|-------------------|-------------|
+| Conflicto en **tu rama** al hacer merge de main | **Tú** (el autor de la rama) |
+| Conflicto al hacer **merge del PR** a main | **Quien creó el PR** (con ayuda del owner si es complejo) |
+| Conflicto persistente o muy complejo | **Mauricio** como owner del proyecto |
 
+### Ejercicio: Provocar y resolver un conflicto
+
+Vamos a crear un conflicto intencionalmente para aprender a resolverlo.
+
+#### Preparación (Mauricio)
+
+1. En `main`, edita `sections/introduction.tex`, línea 1:
+```latex
+\section{Introducción al Trabajo Colaborativo}
+```
+2. Commit y push:
+```bash
+git add sections/introduction.tex
+git commit -m "Cambié título de introducción"
+git push origin main
+```
+
+#### José Miguel (sin saber del cambio de Mauricio)
+
+1. En tu rama `jose-introduccion`, edita la misma línea 1:
+```latex
+\section{Introducción y Motivación}
+```
+2. Commit:
+```bash
+git add sections/introduction.tex
+git commit -m "Actualicé título de introducción"
+```
+3. Intenta hacer merge de main a tu rama:
 ```bash
 git pull origin main
 ```
 
-**Verificar** que llegaron los archivos:
+#### ¡CONFLICTO!
+
+Git mostrará:
+```
+Auto-merging sections/introduction.tex
+CONFLICT (content): Merge conflict in sections/introduction.tex
+Automatic merge failed; fix conflicts and then commit the result.
+```
+
+### Paso a paso para resolver el conflicto
+
+#### Paso 1: Ver qué archivos tienen conflicto
 
 ```bash
-ls sections/
-```
-
-Deberías ver: `introduction.tex  methods.tex  results.tex  conclusion.tex`
-
----
-
-## 3.4 Cada quien edita su sección (Todos)
-
-Ahora viene la parte práctica. Cada persona editará **localmente** en VS Code:
-
-| Persona | Archivo a editar | Tarea |
-|---------|------------------|-------|
-| **José Miguel** | `sections/introduction.tex` | Escribir 2-3 párrafos de introducción |
-| **Rodrigo** | `sections/methods.tex` | Describir las herramientas y el flujo |
-| **Mauricio** | `sections/results.tex` | Agregar beneficios y una tabla comparativa |
-
-### Instrucciones para todos:
-
-1. Abre VS Code con el proyecto
-2. Navega a tu archivo en el panel izquierdo (Explorer)
-3. Haz tus ediciones
-4. Guarda frecuentemente (`Ctrl+S` / `Cmd+S`) para ver el PDF actualizado
-5. Cuando termines, **no cierres VS Code** — continuaremos con el commit
-
-### Ejemplo de edición (José Miguel)
-
-José Miguel abre `sections/introduction.tex` y lo cambia a:
-
-```latex
-\section{Introducción}
-
-La colaboración efectiva es fundamental en la investigación académica moderna. 
-Los proyectos de investigación involucran cada vez más a equipos distribuidos 
-geográficamente, lo que hace necesario contar con herramientas que faciliten 
-el trabajo conjunto.
-
-En particular, la escritura de artículos académicos presenta desafíos únicos: 
-múltiples autores necesitan editar el mismo documento, mantener un historial 
-de cambios, y asegurar que todos trabajen sobre la versión más reciente.
-
-\subsection{Motivación}
-
-El flujo de trabajo tradicional basado en enviar archivos por correo electrónico 
-presenta numerosos problemas: versiones duplicadas, pérdida de cambios, y 
-dificultad para rastrear quién modificó qué.
-
-\subsection{Objetivos}
-
-Este artículo presenta un flujo de trabajo colaborativo que combina:
-\begin{itemize}
-    \item Git para control de versiones
-    \item GitHub para almacenamiento y revisión
-    \item Overleaf para compilación en la nube
-    \item VS Code para edición local eficiente
-\end{itemize}
-```
-
----
-
-## 3.5 Preparar y tomar la foto (git add + git commit)
-
-> ⚠️ **CONCEPTO IMPORTANTE**: Esta sección explica cómo controlar exactamente qué archivos incluir en cada "foto".
-
-### El proceso de dos pasos
-
-```
-┌─────────────────────────────────────────────────────────────┐
-│  Tu carpeta de trabajo (Working Directory)                  │
-│                                                              │
-│  📄 introduction.tex  [MODIFICADO]                          │
-│  📄 methods.tex       [MODIFICADO]                          │
-│  📄 notas-personales.txt [NUEVO - no quiero compartir]      │
-│  📄 borrador-idea.tex    [NUEVO - todavía no está listo]    │
-└─────────────────────────────────────────────────────────────┘
-                            │
-                            │ git add introduction.tex
-                            ▼
-┌─────────────────────────────────────────────────────────────┐
-│  Área de preparación (Staging Area)                         │
-│                                                              │
-│  📄 introduction.tex  ← Listo para la foto                  │
-└─────────────────────────────────────────────────────────────┘
-                            │
-                            │ git commit -m "mensaje"
-                            ▼
-┌─────────────────────────────────────────────────────────────┐
-│  Historial de Git (Repository)                              │
-│                                                              │
-│  📸 "Completé la introducción" ← Nueva foto guardada        │
-└─────────────────────────────────────────────────────────────┘
-```
-
-### Regla de oro sobre `git add`
-
-> **Cualquier archivo NUEVO que quieras compartir, debes agregarlo explícitamente con `git add`.**
-> 
-> Los archivos que todavía no quieras compartir, simplemente **no les hagas `git add`**.
-
-### Ejemplo concreto: José Miguel
-
-José Miguel editó `introduction.tex` y también creó un archivo de notas personales que NO quiere subir:
-
-```bash
-# Ver qué archivos cambiaron
 git status
 ```
 
 Salida:
 ```
-On branch main
-Changes not staged for commit:
-  (use "git add <file>..." to update what will be committed)
-        modified:   sections/introduction.tex
-
-Untracked files:
-  (use "git add <file>..." to include in what will be committed)
-        mis-notas-personales.txt
+Unmerged paths:
+  (use "git add <file>..." to mark resolution)
+        both modified:   sections/introduction.tex
 ```
 
-### Tres formas de usar `git add`
+#### Paso 2: Abrir el archivo en VS Code
 
-#### Opción 1: Agregar UN archivo específico (RECOMENDADO)
+VS Code detectará el conflicto y mostrará algo así:
+
+```latex
+<<<<<<< HEAD
+\section{Introducción y Motivación}
+=======
+\section{Introducción al Trabajo Colaborativo}
+>>>>>>> origin/main
+```
+
+**¿Qué significa esto?**
+
+| Sección | Significado |
+|---------|-------------|
+| `<<<<<<< HEAD` | Inicio de TUS cambios (tu rama) |
+| `=======` | Separador entre las dos versiones |
+| `>>>>>>> origin/main` | Fin de los cambios de MAIN |
+
+#### Paso 3: Decidir cómo resolver
+
+Tienes tres opciones:
+
+**Opción A: Mantener TU versión**
+```latex
+\section{Introducción y Motivación}
+```
+
+**Opción B: Mantener la versión de MAIN**
+```latex
+\section{Introducción al Trabajo Colaborativo}
+```
+
+**Opción C: Combinar ambas (lo más común)**
+```latex
+\section{Introducción y Motivación del Trabajo Colaborativo}
+```
+
+#### Paso 4: Editar el archivo
+
+1. **Elimina** los marcadores de conflicto (`<<<<<<<`, `=======`, `>>>>>>>`)
+2. **Deja** el contenido que quieres mantener
+3. **Guarda** el archivo
+
+Resultado final:
+```latex
+\section{Introducción y Motivación del Trabajo Colaborativo}
+```
+
+#### Paso 5: Marcar como resuelto
 
 ```bash
-# Solo agregar el archivo que quiero compartir
+# Agregar el archivo resuelto
 git add sections/introduction.tex
+
+# Completar el merge con un commit
+git commit -m "Resuelto conflicto en título de introducción: combiné ambas versiones"
 ```
 
-**Resultado**: Solo `introduction.tex` está preparado. `mis-notas-personales.txt` NO se subirá.
-
-#### Opción 2: Agregar TODOS los archivos modificados y nuevos
+#### Paso 6: Continuar con tu trabajo
 
 ```bash
-# ⚠️ CUIDADO: Esto agrega TODO
+# Subir tu rama actualizada
+git push origin jose-introduccion
+```
+
+### VS Code: Herramientas visuales para conflictos
+
+VS Code ofrece botones para resolver conflictos fácilmente:
+
+```
+<<<<<<< HEAD (Current Change)
+[Accept Current Change] [Accept Incoming Change] [Accept Both Changes] [Compare Changes]
+\section{Introducción y Motivación}
+=======
+\section{Introducción al Trabajo Colaborativo}
+>>>>>>> origin/main (Incoming Change)
+```
+
+| Botón | Acción |
+|-------|--------|
+| **Accept Current Change** | Mantener tu versión |
+| **Accept Incoming Change** | Mantener la versión de main |
+| **Accept Both Changes** | Mantener ambas (una después de otra) |
+| **Compare Changes** | Ver lado a lado |
+
+> **Recomendación**: Usa los botones para casos simples. Para conflictos complejos, edita manualmente.
+
+---
+
+## 4.5 Usar ramas para versiones alternativas del artículo
+
+> **Escenario**: Mauricio quiere mantener dos versiones del artículo: una con enfoque teórico y otra con enfoque práctico.
+
+### Crear ramas para propuestas alternativas
+
+```bash
+# Desde main, crear rama para versión teórica
+git checkout main
+git checkout -b propuesta/enfoque-teorico
+
+# Hacer cambios para esta versión
+# ... editar archivos ...
 git add .
+git commit -m "Versión con enfoque teórico"
+git push -u origin propuesta/enfoque-teorico
+
+# Volver a main y crear otra propuesta
+git checkout main
+git checkout -b propuesta/enfoque-practico
+
+# Hacer cambios para esta versión
+# ... editar archivos ...
+git add .
+git commit -m "Versión con enfoque práctico"
+git push -u origin propuesta/enfoque-practico
 ```
 
-**Resultado**: Tanto `introduction.tex` como `mis-notas-personales.txt` quedan preparados.
+### Estructura resultante
 
-#### Opción 3: Agregar varios archivos específicos
+```
+main                    ← Versión estable/actual
+  │
+  ├── propuesta/enfoque-teorico     ← Versión alternativa 1
+  │
+  └── propuesta/enfoque-practico    ← Versión alternativa 2
+```
+
+### Beneficios de este enfoque
+
+| Beneficio | Descripción |
+|-----------|-------------|
+| **Preservación** | Las propuestas quedan guardadas para siempre |
+| **Comparación fácil** | Puedes comparar ramas en GitHub |
+| **Reversibilidad** | Si eliges una y luego cambias de opinión, la otra sigue ahí |
+| **Colaboración** | Diferentes personas pueden trabajar en diferentes propuestas |
+
+### Cambiar entre versiones
 
 ```bash
-# Agregar múltiples archivos por nombre
-git add sections/introduction.tex sections/methods.tex
+# Ver todas las ramas
+git branch -a
+
+# Cambiar a la propuesta teórica
+git checkout propuesta/enfoque-teorico
+
+# Cambiar a la propuesta práctica
+git checkout propuesta/enfoque-practico
+
+# Volver a main
+git checkout main
 ```
 
-### ¿Qué pasa si usé `git add .` por error?
+### Comparar ramas en GitHub
 
-Si agregaste un archivo que no querías compartir, puedes **quitarlo del área de preparación** (sin perder tus cambios):
-
-```bash
-# "Des-trackear" un archivo antes de hacer commit
-git restore --staged mis-notas-personales.txt
-```
-
-Ahora ese archivo ya no está preparado y no se incluirá en el commit.
-
-### Verificar qué está preparado
-
-```bash
-git status
-```
-
-Salida después de agregar solo `introduction.tex`:
-```
-On branch main
-Changes to be committed:
-  (use "git restore --staged <file>..." to unstage)
-        modified:   sections/introduction.tex
-
-Untracked files:
-  (use "git add <file>..." to include in what will be committed)
-        mis-notas-personales.txt
-```
-
-✅ Solo `introduction.tex` se incluirá en el commit.
-
-### Tomar la foto (commit)
-
-```bash
-git commit -m "Completé la sección de introducción con motivación y objetivos"
-```
-
-**Buenas prácticas para mensajes de commit:**
-- Usar verbos en pasado o infinitivo: "Agregué...", "Corregí...", "Agregar..."
-- Ser específico: qué sección, qué cambio principal
-- Máximo 50-72 caracteres en la primera línea
+1. Ir al repositorio en GitHub
+2. Click en **"branches"** (junto al contador de ramas)
+3. Click en una rama
+4. Click en **"Compare"** para ver diferencias con main
 
 ---
 
-## 3.6 Subir cambios a GitHub (git push)
-
-Una vez que hiciste commit, los cambios están guardados **localmente**. Para compartirlos:
-
-```bash
-git push origin main
-```
-
-### Si alguien más subió cambios antes que tú
-
-Git te dirá que primero debes bajar los cambios de los demás:
-
-```bash
-# Primero, obtener los cambios de otros
-git pull origin main
-
-# Luego, subir los tuyos
-git push origin main
-```
-
-### Verificar en GitHub
-
-1. Ve a tu repositorio en GitHub
-2. Deberías ver tu commit reciente en la lista
-3. Click en el commit para ver exactamente qué cambió
-
----
-
-## 3.7 Sincronizar Overleaf (Mauricio)
-
-Después de que todos hayan subido sus cambios a GitHub:
-
-1. En Overleaf, ir a **Menu** → **GitHub**
-2. Click en **"Pull GitHub changes into Overleaf"**
-3. Overleaf descargará todos los cambios de José Miguel y Rodrigo
-4. Compilar para verificar que todo funciona junto
-
----
-
-## Resumen del ciclo de trabajo
-
-```
-┌─────────────────────────────────────────────────────────────┐
-│                  CICLO DIARIO DE TRABAJO                     │
-└─────────────────────────────────────────────────────────────┘
-
-    ┌──────────────────────────────────────┐
-    │  1. INICIO: Obtener cambios recientes │
-    │     git pull origin main              │
-    └──────────────────────────────────────┘
-                      │
-                      ▼
-    ┌──────────────────────────────────────┐
-    │  2. TRABAJAR: Editar en VS Code       │
-    │     - Guardar frecuentemente (Ctrl+S) │
-    │     - Ver PDF actualizado             │
-    └──────────────────────────────────────┘
-                      │
-                      ▼
-    ┌──────────────────────────────────────┐
-    │  3. PREPARAR: Elegir qué compartir    │
-    │     git add archivo.tex               │
-    │     (o git add . para todo)           │
-    └──────────────────────────────────────┘
-                      │
-                      ▼
-    ┌──────────────────────────────────────┐
-    │  4. FOTO: Guardar el avance           │
-    │     git commit -m "descripción"       │
-    └──────────────────────────────────────┘
-                      │
-                      ▼
-    ┌──────────────────────────────────────┐
-    │  5. COMPARTIR: Subir a GitHub         │
-    │     git push origin main              │
-    └──────────────────────────────────────┘
-                      │
-                      ▼
-    ┌──────────────────────────────────────┐
-    │  6. VERIFICAR: Sincronizar Overleaf   │
-    │     (Mauricio: Pull from GitHub)      │
-    └──────────────────────────────────────┘
-```
-
----
-
-## Comandos rápidos de referencia
+## Resumen de comandos de ramas
 
 | Qué quiero hacer | Comando |
 |------------------|---------|
-| Ver estado actual | `git status` |
-| Obtener cambios de otros | `git pull origin main` |
-| Agregar UN archivo | `git add ruta/archivo.tex` |
-| Agregar TODOS los cambios | `git add .` |
-| Quitar archivo del staging | `git restore --staged archivo.tex` |
-| Tomar la foto | `git commit -m "mensaje"` |
-| Subir mis cambios | `git push origin main` |
-| Ver historial de fotos | `git log --oneline` |
+| Ver ramas locales | `git branch` |
+| Ver todas las ramas (local + remoto) | `git branch -a` |
+| Crear y cambiar a nueva rama | `git checkout -b nombre-rama` |
+| Cambiar a rama existente | `git checkout nombre-rama` |
+| Subir rama nueva a GitHub | `git push -u origin nombre-rama` |
+| Traer cambios de main a mi rama | `git pull origin main` |
+| Eliminar rama local | `git branch -d nombre-rama` |
+| Eliminar rama en GitHub | `git push origin --delete nombre-rama` |
+
+---
+
+## Resumen de resolución de conflictos
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│              FLUJO DE RESOLUCIÓN DE CONFLICTOS              │
+└─────────────────────────────────────────────────────────────┘
+
+    ┌──────────────────────────────────────┐
+    │  1. Git detecta conflicto            │
+    │     "CONFLICT in archivo.tex"        │
+    └──────────────────────────────────────┘
+                      │
+                      ▼
+    ┌──────────────────────────────────────┐
+    │  2. Ver archivos afectados           │
+    │     git status                       │
+    └──────────────────────────────────────┘
+                      │
+                      ▼
+    ┌──────────────────────────────────────┐
+    │  3. Abrir archivo en VS Code         │
+    │     Buscar: <<<<<<< HEAD             │
+    └──────────────────────────────────────┘
+                      │
+                      ▼
+    ┌──────────────────────────────────────┐
+    │  4. Decidir qué mantener             │
+    │     - Tu versión                     │
+    │     - La otra versión                │
+    │     - Combinación de ambas           │
+    └──────────────────────────────────────┘
+                      │
+                      ▼
+    ┌──────────────────────────────────────┐
+    │  5. Editar: eliminar marcadores      │
+    │     Quitar <<<<<<<, =======, >>>>>>> │
+    └──────────────────────────────────────┘
+                      │
+                      ▼
+    ┌──────────────────────────────────────┐
+    │  6. Guardar y marcar resuelto        │
+    │     git add archivo.tex              │
+    │     git commit -m "Resuelto..."      │
+    └──────────────────────────────────────┘
+```
 
 ---
 
 ## Checkpoint ✅
 
-Antes de continuar a la Parte 4, verifica que:
+Antes de continuar a la Parte 5, verifica que:
 
-- [ ] Entiendes la diferencia entre `git add archivo.tex` y `git add .`
-- [ ] Sabes cómo quitar un archivo del staging si lo agregaste por error
-- [ ] Hiciste al menos un commit con tus cambios
-- [ ] Subiste tus cambios a GitHub con `git push`
-- [ ] Puedes ver tus cambios en la página de GitHub
+- [ ] Creaste tu propia rama
+- [ ] Hiciste al menos un commit en tu rama
+- [ ] Subiste tu rama a GitHub
+- [ ] Entiendes cómo leer los marcadores de conflicto (`<<<<<<<`, `=======`, `>>>>>>>`)
+- [ ] Sabes cómo marcar un conflicto como resuelto (`git add` + `git commit`)
 
 ---
 
-**Anterior**: [← Parte 2 - Configuración Inicial](../02-configuracion-inicial/README.md)
+**Anterior**: [← Parte 3 - Flujo Básico](../03-flujo-basico/README.md)
 
-**Siguiente**: [Parte 4 - Ramas y Conflictos →](../04-ramas-y-conflictos/README.md)
+**Siguiente**: [Parte 5 - Práctica Libre →](../05-practica-libre/README.md)

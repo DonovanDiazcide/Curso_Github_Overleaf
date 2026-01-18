@@ -1,7 +1,7 @@
-# Parte 4: Ramas, Pull Requests y Resolución de Conflictos
+# Parte 5: Práctica Libre y Cierre
 
-> **Duración**: 20 minutos  
-> **Objetivo**: Usar ramas para trabajar en paralelo y aprender a resolver conflictos
+> **Duración**: 25 minutos (20 práctica + 5 cierre)  
+> **Objetivo**: Aplicar todo lo aprendido de forma independiente
 
 ---
 
@@ -9,525 +9,511 @@
 
 | Paso | Descripción | Tiempo |
 |------|-------------|--------|
-| 4.1 | Entender qué son las ramas y por qué usarlas | 5 min |
-| 4.2 | Crear y trabajar en tu propia rama | 5 min |
-| 4.3 | Crear un Pull Request en GitHub | 3 min |
-| 4.4 | Resolver conflictos (ejercicio guiado) | 5 min |
-| 4.5 | Usar ramas para versiones alternativas | 2 min |
+| 5.1 | Tareas asignadas para cada participante | 2 min |
+| 5.2 | Trabajo independiente | 12 min |
+| 5.3 | Pull Requests y revisión | 5 min |
+| 5.4 | Merge y sincronización final | 3 min |
+| 5.5 | Cierre: resumen y recursos | 3 min |
 
 ---
 
-## 4.1 ¿Qué son las ramas?
+## 5.1 Tareas asignadas
 
-Una **rama** (branch) es una línea paralela de desarrollo. Es como tener una **copia del proyecto** donde puedes experimentar sin afectar la versión principal.
+Cada participante completará una sección del artículo de forma **independiente**, aplicando todo el flujo aprendido.
 
-### Analogía: El árbol de versiones
+| Participante | Sección | Archivo | Tarea específica |
+|--------------|---------|---------|------------------|
+| **José Miguel** | Related Work | `sections/related-work.tex` | Agregar 2-3 párrafos sobre trabajos relacionados |
+| **Mauricio** | Results | `sections/results.tex` | Completar con una tabla comparativa |
+| **Rodrigo** | Conclusion | `sections/conclusion.tex` | Escribir conclusiones y trabajo futuro |
 
-```
-                            ┌─── 📝 rama: rodrigo-metodologia
-                            │    "Estoy probando una nueva estructura"
-                            │
-main ●────●────●────●───────●────●────● versión estable
-                   │                 ↑
-                   │                 │ merge (integrar)
-                   │                 │
-                   └─── 📝 rama: jose-introduccion
-                        "Reescribí la introducción"
-```
-
-### ¿Por qué usar ramas?
-
-| Sin ramas | Con ramas |
-|-----------|-----------|
-| Todos trabajan en `main` | Cada quien tiene su espacio |
-| Un error afecta a todos inmediatamente | Los errores se contienen en la rama |
-| No hay revisión antes de integrar | Pull Requests permiten revisar antes de integrar |
-| Difícil experimentar | Puedes probar ideas sin riesgo |
-
-### Flujo de trabajo con ramas (GitHub Flow)
-
-```
-1. Crear rama desde main      →  git checkout -b mi-rama
-2. Hacer cambios y commits    →  git add . && git commit -m "..."
-3. Subir rama a GitHub        →  git push -u origin mi-rama
-4. Crear Pull Request         →  En GitHub, pedir revisión
-5. Revisión y aprobación      →  Compañeros revisan
-6. Merge a main               →  Integrar cambios aprobados
-7. Actualizar local           →  git checkout main && git pull
-```
-
-> 📖 Fuente oficial: [GitHub Flow](https://docs.github.com/en/get-started/using-github/github-flow)
-
----
-
-## 4.2 Crear y trabajar en tu propia rama (Todos)
-
-Cada participante creará su propia rama para trabajar de forma aislada.
-
-### Paso 1: Asegurarse de estar actualizado
-
-```bash
-# Ir a la rama principal
-git checkout main
-
-# Obtener los últimos cambios
-git pull origin main
-```
-
-### Paso 2: Crear tu rama
-
-El nombre de la rama debe ser descriptivo. Convención sugerida: `nombre-seccion` o `feature/descripcion`.
+### Contenido sugerido para cada sección
 
 <details>
-<summary><strong>José Miguel</strong></summary>
+<summary><strong>José Miguel: Related Work</strong></summary>
 
-```bash
-# Crear y cambiar a la nueva rama
-git checkout -b jose-introduccion
+Crea el archivo `sections/related-work.tex` con contenido como:
 
-# Verificar que estás en la rama correcta
-git branch
+```latex
+\section{Trabajos Relacionados}
+
+Existen diversas aproximaciones a la colaboración en documentos académicos. 
+A continuación revisamos las más relevantes.
+
+\subsection{Herramientas de edición colaborativa}
+
+Google Docs y Microsoft Word Online permiten edición simultánea, pero carecen 
+de soporte nativo para LaTeX. Overleaf \citep{overleaf2024docs} resuelve esto 
+parcialmente al ofrecer un editor LaTeX en línea con colaboración en tiempo real.
+
+\subsection{Control de versiones en academia}
+
+El uso de Git en investigación ha crecido significativamente. 
+\citet{perez2024github} demuestran que GitHub facilita la reproducibilidad 
+y colaboración en laboratorios de investigación.
+
+\subsection{Flujos de trabajo híbridos}
+
+Algunos equipos combinan múltiples herramientas. El enfoque que presentamos 
+en este artículo sigue esta línea, integrando Overleaf, GitHub y editores locales.
 ```
 
-Salida esperada:
-```
-  main
-* jose-introduccion    ← El asterisco indica tu rama actual
+**No olvides** agregar `\input{sections/related-work}` en `main.tex` (después de introduction).
+
+</details>
+
+<details>
+<summary><strong>Mauricio: Results (con tabla)</strong></summary>
+
+Edita `sections/results.tex` para incluir una tabla comparativa:
+
+```latex
+\section{Resultados}
+
+Implementamos el flujo de trabajo propuesto durante el desarrollo de este 
+artículo. A continuación presentamos los resultados observados.
+
+\subsection{Beneficios de la colaboración con Git}
+
+Durante las dos horas del taller, el equipo logró:
+\begin{itemize}
+    \item Configurar un entorno de trabajo compartido
+    \item Realizar múltiples contribuciones en paralelo
+    \item Resolver conflictos de manera sistemática
+    \item Mantener un historial completo de cambios
+\end{itemize}
+
+\subsection{Comparación con métodos tradicionales}
+
+La Tabla \ref{tab:comparacion} muestra las diferencias entre el flujo 
+tradicional (envío de archivos por correo) y el flujo propuesto.
+
+\begin{table}[h]
+\centering
+\caption{Comparación de flujos de trabajo colaborativo}
+\label{tab:comparacion}
+\begin{tabular}{|l|c|c|}
+\hline
+\textbf{Característica} & \textbf{Tradicional} & \textbf{Git + Overleaf} \\
+\hline
+Control de versiones & Manual & Automático \\
+\hline
+Historial de cambios & Limitado & Completo \\
+\hline
+Trabajo simultáneo & Difícil & Fácil \\
+\hline
+Resolución de conflictos & Ad-hoc & Sistemática \\
+\hline
+Backup & Manual & Automático \\
+\hline
+Revisión de cambios & Por correo & Pull Requests \\
+\hline
+\end{tabular}
+\end{table}
+
+\subsection{Observaciones}
+
+El principal desafío fue la curva de aprendizaje inicial de Git. 
+Sin embargo, una vez dominados los comandos básicos, el flujo de trabajo 
+resultó más eficiente que los métodos tradicionales.
 ```
 
 </details>
 
 <details>
-<summary><strong>Rodrigo</strong></summary>
+<summary><strong>Rodrigo: Conclusion</strong></summary>
 
-```bash
-# Crear y cambiar a la nueva rama
-git checkout -b rodrigo-metodologia
+Edita `sections/conclusion.tex`:
 
-# Verificar
-git branch
+```latex
+\section{Conclusión}
+
+En este artículo presentamos un flujo de trabajo colaborativo para la 
+escritura de artículos académicos en LaTeX, combinando Overleaf, GitHub 
+y VS Code.
+
+\subsection{Contribuciones principales}
+
+Las principales contribuciones de este trabajo son:
+\begin{enumerate}
+    \item Un flujo de trabajo que aprovecha las fortalezas de cada herramienta
+    \item Guías paso a paso para la configuración del entorno
+    \item Estrategias para resolver conflictos de manera sistemática
+    \item Uso de ramas para mantener versiones alternativas del documento
+\end{enumerate}
+
+\subsection{Limitaciones}
+
+El flujo propuesto requiere que al menos un miembro del equipo tenga 
+cuenta Premium de Overleaf para la sincronización con GitHub. Además, 
+existe una curva de aprendizaje inicial para usuarios no familiarizados 
+con Git.
+
+\subsection{Trabajo futuro}
+
+Como trabajo futuro, se podría explorar:
+\begin{itemize}
+    \item Integración con sistemas de gestión de referencias como Zotero
+    \item Automatización de compilación con GitHub Actions
+    \item Plantillas pre-configuradas para diferentes journals
+\end{itemize}
+
+\subsection*{Agradecimientos}
+
+Agradecemos a todos los participantes del taller por su entusiasmo 
+y colaboración durante el desarrollo de este ejercicio práctico.
 ```
 
 </details>
 
-<details>
-<summary><strong>Mauricio</strong></summary>
-
-```bash
-# Crear y cambiar a la nueva rama
-git checkout -b mauricio-resultados
-
-# Verificar
-git branch
-```
-
-</details>
-
-### Paso 3: Hacer cambios en tu rama
-
-1. Edita tu sección asignada en VS Code
-2. Guarda los cambios
-3. Haz commit:
-
-```bash
-git add sections/tu-seccion.tex
-git commit -m "Descripción de tus cambios"
-```
-
-Puedes hacer **múltiples commits** en tu rama antes de compartirla.
-
-### Paso 4: Subir tu rama a GitHub
-
-```bash
-# Primera vez que subes esta rama
-git push -u origin nombre-de-tu-rama
-```
-
-Por ejemplo:
-- José Miguel: `git push -u origin jose-introduccion`
-- Rodrigo: `git push -u origin rodrigo-metodologia`
-- Mauricio: `git push -u origin mauricio-resultados`
-
-> **Nota**: El `-u` configura el "upstream" para que futuros `git push` sepan a dónde ir.
-
 ---
 
-## 4.3 Crear un Pull Request en GitHub
+## 5.2 Trabajo independiente (12 minutos)
 
-Un **Pull Request (PR)** es una solicitud para integrar los cambios de tu rama a `main`. Permite que otros revisen tu trabajo antes de integrarlo.
-
-### Paso 1: Ir a GitHub
-
-1. Abre el repositorio en GitHub
-2. Verás un mensaje amarillo: **"nombre-de-tu-rama had recent pushes"**
-3. Click en **"Compare & pull request"**
-
-(Si no ves el mensaje, ve a la pestaña "Pull requests" → "New pull request")
-
-### Paso 2: Configurar el Pull Request
-
-| Campo | Qué poner |
-|-------|-----------|
-| **base** | `main` (la rama destino) |
-| **compare** | tu rama (ej: `jose-introduccion`) |
-| **Title** | Descripción breve: "Completé la sección de introducción" |
-| **Description** | Detalles de qué cambiaste, por qué, etc. |
-
-### Paso 3: Crear el PR
-
-1. Click en **"Create pull request"**
-2. GitHub mostrará los cambios que hiciste
-3. Tus compañeros pueden revisar, comentar y aprobar
-
-### Paso 4: Revisión (compañeros)
-
-Los revisores pueden:
-- 👀 Ver los cambios línea por línea
-- 💬 Agregar comentarios en líneas específicas
-- ✅ Aprobar: "Approve"
-- 🔄 Pedir cambios: "Request changes"
-
-### Paso 5: Merge (después de aprobación)
-
-Una vez aprobado:
-1. Click en **"Merge pull request"**
-2. Click en **"Confirm merge"**
-3. (Opcional) Click en **"Delete branch"** para limpiar
-
-### Paso 6: Actualizar tu copia local
-
-Después del merge, actualiza tu `main` local:
-
-```bash
-git checkout main
-git pull origin main
-```
-
----
-
-## 4.4 Resolver conflictos (Ejercicio guiado)
-
-### ¿Cuándo ocurren conflictos?
-
-Un conflicto ocurre cuando **dos personas modifican la misma línea** del mismo archivo.
-
-```
-       José Miguel                    Rodrigo
-            │                             │
-            ▼                             ▼
-   Cambió línea 15 de              Cambió línea 15 de
-   introduction.tex                introduction.tex
-            │                             │
-            └──────────┬──────────────────┘
-                       │
-                       ▼
-                  CONFLICTO
-            Git no sabe cuál versión elegir
-```
-
-### ¿Quién resuelve los conflictos?
-
-| Tipo de conflicto | Responsable |
-|-------------------|-------------|
-| Conflicto en **tu rama** al hacer merge de main | **Tú** (el autor de la rama) |
-| Conflicto al hacer **merge del PR** a main | **Quien creó el PR** (con ayuda del owner si es complejo) |
-| Conflicto persistente o muy complejo | **Mauricio** como owner del proyecto |
-
-### Ejercicio: Provocar y resolver un conflicto
-
-Vamos a crear un conflicto intencionalmente para aprender a resolverlo.
-
-#### Preparación (Mauricio)
-
-1. En `main`, edita `sections/introduction.tex`, línea 1:
-```latex
-\section{Introducción al Trabajo Colaborativo}
-```
-2. Commit y push:
-```bash
-git add sections/introduction.tex
-git commit -m "Cambié título de introducción"
-git push origin main
-```
-
-#### José Miguel (sin saber del cambio de Mauricio)
-
-1. En tu rama `jose-introduccion`, edita la misma línea 1:
-```latex
-\section{Introducción y Motivación}
-```
-2. Commit:
-```bash
-git add sections/introduction.tex
-git commit -m "Actualicé título de introducción"
-```
-3. Intenta hacer merge de main a tu rama:
-```bash
-git pull origin main
-```
-
-#### ¡CONFLICTO!
-
-Git mostrará:
-```
-Auto-merging sections/introduction.tex
-CONFLICT (content): Merge conflict in sections/introduction.tex
-Automatic merge failed; fix conflicts and then commit the result.
-```
-
-### Paso a paso para resolver el conflicto
-
-#### Paso 1: Ver qué archivos tienen conflicto
-
-```bash
-git status
-```
-
-Salida:
-```
-Unmerged paths:
-  (use "git add <file>..." to mark resolution)
-        both modified:   sections/introduction.tex
-```
-
-#### Paso 2: Abrir el archivo en VS Code
-
-VS Code detectará el conflicto y mostrará algo así:
-
-```latex
-<<<<<<< HEAD
-\section{Introducción y Motivación}
-=======
-\section{Introducción al Trabajo Colaborativo}
->>>>>>> origin/main
-```
-
-**¿Qué significa esto?**
-
-| Sección | Significado |
-|---------|-------------|
-| `<<<<<<< HEAD` | Inicio de TUS cambios (tu rama) |
-| `=======` | Separador entre las dos versiones |
-| `>>>>>>> origin/main` | Fin de los cambios de MAIN |
-
-#### Paso 3: Decidir cómo resolver
-
-Tienes tres opciones:
-
-**Opción A: Mantener TU versión**
-```latex
-\section{Introducción y Motivación}
-```
-
-**Opción B: Mantener la versión de MAIN**
-```latex
-\section{Introducción al Trabajo Colaborativo}
-```
-
-**Opción C: Combinar ambas (lo más común)**
-```latex
-\section{Introducción y Motivación del Trabajo Colaborativo}
-```
-
-#### Paso 4: Editar el archivo
-
-1. **Elimina** los marcadores de conflicto (`<<<<<<<`, `=======`, `>>>>>>>`)
-2. **Deja** el contenido que quieres mantener
-3. **Guarda** el archivo
-
-Resultado final:
-```latex
-\section{Introducción y Motivación del Trabajo Colaborativo}
-```
-
-#### Paso 5: Marcar como resuelto
-
-```bash
-# Agregar el archivo resuelto
-git add sections/introduction.tex
-
-# Completar el merge con un commit
-git commit -m "Resuelto conflicto en título de introducción: combiné ambas versiones"
-```
-
-#### Paso 6: Continuar con tu trabajo
-
-```bash
-# Subir tu rama actualizada
-git push origin jose-introduccion
-```
-
-### VS Code: Herramientas visuales para conflictos
-
-VS Code ofrece botones para resolver conflictos fácilmente:
-
-```
-<<<<<<< HEAD (Current Change)
-[Accept Current Change] [Accept Incoming Change] [Accept Both Changes] [Compare Changes]
-\section{Introducción y Motivación}
-=======
-\section{Introducción al Trabajo Colaborativo}
->>>>>>> origin/main (Incoming Change)
-```
-
-| Botón | Acción |
-|-------|--------|
-| **Accept Current Change** | Mantener tu versión |
-| **Accept Incoming Change** | Mantener la versión de main |
-| **Accept Both Changes** | Mantener ambas (una después de otra) |
-| **Compare Changes** | Ver lado a lado |
-
-> **Recomendación**: Usa los botones para casos simples. Para conflictos complejos, edita manualmente.
-
----
-
-## 4.5 Usar ramas para versiones alternativas del artículo
-
-> **Escenario**: Mauricio quiere mantener dos versiones del artículo: una con enfoque teórico y otra con enfoque práctico.
-
-### Crear ramas para propuestas alternativas
-
-```bash
-# Desde main, crear rama para versión teórica
-git checkout main
-git checkout -b propuesta/enfoque-teorico
-
-# Hacer cambios para esta versión
-# ... editar archivos ...
-git add .
-git commit -m "Versión con enfoque teórico"
-git push -u origin propuesta/enfoque-teorico
-
-# Volver a main y crear otra propuesta
-git checkout main
-git checkout -b propuesta/enfoque-practico
-
-# Hacer cambios para esta versión
-# ... editar archivos ...
-git add .
-git commit -m "Versión con enfoque práctico"
-git push -u origin propuesta/enfoque-practico
-```
-
-### Estructura resultante
-
-```
-main                    ← Versión estable/actual
-  │
-  ├── propuesta/enfoque-teorico     ← Versión alternativa 1
-  │
-  └── propuesta/enfoque-practico    ← Versión alternativa 2
-```
-
-### Beneficios de este enfoque
-
-| Beneficio | Descripción |
-|-----------|-------------|
-| **Preservación** | Las propuestas quedan guardadas para siempre |
-| **Comparación fácil** | Puedes comparar ramas en GitHub |
-| **Reversibilidad** | Si eliges una y luego cambias de opinión, la otra sigue ahí |
-| **Colaboración** | Diferentes personas pueden trabajar en diferentes propuestas |
-
-### Cambiar entre versiones
-
-```bash
-# Ver todas las ramas
-git branch -a
-
-# Cambiar a la propuesta teórica
-git checkout propuesta/enfoque-teorico
-
-# Cambiar a la propuesta práctica
-git checkout propuesta/enfoque-practico
-
-# Volver a main
-git checkout main
-```
-
-### Comparar ramas en GitHub
-
-1. Ir al repositorio en GitHub
-2. Click en **"branches"** (junto al contador de ramas)
-3. Click en una rama
-4. Click en **"Compare"** para ver diferencias con main
-
----
-
-## Resumen de comandos de ramas
-
-| Qué quiero hacer | Comando |
-|------------------|---------|
-| Ver ramas locales | `git branch` |
-| Ver todas las ramas (local + remoto) | `git branch -a` |
-| Crear y cambiar a nueva rama | `git checkout -b nombre-rama` |
-| Cambiar a rama existente | `git checkout nombre-rama` |
-| Subir rama nueva a GitHub | `git push -u origin nombre-rama` |
-| Traer cambios de main a mi rama | `git pull origin main` |
-| Eliminar rama local | `git branch -d nombre-rama` |
-| Eliminar rama en GitHub | `git push origin --delete nombre-rama` |
-
----
-
-## Resumen de resolución de conflictos
+### El flujo completo que debes seguir:
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
-│              FLUJO DE RESOLUCIÓN DE CONFLICTOS              │
+│  CHECKLIST DE TRABAJO INDEPENDIENTE                          │
 └─────────────────────────────────────────────────────────────┘
 
-    ┌──────────────────────────────────────┐
-    │  1. Git detecta conflicto            │
-    │     "CONFLICT in archivo.tex"        │
-    └──────────────────────────────────────┘
-                      │
-                      ▼
-    ┌──────────────────────────────────────┐
-    │  2. Ver archivos afectados           │
-    │     git status                       │
-    └──────────────────────────────────────┘
-                      │
-                      ▼
-    ┌──────────────────────────────────────┐
-    │  3. Abrir archivo en VS Code         │
-    │     Buscar: <<<<<<< HEAD             │
-    └──────────────────────────────────────┘
-                      │
-                      ▼
-    ┌──────────────────────────────────────┐
-    │  4. Decidir qué mantener             │
-    │     - Tu versión                     │
-    │     - La otra versión                │
-    │     - Combinación de ambas           │
-    └──────────────────────────────────────┘
-                      │
-                      ▼
-    ┌──────────────────────────────────────┐
-    │  5. Editar: eliminar marcadores      │
-    │     Quitar <<<<<<<, =======, >>>>>>> │
-    └──────────────────────────────────────┘
-                      │
-                      ▼
-    ┌──────────────────────────────────────┐
-    │  6. Guardar y marcar resuelto        │
-    │     git add archivo.tex              │
-    │     git commit -m "Resuelto..."      │
-    └──────────────────────────────────────┘
+□ 1. Actualizar main
+      git checkout main
+      git pull origin main
+
+□ 2. Crear tu rama
+      git checkout -b tu-nombre-seccion
+
+□ 3. Crear/editar tu archivo
+      (en VS Code)
+
+□ 4. Si es archivo nuevo, actualizar main.tex
+      Agregar: \input{sections/tu-seccion}
+
+□ 5. Verificar que compila
+      Guardar y revisar el PDF
+
+□ 6. Agregar archivos al staging
+      git add sections/tu-seccion.tex
+      git add main.tex  (si lo modificaste)
+
+□ 7. Hacer commit
+      git commit -m "Agregué sección de [tu sección]"
+
+□ 8. Subir tu rama
+      git push -u origin tu-nombre-seccion
+
+□ 9. Crear Pull Request en GitHub
+      (ver instrucciones en Parte 4)
 ```
 
+### Comandos específicos por participante
+
+<details>
+<summary><strong>🪟 José Miguel (Windows)</strong></summary>
+
+```powershell
+# 1. Actualizar
+git checkout main
+git pull origin main
+
+# 2. Crear rama
+git checkout -b jose-related-work
+
+# 3. Crear archivo (en VS Code)
+# Crear: sections/related-work.tex
+# Editar: main.tex (agregar \input{sections/related-work})
+
+# 4. Verificar que compila (Ctrl+S en VS Code)
+
+# 5. Agregar archivos
+git add sections/related-work.tex
+git add main.tex
+
+# 6. Commit
+git commit -m "Agregué sección Related Work con revisión de literatura"
+
+# 7. Subir rama
+git push -u origin jose-related-work
+
+# 8. Ir a GitHub y crear Pull Request
+```
+
+</details>
+
+<details>
+<summary><strong>🪟 Mauricio (Windows)</strong></summary>
+
+```powershell
+# 1. Actualizar
+git checkout main
+git pull origin main
+
+# 2. Crear rama
+git checkout -b mauricio-results-tabla
+
+# 3. Editar archivo (en VS Code)
+# Editar: sections/results.tex
+
+# 4. Verificar que compila (Ctrl+S en VS Code)
+
+# 5. Agregar archivos
+git add sections/results.tex
+
+# 6. Commit
+git commit -m "Completé Results con tabla comparativa de flujos de trabajo"
+
+# 7. Subir rama
+git push -u origin mauricio-results-tabla
+
+# 8. Ir a GitHub y crear Pull Request
+```
+
+</details>
+
+<details>
+<summary><strong>🍎 Rodrigo (macOS)</strong></summary>
+
+```bash
+# 1. Actualizar
+git checkout main
+git pull origin main
+
+# 2. Crear rama
+git checkout -b rodrigo-conclusion
+
+# 3. Editar archivo (en VS Code)
+# Editar: sections/conclusion.tex
+
+# 4. Verificar que compila (Cmd+S en VS Code)
+
+# 5. Agregar archivos
+git add sections/conclusion.tex
+
+# 6. Commit
+git commit -m "Escribí conclusiones con contribuciones, limitaciones y trabajo futuro"
+
+# 7. Subir rama
+git push -u origin rodrigo-conclusion
+
+# 8. Ir a GitHub y crear Pull Request
+```
+
+</details>
+
 ---
 
-## Checkpoint ✅
+## 5.3 Pull Requests y revisión (5 minutos)
 
-Antes de continuar a la Parte 5, verifica que:
+### Crear los Pull Requests
 
-- [ ] Creaste tu propia rama
-- [ ] Hiciste al menos un commit en tu rama
-- [ ] Subiste tu rama a GitHub
-- [ ] Entiendes cómo leer los marcadores de conflicto (`<<<<<<<`, `=======`, `>>>>>>>`)
-- [ ] Sabes cómo marcar un conflicto como resuelto (`git add` + `git commit`)
+Cada participante:
+1. Va a GitHub → repositorio
+2. Click en **"Compare & pull request"** (o Pull requests → New)
+3. Configura:
+   - **base**: `main`
+   - **compare**: tu rama
+4. Escribe título y descripción
+5. Click **"Create pull request"**
+
+### Revisar los PRs de los compañeros
+
+Cada participante revisa al menos UN PR de otro compañero:
+
+| Revisor | Revisa el PR de |
+|---------|-----------------|
+| José Miguel | Rodrigo |
+| Rodrigo | Mauricio |
+| Mauricio | José Miguel |
+
+**Cómo revisar:**
+1. Ir al PR asignado
+2. Click en **"Files changed"**
+3. Revisar los cambios
+4. Click en **"Review changes"**
+5. Seleccionar **"Approve"** (o dejar comentarios si hay sugerencias)
+6. Click **"Submit review"**
 
 ---
 
-**Anterior**: [← Parte 3 - Flujo Básico](../03-flujo-basico/README.md)
+## 5.4 Merge y sincronización final (3 minutos)
 
-**Siguiente**: [Parte 5 - Práctica Libre →](../05-practica-libre/README.md)
+### Hacer merge de los PRs (Mauricio como owner, o cada quien el suyo)
+
+Para cada PR aprobado:
+1. Click en **"Merge pull request"**
+2. Click en **"Confirm merge"**
+3. (Opcional) **"Delete branch"**
+
+### Orden sugerido de merge
+
+Para evitar conflictos, hacer merge en este orden:
+1. Primero: PR que modifica `main.tex` (José Miguel - agrega `\input`)
+2. Después: Los demás PRs
+
+### Actualizar copias locales (Todos)
+
+```bash
+git checkout main
+git pull origin main
+```
+
+### Sincronizar Overleaf (Mauricio)
+
+1. Ir a Overleaf → Proyecto
+2. **Menu** → **GitHub** → **"Pull GitHub changes into Overleaf"**
+3. Compilar y verificar que el documento completo funciona
+
+### ¡Celebrar! 🎉
+
+El artículo ahora tiene contribuciones de todos los participantes, con historial completo de quién hizo qué.
+
+---
+
+## 5.5 Cierre: Resumen y recursos
+
+### El flujo diario en una imagen
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│                    FLUJO DE TRABAJO DIARIO                   │
+└─────────────────────────────────────────────────────────────┘
+
+    INICIO DEL DÍA                    DURANTE EL DÍA
+    ┌─────────────┐                   ┌─────────────┐
+    │ git pull    │                   │ Editar en   │
+    │             │ ──────────────▶   │ VS Code     │
+    │ (obtener    │                   │             │
+    │  cambios)   │                   │ Guardar     │
+    └─────────────┘                   │ frecuente   │
+                                      └─────────────┘
+                                            │
+                                            ▼
+    FIN DEL DÍA                       CUANDO TERMINAS
+    ┌─────────────┐                   ┌─────────────┐
+    │ git push    │                   │ git add     │
+    │             │ ◀──────────────   │ git commit  │
+    │ (subir      │                   │             │
+    │  cambios)   │                   │ (guardar    │
+    └─────────────┘                   │  "foto")    │
+          │                           └─────────────┘
+          ▼
+    ┌─────────────┐
+    │ Overleaf:   │
+    │ Pull from   │
+    │ GitHub      │
+    │ (verificar) │
+    └─────────────┘
+```
+
+### Comandos esenciales (Cheatsheet)
+
+| Categoría | Comando | Descripción |
+|-----------|---------|-------------|
+| **Básicos** | `git status` | Ver estado actual |
+| | `git pull origin main` | Obtener cambios |
+| | `git add archivo.tex` | Preparar archivo |
+| | `git add .` | Preparar todos |
+| | `git commit -m "msg"` | Guardar snapshot |
+| | `git push` | Subir cambios |
+| **Ramas** | `git branch` | Ver ramas |
+| | `git checkout -b nombre` | Crear rama |
+| | `git checkout main` | Cambiar a main |
+| **Conflictos** | `git status` | Ver archivos en conflicto |
+| | (editar archivo) | Resolver manualmente |
+| | `git add archivo` | Marcar resuelto |
+| | `git commit` | Completar merge |
+| **Historial** | `git log --oneline` | Ver commits |
+| | `git diff` | Ver cambios no guardados |
+
+### Recursos para seguir aprendiendo
+
+| Recurso | URL | Descripción |
+|---------|-----|-------------|
+| **Pro Git Book** | [git-scm.com/book](https://git-scm.com/book/en/v2) | Libro oficial, gratuito |
+| **GitHub Skills** | [skills.github.com](https://skills.github.com/) | Cursos interactivos |
+| **Overleaf Docs** | [overleaf.com/learn](https://www.overleaf.com/learn) | Tutoriales de LaTeX |
+| **LaTeX Workshop Wiki** | [GitHub Wiki](https://github.com/James-Yu/LaTeX-Workshop/wiki) | Configuración avanzada |
+| **Oh My Git!** | [ohmygit.org](https://ohmygit.org/) | Juego para aprender Git |
+| **Learn Git Branching** | [learngitbranching.js.org](https://learngitbranching.js.org/) | Visualización interactiva |
+
+### Preguntas frecuentes post-taller
+
+<details>
+<summary><strong>¿Qué hago si olvidé hacer pull y ahora tengo conflictos?</strong></summary>
+
+1. Primero, guarda tu trabajo actual: `git stash`
+2. Actualiza: `git pull origin main`
+3. Recupera tu trabajo: `git stash pop`
+4. Resuelve conflictos si los hay (ver Parte 4)
+
+</details>
+
+<details>
+<summary><strong>¿Cómo deshago mi último commit (sin perder cambios)?</strong></summary>
+
+```bash
+git reset --soft HEAD~1
+```
+
+Esto "deshace" el commit pero mantiene los archivos modificados.
+
+</details>
+
+<details>
+<summary><strong>¿Cómo veo quién escribió cada línea?</strong></summary>
+
+```bash
+git blame archivo.tex
+```
+
+O en VS Code: instalar la extensión "GitLens" para ver autoría en tiempo real.
+
+</details>
+
+<details>
+<summary><strong>¿Puedo usar esto para proyectos que no son LaTeX?</strong></summary>
+
+¡Absolutamente! Git funciona con cualquier tipo de archivo de texto:
+- Código (Python, R, JavaScript, etc.)
+- Markdown
+- Datos en CSV
+- Configuraciones
+
+Solo cambia la parte de Overleaf por el entorno que corresponda.
+
+</details>
+
+---
+
+## ¡Felicidades! 🎓
+
+Han completado el taller y ahora tienen:
+
+✅ Un flujo de trabajo colaborativo profesional  
+✅ Control de versiones para su artículo  
+✅ Capacidad de trabajar en paralelo sin conflictos  
+✅ Historial completo de quién cambió qué  
+✅ Backup automático en GitHub  
+✅ Herramientas para resolver conflictos  
+
+### Próximos pasos sugeridos
+
+1. **Practiquen** el flujo con un proyecto real
+2. **Experimenten** con ramas para propuestas alternativas
+3. **Exploren** GitHub Issues para organizar tareas
+4. **Configuren** GitHub Actions para compilación automática (avanzado)
+
+---
+
+## Feedback
+
+¿Cómo estuvo el taller? ¿Qué podemos mejorar?
+
+Comparte tus comentarios para mejorar futuras versiones.
+
+---
+
+**Anterior**: [← Parte 4 - Ramas y Conflictos](../04-ramas-y-conflictos/README.md)
+
+**Volver al inicio**: [README principal](../README.md)

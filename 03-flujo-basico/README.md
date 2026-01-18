@@ -1,375 +1,576 @@
-# Parte 2: Configuración Inicial
+# Parte 3: Flujo de Trabajo Básico
 
-> **Duración**: 20 minutos  
-> **Objetivo**: Tener el proyecto listo para colaborar
+> **Duración**: 30 minutos  
+> **Objetivo**: Dominar el ciclo diario de trabajo: Editar → Commit → Push → Sync
 
 ---
 
 ## Resumen de esta parte
 
-| Paso | Quién lo hace | Tiempo |
-|------|---------------|--------|
-| 2.1 Crear proyecto en Overleaf | Mauricio (Owner) | 3 min |
-| 2.2 Conectar Overleaf a GitHub | Mauricio (Owner) | 3 min |
-| 2.3 Compartir acceso en Overleaf | Mauricio (Owner) | 2 min |
-| 2.4 Clonar repositorio localmente | Todos | 5 min |
-| 2.5 Abrir proyecto en VS Code | Todos | 2 min |
-| 2.6 Verificar compilación local | Todos | 5 min |
+| Paso | Descripción | Tiempo |
+|------|-------------|--------|
+| 3.1 | Entender el concepto de "foto" (commit) | 5 min |
+| 3.2 | Mauricio crea el archivo inicial en Overleaf | 5 min |
+| 3.3 | Todos sincronizan y obtienen el archivo | 3 min |
+| 3.4 | Cada quien edita su sección localmente | 10 min |
+| 3.5 | Preparar y tomar la foto (add + commit) | 5 min |
+| 3.6 | Subir cambios (push) | 2 min |
 
 ---
 
-## 2.1 Crear proyecto en Overleaf (Mauricio)
+## 3.1 El concepto de "tomarle una foto al proyecto"
 
-> **Solo Mauricio** realiza este paso. Los demás observan.
+En Git, un **commit** es como tomar una **foto instantánea** de tu proyecto en un momento específico.
 
-### Opción A: Crear proyecto nuevo desde plantilla
+```
+📸 Foto 1: "Estructura inicial"
+    Estado: main.tex, introduction.tex (vacíos)
+    Fecha: 2024-01-15 10:00
+    Autor: Mauricio
 
-1. Ir a [overleaf.com](https://www.overleaf.com) e iniciar sesión
-2. Click en **"New Project"** (botón verde)
-3. Seleccionar **"Blank Project"** o una plantilla de journal
-4. Nombrar el proyecto: `articulo-taller-colaboracion`
+📸 Foto 2: "Agregué contenido a la introducción"  
+    Estado: introduction.tex (con 3 párrafos)
+    Fecha: 2024-01-15 11:30
+    Autor: José Miguel
 
-### Opción B: Usar proyecto existente
-
-Si Mauricio ya tiene un proyecto en Overleaf que quiere usar:
-1. Abrir el proyecto existente
-2. Continuar con el paso 2.2
-
----
-
-## 2.2 Conectar Overleaf a GitHub (Mauricio)
-
-> **Requisito**: Cuenta Overleaf Premium o institucional
-
-### Pasos:
-
-1. Dentro del proyecto en Overleaf, click en **"Menu"** (esquina superior izquierda)
-
-2. En la sección "Sync", buscar **"GitHub"**
-
-3. Click en **"Create a GitHub Repository"**
-   - Si es la primera vez, Overleaf pedirá autorización para conectar con GitHub
-   - Autorizar la conexión
-
-4. Configurar el repositorio:
-   | Campo | Valor sugerido |
-   |-------|----------------|
-   | **Repository name** | `articulo-taller-colaboracion` |
-   | **Visibility** | Private (o Public si prefieren) |
-
-5. Click en **"Create"**
-
-6. **¡Listo!** El proyecto ahora está sincronizado con GitHub
-
-### Verificar la conexión
-
-- En el menú de Overleaf, ahora verás opciones:
-  - **"Push Overleaf changes to GitHub"** — Subir cambios de Overleaf a GitHub
-  - **"Pull GitHub changes into Overleaf"** — Traer cambios de GitHub a Overleaf
-
-> 📖 Fuente oficial: [Overleaf GitHub Synchronization](https://www.overleaf.com/learn/how-to/GitHub_Synchronization)
-
----
-
-## 2.3 Compartir acceso (Mauricio)
-
-Mauricio debe compartir acceso de dos formas:
-
-### A. Compartir en Overleaf (opcional, para edición en navegador)
-
-1. En el proyecto, click en **"Share"** (botón arriba a la derecha)
-2. Ingresar los correos de José Miguel y Rodrigo
-3. Seleccionar permisos: **"Can Edit"**
-4. Click en **"Share"**
-
-> **Nota**: Con Overleaf Premium, puedes invitar colaboradores ilimitados.
-
-### B. Compartir en GitHub (necesario para el flujo Git)
-
-1. Ir al repositorio en GitHub: `github.com/mauricio/articulo-taller-colaboracion`
-2. Click en **"Settings"** → **"Collaborators"**
-3. Click en **"Add people"**
-4. Buscar por username o correo de GitHub de José Miguel y Rodrigo
-5. Enviar invitación
-
-José Miguel y Rodrigo deben:
-1. Revisar su correo o notificaciones de GitHub
-2. Aceptar la invitación
-
----
-
-## 2.4 Clonar el repositorio (Todos)
-
-> **Todos** realizan este paso en su computadora.
-
-### Obtener la URL del repositorio
-
-1. Ir al repositorio en GitHub
-2. Click en el botón verde **"Code"**
-3. Copiar la URL HTTPS (se ve así: `https://github.com/mauricio/articulo-taller-colaboracion.git`)
-
-### Elegir dónde guardar el proyecto
-
-Decide en qué carpeta quieres tener el proyecto. Recomendaciones:
-
-| Sistema | Carpeta sugerida |
-|---------|------------------|
-| Windows | `C:\Users\TuNombre\Documents\proyectos\` |
-| macOS | `~/Documents/proyectos/` |
-
-### Clonar desde terminal
-
-<details>
-<summary><strong>🪟 Windows (PowerShell)</strong></summary>
-
-```powershell
-# Navegar a la carpeta donde quieres el proyecto
-cd C:\Users\TuNombre\Documents\proyectos
-
-# Clonar el repositorio
-git clone https://github.com/mauricio/articulo-taller-colaboracion.git
-
-# Entrar a la carpeta del proyecto
-cd articulo-taller-colaboracion
+📸 Foto 3: "Completé la metodología"
+    Estado: methods.tex (con contenido)
+    Fecha: 2024-01-15 12:00
+    Autor: Rodrigo
 ```
 
-**¿Cómo abrir PowerShell?**
-- Presiona `Win + X` → Selecciona "Windows PowerShell"
-- O busca "PowerShell" en el menú Inicio
+### ¿Por qué es útil?
 
-</details>
+- **Historial completo**: Puedes ver exactamente qué cambió, cuándo y quién lo hizo
+- **Máquina del tiempo**: Puedes volver a cualquier foto anterior si algo sale mal
+- **Propuestas de versión**: Puedes tener diferentes "álbumes" (ramas) con versiones alternativas del artículo
 
-<details>
-<summary><strong>🍎 macOS (Terminal)</strong></summary>
+### Buenas prácticas para commits
 
-```bash
-# Navegar a la carpeta donde quieres el proyecto
-cd ~/Documents/proyectos
+| ✅ Hacer | ❌ Evitar |
+|----------|----------|
+| Commits pequeños y frecuentes | Un solo commit gigante con todo |
+| Mensajes descriptivos: "Agregué análisis de resultados" | Mensajes vagos: "cambios" o "asdf" |
+| Un commit por idea/tarea completada | Mezclar cambios no relacionados |
 
-# Clonar el repositorio
-git clone https://github.com/mauricio/articulo-taller-colaboracion.git
+---
 
-# Entrar a la carpeta del proyecto
-cd articulo-taller-colaboracion
+## 3.2 Archivo inicial del artículo (Mauricio)
+
+> **Mauricio**: Copia este contenido y pégalo en tu proyecto de Overleaf.
+
+### Estructura de archivos a crear
+
+```
+articulo-taller-colaboracion/
+├── main.tex                 ← Archivo principal
+├── sections/
+│   ├── introduction.tex     ← José Miguel editará esto
+│   ├── methods.tex          ← Rodrigo editará esto
+│   ├── results.tex          ← Mauricio editará esto
+│   └── conclusion.tex       ← Para después
+├── references.bib           ← Bibliografía
+└── .gitignore               ← Ignorar archivos auxiliares
 ```
 
-**¿Cómo abrir Terminal?**
-- Presiona `Cmd + Espacio`, escribe "Terminal", presiona Enter
-- O ve a Finder → Aplicaciones → Utilidades → Terminal
+### Archivo: `main.tex`
 
-</details>
+```latex
+\documentclass[12pt,a4paper]{article}
 
-### Verificar que se clonó correctamente
+% Paquetes básicos
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{amsmath,amsfonts,amssymb}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{natbib}
+
+% Configuración de márgenes
+\usepackage[margin=2.5cm]{geometry}
+
+% Título y autores
+\title{Artículo de Práctica: Colaboración con Git y LaTeX}
+\author{
+    Mauricio\textsuperscript{1} \and 
+    José Miguel\textsuperscript{1} \and 
+    Rodrigo\textsuperscript{1}
+}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+Este documento es un ejercicio práctico para aprender a colaborar en artículos académicos usando Git, GitHub, Overleaf y VS Code. Cada autor contribuirá una sección diferente.
+\end{abstract}
+
+% Incluir secciones desde archivos separados
+\input{sections/introduction}
+\input{sections/methods}
+\input{sections/results}
+\input{sections/conclusion}
+
+% Bibliografía
+\bibliographystyle{apalike}
+\bibliography{references}
+
+\end{document}
+```
+
+### Archivo: `sections/introduction.tex`
+
+```latex
+\section{Introducción}
+
+% === JOSÉ MIGUEL: Edita esta sección ===
+
+Este es el texto inicial de la introducción. 
+
+José Miguel reemplazará este contenido con una introducción sobre la importancia de la colaboración en proyectos académicos.
+
+\subsection{Motivación}
+
+[Pendiente: explicar por qué es importante tener un flujo de trabajo colaborativo]
+
+\subsection{Objetivos}
+
+[Pendiente: listar los objetivos del artículo]
+```
+
+### Archivo: `sections/methods.tex`
+
+```latex
+\section{Metodología}
+
+% === RODRIGO: Edita esta sección ===
+
+Este es el texto inicial de la metodología.
+
+Rodrigo reemplazará este contenido con una descripción del flujo de trabajo propuesto.
+
+\subsection{Herramientas utilizadas}
+
+[Pendiente: describir Git, GitHub, Overleaf, VS Code]
+
+\subsection{Flujo de trabajo}
+
+[Pendiente: describir el ciclo de trabajo diario]
+```
+
+### Archivo: `sections/results.tex`
+
+```latex
+\section{Resultados}
+
+% === MAURICIO: Edita esta sección ===
+
+Este es el texto inicial de resultados.
+
+Mauricio agregará contenido sobre los beneficios observados del flujo de trabajo.
+
+\subsection{Beneficios de la colaboración}
+
+[Pendiente: describir ventajas encontradas]
+
+\subsection{Comparación con métodos tradicionales}
+
+[Pendiente: tabla comparativa]
+```
+
+### Archivo: `sections/conclusion.tex`
+
+```latex
+\section{Conclusión}
+
+% === PARA DESPUÉS ===
+
+[Esta sección se completará en la Parte 5 del taller]
+```
+
+### Archivo: `references.bib`
+
+```bibtex
+@article{perez2024github,
+  title={GitHub is an effective platform for collaborative and reproducible laboratory research},
+  author={P{\'e}rez, Fernando and others},
+  journal={arXiv preprint arXiv:2408.09344},
+  year={2024}
+}
+
+@book{chacon2014pro,
+  title={Pro Git},
+  author={Chacon, Scott and Straub, Ben},
+  year={2014},
+  publisher={Apress},
+  note={Disponible en \url{https://git-scm.com/book}}
+}
+
+@misc{overleaf2024docs,
+  title={Overleaf Documentation},
+  author={{Overleaf}},
+  year={2024},
+  howpublished={\url{https://www.overleaf.com/learn}}
+}
+```
+
+### Archivo: `.gitignore`
+
+```
+# Archivos auxiliares de LaTeX
+*.aux
+*.log
+*.out
+*.toc
+*.lof
+*.lot
+*.bbl
+*.blg
+*.synctex.gz
+*.fdb_latexmk
+*.fls
+
+# Archivos de respaldo
+*.bak
+*~
+
+# Carpeta de output de algunos editores
+output/
+
+# Archivos del sistema
+.DS_Store
+Thumbs.db
+```
+
+---
+
+## 3.3 Sincronizar y obtener el archivo (Todos)
+
+Una vez que Mauricio ha creado los archivos en Overleaf y los ha subido a GitHub:
+
+### Mauricio: Subir cambios de Overleaf a GitHub
+
+1. En Overleaf, ir a **Menu** → **GitHub**
+2. Click en **"Push Overleaf changes to GitHub"**
+3. Escribir un mensaje: "Estructura inicial del artículo"
+4. Click en **"Push"**
+
+### José Miguel y Rodrigo: Obtener los archivos
+
+En la terminal (dentro de la carpeta del proyecto):
 
 ```bash
-# Ver los archivos
-ls
+git pull origin main
+```
 
-# Ver el estado de Git
+**Verificar** que llegaron los archivos:
+
+```bash
+ls sections/
+```
+
+Deberías ver: `introduction.tex  methods.tex  results.tex  conclusion.tex`
+
+---
+
+## 3.4 Cada quien edita su sección (Todos)
+
+Ahora viene la parte práctica. Cada persona editará **localmente** en VS Code:
+
+| Persona | Archivo a editar | Tarea |
+|---------|------------------|-------|
+| **José Miguel** | `sections/introduction.tex` | Escribir 2-3 párrafos de introducción |
+| **Rodrigo** | `sections/methods.tex` | Describir las herramientas y el flujo |
+| **Mauricio** | `sections/results.tex` | Agregar beneficios y una tabla comparativa |
+
+### Instrucciones para todos:
+
+1. Abre VS Code con el proyecto
+2. Navega a tu archivo en el panel izquierdo (Explorer)
+3. Haz tus ediciones
+4. Guarda frecuentemente (`Ctrl+S` / `Cmd+S`) para ver el PDF actualizado
+5. Cuando termines, **no cierres VS Code** — continuaremos con el commit
+
+### Ejemplo de edición (José Miguel)
+
+José Miguel abre `sections/introduction.tex` y lo cambia a:
+
+```latex
+\section{Introducción}
+
+La colaboración efectiva es fundamental en la investigación académica moderna. 
+Los proyectos de investigación involucran cada vez más a equipos distribuidos 
+geográficamente, lo que hace necesario contar con herramientas que faciliten 
+el trabajo conjunto.
+
+En particular, la escritura de artículos académicos presenta desafíos únicos: 
+múltiples autores necesitan editar el mismo documento, mantener un historial 
+de cambios, y asegurar que todos trabajen sobre la versión más reciente.
+
+\subsection{Motivación}
+
+El flujo de trabajo tradicional basado en enviar archivos por correo electrónico 
+presenta numerosos problemas: versiones duplicadas, pérdida de cambios, y 
+dificultad para rastrear quién modificó qué.
+
+\subsection{Objetivos}
+
+Este artículo presenta un flujo de trabajo colaborativo que combina:
+\begin{itemize}
+    \item Git para control de versiones
+    \item GitHub para almacenamiento y revisión
+    \item Overleaf para compilación en la nube
+    \item VS Code para edición local eficiente
+\end{itemize}
+```
+
+---
+
+## 3.5 Preparar y tomar la foto (git add + git commit)
+
+> ⚠️ **CONCEPTO IMPORTANTE**: Esta sección explica cómo controlar exactamente qué archivos incluir en cada "foto".
+
+### El proceso de dos pasos
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│  Tu carpeta de trabajo (Working Directory)                  │
+│                                                              │
+│  📄 introduction.tex  [MODIFICADO]                          │
+│  📄 methods.tex       [MODIFICADO]                          │
+│  📄 notas-personales.txt [NUEVO - no quiero compartir]      │
+│  📄 borrador-idea.tex    [NUEVO - todavía no está listo]    │
+└─────────────────────────────────────────────────────────────┘
+                            │
+                            │ git add introduction.tex
+                            ▼
+┌─────────────────────────────────────────────────────────────┐
+│  Área de preparación (Staging Area)                         │
+│                                                              │
+│  📄 introduction.tex  ← Listo para la foto                  │
+└─────────────────────────────────────────────────────────────┘
+                            │
+                            │ git commit -m "mensaje"
+                            ▼
+┌─────────────────────────────────────────────────────────────┐
+│  Historial de Git (Repository)                              │
+│                                                              │
+│  📸 "Completé la introducción" ← Nueva foto guardada        │
+└─────────────────────────────────────────────────────────────┘
+```
+
+### Regla de oro sobre `git add`
+
+> **Cualquier archivo NUEVO que quieras compartir, debes agregarlo explícitamente con `git add`.**
+> 
+> Los archivos que todavía no quieras compartir, simplemente **no les hagas `git add`**.
+
+### Ejemplo concreto: José Miguel
+
+José Miguel editó `introduction.tex` y también creó un archivo de notas personales que NO quiere subir:
+
+```bash
+# Ver qué archivos cambiaron
 git status
 ```
 
-Deberías ver los archivos `.tex` del proyecto y un mensaje como:
+Salida:
 ```
 On branch main
-Your branch is up to date with 'origin/main'.
-nothing to commit, working tree clean
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+        modified:   sections/introduction.tex
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        mis-notas-personales.txt
 ```
 
----
+### Tres formas de usar `git add`
 
-## 2.5 Abrir el proyecto en VS Code (Todos)
-
-Hay **dos formas** de abrir el proyecto en VS Code:
-
-### Opción A: Desde la interfaz gráfica (recomendada para principiantes)
-
-<details>
-<summary><strong>🪟 Windows</strong></summary>
-
-1. Abrir **Visual Studio Code** desde el menú Inicio
-2. Click en **"File"** → **"Open Folder..."** (o en español: **"Archivo"** → **"Abrir carpeta..."**)
-3. Navegar a `C:\Users\TuNombre\Documents\proyectos\articulo-taller-colaboracion`
-4. Click en **"Seleccionar carpeta"** (o "Select Folder")
-
-</details>
-
-<details>
-<summary><strong>🍎 macOS</strong></summary>
-
-1. Abrir **Visual Studio Code** desde el Launchpad o Finder → Aplicaciones
-2. Click en **"File"** → **"Open Folder..."** (o **"Archivo"** → **"Abrir carpeta..."**)
-3. Navegar a `Documents/proyectos/articulo-taller-colaboracion`
-4. Click en **"Open"** (Abrir)
-
-</details>
-
-### Opción B: Desde la terminal (más rápido una vez que te acostumbras)
+#### Opción 1: Agregar UN archivo específico (RECOMENDADO)
 
 ```bash
-# Asegúrate de estar en la carpeta del proyecto
-cd articulo-taller-colaboracion
-
-# Abrir VS Code en esta carpeta
-code .
+# Solo agregar el archivo que quiero compartir
+git add sections/introduction.tex
 ```
 
-> **Nota**: El punto (`.`) significa "la carpeta actual".
+**Resultado**: Solo `introduction.tex` está preparado. `mis-notas-personales.txt` NO se subirá.
 
-### Verificar que VS Code reconoce el proyecto
+#### Opción 2: Agregar TODOS los archivos modificados y nuevos
 
-Una vez abierto, deberías ver:
-- 📁 La estructura de archivos en el panel izquierdo (Explorer)
-- 📝 Puedes hacer click en cualquier archivo `.tex` para editarlo
-- 🔀 El ícono de Git en la barra lateral (Source Control) - indica que VS Code detectó el repositorio
-
----
-
-## 2.6 Verificar compilación local (Todos)
-
-### Abrir el archivo principal
-
-1. En VS Code, click en `main.tex` (o el archivo principal del proyecto)
-2. El archivo se abrirá en el editor
-
-### Compilar el documento
-
-**Opción A: Automático al guardar**
-- Simplemente guarda el archivo: `Ctrl+S` (Windows) o `Cmd+S` (Mac)
-- LaTeX Workshop compilará automáticamente
-
-**Opción B: Manual**
-- Presiona `Ctrl+Alt+B` (Windows) o `Cmd+Option+B` (Mac)
-- O click en el ícono ▶️ de LaTeX en la barra lateral izquierda → "Build LaTeX project"
-
-### Ver el PDF
-
-- Presiona `Ctrl+Alt+V` (Windows) o `Cmd+Option+V` (Mac)
-- O click en el ícono de lupa 🔍 en la esquina superior derecha del editor
-
-### ¿Qué hacer si no compila?
-
-| Problema | Solución |
-|----------|----------|
-| "Recipe terminated with error" | Revisar el panel "Output" → "LaTeX Workshop" para ver el error específico |
-| "pdflatex not found" | MiKTeX/MacTeX no está en PATH. Reiniciar VS Code o la computadora |
-| Falta un paquete | MiKTeX debería instalarlo automáticamente. Si no, abrir MiKTeX Console y buscar el paquete |
-| El PDF no aparece | Esperar unos segundos. Si no aparece, presionar `Ctrl+Alt+V` / `Cmd+Option+V` |
-
----
-
-## Caso especial: Conectar un proyecto LOCAL existente a GitHub
-
-> **Escenario**: Mauricio tiene archivos LaTeX en su computadora (no en Overleaf) y quiere subirlos a GitHub para colaborar.
-
-### Paso 1: Crear repositorio vacío en GitHub
-
-1. Ir a [github.com](https://github.com) → Click en **"+"** → **"New repository"**
-2. Configurar:
-   - **Repository name**: `mi-articulo`
-   - **Description**: (opcional)
-   - **Visibility**: Private o Public
-   - ⚠️ **NO marcar** "Add a README file"
-   - ⚠️ **NO seleccionar** .gitignore ni license
-3. Click en **"Create repository"**
-
-GitHub mostrará instrucciones. Usaremos las de "…or push an existing repository from the command line".
-
-### Paso 2: Inicializar Git en la carpeta local
-
-<details>
-<summary><strong>🪟 Windows (PowerShell)</strong></summary>
-
-```powershell
-# Navegar a la carpeta de tu proyecto
-cd C:\Users\TuNombre\Documents\mi-articulo
-
-# Inicializar Git
-git init
-
-# Agregar todos los archivos
+```bash
+# ⚠️ CUIDADO: Esto agrega TODO
 git add .
-
-# Crear el primer commit
-git commit -m "Versión inicial del artículo"
 ```
 
-</details>
+**Resultado**: Tanto `introduction.tex` como `mis-notas-personales.txt` quedan preparados.
 
-<details>
-<summary><strong>🍎 macOS (Terminal)</strong></summary>
+#### Opción 3: Agregar varios archivos específicos
 
 ```bash
-# Navegar a la carpeta de tu proyecto
-cd ~/Documents/mi-articulo
-
-# Inicializar Git
-git init
-
-# Agregar todos los archivos
-git add .
-
-# Crear el primer commit
-git commit -m "Versión inicial del artículo"
+# Agregar múltiples archivos por nombre
+git add sections/introduction.tex sections/methods.tex
 ```
 
-</details>
+### ¿Qué pasa si usé `git add .` por error?
 
-### Paso 3: Conectar con GitHub y subir
+Si agregaste un archivo que no querías compartir, puedes **quitarlo del área de preparación** (sin perder tus cambios):
 
 ```bash
-# Conectar con el repositorio remoto (reemplaza con tu URL)
-git remote add origin https://github.com/TU_USUARIO/mi-articulo.git
-
-# Renombrar la rama a 'main' (por convención moderna)
-git branch -M main
-
-# Subir el proyecto a GitHub
-git push -u origin main
+# "Des-trackear" un archivo antes de hacer commit
+git restore --staged mis-notas-personales.txt
 ```
 
-### Paso 4: Verificar en GitHub
+Ahora ese archivo ya no está preparado y no se incluirá en el commit.
 
-1. Ir a `github.com/TU_USUARIO/mi-articulo`
-2. Deberías ver todos tus archivos `.tex`
+### Verificar qué está preparado
 
-### Paso 5: Conectar con Overleaf (opcional)
+```bash
+git status
+```
 
-Si quieres que el proyecto también esté en Overleaf:
+Salida después de agregar solo `introduction.tex`:
+```
+On branch main
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   sections/introduction.tex
 
-1. En Overleaf, click en **"New Project"** → **"Import from GitHub"**
-2. Seleccionar el repositorio que acabas de crear
-3. ¡Listo! Ahora tienes el proyecto en ambos lugares
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        mis-notas-personales.txt
+```
+
+✅ Solo `introduction.tex` se incluirá en el commit.
+
+### Tomar la foto (commit)
+
+```bash
+git commit -m "Completé la sección de introducción con motivación y objetivos"
+```
+
+**Buenas prácticas para mensajes de commit:**
+- Usar verbos en pasado o infinitivo: "Agregué...", "Corregí...", "Agregar..."
+- Ser específico: qué sección, qué cambio principal
+- Máximo 50-72 caracteres en la primera línea
 
 ---
 
-## Resumen de comandos
+## 3.6 Subir cambios a GitHub (git push)
 
-| Acción | Comando |
-|--------|---------|
-| Clonar repositorio | `git clone URL` |
-| Ver estado | `git status` |
-| Ver archivos | `ls` (Mac/Linux) o `dir` (Windows) |
-| Abrir VS Code | `code .` |
-| Inicializar repo nuevo | `git init` |
-| Conectar a GitHub | `git remote add origin URL` |
-| Subir por primera vez | `git push -u origin main` |
+Una vez que hiciste commit, los cambios están guardados **localmente**. Para compartirlos:
+
+```bash
+git push origin main
+```
+
+### Si alguien más subió cambios antes que tú
+
+Git te dirá que primero debes bajar los cambios de los demás:
+
+```bash
+# Primero, obtener los cambios de otros
+git pull origin main
+
+# Luego, subir los tuyos
+git push origin main
+```
+
+### Verificar en GitHub
+
+1. Ve a tu repositorio en GitHub
+2. Deberías ver tu commit reciente en la lista
+3. Click en el commit para ver exactamente qué cambió
+
+---
+
+## 3.7 Sincronizar Overleaf (Mauricio)
+
+Después de que todos hayan subido sus cambios a GitHub:
+
+1. En Overleaf, ir a **Menu** → **GitHub**
+2. Click en **"Pull GitHub changes into Overleaf"**
+3. Overleaf descargará todos los cambios de José Miguel y Rodrigo
+4. Compilar para verificar que todo funciona junto
+
+---
+
+## Resumen del ciclo de trabajo
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│                  CICLO DIARIO DE TRABAJO                     │
+└─────────────────────────────────────────────────────────────┘
+
+    ┌──────────────────────────────────────┐
+    │  1. INICIO: Obtener cambios recientes │
+    │     git pull origin main              │
+    └──────────────────────────────────────┘
+                      │
+                      ▼
+    ┌──────────────────────────────────────┐
+    │  2. TRABAJAR: Editar en VS Code       │
+    │     - Guardar frecuentemente (Ctrl+S) │
+    │     - Ver PDF actualizado             │
+    └──────────────────────────────────────┘
+                      │
+                      ▼
+    ┌──────────────────────────────────────┐
+    │  3. PREPARAR: Elegir qué compartir    │
+    │     git add archivo.tex               │
+    │     (o git add . para todo)           │
+    └──────────────────────────────────────┘
+                      │
+                      ▼
+    ┌──────────────────────────────────────┐
+    │  4. FOTO: Guardar el avance           │
+    │     git commit -m "descripción"       │
+    └──────────────────────────────────────┘
+                      │
+                      ▼
+    ┌──────────────────────────────────────┐
+    │  5. COMPARTIR: Subir a GitHub         │
+    │     git push origin main              │
+    └──────────────────────────────────────┘
+                      │
+                      ▼
+    ┌──────────────────────────────────────┐
+    │  6. VERIFICAR: Sincronizar Overleaf   │
+    │     (Mauricio: Pull from GitHub)      │
+    └──────────────────────────────────────┘
+```
+
+---
+
+## Comandos rápidos de referencia
+
+| Qué quiero hacer | Comando |
+|------------------|---------|
+| Ver estado actual | `git status` |
+| Obtener cambios de otros | `git pull origin main` |
+| Agregar UN archivo | `git add ruta/archivo.tex` |
+| Agregar TODOS los cambios | `git add .` |
+| Quitar archivo del staging | `git restore --staged archivo.tex` |
+| Tomar la foto | `git commit -m "mensaje"` |
+| Subir mis cambios | `git push origin main` |
+| Ver historial de fotos | `git log --oneline` |
 
 ---
 
 ## Checkpoint ✅
 
-Antes de continuar a la Parte 3, verifica que:
+Antes de continuar a la Parte 4, verifica que:
 
-- [ ] El proyecto está clonado en tu computadora
-- [ ] Puedes abrir el proyecto en VS Code
-- [ ] El documento compila localmente (ves el PDF)
-- [ ] Git reconoce el repositorio (`git status` funciona)
-
-Si algo falla, pide ayuda antes de continuar.
+- [ ] Entiendes la diferencia entre `git add archivo.tex` y `git add .`
+- [ ] Sabes cómo quitar un archivo del staging si lo agregaste por error
+- [ ] Hiciste al menos un commit con tus cambios
+- [ ] Subiste tus cambios a GitHub con `git push`
+- [ ] Puedes ver tus cambios en la página de GitHub
 
 ---
 
-**Anterior**: [← Parte 1 - Conceptos](../01-conceptos/README.md)
+**Anterior**: [← Parte 2 - Configuración Inicial](../02-configuracion-inicial/README.md)
 
-**Siguiente**: [Parte 3 - Flujo Básico →](../03-flujo-basico/README.md)
+**Siguiente**: [Parte 4 - Ramas y Conflictos →](../04-ramas-y-conflictos/README.md)
