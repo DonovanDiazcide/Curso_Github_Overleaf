@@ -573,4 +573,4 @@ Antes de continuar a la Parte 4, verifica que:
 
 **Anterior**: [← Parte 2 - Configuración Inicial](../02-configuracion-inicial/README.md)
 
-**Siguiente**: [Parte 4 - Ramas y Conflictos →](../04-ramas-y-conflictos/README.md)
+**Siguiente**: [Parte 4 - Ramas y Conflictos →](../04_ramas_y_conflictos/README.md)
