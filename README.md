@@ -57,7 +57,7 @@ pdflatex --version   # → pdfTeX 3.x (TeX Live 202x)
 | 0:10 - 0:25 | **Parte 1** | Conceptos: Git, GitHub, Overleaf | [`01-conceptos/`](01-conceptos/README.md) |
 | 0:25 - 0:45 | **Parte 2** | Configuración inicial | [`02-configuracion-inicial/`](02-configuracion-inicial/README.md) |
 | 0:45 - 1:15 | **Parte 3** | Flujo básico: add → commit → push | [`03-flujo-basico/`](03-flujo-basico/README.md) |
-| 1:15 - 1:35 | **Parte 4** | Ramas, PRs, conflictos | [`04-ramas-y-conflictos/`](04-ramas-y-conflictos/README.md) |
+| 1:15 - 1:35 | **Parte 4** | Ramas, PRs, conflictos | [`04_ramas_y_conflictos/`](04_ramas_y_conflictos/README.md) |
 | 1:35 - 1:55 | **Parte 5** | Práctica libre | [`05-practica-libre/`](05-practica-libre/README.md) |
 | 1:55 - 2:00 | Cierre | Resumen y recursos | — |
 
@@ -109,10 +109,13 @@ taller-colaboracion-latex/
 ├── 03-flujo-basico/               # Parte 3: add/commit/push
 │   └── README.md
 │
-├── 04-ramas-y-conflictos/         # Parte 4: Branches & PRs
+├── 04_ramas_y_conflictos/         # Parte 4: Branches & PRs
 │   └── README.md
 │
 ├── 05-practica-libre/             # Parte 5: Ejercicio final
+│   └── README.md
+│
+├── taller-otree-git/              # 🆕 Taller alternativo: Git para oTree
 │   └── README.md
 │
 ├── plantilla-articulo/            # Archivos LaTeX de práctica
@@ -146,6 +149,27 @@ taller-colaboracion-latex/
 
 ---
 
+## 🧪 Taller Alternativo: Git y GitHub para oTree
+
+Este repositorio también incluye un **taller alternativo** enfocado en el uso de Git y GitHub para proyectos de economía experimental con oTree.
+
+| Característica | Descripción |
+|----------------|-------------|
+| **Duración** | 3-4 horas |
+| **Proyecto base** | Public Goods Game (oTree) |
+| **Enfoque** | Programación colaborativa en Python/oTree |
+| **Referencia académica** | Fehr & Gächter (2000), "Cooperation and Punishment in Public Goods Experiments" |
+
+📁 **Material**: [`taller-otree-git/README.md`](taller-otree-git/README.md)
+
+Este taller incluye:
+- Flujo de trabajo con tareas medianas y tareas pequeñas
+- Ejemplos prácticos con el Juego del Bien Público
+- Tareas asignables para cada participante con soluciones completas
+- Integración con Claude/IA para desarrollo asistido
+
+---
+
 ## 🆘 Problemas Comunes
 
 | Problema | Solución |
@@ -153,7 +177,7 @@ taller-colaboracion-latex/
 | `git push` rechazado | Hacer `git pull origin main` primero |
 | LaTeX no compila en VS Code | Verificar MiKTeX/MacTeX en PATH, reiniciar VS Code |
 | Overleaf no muestra cambios | Menu → GitHub → "Pull from GitHub" |
-| Conflicto de merge | Ver [Parte 4](04-ramas-y-conflictos/README.md) |
+| Conflicto de merge | Ver [Parte 4](04_ramas_y_conflictos/README.md) |
 | Comando no encontrado | Reiniciar terminal, verificar instalación |
 
 ---
