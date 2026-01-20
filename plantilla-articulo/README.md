@@ -514,6 +514,6 @@ Comparte tus comentarios para mejorar futuras versiones.
 
 ---
 
-**Anterior**: [← Parte 4 - Ramas y Conflictos](../04-ramas-y-conflictos/README.md)
+**Anterior**: [← Parte 4 - Ramas y Conflictos](../04_ramas_y_conflictos/README.md)
 
 **Volver al inicio**: [README principal](../README.md)

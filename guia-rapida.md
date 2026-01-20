@@ -112,7 +112,7 @@ articulo/
 
 ## 🔗 Enlaces Útiles
 
-- **Este taller**: [github.com/USUARIO/taller-colaboracion-latex](https://github.com/DonovanDiazcide/Curso_Github_Overleaf)
+- **Este taller**: [github.com/DonovanDiazcide/Curso_Github_Overleaf](https://github.com/DonovanDiazcide/Curso_Github_Overleaf)
 - **Pro Git Book**: git-scm.com/book
 - **Overleaf Docs**: overleaf.com/learn
 
