@@ -3,6 +3,8 @@
 > **Duración**: 20 minutos  
 > **Objetivo**: Tener el proyecto listo para colaborar
 
+> 💡 **Nota**: El orden de configuración inicial (Overleaf → GitHub → Local) es diferente al flujo diario de trabajo. Aquí partimos desde Overleaf porque ahí se crea la plantilla del proyecto. Una vez configurado todo, el flujo diario será : **Local → GitHub → Overleaf** (como vimos en la Parte 1).
+
 ---
 
 ## Resumen de esta parte

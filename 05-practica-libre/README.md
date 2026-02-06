@@ -358,11 +358,15 @@ git checkout main
 git pull origin main
 ```
 
-### Sincronizar Overleaf (Mauricio)
+### Sincronizar Overleaf (Mauricio) — verificación final
+
+Una vez que todos los PRs están fusionados en `main` y cada quien ha verificado que compila localmente:
 
 1. Ir a Overleaf → Proyecto
 2. **Menu** → **GitHub** → **"Pull GitHub changes into Overleaf"**
-3. Compilar y verificar que el documento completo funciona
+3. Compilar en la nube y confirmar que el documento completo funciona
+
+> Recuerda: Overleaf es el **último paso** del flujo (Local → GitHub → Overleaf).
 
 ### ¡Celebrar! 🎉
 

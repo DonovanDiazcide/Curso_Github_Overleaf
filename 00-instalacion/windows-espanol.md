@@ -17,7 +17,7 @@
 | Visual Studio Code | ✅ | Se abre desde el Menú Inicio |
 | MiKTeX | ✅ | `pdflatex --version` |
 | Strawberry Perl | ✅ | `perl --version` |
-| Extensión LaTeX Workshop | ✅ | Aparece ícono en VS Code |
+| Extensión LaTeX Workshop | ✅ | Aparece ícono en VS Code (aunque no necesariamente)|
 
 ---
 
@@ -243,14 +243,21 @@ Este es un documento de prueba para el taller.
 
 Si ves esto, **¡todo está listo!** 🎉
 
+
+¡¡ Importante !!
+
+Si el documento no compila después de 1-3 minutos, intenta instalar las siguientes extensiones de latexen VSC y cuando las tengas todas instaladas, intenta compilar y visualizar el pdf nuevamente: 
+
+![alt text](image.png)
+
 ---
 
-## Solución de Problemas
+## Solución de Problemas durante la instalación
 
 | Problema | Solución |
 |----------|----------|
 | Comando `git` no encontrado | Reiniciar PowerShell, o reinstalar Git con la opción "Add to PATH" |
-| `pdflatex` no encontrado | Reiniciar la computadora, o agregar MiKTeX al PATH manualmente |
+| `pdflatex` no encontrado | Reiniciar la computadora, o agregar MiKTeX al PATH manualmente (pídanle ayuda a un asistente de IA para saber como hacer eso)|
 | `perl` no encontrado | Reiniciar PowerShell después de instalar Strawberry Perl |
 | LaTeX no compila en VS Code | Revisar MiKTeX Console por actualizaciones, reiniciar VS Code |
 | El PDF no aparece | Esperar unos segundos, o presionar `Ctrl+Alt+V` |

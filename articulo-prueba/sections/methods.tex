@@ -1,0 +1,38 @@
+\section{Metodología}
+
+En esta sección describimos las herramientas utilizadas y el flujo de trabajo 
+propuesto para la colaboración en artículos académicos con LaTeX.
+
+\subsection{Herramientas utilizadas}
+
+El flujo de trabajo propuesto se basa en cuatro herramientas principales:
+
+\begin{itemize}
+    \item \textbf{Git}: Sistema de control de versiones distribuido que permite 
+    rastrear cambios en archivos de texto, crear ramas para desarrollo paralelo, 
+    y fusionar contribuciones de múltiples autores.
+    
+    \item \textbf{GitHub}: Plataforma en la nube que aloja repositorios Git, 
+    proporcionando respaldo automático, Pull Requests para revisión de cambios, 
+    e Issues para gestión de tareas.
+    
+    \item \textbf{VS Code}: Editor de código con extensión LaTeX Workshop que 
+    permite compilación local automática y vista previa del PDF en tiempo real.
+    
+    \item \textbf{Overleaf}: Editor LaTeX en línea con compilador en la nube, 
+    utilizado como capa de verificación final mediante sincronización con GitHub.
+\end{itemize}
+
+\subsection{Flujo de trabajo}
+
+El ciclo diario de trabajo sigue el orden: \textbf{Local $\rightarrow$ GitHub 
+$\rightarrow$ Overleaf}.
+
+\begin{enumerate}
+    \item \textbf{Obtener cambios}: \texttt{git pull origin main}
+    \item \textbf{Editar localmente}: Escribir y compilar en VS Code
+    \item \textbf{Preparar cambios}: \texttt{git add archivo.tex}
+    \item \textbf{Guardar snapshot}: \texttt{git commit -m "descripción"}
+    \item \textbf{Subir a GitHub}: \texttt{git push origin main}
+    \item \textbf{Verificación final}: Sincronizar Overleaf con GitHub
+\end{enumerate}

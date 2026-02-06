@@ -1,0 +1,23 @@
+# Archivos auxiliares de LaTeX
+*.aux
+*.log
+*.out
+*.toc
+*.lof
+*.lot
+*.bbl
+*.blg
+*.synctex.gz
+*.fdb_latexmk
+*.fls
+
+# Archivos de respaldo
+*.bak
+*~
+
+# Carpeta de output de algunos editores
+output/
+
+# Archivos del sistema
+.DS_Store
+Thumbs.db

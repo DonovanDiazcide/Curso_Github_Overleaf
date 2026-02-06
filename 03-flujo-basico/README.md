@@ -486,14 +486,16 @@ git push origin main
 
 ---
 
-## 3.7 Sincronizar Overleaf (Mauricio)
+## 3.7 Verificación final: Sincronizar Overleaf (Mauricio)
 
-Después de que todos hayan subido sus cambios a GitHub:
+Después de que todos hayan subido sus cambios a GitHub y se hayan integrado en `main`:
+
+> 💡 Este es el **último paso** del flujo: Local → GitHub → **Overleaf**. Solo se sincroniza una vez que los cambios ya están en `main`.
 
 1. En Overleaf, ir a **Menu** → **GitHub**
 2. Click en **"Pull GitHub changes into Overleaf"**
 3. Overleaf descargará todos los cambios de José Miguel y Rodrigo
-4. Compilar para verificar que todo funciona junto
+4. Compilar para verificar que todo funciona junto en la nube
 
 ---
 
