@@ -55,15 +55,15 @@ Si todos los comandos muestran una versión, ¡estás listo!
 ```latex
 \documentclass{article}
 \begin{document}
-Hello, \LaTeX!
+Hola, \LaTeX!
 \end{document}
 ```
 
 2. Guarda el archivo (Ctrl+S en Windows, Cmd+S en Mac)
-3. El PDF debe generarse automáticamente
-4. Presiona Ctrl+Alt+V (Windows) o Cmd+Option+V (Mac) para ver el PDF
+3. Compila el documento: Presiona Ctrl+Alt+B (Windows) o Cmd+Option+B (Mac)
+4. Ve el PDF: Presiona Ctrl+Alt+V (Windows) o Cmd+Option+V (Mac)
 
-Si ves "Hello, LATEX!" en el PDF, **¡todo funciona!** 🎉
+Si ves "Hola, LATEX!" en el PDF, **¡todo funciona!** 🎉
 
 ---
 

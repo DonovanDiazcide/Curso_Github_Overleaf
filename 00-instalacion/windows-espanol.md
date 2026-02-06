@@ -19,6 +19,13 @@
 | Strawberry Perl | ✅ | `perl --version` |
 | Extensión LaTeX Workshop | ✅ | Aparece ícono en VS Code (aunque no necesariamente)|
 
+> **💡 ¿Ya tienes GitHub, Git y VS Code?** Verifica rápidamente abriendo **PowerShell** y ejecutando:
+> ```
+> git --version
+> code --version
+> ```
+> Si ambos comandos muestran una versión y puedes iniciar sesión en [github.com](https://github.com), ¡continúa directamente con el **[Paso 4: MiKTeX](#paso-4-miktex-15-20-min)**!
+
 ---
 
 ## Paso 1: Cuenta de GitHub (2 min)
@@ -47,7 +54,7 @@ Durante la instalación verás varias pantallas. Aquí están las opciones clave
 | Pantalla | Opción a Seleccionar |
 |----------|---------------------|
 | **Select Components** | Dejar valores por defecto |
-| **Choosing the default editor** | Seleccionar "Use Visual Studio Code as Git's default editor" |
+| **Choosing the default editor** | Seleccionar "Use Visual Studio Code as Git's default editor" *(lo instalaremos en el Paso 3, pero la opción queda guardada)* |
 | **Adjusting your PATH** | ⚠️ Seleccionar **"Git from the command line and also from 3rd-party software"** |
 | **Choosing SSH executable** | "Use bundled OpenSSH" |
 | **Choosing HTTPS transport backend** | "Use the OpenSSL library" |
@@ -147,12 +154,18 @@ code --version
 ### Actualización Post-Instalación (¡Importante!)
 
 1. Abrir **Menú Inicio** → Buscar **"MiKTeX Console"** → Abrirlo
-2. Si aparece un mensaje sobre actualizaciones, clic en **"Check for updates"**
-3. Clic en **"Update now"** para instalar todas las actualizaciones
+2. **Puede o no aparecer** un mensaje sobre actualizaciones:
+   - Si aparece, dale clic en **"Sí"** (o "Check"), y luego **instala** las actualizaciones que ofrezca
+   - Si no aparece, no te preocupes — continúa con el siguiente punto
+3. **De todas formas** (haya aparecido el mensaje o no), en el panel izquierdo haz clic en **"Updates"**
+4. Clic en **"Check for updates"**
+5. Si aparecen paquetes listados debajo, clic en **"Update now"** para instalar todas las actualizaciones
+
+![Ejemplo de MiKTeX Console mostrando actualizaciones disponibles](miktex.png)
 
 ### Verificar Instalación
 
-Abrir PowerShell:
+**⚠️ Cerrar y volver a abrir PowerShell** (para que reconozca el nuevo PATH), luego ejecutar:
 ```
 pdflatex --version
 ```
@@ -194,28 +207,43 @@ Resultado esperado: `This is perl 5, version 38...` (o similar)
 ## Paso 6: Extensión LaTeX Workshop (2 min)
 
 1. Abrir **Visual Studio Code**
-2. Clic en el **ícono de Extensiones** en la barra lateral izquierda (o presionar `Ctrl+Shift+X`)
+2. Clic en el **ícono de Extensiones** en la barra lateral izquierda (el ícono de 3 cuadrados, o presionar `Ctrl+Shift+X`)
 3. En la caja de búsqueda, escribir: **"LaTeX Workshop"**
 4. Buscar la extensión de **James Yu** (debería ser el primer resultado)
 5. Clic en **Install** (Instalar)
 
 ### Verificar Instalación
 
-- Un **ícono de TeX** (se ve como "TEX") debería aparecer en la barra lateral izquierda
-- Cuando abras un archivo `.tex`, verás opciones específicas de LaTeX
+Vamos a crear un archivo LaTeX sencillo para comprobar que todo funciona.
 
-> 📖 Fuente oficial: [LaTeX Workshop - Marketplace](https://marketplace.visualstudio.com/items?itemName=James-Yu.latex-workshop)
+#### 1. Crear la carpeta del taller
 
----
+1. Abre el **Explorador de archivos** (el ícono de carpeta en la barra de tareas, o presiona `Win + E`)
+2. Navega a tu carpeta de **Documentos**, o a la ubicación donde quieras guardar este curso
+3. Haz clic derecho en un espacio vacío → **Nuevo** → **Carpeta**
+4. Nombra la carpeta **`curso_latex_github`**
 
-## Prueba Final de Verificación (5 min)
+> 💡 Esta carpeta será tu espacio de trabajo durante todo el taller.
 
-### Crear un archivo de prueba
+#### 2. Abrir la carpeta en VS Code
 
-1. Abrir **Visual Studio Code**
-2. Presionar `Ctrl+N` para crear un nuevo archivo
-3. Presionar `Ctrl+S` para guardar, nombrarlo `test.tex`
-4. Pegar este contenido:
+1. Abre **Visual Studio Code**
+2. Ve al menú **Archivo** (File) → **Abrir carpeta...** (Open Folder...)
+3. Busca y selecciona la carpeta **`curso_latex_github`** que acabas de crear
+4. Clic en **Seleccionar carpeta** (Select Folder)
+   - Si VS Code pregunta si confías en los autores de la carpeta, haz clic en **"Sí, confío"** ("Yes, I trust the authors")
+
+#### 3. Crear un archivo de prueba
+
+1. En la **barra lateral izquierda** de VS Code verás el nombre de tu carpeta (`CURSO_LATEX_GITHUB`)
+2. Pasa el mouse sobre el nombre de la carpeta — aparecerán unos íconos pequeños
+3. Haz clic en el **ícono de archivo con un "+"** (Nuevo archivo / New File)
+4. Escribe el nombre **`test.tex`** y presiona Enter
+   - ⚠️ Asegúrate de que el nombre termine en `.tex`
+
+#### 4. Escribir y compilar
+
+1. Se abrirá el archivo `test.tex` en el editor. Copia y pega el siguiente contenido:
 
 ```latex
 \documentclass{article}
@@ -226,12 +254,9 @@ Este es un documento de prueba para el taller.
 \end{document}
 ```
 
-5. Presionar `Ctrl+S` para guardar
-
-### Compilar y Ver
-
-- El documento debería compilarse **automáticamente** al guardar
-- Para ver el PDF: Presionar `Ctrl+Alt+V` o clic en el **ícono de lupa** en la esquina superior derecha
+2. Presiona `Ctrl+S` para guardar
+3. **Compilar**: Presiona `Ctrl+Alt+B` (o también se compila **automáticamente** al guardar)
+4. **Ver el PDF**: Presiona `Ctrl+Alt+V` o clic en el **ícono de lupa** en la esquina superior derecha
 
 ### Resultado Esperado
 
@@ -243,49 +268,27 @@ Este es un documento de prueba para el taller.
 
 Si ves esto, **¡todo está listo!** 🎉
 
+> **Si el documento no compila** después de 1-3 minutos:
+> 1. Verifica que la extensión **LaTeX Workshop** de James Yu esté instalada en VS Code
+> 2. Verifica que **MiKTeX Console** no tenga actualizaciones pendientes
+> 3. Reinicia VS Code y vuelve a intentar
+> 4. Instala las extensiones adicionales que aparecen en la siguiente captura desde el panel de Extensiones (el ícono de 3 cuadrados en la barra lateral izquierda, o `Ctrl+Shift+X`). Luego intenta compilar de nuevo con `Ctrl+Alt+B` y ver el PDF con `Ctrl+Alt+V`:
+>
+> ![Extensiones recomendadas para LaTeX en VS Code](image.png)
+>
+> Después de seguir estos pasos, **¡todo está listo!** 🎉
 
-¡¡ Importante !!
-
-Si el documento no compila después de 1-3 minutos, intenta instalar las siguientes extensiones de latexen VSC y cuando las tengas todas instaladas, intenta compilar y visualizar el pdf nuevamente: 
-
-![alt text](image.png)
-
----
-
-## Solución de Problemas durante la instalación
-
-| Problema | Solución |
-|----------|----------|
-| Comando `git` no encontrado | Reiniciar PowerShell, o reinstalar Git con la opción "Add to PATH" |
-| `pdflatex` no encontrado | Reiniciar la computadora, o agregar MiKTeX al PATH manualmente (pídanle ayuda a un asistente de IA para saber como hacer eso)|
-| `perl` no encontrado | Reiniciar PowerShell después de instalar Strawberry Perl |
-| LaTeX no compila en VS Code | Revisar MiKTeX Console por actualizaciones, reiniciar VS Code |
-| El PDF no aparece | Esperar unos segundos, o presionar `Ctrl+Alt+V` |
+> 📖 Fuente oficial: [LaTeX Workshop - Marketplace](https://marketplace.visualstudio.com/items?itemName=James-Yu.latex-workshop)
 
 ---
 
-## Rutas Importantes en Windows (Español)
+## Referencias Oficiales Consultadas
 
-Si necesitas encontrar archivos o carpetas, aquí están las rutas típicas:
-
-| Elemento | Ruta en Windows |
-|----------|-----------------|
-| Carpeta de usuario | `C:\Users\TuNombre\` |
-| Documentos | `C:\Users\TuNombre\Documentos\` o `C:\Users\TuNombre\Documents\` |
-| Descargas | `C:\Users\TuNombre\Descargas\` o `C:\Users\TuNombre\Downloads\` |
-| MiKTeX | `C:\Users\TuNombre\AppData\Local\Programs\MiKTeX\` |
-| Git | `C:\Program Files\Git\` |
-
-> **Nota**: En Windows en español, algunas carpetas como "Documentos" y "Descargas" pueden aparecer traducidas en el Explorador de archivos, pero la ruta real puede seguir siendo en inglés (Documents, Downloads).
-
----
-
-## ¿Qué Sigue?
-
-Como **colaborador**, en el taller:
-1. Clonarás el repositorio desde GitHub
-2. Editarás archivos localmente en VS Code
-3. Harás commits y push de tus cambios
-4. Crearás Pull Requests para revisión
-
-¡Nos vemos en el taller! 🚀
+| Recurso | URL |
+|---------|-----|
+| Git Download | [git-scm.com/download/win](https://git-scm.com/download/win) |
+| Git Installation Guide | [git-scm.com/book/en/v2/Getting-Started-Installing-Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) |
+| VS Code Setup | [code.visualstudio.com/docs/setup/setup-overview](https://code.visualstudio.com/docs/setup/setup-overview) |
+| MiKTeX Installation | [miktex.org/howto/install-miktex](https://miktex.org/howto/install-miktex) |
+| Strawberry Perl | [strawberryperl.com](https://strawberryperl.com/) |
+| LaTeX Workshop | [marketplace.visualstudio.com/items?itemName=James-Yu.latex-workshop](https://marketplace.visualstudio.com/items?itemName=James-Yu.latex-workshop) |

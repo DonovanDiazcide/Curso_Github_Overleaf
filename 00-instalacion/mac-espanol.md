@@ -16,9 +16,18 @@
 | Git | ✅ | `git --version` |
 | Visual Studio Code | ✅ | Se abre desde Launchpad o Aplicaciones |
 | MacTeX | ✅ | `pdflatex --version` |
-| Extensión LaTeX Workshop | ✅ | Aparece ícono en VS Code |
+| Extensión LaTeX Workshop | ✅ | Aparece ícono en VS Code (aunque no necesariamente) |
 
 > **Nota sobre Perl**: MacTeX **ya incluye Perl**, no necesitas instalarlo por separado (a diferencia de Windows).
+
+> **💡 ¿Ya tienes GitHub, Git y VS Code?** Verifica rápidamente abriendo **Terminal** y ejecutando:
+> ```bash
+> git --version
+> code --version
+> ```
+> Si ambos comandos muestran una versión y puedes iniciar sesión en [github.com](https://github.com), ¡continúa directamente con el **[Paso 4: MacTeX](#paso-4-mactex-20-30-min)**!
+> 
+> *Nota: Si `code --version` no funciona, abre VS Code manualmente desde Aplicaciones — el comando en terminal es opcional.*
 
 ---
 
@@ -90,7 +99,7 @@ git config --list
 ### Instalación
 
 1. **Busca el archivo descargado**: 
-   - Abre **Finder** → **Descargas** (o presiona `Cmd + Shift + J` en el navegador)
+   - Abre **Finder** → **Descargas**
    - Busca `VSCode-darwin-universal.zip` (o similar)
 
 2. **Descomprime el archivo**:
@@ -216,38 +225,53 @@ perl --version
 ### Ubicación de MacTeX
 
 MacTeX se instala en:
-- `/usr/local/texlive/2025/` — Los binarios de TeX Live
+- `/usr/local/texlive/` — Los binarios de TeX Live (la subcarpeta será del año de tu versión, ej: `2024`, `2025`)
 - `/Applications/TeX/` — Aplicaciones GUI (TeXShop, BibDesk, etc.)
 
-> 📖 Fuente: *"MacTeX installs TeX Live in /usr/local/texlive/2025. MacTeX completely configures TeX, so after installation it is ready to use."* — [TUG MacTeX](https://www.tug.org/mactex/mactex-download.html)
+> 📖 Fuente: *"MacTeX installs TeX Live in /usr/local/texlive/. MacTeX completely configures TeX, so after installation it is ready to use."* — [TUG MacTeX](https://www.tug.org/mactex/mactex-download.html)
 
 ---
 
 ## Paso 5: Extensión LaTeX Workshop (2 min)
 
 1. Abrir **Visual Studio Code**
-2. Clic en el **ícono de Extensiones** en la barra lateral izquierda (o presiona `Cmd + Shift + X`)
+2. Clic en el **ícono de Extensiones** en la barra lateral izquierda (el ícono de 3 cuadrados, o presiona `Cmd + Shift + X`)
 3. En la caja de búsqueda, escribir: **"LaTeX Workshop"**
 4. Buscar la extensión de **James Yu** (debería ser el primer resultado)
 5. Clic en **Install** (Instalar)
 
 ### Verificar Instalación
 
-- Un **ícono de TeX** (se ve como "TEX") debería aparecer en la barra lateral izquierda
-- Cuando abras un archivo `.tex`, verás opciones específicas de LaTeX
+Vamos a crear un archivo LaTeX sencillo para comprobar que todo funciona.
 
-> 📖 Fuente oficial: [LaTeX Workshop - Marketplace](https://marketplace.visualstudio.com/items?itemName=James-Yu.latex-workshop)
+#### 1. Crear la carpeta del taller
 
----
+1. Abre **Finder**
+2. Navega a tu carpeta de **Documentos** (en la barra lateral de Finder, o ve a **Ir** → **Documentos**), o a la ubicación donde quieras guardar este curso
+3. Haz clic derecho (o `Control + clic`) en un espacio vacío → **Nueva carpeta**
+4. Nombra la carpeta **`curso_latex_github`**
 
-## Prueba Final de Verificación (5 min)
+> 💡 Esta carpeta será tu espacio de trabajo durante todo el taller.
 
-### Crear un archivo de prueba
+#### 2. Abrir la carpeta en VS Code
 
-1. Abrir **Visual Studio Code**
-2. Presionar `Cmd + N` para crear un nuevo archivo
-3. Presionar `Cmd + S` para guardar, nombrarlo `test.tex`
-4. Pegar este contenido:
+1. Abre **Visual Studio Code**
+2. Ve al menú **File** (Archivo) → **Open Folder...** (Abrir carpeta...)
+3. Busca y selecciona la carpeta **`curso_latex_github`** que acabas de crear
+4. Clic en **Open** (Abrir)
+   - Si VS Code pregunta si confías en los autores de la carpeta, haz clic en **"Yes, I trust the authors"**
+
+#### 3. Crear un archivo de prueba
+
+1. En la **barra lateral izquierda** de VS Code verás el nombre de tu carpeta (`CURSO_LATEX_GITHUB`)
+2. Pasa el mouse sobre el nombre de la carpeta — aparecerán unos íconos pequeños
+3. Haz clic en el **ícono de archivo con un "+"** (Nuevo archivo / New File)
+4. Escribe el nombre **`test.tex`** y presiona Enter
+   - ⚠️ Asegúrate de que el nombre termine en `.tex`
+
+#### 4. Escribir y compilar
+
+1. Se abrirá el archivo `test.tex` en el editor. Copia y pega el siguiente contenido:
 
 ```latex
 \documentclass{article}
@@ -258,12 +282,9 @@ Este es un documento de prueba para el taller.
 \end{document}
 ```
 
-5. Presionar `Cmd + S` para guardar
-
-### Compilar y Ver
-
-- El documento debería compilarse **automáticamente** al guardar
-- Para ver el PDF: Presionar `Cmd + Option + V` o clic en el **ícono de lupa** en la esquina superior derecha
+2. Presiona `Cmd + S` para guardar
+3. **Compilar**: Presiona `Cmd + Option + B` (o también se compila **automáticamente** al guardar)
+4. **Ver el PDF**: Presiona `Cmd + Option + V` o clic en el **ícono de lupa** en la esquina superior derecha
 
 ### Resultado Esperado
 
@@ -275,68 +296,16 @@ Este es un documento de prueba para el taller.
 
 Si ves esto, **¡todo está listo!** 🎉
 
----
+> **Si el documento no compila** después de 1-3 minutos:
+> 1. Verifica que la extensión **LaTeX Workshop** de James Yu esté instalada en VS Code
+> 2. Reinicia VS Code y vuelve a intentar
+> 3. Instala las extensiones adicionales que aparecen en la siguiente captura desde el panel de Extensiones (el ícono de 3 cuadrados en la barra lateral izquierda, o `Cmd + Shift + X`). Luego intenta compilar de nuevo con `Cmd + Option + B` y ver el PDF con `Cmd + Option + V`:
+>
+> ![Extensiones recomendadas para LaTeX en VS Code](image.png)
+>
+> Después de seguir estos pasos, **¡todo está listo!** 🎉
 
-## Solución de Problemas
-
-| Problema | Solución |
-|----------|----------|
-| Comando `git` no encontrado | Instalar Command Line Tools: `xcode-select --install` |
-| `pdflatex` no encontrado | Reiniciar Terminal. Si persiste, agregar al PATH (ver abajo) |
-| VS Code no encuentra LaTeX | Reiniciar VS Code después de instalar MacTeX |
-| Instalador de MacTeX se congela | Esperar — la pausa al final es normal. Si pasa más de 30 min, reiniciar Mac e intentar de nuevo |
-| macOS bloquea la apertura de apps | Ir a **Preferencias del Sistema** → **Privacidad y seguridad** → Permitir la app |
-
-### Si `pdflatex` no se encuentra después de reiniciar Terminal
-
-Agregar MacTeX al PATH manualmente. En Terminal:
-
-```bash
-echo 'export PATH="/usr/local/texlive/2025/bin/universal-darwin:$PATH"' >> ~/.zshrc
-source ~/.zshrc
-```
-
-Luego verifica con `pdflatex --version`.
-
----
-
-## Atajos de Teclado en Mac vs Windows
-
-Para el taller, estos son los equivalentes:
-
-| Acción | Windows | Mac |
-|--------|---------|-----|
-| Guardar | `Ctrl + S` | `Cmd + S` |
-| Nuevo archivo | `Ctrl + N` | `Cmd + N` |
-| Abrir terminal en VS Code | `` Ctrl + ` `` | `` Cmd + ` `` |
-| Ver PDF en LaTeX Workshop | `Ctrl + Alt + V` | `Cmd + Option + V` |
-| Paleta de comandos | `Ctrl + Shift + P` | `Cmd + Shift + P` |
-| Buscar extensiones | `Ctrl + Shift + X` | `Cmd + Shift + X` |
-
----
-
-## Rutas Importantes en macOS
-
-| Elemento | Ruta |
-|----------|------|
-| Carpeta de usuario | `/Users/TuNombre/` o `~` |
-| Documentos | `~/Documents/` |
-| Descargas | `~/Downloads/` |
-| Aplicaciones | `/Applications/` |
-| MacTeX/TeX Live | `/usr/local/texlive/2025/` |
-| Aplicaciones de TeX | `/Applications/TeX/` |
-
----
-
-## ¿Qué Sigue?
-
-Como **colaborador**, en el taller:
-1. Clonarás el repositorio desde GitHub
-2. Editarás archivos localmente en VS Code
-3. Harás commits y push de tus cambios
-4. Crearás Pull Requests para revisión
-
-¡Nos vemos en el taller! 🚀
+> 📖 Fuente oficial: [LaTeX Workshop - Marketplace](https://marketplace.visualstudio.com/items?itemName=James-Yu.latex-workshop)
 
 ---
 
