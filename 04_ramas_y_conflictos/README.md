@@ -64,6 +64,8 @@ main ●────●────●────●───────●─
 
 Cada participante creará su propia rama para trabajar de forma aislada.
 
+> 💡 El flujo sigue siendo el mismo: **editas local → commit → push a GitHub**. La única diferencia es que ahora subes a **tu rama** en vez de directamente a `main`, y usas un **Pull Request** para integrar.
+
 ### Paso 1: Asegurarse de estar actualizado
 
 ```bash
@@ -212,11 +214,12 @@ git pull origin main
 Un conflicto ocurre cuando **dos personas modifican la misma línea** del mismo archivo.
 
 ```
-       José Miguel                    Rodrigo
+       Mauricio (en main)           José Miguel (en su rama)
             │                             │
             ▼                             ▼
-   Cambió línea 15 de              Cambió línea 15 de
+   Cambió título de               Cambió título de
    introduction.tex                introduction.tex
+   (línea 1: \section{...})       (línea 1: \section{...})
             │                             │
             └──────────┬──────────────────┘
                        │
@@ -350,12 +353,20 @@ git add sections/introduction.tex
 git commit -m "Resuelto conflicto en título de introducción: combiné ambas versiones"
 ```
 
-#### Paso 6: Continuar con tu trabajo
+#### Paso 6: Verificar que compila localmente
+
+Antes de subir, asegúrate de que el documento sigue compilando correctamente:
+
+1. Guarda el archivo en VS Code (`Ctrl+S` / `Cmd+S`)
+2. Revisa que el PDF se genere sin errores
+3. Si todo está bien, continúa:
 
 ```bash
 # Subir tu rama actualizada
 git push origin jose-introduccion
 ```
+
+> 💡 Recuerda: incluso al trabajar con ramas, el flujo sigue siendo **Local → GitHub → Overleaf**. Primero verificas que funciona en tu máquina, luego subes.
 
 ### VS Code: Herramientas visuales para conflictos
 
