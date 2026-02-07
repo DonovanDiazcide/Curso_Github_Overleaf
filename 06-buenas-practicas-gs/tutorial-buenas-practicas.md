@@ -350,6 +350,10 @@ Tu flujo diario:
 #!/bin/bash
 make check
 ```
+Después hazlo ejecutable:
+```bash
+chmod +x .git/hooks/pre-commit
+```
 Esto ejecuta `make check` automáticamente cada vez que haces commit.
 Si falla, el commit se cancela.
 
