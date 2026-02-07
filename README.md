@@ -1,9 +1,37 @@
 # Taller: Colaboración en Artículos Académicos
 ## Git + GitHub + Overleaf + VS Code
 
+[![Compilar LaTeX](https://github.com/DonovanDiazcide/Curso_Github_Overleaf/actions/workflows/compile-latex.yml/badge.svg)](https://github.com/DonovanDiazcide/Curso_Github_Overleaf/actions/workflows/compile-latex.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![DOI](https://img.shields.io/badge/cite-CITATION.cff-blue)](CITATION.cff)
+
 > **Duración**: 2 horas  
 > **Modalidad**: Práctica guiada  
-> **Producto final**: Artículo de práctica con contribuciones de todos los participantes
+> **Producto final**: Artículo de práctica con contribuciones de todos los participantes  
+> **Basado en**: [arXiv:2408.09344](https://arxiv.org/abs/2408.09344) - GitHub para investigación colaborativa y reproducible
+
+---
+
+## 📚 Tabla de Contenidos
+
+- [🎯 Objetivo](#-objetivo)
+- [👥 Participantes](#-participantes)
+- [📋 Antes del Taller: Instalación](#-antes-del-taller-instalación)
+- [📚 Contenido del Taller](#-contenido-del-taller)
+- [🔄 El Flujo de Trabajo](#-el-flujo-de-trabajo)
+- [📁 Estructura del Repositorio](#-estructura-del-repositorio)
+- [🤝 Contribuir](#-contribuir)
+- [📖 Cómo Citar](#-cómo-citar)
+- [📜 Licencia](#-licencia)
+
+## 📖 Documentación Adicional
+
+Este proyecto sigue las mejores prácticas de investigación reproducible:
+
+- 📘 **[Guía de Reproducibilidad](REPRODUCIBILITY.md)** - Instalación paso a paso y verificación
+- 🧪 **[Guía de Pruebas](TESTING.md)** - Evidencia de testing desde perspectiva de usuario inexperto
+- 📊 **[Implementación del Artículo](ARTICLE_IMPLEMENTATION.md)** - Cómo cada recomendación de arXiv:2408.09344 fue implementada
+- 🤝 **[Guía de Contribución](CONTRIBUTING.md)** - Cómo contribuir al proyecto
 
 ---
 
@@ -220,9 +248,70 @@ Este taller incluye:
 
 ---
 
-## 📝 Licencia
+## 🤝 Contribuir
 
-Este material está disponible para uso educativo. Siéntete libre de adaptarlo para tus propios talleres.
+¡Las contribuciones son bienvenidas! Si encuentras un error, tienes una sugerencia, o quieres mejorar el material:
+
+1. **Reporta problemas**: Abre un [Issue](https://github.com/DonovanDiazcide/Curso_Github_Overleaf/issues/new/choose)
+2. **Propón mejoras**: Lee nuestra [Guía de Contribución](CONTRIBUTING.md)
+3. **Envía cambios**: Crea un Pull Request siguiendo el template
+
+### Áreas donde puedes contribuir
+
+- 🐛 Reportar bugs o errores en las instrucciones
+- 📝 Mejorar la documentación y tutoriales
+- 🌍 Traducir material a otros idiomas
+- ✨ Agregar nuevos ejemplos o casos de uso
+- 🎨 Mejorar diagramas y visualizaciones
+- ✅ Agregar tests o validaciones
+
+---
+
+## 📖 Cómo Citar
+
+Si usas este material en tu curso, taller, o publicación, por favor cita:
+
+### Formato APA
+
+```
+Curso GitHub Overleaf Contributors. (2026). Taller: Colaboración en Artículos 
+Académicos con Git, GitHub y Overleaf [Software]. 
+https://github.com/DonovanDiazcide/Curso_Github_Overleaf
+```
+
+### BibTeX
+
+```bibtex
+@software{curso_github_overleaf_2026,
+  title = {Taller: Colaboración en Artículos Académicos con Git, GitHub y Overleaf},
+  author = {{Curso GitHub Overleaf Contributors}},
+  year = {2026},
+  url = {https://github.com/DonovanDiazcide/Curso_Github_Overleaf},
+  note = {Material educativo basado en arXiv:2408.09344}
+}
+```
+
+También puedes usar el archivo [CITATION.cff](CITATION.cff) que GitHub reconoce automáticamente.
+
+### Artículo de referencia
+
+Este taller está basado en las mejores prácticas descritas en:
+
+> Pérez, F., et al. (2024). GitHub is an effective platform for collaborative 
+> and reproducible laboratory research. *arXiv preprint arXiv:2408.09344*.
+
+---
+
+## 📜 Licencia
+
+Este proyecto está licenciado bajo la Licencia MIT - ver el archivo [LICENSE](LICENSE) para más detalles.
+
+**En resumen:**
+- ✅ Uso comercial
+- ✅ Modificación
+- ✅ Distribución
+- ✅ Uso privado
+- ℹ️ Incluir aviso de licencia y copyright
 
 ---
 
@@ -230,10 +319,23 @@ Este material está disponible para uso educativo. Siéntete libre de adaptarlo 
 
 Desarrollado para el taller de colaboración académica.
 
-**Referencias académicas**:
-- arXiv:2408.09344 - "GitHub is an effective platform for collaborative and reproducible laboratory research"
+**Basado en investigación de:**
+- [arXiv:2408.09344](https://arxiv.org/abs/2408.09344) - "GitHub is an effective platform for collaborative and reproducible laboratory research" (Pérez et al., 2024)
 - [KRR-UP LaTeX Collaboration Guide](https://github.com/krr-up/latex-collaboration-guide)
 - [Noble Lab: 10 Tips for Collaborative Writing](https://willfondrie.com/2024/02/10-tips-for-collaborative-writing-with-latex-and-github/)
+
+**Herramientas utilizadas:**
+- [Git](https://git-scm.com/) - Control de versiones distribuido
+- [GitHub](https://github.com/) - Plataforma de colaboración
+- [Overleaf](https://www.overleaf.com/) - Editor LaTeX en línea
+- [VS Code](https://code.visualstudio.com/) - Editor de código
+- [LaTeX Workshop](https://marketplace.visualstudio.com/items?itemName=James-Yu.latex-workshop) - Extensión para VS Code
+
+---
+
+## 🌟 Agradecimientos
+
+Gracias a todos los participantes y contribuidores que han ayudado a mejorar este material educativo.
 
 ---
 
