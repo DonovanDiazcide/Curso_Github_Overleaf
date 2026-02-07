@@ -338,6 +338,5 @@ Desarrollado para el taller de colaboración académica.
 Gracias a todos los participantes y contribuidores que han ayudado a mejorar este material educativo.
 
 ---
----
 
 *¿Preguntas o sugerencias? Abre un Issue en este repositorio.*

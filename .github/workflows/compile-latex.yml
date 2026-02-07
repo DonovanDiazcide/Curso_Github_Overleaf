@@ -13,6 +13,9 @@ on:
       - '**.tex'
       - '**.bib'
 
+permissions:
+  contents: read
+
 jobs:
   compile-latex:
     runs-on: ubuntu-latest
