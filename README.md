@@ -24,6 +24,15 @@
 - [📖 Cómo Citar](#-cómo-citar)
 - [📜 Licencia](#-licencia)
 
+## 📖 Documentación Adicional
+
+Este proyecto sigue las mejores prácticas de investigación reproducible:
+
+- 📘 **[Guía de Reproducibilidad](REPRODUCIBILITY.md)** - Instalación paso a paso y verificación
+- 🧪 **[Guía de Pruebas](TESTING.md)** - Evidencia de testing desde perspectiva de usuario inexperto
+- 📊 **[Implementación del Artículo](ARTICLE_IMPLEMENTATION.md)** - Cómo cada recomendación de arXiv:2408.09344 fue implementada
+- 🤝 **[Guía de Contribución](CONTRIBUTING.md)** - Cómo contribuir al proyecto
+
 ---
 
 ## 🎯 Objetivo
