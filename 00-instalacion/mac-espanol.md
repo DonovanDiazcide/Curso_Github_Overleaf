@@ -235,7 +235,7 @@ MacTeX se instala en:
 ## Paso 5: Extensión LaTeX Workshop (2 min)
 
 1. Abrir **Visual Studio Code**
-2. Clic en el **ícono de Extensiones** en la barra lateral izquierda (el ícono de 3 cuadrados, o presiona `Cmd + Shift + X`)
+2. Clic en el **ícono de Extensiones** en la barra lateral izquierda (el ícono de 3 cuadrados y un rombo, o presiona `Cmd + Shift + X`)
 3. En la caja de búsqueda, escribir: **"LaTeX Workshop"**
 4. Buscar la extensión de **James Yu** (debería ser el primer resultado)
 5. Clic en **Install** (Instalar)
@@ -283,8 +283,37 @@ Este es un documento de prueba para el taller.
 ```
 
 2. Presiona `Cmd + S` para guardar
-3. **Compilar**: Presiona `Cmd + Option + B` (o también se compila **automáticamente** al guardar)
-4. **Ver el PDF**: Presiona `Cmd + Option + V` o clic en el **ícono de lupa** en la esquina superior derecha
+3. **Compilar**: Presiona `Cmd + Option + B`
+   - ⚠️ **La primera vez** que compilas un archivo LaTeX es necesario usar `Cmd + Option + B`. Después de esta primera compilación, el documento se recompilará **automáticamente** cada vez que guardes con `Cmd + S`.
+   - En la **barra inferior** de VS Code (la barra azul en la parte de abajo) verás un ícono girando — eso significa que LaTeX está compilando tu documento. **Espera unos segundos** hasta que termine antes de continuar.
+4. **Ver el PDF**: Una vez que la barra inferior deje de mostrar actividad, presiona `Cmd + Option + V` o haz clic en el **ícono de lupa** en la esquina superior derecha
+
+#### 5. Ocultar archivos auxiliares (opcional pero recomendado)
+
+Al compilar, LaTeX genera varios archivos auxiliares (`.aux`, `.log`, `.fls`, etc.) que llenarán tu explorador de archivos en VS Code. Para ocultarlos **en todos tus proyectos de LaTeX** (no solo en esta carpeta):
+
+1. En VS Code, ve al menú **Terminal** → **New Terminal** (Nuevo terminal) — se abrirá una terminal en la parte inferior de VS Code
+2. Copia y pega el siguiente comando completo y presiona **Enter**:
+
+```bash
+FILE="$HOME/Library/Application Support/Code/User/settings.json"
+python3 -c "
+import json, os
+path = os.path.expanduser('~/Library/Application Support/Code/User/settings.json')
+with open(path,'r') as f: s=json.load(f)
+if 'files.exclude' not in s: s['files.exclude']={}
+for ext in ['**/*.aux','**/*.log','**/*.out','**/*.toc','**/*.synctex.gz','**/*.fls','**/*.fdb_latexmk','**/*.bbl','**/*.blg']:
+    s['files.exclude'][ext]=True
+with open(path,'w') as f: json.dump(s,f,indent=4)
+print('Listo - archivos auxiliares ocultos en VS Code')
+"
+```
+
+> 💡 Este comando modifica las **configuraciones globales** de VS Code, así que funciona para cualquier carpeta que abras en el futuro — no necesitas repetirlo.
+>
+> Si el comando no funciona o prefieres otra forma, puedes copiar este prompt en **ChatGPT** o cualquier asistente de IA:
+>
+> *"Necesito ocultar los archivos auxiliares de LaTeX (.aux, .log, .out, .toc, .synctex.gz, .fls, .fdb_latexmk, .bbl, .blg) del explorador de archivos de VS Code en macOS. Dame los pasos para hacerlo desde la configuración de VS Code."*
 
 ### Resultado Esperado
 
@@ -296,10 +325,12 @@ Este es un documento de prueba para el taller.
 
 Si ves esto, **¡todo está listo!** 🎉
 
+> Si no funcionó, no te preocupes — justo abajo hay una guía de resolución paso a paso.
+
 > **Si el documento no compila** después de 1-3 minutos:
 > 1. Verifica que la extensión **LaTeX Workshop** de James Yu esté instalada en VS Code
 > 2. Reinicia VS Code y vuelve a intentar
-> 3. Instala las extensiones adicionales que aparecen en la siguiente captura desde el panel de Extensiones (el ícono de 3 cuadrados en la barra lateral izquierda, o `Cmd + Shift + X`). Luego intenta compilar de nuevo con `Cmd + Option + B` y ver el PDF con `Cmd + Option + V`:
+> 3. Instala las extensiones adicionales que aparecen en la siguiente captura desde el panel de Extensiones (el ícono de 3 cuadrados y un rombo en la barra lateral izquierda, o `Cmd + Shift + X`). Luego intenta compilar de nuevo con `Cmd + Option + B` y ver el PDF con `Cmd + Option + V`:
 >
 > ![Extensiones recomendadas para LaTeX en VS Code](image.png)
 >

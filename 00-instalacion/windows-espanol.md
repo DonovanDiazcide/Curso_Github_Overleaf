@@ -207,7 +207,7 @@ Resultado esperado: `This is perl 5, version 38...` (o similar)
 ## Paso 6: Extensión LaTeX Workshop (2 min)
 
 1. Abrir **Visual Studio Code**
-2. Clic en el **ícono de Extensiones** en la barra lateral izquierda (el ícono de 3 cuadrados, o presionar `Ctrl+Shift+X`)
+2. Clic en el **ícono de Extensiones** en la barra lateral izquierda (el ícono de 3 cuadrados y un rombo, o presionar `Ctrl+Shift+X`)
 3. En la caja de búsqueda, escribir: **"LaTeX Workshop"**
 4. Buscar la extensión de **James Yu** (debería ser el primer resultado)
 5. Clic en **Install** (Instalar)
@@ -255,8 +255,27 @@ Este es un documento de prueba para el taller.
 ```
 
 2. Presiona `Ctrl+S` para guardar
-3. **Compilar**: Presiona `Ctrl+Alt+B` (o también se compila **automáticamente** al guardar)
-4. **Ver el PDF**: Presiona `Ctrl+Alt+V` o clic en el **ícono de lupa** en la esquina superior derecha
+3. **Compilar**: Presiona `Ctrl+Alt+B`
+   - ⚠️ **La primera vez** que compilas un archivo LaTeX es necesario usar `Ctrl+Alt+B`. Después de esta primera compilación, el documento se recompilará **automáticamente** cada vez que guardes con `Ctrl+S`.
+   - En la **barra inferior** de VS Code (la barra azul en la parte de abajo) verás un ícono girando — eso significa que LaTeX está compilando tu documento. **Espera unos segundos** hasta que termine antes de continuar.
+4. **Ver el PDF**: Una vez que la barra inferior deje de mostrar actividad, presiona `Ctrl+Alt+V` o haz clic en el **ícono de lupa** en la esquina superior derecha
+
+#### 5. Ocultar archivos auxiliares (opcional pero recomendado)
+
+Al compilar, LaTeX genera varios archivos auxiliares (`.aux`, `.log`, `.fls`, etc.) que llenarán tu explorador de archivos en VS Code. Para ocultarlos **en todos tus proyectos de LaTeX** (no solo en esta carpeta):
+
+1. En VS Code, ve al menú **Terminal** → **Nuevo terminal** (New Terminal) — se abrirá una terminal en la parte inferior de VS Code
+2. Copia y pega el siguiente comando completo y presiona **Enter**:
+
+```powershell
+$p="$env:APPDATA\Code\User\settings.json"; $s=Get-Content $p -Raw|ConvertFrom-Json; if(-not $s.'files.exclude'){$s|Add-Member -NotePropertyName 'files.exclude' -NotePropertyValue ([PSCustomObject]@{})}; @('**/*.aux','**/*.log','**/*.out','**/*.toc','**/*.synctex.gz','**/*.fls','**/*.fdb_latexmk','**/*.bbl','**/*.blg')|ForEach-Object{$s.'files.exclude'|Add-Member -NotePropertyName $_ -NotePropertyValue $true -Force}; $s|ConvertTo-Json -Depth 4|Set-Content -Encoding UTF8 $p; Write-Host "Listo - archivos auxiliares ocultos en VS Code"
+```
+
+> 💡 Este comando modifica las **configuraciones globales** de VS Code, así que funciona para cualquier carpeta que abras en el futuro — no necesitas repetirlo.
+>
+> Si el comando no funciona o prefieres otra forma, puedes copiar este prompt en **ChatGPT** o cualquier asistente de IA:
+>
+> *"Necesito ocultar los archivos auxiliares de LaTeX (.aux, .log, .out, .toc, .synctex.gz, .fls, .fdb_latexmk, .bbl, .blg) del explorador de archivos de VS Code en Windows. Dame los pasos para hacerlo desde la configuración de VS Code."*
 
 ### Resultado Esperado
 
@@ -268,11 +287,13 @@ Este es un documento de prueba para el taller.
 
 Si ves esto, **¡todo está listo!** 🎉
 
+> Si no funcionó, no te preocupes — justo abajo hay una guía de resolución paso a paso.
+
 > **Si el documento no compila** después de 1-3 minutos:
 > 1. Verifica que la extensión **LaTeX Workshop** de James Yu esté instalada en VS Code
 > 2. Verifica que **MiKTeX Console** no tenga actualizaciones pendientes
 > 3. Reinicia VS Code y vuelve a intentar
-> 4. Instala las extensiones adicionales que aparecen en la siguiente captura desde el panel de Extensiones (el ícono de 3 cuadrados en la barra lateral izquierda, o `Ctrl+Shift+X`). Luego intenta compilar de nuevo con `Ctrl+Alt+B` y ver el PDF con `Ctrl+Alt+V`:
+> 4. Instala las extensiones adicionales que aparecen en la siguiente captura desde el panel de Extensiones (el ícono de 3 cuadrados y un rombo en la barra lateral izquierda, o `Ctrl+Shift+X`). Luego intenta compilar de nuevo con `Ctrl+Alt+B` y ver el PDF con `Ctrl+Alt+V`:
 >
 > ![Extensiones recomendadas para LaTeX en VS Code](image.png)
 >

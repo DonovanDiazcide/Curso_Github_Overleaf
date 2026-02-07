@@ -207,7 +207,7 @@ Expected output: `This is perl 5, version 38...` (or similar)
 ## Step 6: LaTeX Workshop Extension (2 min)
 
 1. Open **Visual Studio Code**
-2. Click the **Extensions icon** in the left sidebar (the icon with 3 squares, or press `Ctrl+Shift+X`)
+2. Click the **Extensions icon** in the left sidebar (the icon with 3 squares and a diamond, or press `Ctrl+Shift+X`)
 3. In the search box, type: **"LaTeX Workshop"**
 4. Find the extension by **James Yu** (should be the first result)
 5. Click **Install**
@@ -255,8 +255,27 @@ This is a test document for the workshop.
 ```
 
 2. Press `Ctrl+S` to save
-3. **Build**: Press `Ctrl+Alt+B` (it also compiles **automatically** when you save)
-4. **View the PDF**: Press `Ctrl+Alt+V` or click the **magnifying glass icon** in the top right
+3. **Build**: Press `Ctrl+Alt+B`
+   - ⚠️ **The first time** you compile a LaTeX file, you must use `Ctrl+Alt+B`. After this first build, the document will recompile **automatically** every time you save with `Ctrl+S`.
+   - In the **bottom bar** of VS Code (the blue bar at the bottom) you'll see a spinning icon — this means LaTeX is building your document. **Wait a few seconds** until it finishes before continuing.
+4. **View the PDF**: Once the bottom bar stops showing activity, press `Ctrl+Alt+V` or click the **magnifying glass icon** in the top right
+
+#### 5. Hide auxiliary files (optional but recommended)
+
+When compiling, LaTeX generates several auxiliary files (`.aux`, `.log`, `.fls`, etc.) that will clutter your file explorer in VS Code. To hide them **across all your LaTeX projects** (not just this folder):
+
+1. In VS Code, go to the menu **Terminal** → **New Terminal** — a terminal will open at the bottom of VS Code
+2. Copy and paste the following command and press **Enter**:
+
+```powershell
+$p="$env:APPDATA\Code\User\settings.json"; $s=Get-Content $p -Raw|ConvertFrom-Json; if(-not $s.'files.exclude'){$s|Add-Member -NotePropertyName 'files.exclude' -NotePropertyValue ([PSCustomObject]@{})}; @('**/*.aux','**/*.log','**/*.out','**/*.toc','**/*.synctex.gz','**/*.fls','**/*.fdb_latexmk','**/*.bbl','**/*.blg')|ForEach-Object{$s.'files.exclude'|Add-Member -NotePropertyName $_ -NotePropertyValue $true -Force}; $s|ConvertTo-Json -Depth 4|Set-Content -Encoding UTF8 $p; Write-Host "Done - auxiliary files hidden in VS Code"
+```
+
+> 💡 This command modifies your **global VS Code settings**, so it works for any folder you open in the future — you don't need to run it again.
+>
+> If the command doesn't work or you prefer another way, you can copy this prompt into **ChatGPT** or any AI assistant:
+>
+> *"I need to hide LaTeX auxiliary files (.aux, .log, .out, .toc, .synctex.gz, .fls, .fdb_latexmk, .bbl, .blg) from VS Code's file explorer on Windows. Give me the steps to do it from VS Code settings."*
 
 ### Expected Result
 
@@ -268,11 +287,13 @@ This is a test document for the workshop.
 
 If you see this, **everything is ready!** 🎉
 
+> If it didn't work, don't worry — there's a step-by-step troubleshooting guide right below.
+
 > **If the document doesn't compile** after 1-3 minutes:
 > 1. Verify that the **LaTeX Workshop** extension by James Yu is installed in VS Code
 > 2. Verify that **MiKTeX Console** has no pending updates
 > 3. Restart VS Code and try again
-> 4. Install the additional extensions shown in the screenshot below from the Extensions panel (the 3-squares icon in the left sidebar, or `Ctrl+Shift+X`). Then try compiling again with `Ctrl+Alt+B` and viewing the PDF with `Ctrl+Alt+V`:
+> 4. Install the additional extensions shown in the screenshot below from the Extensions panel (the 3-squares-and-a-diamond icon in the left sidebar, or `Ctrl+Shift+X`). Then try compiling again with `Ctrl+Alt+B` and viewing the PDF with `Ctrl+Alt+V`:
 >
 > ![Recommended extensions for LaTeX in VS Code](image.png)
 >
