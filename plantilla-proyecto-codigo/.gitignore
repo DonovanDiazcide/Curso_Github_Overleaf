@@ -12,11 +12,10 @@
 *.fls
 
 # ── Resultados generados (se regeneran con "make") ───────────
-# Descomenta las siguientes líneas si quieres ignorar resultados:
-# resultados/figuras/*.png
-# resultados/figuras/*.pdf
-# resultados/tablas/*.tex
-# resultados/tablas/*.csv
+resultados/figuras/*.png
+resultados/figuras/*.pdf
+resultados/tablas/*.tex
+resultados/tablas/*.csv
 
 # ── Datos limpios (se regeneran desde datos crudos) ──────────
 datos/limpios/*.csv
