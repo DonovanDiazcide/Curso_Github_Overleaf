@@ -16,9 +16,14 @@ on:
       - 'articulo-prueba/**'
       - 'plantilla-articulo/**'
 
+permissions:
+  contents: read
+
 jobs:
   build-articulo-prueba:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -39,6 +44,8 @@ jobs:
           
   build-plantilla:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
