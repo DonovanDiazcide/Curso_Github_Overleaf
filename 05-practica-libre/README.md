@@ -520,4 +520,6 @@ Comparte tus comentarios para mejorar futuras versiones.
 
 **Anterior**: [← Parte 4 - Ramas y Conflictos](../04_ramas_y_conflictos/README.md)
 
+**Siguiente**: [Parte 6 - Principios de Código y Datos →](../06-code-and-data/README.md)
+
 **Volver al inicio**: [README principal](../README.md)

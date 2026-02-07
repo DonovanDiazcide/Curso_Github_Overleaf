@@ -110,6 +110,27 @@ articulo/
 
 ---
 
+## 📦 Proyecto con Código y Datos (Gentzkow & Shapiro)
+
+```
+proyecto/
+├── codigo/           ← Scripts (versionados)
+├── datos/
+│   ├── crudos/       ← NUNCA modificar
+│   └── limpios/      ← Regenerables
+├── resultados/       ← Generados por scripts
+├── documentos/       ← Artículo LaTeX
+├── Makefile          ← "make" ejecuta todo
+└── README.md         ← Documentación
+```
+
+**Reglas clave:**
+- Datos crudos son **sagrados** (no se editan)
+- `make` regenera todo desde cero
+- Todo lo generado va en `.gitignore`
+
+---
+
 ## 🔗 Enlaces Útiles
 
 - **Este taller**: [github.com/DonovanDiazcide/Curso_Github_Overleaf](https://github.com/DonovanDiazcide/Curso_Github_Overleaf)
