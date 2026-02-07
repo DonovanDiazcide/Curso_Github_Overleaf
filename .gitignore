@@ -1,0 +1,24 @@
+# Archivos temporales de LaTeX
+*.aux
+*.log
+*.out
+*.toc
+*.lof
+*.lot
+*.bbl
+*.blg
+*.synctex.gz
+*.fdb_latexmk
+*.fls
+
+# Archivos de respaldo
+*.bak
+*~
+
+# Archivos del sistema operativo
+.DS_Store
+Thumbs.db
+
+# Directorios de salida/temporales de compilación
+output/
+temp/
