@@ -59,7 +59,8 @@ pdflatex --version   # → pdfTeX 3.x (TeX Live 202x)
 | 0:45 - 1:15 | **Parte 3** | Flujo básico: add → commit → push | [`03-flujo-basico/`](03-flujo-basico/README.md) |
 | 1:15 - 1:35 | **Parte 4** | Ramas, PRs, conflictos | [`04_ramas_y_conflictos/`](04_ramas_y_conflictos/README.md) |
 | 1:35 - 1:55 | **Parte 5** | Práctica libre | [`05-practica-libre/`](05-practica-libre/README.md) |
-| 1:55 - 2:00 | Cierre | Resumen y recursos | — |
+| 1:55 - 2:25 | **Parte 6** | Buenas prácticas (Gentzkow & Shapiro) | [`06-buenas-practicas-gs/`](06-buenas-practicas-gs/tutorial-buenas-practicas.md) |
+| 2:25 - 2:30 | Cierre | Resumen y recursos | — |
 
 ---
 
@@ -116,6 +117,18 @@ taller-colaboracion-latex/
 │
 ├── 05-practica-libre/             # Parte 5: Ejercicio final
 │   └── README.md
+│
+├── 06-buenas-practicas-gs/        # Parte 6: Principios G&S
+│   └── tutorial-buenas-practicas.md
+│
+├── articulo-plantilla-gs/         # Plantilla con buenas prácticas G&S
+│   ├── main.tex
+│   ├── Makefile
+│   ├── references.bib
+│   ├── .gitignore
+│   ├── sections/
+│   ├── figures/
+│   └── scripts/
 │
 ├── taller-otree-git/              # 🆕 Taller alternativo: Git para oTree
 │   └── README.md
@@ -231,6 +244,7 @@ Este material está disponible para uso educativo. Siéntete libre de adaptarlo 
 Desarrollado para el taller de colaboración académica.
 
 **Referencias académicas**:
+- Gentzkow, M. & Shapiro, J.M. (2014). *Code and Data for the Social Sciences: A Practitioner's Guide.* https://web.stanford.edu/~gentzkow/research/CodeAndData.pdf
 - arXiv:2408.09344 - "GitHub is an effective platform for collaborative and reproducible laboratory research"
 - [KRR-UP LaTeX Collaboration Guide](https://github.com/krr-up/latex-collaboration-guide)
 - [Noble Lab: 10 Tips for Collaborative Writing](https://willfondrie.com/2024/02/10-tips-for-collaborative-writing-with-latex-and-github/)
