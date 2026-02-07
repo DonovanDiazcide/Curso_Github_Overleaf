@@ -1,0 +1,65 @@
+name: Compile LaTeX Documents
+
+on:
+  push:
+    branches: [ main, develop ]
+    paths:
+      - '**.tex'
+      - '**.bib'
+      - 'articulo-prueba/**'
+      - 'plantilla-articulo/**'
+  pull_request:
+    branches: [ main ]
+    paths:
+      - '**.tex'
+      - '**.bib'
+      - 'articulo-prueba/**'
+      - 'plantilla-articulo/**'
+
+permissions:
+  contents: read
+
+jobs:
+  build-articulo-prueba:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        
+      - name: Compile articulo-prueba
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: main.tex
+          working_directory: articulo-prueba
+          compiler: pdflatex
+          args: -pdf -interaction=nonstopmode -file-line-error
+          
+      - name: Upload PDF artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: articulo-prueba-pdf
+          path: articulo-prueba/main.pdf
+          
+  build-plantilla:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        
+      - name: Compile plantilla-articulo
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: main.tex
+          working_directory: plantilla-articulo
+          compiler: pdflatex
+          args: -pdf -interaction=nonstopmode -file-line-error
+          
+      - name: Upload PDF artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: plantilla-articulo-pdf
+          path: plantilla-articulo/main.pdf
