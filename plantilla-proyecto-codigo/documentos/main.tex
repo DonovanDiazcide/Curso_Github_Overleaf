@@ -1,0 +1,72 @@
+\documentclass[12pt,a4paper]{article}
+
+% Paquetes básicos
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{amsmath,amsfonts,amssymb}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{booktabs}
+
+% Configuración de márgenes
+\usepackage[margin=2.5cm]{geometry}
+
+% ── Comandos reutilizables (Principio de Abstracción) ────────
+% Defínelos una vez aquí, úsalos en todo el documento.
+% Si un valor cambia, solo lo cambias en un lugar.
+\newcommand{\numparticipantes}{4}
+\newcommand{\nombreproyecto}{Proyecto de Ejemplo}
+
+% Título y autores
+\title{\nombreproyecto: Análisis de Datos}
+\author{
+    Investigador Principal\textsuperscript{1} \and
+    Colaborador\textsuperscript{1}
+}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+Este documento es una plantilla que demuestra los principios de
+\textit{Code and Data for the Social Sciences} (Gentzkow \& Shapiro, 2014)
+aplicados a un artículo académico en \LaTeX. La estructura del proyecto
+separa código, datos y documentos. Todos los resultados incluidos se
+generan automáticamente desde los scripts de análisis.
+\end{abstract}
+
+\section{Introducción}
+
+Este artículo utiliza una muestra de \numparticipantes{} participantes.
+Los datos fueron procesados mediante scripts automatizados siguiendo los
+principios de reproducibilidad.
+
+\section{Datos y Métodos}
+
+Los datos crudos se encuentran en \texttt{datos/crudos/} y nunca se
+modifican directamente. La limpieza se realiza con el script
+\texttt{codigo/01\_limpiar.py}, y el análisis con
+\texttt{codigo/02\_analizar.py}.
+
+Todo el pipeline se ejecuta con un solo comando:
+
+\begin{verbatim}
+make
+\end{verbatim}
+
+\section{Resultados}
+
+% La siguiente tabla se genera automáticamente por 02_analizar.py
+% Si los datos cambian, solo hay que ejecutar "make" de nuevo.
+\input{../resultados/tablas/resumen}
+
+\section{Conclusión}
+
+Esta plantilla demuestra que es posible mantener un proyecto de
+investigación organizado, reproducible y colaborativo usando las
+herramientas del taller (Git, GitHub, VS Code) junto con los principios
+de Gentzkow y Shapiro.
+
+\end{document}
