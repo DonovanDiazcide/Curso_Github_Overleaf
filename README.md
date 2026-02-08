@@ -1,7 +1,7 @@
 # Taller: Colaboración en Artículos Académicos
 ## Git + GitHub + Overleaf + VS Code
 
-> **Duración**: 2 horas  
+> **Duración**: 2 horas 45 minutos  
 > **Modalidad**: Práctica guiada  
 > **Producto final**: Artículo de práctica con contribuciones de todos los participantes
 
@@ -59,7 +59,8 @@ pdflatex --version   # → pdfTeX 3.x (TeX Live 202x)
 | 0:45 - 1:15 | **Parte 3** | Flujo básico: add → commit → push | [`03-flujo-basico/`](03-flujo-basico/README.md) |
 | 1:15 - 1:35 | **Parte 4** | Ramas, PRs, conflictos | [`04_ramas_y_conflictos/`](04_ramas_y_conflictos/README.md) |
 | 1:35 - 1:55 | **Parte 5** | Práctica libre | [`05-practica-libre/`](05-practica-libre/README.md) |
-| 1:55 - 2:00 | Cierre | Resumen y recursos | — |
+| 1:55 - 2:40 | **Parte 6** | Principios de Código y Datos | [`06-code-and-data/`](06-code-and-data/README.md) |
+| 2:40 - 2:45 | Cierre | Resumen y recursos | — |
 
 ---
 
@@ -117,6 +118,9 @@ taller-colaboracion-latex/
 ├── 05-practica-libre/             # Parte 5: Ejercicio final
 │   └── README.md
 │
+├── 06-code-and-data/              # Parte 6: Principios de Código y Datos
+│   └── README.md                  #   (Gentzkow & Shapiro, 2014)
+│
 ├── taller-otree-git/              # 🆕 Taller alternativo: Git para oTree
 │   └── README.md
 │
@@ -130,6 +134,14 @@ taller-colaboracion-latex/
 │   │   └── conclusion.tex
 │   ├── references.bib
 │   └── .gitignore
+│
+├── plantilla-proyecto-codigo/     # 🆕 Plantilla de proyecto con código y datos
+│   ├── README.md                  #   (estructura Gentzkow & Shapiro)
+│   ├── Makefile
+│   ├── codigo/
+│   ├── datos/
+│   ├── resultados/
+│   └── documentos/
 │
 └── recursos/                      # Material de apoyo
     ├── guia-rapida.md             # ⭐ Una página para imprimir
@@ -212,6 +224,8 @@ Este taller incluye:
 - [ ] Creé una rama
 - [ ] Creé un Pull Request
 - [ ] Resolví (o vi resolver) un conflicto
+- [ ] Entiendo la estructura de directorios de Código y Datos
+- [ ] Entiendo por qué automatizar el pipeline de investigación
 
 ### Después del taller
 - [ ] Guardé la guía rápida
@@ -231,6 +245,7 @@ Este material está disponible para uso educativo. Siéntete libre de adaptarlo 
 Desarrollado para el taller de colaboración académica.
 
 **Referencias académicas**:
+- Gentzkow, M. & Shapiro, J. M. (2014). *"Code and Data for the Social Sciences: A Practitioner's Guide"* — [web.stanford.edu/~gentzkow/research/CodeAndData.pdf](https://web.stanford.edu/~gentzkow/research/CodeAndData.pdf)
 - arXiv:2408.09344 - "GitHub is an effective platform for collaborative and reproducible laboratory research"
 - [KRR-UP LaTeX Collaboration Guide](https://github.com/krr-up/latex-collaboration-guide)
 - [Noble Lab: 10 Tips for Collaborative Writing](https://willfondrie.com/2024/02/10-tips-for-collaborative-writing-with-latex-and-github/)

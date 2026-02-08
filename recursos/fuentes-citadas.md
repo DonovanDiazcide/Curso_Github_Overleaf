@@ -112,6 +112,19 @@
 
 ## Evidencia académica
 
+### Gestión de código y datos en investigación
+
+| Recurso | Referencia | Usado en |
+|---------|------------|----------|
+| Code and Data for the Social Sciences | Gentzkow, M. & Shapiro, J. M. (2014). "Code and Data for the Social Sciences: A Practitioner's Guide" | Principios de organización de proyectos (Parte 6) |
+
+**Cita clave**:
+> *"Automate everything that can be automated. If you are doing anything by hand more than once, write a program to do it."* — Gentzkow & Shapiro (2014)
+
+> *"There are two reasons to write programs so that they can be executed with a single command: efficiency and reproducibility."* — Gentzkow & Shapiro (2014)
+
+**Enlace**: [web.stanford.edu/~gentzkow/research/CodeAndData.pdf](https://web.stanford.edu/~gentzkow/research/CodeAndData.pdf)
+
 ### Uso de GitHub en investigación
 
 | Recurso | Referencia | Usado en |

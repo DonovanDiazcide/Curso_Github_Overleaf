@@ -1,0 +1,35 @@
+# ── Archivos generados por LaTeX ──────────────────────────────
+*.aux
+*.log
+*.out
+*.toc
+*.lof
+*.lot
+*.bbl
+*.blg
+*.synctex.gz
+*.fdb_latexmk
+*.fls
+
+# ── Resultados generados (se regeneran con "make") ───────────
+resultados/figuras/*.png
+resultados/figuras/*.pdf
+resultados/tablas/*.tex
+resultados/tablas/*.csv
+
+# ── Datos limpios (se regeneran desde datos crudos) ──────────
+datos/limpios/*.csv
+
+# ── PDF del artículo (se regenera con "make pdf") ────────────
+documentos/*.pdf
+
+# ── Archivos del sistema ─────────────────────────────────────
+.DS_Store
+Thumbs.db
+*~
+*.bak
+
+# ── Entornos virtuales de Python ─────────────────────────────
+__pycache__/
+*.pyc
+.venv/
