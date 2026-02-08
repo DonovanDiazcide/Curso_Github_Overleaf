@@ -1,0 +1,97 @@
+% ============================================================================
+% main.tex — Archivo principal del artículo
+%
+% Principio G&S Capítulo 2 (Automatización):
+%   Este archivo se compila con un solo comando: make (Linux/Mac) o
+%   compilar.bat (Windows). No se necesita intervención manual.
+%
+% Principio G&S Capítulo 4 (Directorios):
+%   Las secciones viven en sections/, las figuras en figures/.
+%   Todas las referencias son locales (portables).
+%
+% Principio G&S Capítulo 7 (Documentación):
+%   El código es auto-documentado. Los comentarios explican POR QUÉ,
+%   no QUÉ. Los nombres de comandos declaran su función.
+% ============================================================================
+\documentclass[12pt,a4paper]{article}
+
+% --- Codificación e idioma ---
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+
+% --- Matemáticas ---
+\usepackage{amsmath,amsfonts,amssymb}
+
+% --- Figuras (rutas portables — G&S Cap. 4) ---
+\usepackage{graphicx}
+\graphicspath{{figures/}}
+
+% --- Referencias cruzadas e hipervínculos ---
+\usepackage{hyperref}
+\usepackage{natbib}
+
+% --- Tablas ---
+\usepackage{booktabs}
+
+% --- Márgenes ---
+\usepackage[margin=2.5cm]{geometry}
+
+% ============================================================================
+% COMANDOS REUTILIZABLES — G&S Capítulo 6 (Abstracción)
+%
+% Estos comandos eliminan redundancia: si cambia el formato de cómo
+% presentamos una herramienta o un comando, se cambia en UN solo lugar.
+% ============================================================================
+
+% Herramientas del flujo de trabajo
+\newcommand{\herramienta}[1]{\textbf{#1}}
+% Comandos de terminal
+\newcommand{\comando}[1]{\texttt{#1}}
+% Nombres de archivo
+\newcommand{\archivo}[1]{\texttt{#1}}
+% Principios de Gentzkow & Shapiro
+\newcommand{\principio}[1]{\textsc{#1}}
+% Referencia corta al artículo
+\newcommand{\gs}{Gentzkow y Shapiro (2014)}
+
+% ============================================================================
+% METADATOS
+% ============================================================================
+\title{Colaboración Académica con Git y \LaTeX:\\
+       Un Flujo de Trabajo Basado en Buenas Prácticas}
+\author{
+    Mauricio\textsuperscript{1} \and
+    José Miguel\textsuperscript{1} \and
+    Rodrigo\textsuperscript{1}
+}
+\date{\today}
+
+% ============================================================================
+% DOCUMENTO
+% ============================================================================
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+Este artículo presenta un flujo de trabajo colaborativo para la escritura
+de artículos académicos en \LaTeX{}, integrando principios de ingeniería
+de software propuestos por \gs{}. El flujo combina \herramienta{Git} para
+control de versiones, \herramienta{GitHub} para colaboración,
+\herramienta{VS Code} para edición local y \herramienta{Overleaf} para
+verificación en la nube. Se incluyen scripts de automatización que
+permiten compilar el documento completo con un solo comando.
+\end{abstract}
+
+% Secciones modulares — G&S Cap. 4: separar por función
+\input{sections/introduction}
+\input{sections/related-work}
+\input{sections/methods}
+\input{sections/results}
+\input{sections/conclusion}
+
+% Bibliografía
+\bibliographystyle{apalike}
+\bibliography{references}
+
+\end{document}

@@ -1,0 +1,47 @@
+\section{Conclusión}
+\label{sec:conclusion}
+
+En este artículo presentamos un flujo de trabajo colaborativo para la
+escritura de artículos académicos en \LaTeX{}, combinando \herramienta{Overleaf},
+\herramienta{GitHub} y \herramienta{VS Code}, e integrando los principios
+de buenas prácticas de \gs{}.
+
+\subsection{Contribuciones principales}
+\label{sec:contribuciones}
+
+Las principales contribuciones de este trabajo son:
+\begin{enumerate}
+    \item Un flujo de trabajo que integra los siete principios de \gs{}
+    \item Scripts de \principio{Automatización} que permiten compilar con
+          un solo comando (\comando{make})
+    \item Verificación pre-commit con \comando{make check}
+          (\principio{Control de versiones})
+    \item Estructura de directorios que separa entradas de salidas
+          (\principio{Directorios})
+    \item Comandos \LaTeX{} reutilizables que eliminan redundancia
+          (\principio{Abstracción})
+\end{enumerate}
+
+\subsection{Limitaciones}
+\label{sec:limitaciones}
+
+El flujo propuesto requiere que al menos un miembro del equipo tenga
+cuenta Premium de \herramienta{Overleaf} para la sincronización con
+\herramienta{GitHub}. Además, existe una curva de aprendizaje inicial
+para usuarios no familiarizados con \herramienta{Git}.
+
+\subsection{Trabajo futuro}
+\label{sec:trabajo-futuro}
+
+Como trabajo futuro, se podría explorar:
+\begin{itemize}
+    \item Integración con sistemas de gestión de referencias como Zotero
+    \item Automatización de compilación con GitHub Actions
+    \item Plantillas pre-configuradas para diferentes journals
+    \item Pre-commit hooks que ejecuten \comando{make check} automáticamente
+\end{itemize}
+
+\subsection*{Agradecimientos}
+
+Agradecemos a todos los participantes del taller por su entusiasmo
+y colaboración durante el desarrollo de este ejercicio práctico.

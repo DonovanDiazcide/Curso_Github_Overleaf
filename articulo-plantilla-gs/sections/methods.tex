@@ -1,0 +1,61 @@
+\section{Metodología}
+\label{sec:metodologia}
+
+En esta sección describimos las herramientas utilizadas y el flujo de trabajo
+propuesto, organizado según los principios de \gs{}.
+
+\subsection{Herramientas utilizadas}
+\label{sec:herramientas}
+
+El flujo de trabajo se basa en cuatro herramientas principales:
+
+\begin{itemize}
+    \item \herramienta{Git}: Sistema de control de versiones distribuido que
+    permite rastrear cambios, crear ramas para desarrollo paralelo, y fusionar
+    contribuciones de múltiples autores.
+
+    \item \herramienta{GitHub}: Plataforma en la nube que aloja repositorios
+    \herramienta{Git}, proporcionando respaldo automático, Pull Requests para
+    revisión de cambios, e Issues para gestión de tareas
+    (\principio{Gestión}, Cap.~8 de \gs{}).
+
+    \item \herramienta{VS Code}: Editor de código con extensión LaTeX Workshop
+    que permite compilación local automática y vista previa del PDF.
+
+    \item \herramienta{Overleaf}: Editor \LaTeX{} en línea con compilador en
+    la nube, utilizado como capa de verificación final mediante sincronización
+    con \herramienta{GitHub}.
+\end{itemize}
+
+\subsection{Flujo de trabajo}
+\label{sec:flujo-trabajo}
+
+El ciclo diario sigue el orden: Local $\rightarrow$ GitHub $\rightarrow$
+Overleaf. Antes de cada \comando{git push}, se ejecuta \comando{make check}
+para verificar que el documento compila correctamente
+(\principio{Control de versiones}, Cap.~3 de \gs{}).
+
+\begin{enumerate}
+    \item Obtener cambios: \comando{git pull origin main}
+    \item Editar localmente en \herramienta{VS Code}
+    \item Compilar con \comando{make} (\principio{Automatización})
+    \item Verificar: \comando{make check}
+    \item Preparar cambios: \comando{git add archivo.tex}
+    \item Guardar snapshot: \comando{git commit -m "descripción"}
+    \item Subir a \herramienta{GitHub}: \comando{git push origin main}
+    \item Verificación final: sincronizar \herramienta{Overleaf}
+\end{enumerate}
+
+\subsection{Estructura de directorios}
+\label{sec:estructura-directorios}
+
+Siguiendo el principio de \principio{Directorios} (Cap.~4 de \gs{}),
+los archivos se separan en entradas y salidas:
+
+\begin{itemize}
+    \item \archivo{sections/} --- contenido del artículo (entrada)
+    \item \archivo{figures/} --- imágenes (entrada)
+    \item \archivo{scripts/} --- automatización (entrada)
+    \item \archivo{output/} --- PDF final (salida, no en Git)
+    \item \archivo{temp/} --- archivos auxiliares (temporal, no en Git)
+\end{itemize}

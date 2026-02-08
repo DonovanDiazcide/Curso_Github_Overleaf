@@ -1,0 +1,32 @@
+# ============================================================================
+# .gitignore — Separación de entradas y salidas (G&S Capítulo 4)
+#
+# Regla: "Separate files into inputs and outputs."
+# Solo los archivos fuente (entradas) se rastrean en Git.
+# Los archivos generados (salidas y temporales) se excluyen.
+# ============================================================================
+
+# --- Archivos de salida (se regeneran con make) ---
+output/
+
+# --- Archivos temporales de LaTeX ---
+temp/
+*.aux
+*.log
+*.out
+*.toc
+*.lof
+*.lot
+*.bbl
+*.blg
+*.synctex.gz
+*.fdb_latexmk
+*.fls
+
+# --- Archivos de respaldo ---
+*.bak
+*~
+
+# --- Archivos del sistema operativo ---
+.DS_Store
+Thumbs.db
