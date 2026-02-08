@@ -154,36 +154,36 @@ Hasta aquí, Git guarda todo el historial en **su computadora local**. Eso es po
 
 Antes de continuar, pongamos a prueba lo que han aprendido hasta ahora:
 
-**Pregunta 1:** ¿Qué es un "commit" en Git?
-- A) Una carpeta donde guardas tus archivos
-- B) Un comando para subir archivos a internet
-- C) Una "foto" o snapshot de tu proyecto en un momento específico
-- D) Un programa para editar código
+**Pregunta 1:** Imaginan que José Miguel hace varios cambios en `introduction.tex` pero olvida hacer `git add` antes de hacer `git commit`. ¿Qué sucede con esos cambios?
+- A) Los cambios se guardan automáticamente en el commit porque Git detecta archivos modificados
+- B) Los cambios NO se incluyen en el commit; solo se guardan los archivos que fueron preparados con `git add`
+- C) Git genera un error y cancela el commit
+- D) Los cambios se suben directamente a GitHub sin necesidad de commit
 
-**Pregunta 2:** Si quieres volver a una versión anterior de tu proyecto, ¿qué analogía describe mejor lo que hace Git?
-- A) Una impresora que copia documentos
-- B) Una máquina del tiempo que te lleva al momento de esa "foto"
-- C) Un editor de texto
-- D) Un servidor en la nube
+**Pregunta 2:** Rodrigo hizo tres commits locales en su computadora: "Commit A", "Commit B" y "Commit C". Luego se da cuenta de que el Commit B introdujo un error. ¿Cuál es la mejor descripción de lo que puede hacer Git?
+- A) Git solo puede borrar todos los commits posteriores al error
+- B) Git puede volver al estado del Commit A, permitiendo ver exactamente cómo estaba el proyecto en ese momento
+- C) Git no puede ayudar una vez que se hicieron múltiples commits
+- D) Git solo guarda el último commit, por lo que los anteriores ya no están disponibles
 
-**Pregunta 3:** ¿Dónde guarda Git el historial de cambios inicialmente?
-- A) En la nube automáticamente
-- B) En tu computadora local
-- C) En Overleaf
-- D) En Google Drive
+**Pregunta 3:** Si Mauricio trabaja en su laptop toda la tarde, hace cinco commits guardando su progreso, pero su laptop se apaga antes de que pueda hacer `git push`, ¿qué pasa con su trabajo?
+- A) Pierde todo el trabajo porque no lo subió a GitHub
+- B) Su trabajo está seguro localmente en los commits; puede hacer `git push` cuando encienda su laptop
+- C) Solo el último commit se guarda, los otros cuatro se pierden
+- D) GitHub automáticamente recupera los commits cuando la laptop se conecte a internet
 
 ---
 
 ### ✅ Respuestas:
 
-**Pregunta 1: C) Una "foto" o snapshot de tu proyecto en un momento específico**  
-*Explicación:* Un commit es como tomar una fotografía instantánea de tu proyecto. Captura el estado exacto de tus archivos en ese momento, junto con un mensaje describiendo qué cambios hiciste, quién los hizo y cuándo.
+**Pregunta 1: B) Los cambios NO se incluyen en el commit; solo se guardan los archivos que fueron preparados con `git add`**  
+*Explicación:* En Git, el proceso de hacer un commit es intencional y tiene dos etapas. Primero, `git add` prepara o "staging" los cambios que quieres incluir en la próxima foto (commit). Luego, `git commit` toma la foto solo de lo que preparaste. Si olvidas hacer `git add`, esos cambios quedan como "modificaciones sin preparar" y no se incluyen en el commit. Esto es útil porque te permite controlar exactamente qué cambios incluir en cada commit.
 
-**Pregunta 2: B) Una máquina del tiempo que te lleva al momento de esa "foto"**  
-*Explicación:* Git mantiene un álbum de fotos (commits) de tu proyecto. Cuando quieres volver a una versión anterior, es como usar una máquina del tiempo para regresar al momento exacto cuando se tomó esa foto. Todos tus archivos vuelven al estado que tenían en ese commit.
+**Pregunta 2: B) Git puede volver al estado del Commit A, permitiendo ver exactamente cómo estaba el proyecto en ese momento**  
+*Explicación:* Aquí es donde la analogía de la "máquina del tiempo" cobra sentido. Git guarda el estado completo del proyecto en cada commit. Si Rodrigo usa `git checkout` (o comandos relacionados) para volver al Commit A, todos sus archivos volverán al estado exacto que tenían en ese momento. Los Commits B y C siguen existiendo en el historial, pero puede "viajar en el tiempo" para ver cualquier versión anterior. Esto es fundamental para depuración: puedes identificar exactamente en qué commit apareció un problema.
 
-**Pregunta 3: B) En tu computadora local**  
-*Explicación:* Git es un sistema de control de versiones *local*. Todo el historial se guarda en tu propia computadora dentro de una carpeta oculta llamada `.git`. Para compartir estos cambios con otros o hacer backup en la nube, necesitas usar GitHub (lo veremos a continuación).
+**Pregunta 3: B) Su trabajo está seguro localmente en los commits; puede hacer `git push` cuando encienda su laptop**  
+*Explicación:* Esta pregunta ilustra la diferencia entre Git (local) y GitHub (remoto). Los commits se guardan primero en su computadora local (en la carpeta oculta `.git`). `git push` es el comando que **posteriormente** sube esos commits a GitHub. Si la laptop se apaga antes del push, los cinco commits siguen seguros localmente. Cuando Mauricio encienda su laptop y tenga conexión, puede hacer `git push` y todos los commits se subirán a GitHub. No hay automatismo — todo es intencional.
 
 ---
 
@@ -244,38 +244,38 @@ GitHub resuelve estos tres problemas al ser un **punto central en la nube** dond
 
 ---
 
-## 🧠 Trivia 2: Git vs GitHub
+## 🧠 Trivia 2: Git vs GitHub y Flujo de Trabajo
 
-**Pregunta 1:** ¿Cuál es la diferencia principal entre Git y GitHub?
-- A) Son lo mismo, solo nombres diferentes
-- B) Git es local en tu computadora, GitHub es una plataforma en la nube
-- C) Git es para Python, GitHub es para LaTeX
-- D) GitHub es más viejo que Git
+**Pregunta 1:** José Miguel hace cambios localmente y ejecuta `git commit`. Rodrigo, trabajando en su propia computadora, ejecuta `git pull` inmediatamente después. ¿Qué sucede?
+- A) Rodrigo recibe automáticamente los cambios de José Miguel
+- B) Rodrigo NO recibe los cambios de José Miguel porque José Miguel no ha hecho `git push`
+- C) Git sincroniza automáticamente los commits entre todas las computadoras del equipo
+- D) Rodrigo recibe un error porque José Miguel está trabajando en el mismo proyecto
 
-**Pregunta 2:** Cuando haces `git push`, ¿qué estás haciendo?
-- A) Eliminando archivos de tu computadora
-- B) Descargando cambios de otros
-- C) Subiendo intencionalmente tus commits locales a GitHub
-- D) Compilando tu código
+**Pregunta 2:** El equipo está colaborando en un artículo. Mauricio hace cambios en `methods.tex` y hace push a GitHub. Al mismo tiempo, José Miguel también modificó `methods.tex` localmente pero aún no ha hecho pull. ¿Qué debería hacer José Miguel antes de hacer push de sus cambios?
+- A) Hacer `git push` inmediatamente antes de que haya más conflictos
+- B) Hacer `git pull` primero para integrar los cambios de Mauricio, luego resolver cualquier conflicto, y finalmente hacer `git push`
+- C) Borrar su versión local y descargar la de Mauricio
+- D) Esperar a que Mauricio termine de trabajar en el archivo
 
-**Pregunta 3:** Si quieres resolver 3 issues con un solo Pull Request, ¿qué debes escribir en la descripción del PR?
-- A) No es posible, cada PR solo puede resolver un issue
-- B) `fix #1, fix #2, fix #3`
-- C) Tienes que cerrar los issues manualmente
-- D) `delete #1, delete #2, delete #3`
+**Pregunta 3:** Rodrigo quiere resolver dos issues (#5 y #8) con un solo Pull Request porque ambos están relacionados con correcciones de la bibliografía. ¿Cuál es la forma correcta de hacerlo?
+- A) Crear dos Pull Requests separados, uno para cada issue
+- B) En la descripción del PR escribir: `closes #5, fixes #8`
+- C) Cerrar manualmente los issues después de que el PR sea aprobado
+- D) No es posible resolver múltiples issues con un solo PR en GitHub
 
 ---
 
 ### ✅ Respuestas:
 
-**Pregunta 1: B) Git es local en tu computadora, GitHub es una plataforma en la nube**  
-*Explicación:* Git es el sistema de control de versiones que funciona en tu computadora local. GitHub es un servicio en la nube que hospeda repositorios Git y añade características de colaboración como Pull Requests, Issues, y revisión de código. Es como la diferencia entre tu álbum de fotos personal (Git) y compartirlo en una plataforma en línea (GitHub).
+**Pregunta 1: B) Rodrigo NO recibe los cambios de José Miguel porque José Miguel no ha hecho `git push`**  
+*Explicación:* Esta pregunta prueba la comprensión de la diferencia entre Git (local) y GitHub (remoto). Cuando José Miguel hace `git commit`, ese commit se guarda solo en su computadora local. Para que Rodrigo pueda ver esos cambios, José Miguel primero debe hacer `git push` para subir el commit a GitHub (el repositorio compartido en la nube). Solo entonces, cuando Rodrigo haga `git pull`, podrá descargar ese commit de GitHub a su computadora. No hay sincronización automática entre computadoras — todo pasa a través de GitHub como punto central.
 
-**Pregunta 2: C) Subiendo intencionalmente tus commits locales a GitHub**  
-*Explicación:* `git push` envía tus commits desde tu repositorio local a GitHub. Es un proceso intencional que ustedes controlan — deciden cuándo están listos para compartir su trabajo. No es automático; tienen que ejecutar el comando explícitamente.
+**Pregunta 2: B) Hacer `git pull` primero para integrar los cambios de Mauricio, luego resolver cualquier conflicto, y finalmente hacer `git push`**  
+*Explicación:* Este escenario ilustra el flujo de trabajo correcto cuando hay cambios concurrentes. Si José Miguel intenta hacer `git push` directamente, GitHub rechazará el push porque su versión local está "desactualizada" respecto a la versión en GitHub. La solución es: 1) `git pull` trae los cambios de Mauricio, 2) Git intenta fusionar automáticamente los cambios, 3) si hay conflictos (ambos modificaron las mismas líneas), José Miguel debe resolverlos manualmente, 4) después de resolver conflictos, hace un nuevo commit con la versión fusionada, 5) finalmente hace `git push`. Este flujo asegura que no se pierdan los cambios de nadie.
 
-**Pregunta 3: B) `fix #1, fix #2, fix #3`**  
-*Explicación:* GitHub reconoce palabras clave como `fix`, `fixes`, `close`, `closes`, `resolve`, `resolves` seguidas de `#número_de_issue`. Cuando el PR se fusiona, GitHub automáticamente cierra esos issues y crea enlaces entre el PR y los issues resueltos. Esto ayuda a mantener un historial claro de qué cambios resolvieron qué problemas.
+**Pregunta 3: B) En la descripción del PR escribir: `closes #5, fixes #8`**  
+*Explicación:* GitHub reconoce palabras clave específicas (`closes`, `fixes`, `resolves`, etc.) seguidas de números de issue. Cuando el PR se fusiona en la rama principal, GitHub automáticamente cierra esos issues y crea enlaces bidireccionales entre el PR y los issues. Esto es útil para mantener trazabilidad: puedes ver qué PR resolvió qué issue, y viceversa. Es una práctica común agrupar múltiples issues relacionados en un solo PR cuando los cambios necesarios están conectados lógicamente.
 
 ---
 
@@ -310,38 +310,38 @@ Overleaf es excelente, pero tiene limitaciones para colaboración seria:
 
 ---
 
-## 🧠 Trivia 3: Overleaf y Flujo de Trabajo
+## 🧠 Trivia 3: Integración de Herramientas y Flujo de Trabajo
 
-**Pregunta 1:** ¿Cuál es la principal limitación de trabajar solo en Overleaf?
-- A) No se puede usar LaTeX
-- B) No hay historial de cambios
-- C) Sin internet no puedes trabajar (a menos que tengas Premium)
-- D) Solo funciona en Windows
+**Pregunta 1:** El equipo está escribiendo un artículo y quieren asegurar que todos puedan compilar el documento correctamente. Han decidido usar el flujo: trabajo local (VS Code) → GitHub → Overleaf. ¿Cuál de las siguientes afirmaciones describe mejor POR QUÉ este flujo es superior a trabajar solo en Overleaf?
+- A) Overleaf es más lento que VS Code para todo tipo de tareas
+- B) El flujo permite trabajo offline y compilación simultánea de todos los miembros, mientras Overleaf limita la compilación a una persona a la vez y requiere internet
+- C) GitHub no puede integrarse con Overleaf
+- D) VS Code tiene mejor soporte para ecuaciones matemáticas que Overleaf
 
-**Pregunta 2:** En el flujo de trabajo que aprenderemos, ¿cuál es el rol principal de Overleaf?
-- A) Editor principal donde escribimos todo el tiempo
-- B) Verificación final en la nube después de trabajar localmente
-- C) Reemplazo de GitHub
-- D) Almacenar imágenes del proyecto
+**Pregunta 2:** Rodrigo está trabajando offline en su laptop en un vuelo. Hace varios commits de cambios importantes en `results.tex`. Al aterrizar, conecta su laptop a internet. ¿Cuál secuencia de acciones describe correctamente lo que debería hacer para que sus cambios estén disponibles tanto en GitHub como en Overleaf?
+- A) Los cambios ya están en GitHub y Overleaf automáticamente porque hizo commits
+- B) Hacer `git push` para subir a GitHub; luego cualquier miembro del equipo puede hacer "Pull from GitHub" en Overleaf para actualizar
+- C) Abrir Overleaf directamente y los cambios se sincronizarán automáticamente
+- D) Hacer `git pull` primero para subir sus cambios a GitHub
 
-**Pregunta 3:** Si dos personas editan simultáneamente la misma línea en Overleaf, ¿qué puede pasar?
-- A) Overleaf fusiona los cambios automáticamente sin problemas
-- B) Se pueden perder cambios o generar conflictos
-- C) El documento se borra automáticamente
-- D) Solo la primera persona puede editar
+**Pregunta 3:** José Miguel y Mauricio modificaron diferentes secciones de `introduction.tex` al mismo tiempo. José Miguel editó los párrafos 1-3, y Mauricio editó los párrafos 5-7. Ambos hicieron commits localmente. José Miguel hace push primero. Cuando Mauricio intenta hacer push, ¿qué sucederá?
+- A) GitHub rechazará el push de Mauricio porque José Miguel ya modificó el mismo archivo
+- B) GitHub aceptará el push de Mauricio y automáticamente fusionará los cambios sin problemas porque editaron secciones diferentes
+- C) GitHub rechazará el push de Mauricio porque su versión está desactualizada; debe hacer `git pull` primero, Git fusionará los cambios automáticamente (sin conflicto porque son secciones diferentes), y luego puede hacer push
+- D) Ambos cambios se perderán y tendrán que empezar de nuevo
 
 ---
 
 ### ✅ Respuestas:
 
-**Pregunta 1: C) Sin internet no puedes trabajar (a menos que tengas Premium)**  
-*Explicación:* Overleaf es una plataforma basada completamente en la nube. Sin conexión a internet, no pueden acceder a sus documentos (a menos que tengan una cuenta Premium que ofrece algunas capacidades offline limitadas). Esto contrasta con nuestro flujo propuesto donde trabajan localmente en VS Code y solo sincronizan cuando tienen internet.
+**Pregunta 1: B) El flujo permite trabajo offline y compilación simultánea de todos los miembros, mientras Overleaf limita la compilación a una persona a la vez y requiere internet**  
+*Explicación:* Esta pregunta evalúa la comprensión de las ventajas del flujo integrado. En Overleaf solo, si José Miguel está compilando, Mauricio y Rodrigo deben esperar. Además, sin internet no pueden trabajar. El flujo propuesto resuelve ambos problemas: cada persona compila localmente en su propia máquina (sin interferir con otros) y puede trabajar completamente offline. Overleaf se usa solo para verificación final, cuando todos los cambios ya están integrados y probados localmente. Esto refleja las limitaciones reales de colaboración que el flujo está diseñado para resolver.
 
-**Pregunta 2: B) Verificación final en la nube después de trabajar localmente**  
-*Explicación:* En el flujo que aprenderemos, Overleaf NO es su editor principal. Ustedes editan localmente en VS Code (rápido, offline, con control de versiones Git), y usan Overleaf ocasionalmente para verificar que el documento compila correctamente en la nube y que todos ven el mismo PDF final. Es una capa de verificación, no su entorno principal de trabajo.
+**Pregunta 2: B) Hacer `git push` para subir a GitHub; luego cualquier miembro del equipo puede hacer "Pull from GitHub" en Overleaf para actualizar**  
+*Explicación:* Esta pregunta prueba la comprensión del flujo completo de sincronización. Los commits de Rodrigo están seguros localmente en su laptop. Cuando tiene internet, `git push` sube esos commits a GitHub (repositorio central). GitHub ahora tiene la versión actualizada. Finalmente, cualquier miembro del equipo con acceso al proyecto en Overleaf puede ir a Menu → GitHub → "Pull GitHub changes into Overleaf" para traer los cambios al proyecto de Overleaf. Importante: no necesitan cuenta Premium para hacer pull desde GitHub a Overleaf — solo el dueño del proyecto necesita Premium para la sincronización bidireccional.
 
-**Pregunta 3: B) Se pueden perder cambios o generar conflictos**  
-*Explicación:* Cuando dos personas editan simultáneamente la misma sección en Overleaf, pueden surgir conflictos. Overleaf intenta sincronizar cambios, pero no siempre es perfecto. Pueden perderse párrafos o quedar en estados inconsistentes. Con nuestro flujo (Git + Pull Requests), estos conflictos se detectan y resuelven de manera controlada antes de integrar cambios.
+**Pregunta 3: C) GitHub rechazará el push de Mauricio porque su versión está desactualizada; debe hacer `git pull` primero, Git fusionará los cambios automáticamente (sin conflicto porque son secciones diferentes), y luego puede hacer push**  
+*Explicación:* Esta pregunta requiere entender tanto el flujo de trabajo como la fusión automática de Git. Cuando Mauricio intenta hacer push, GitHub detecta que su versión local no incluye el commit de José Miguel, así que rechaza el push. Mauricio debe primero hacer `git pull` para traer el commit de José Miguel. Aquí viene la parte importante: como José Miguel y Mauricio editaron líneas diferentes del mismo archivo, Git puede fusionar los cambios automáticamente sin intervención humana — no hay conflicto. Git es inteligente: solo marca conflictos cuando la misma línea fue modificada de formas diferentes. Después de la fusión automática, Mauricio hace push y ambos cambios quedan integrados en GitHub.
 
 ---
 
