@@ -1,0 +1,26 @@
+# Archivos auxiliares de LaTeX
+*.aux
+*.log
+*.out
+*.toc
+*.lof
+*.lot
+*.bbl
+*.blg
+*.synctex.gz
+*.fdb_latexmk
+*.fls
+
+# PDFs generados (mantener solo en carpetas específicas si es necesario)
+test.pdf
+
+# Archivos de prueba
+test.tex
+
+# Archivos de respaldo
+*.bak
+*~
+
+# Archivos del sistema
+.DS_Store
+Thumbs.db
