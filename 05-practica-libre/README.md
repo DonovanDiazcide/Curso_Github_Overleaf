@@ -58,7 +58,7 @@ Algunos equipos combinan múltiples herramientas. El enfoque que presentamos
 en este artículo sigue esta línea, integrando Overleaf, GitHub y editores locales.
 ```
 
-**No olvides** agregar `\input{sections/related-work}` en `main.tex` (después de introduction).
+**No olviden** agregar `\input{sections/related-work}` en `main.tex` (después de introduction).
 
 </details>
 
@@ -170,7 +170,7 @@ y colaboración durante el desarrollo de este ejercicio práctico.
 
 ## 5.2 Trabajo independiente (12 minutos)
 
-### El flujo completo que debes seguir:
+### El flujo completo que deben seguir:
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
@@ -181,27 +181,27 @@ y colaboración durante el desarrollo de este ejercicio práctico.
       git checkout main
       git pull origin main
 
-□ 2. Crear tu rama
-      git checkout -b tu-nombre-seccion
+□ 2. Crear su rama
+      git checkout -b su-nombre-seccion
 
-□ 3. Crear/editar tu archivo
+□ 3. Crear/editar su archivo
       (en VS Code)
 
 □ 4. Si es archivo nuevo, actualizar main.tex
-      Agregar: \input{sections/tu-seccion}
+      Agregar: \input{sections/su-seccion}
 
 □ 5. Verificar que compila
       Guardar y revisar el PDF
 
 □ 6. Agregar archivos al staging
-      git add sections/tu-seccion.tex
-      git add main.tex  (si lo modificaste)
+      git add sections/su-seccion.tex
+      git add main.tex  (si lo modificaron)
 
 □ 7. Hacer commit
-      git commit -m "Agregué sección de [tu sección]"
+      git commit -m "Agregué sección de [su sección]"
 
-□ 8. Subir tu rama
-      git push -u origin tu-nombre-seccion
+□ 8. Subir su rama
+      git push -u origin su-nombre-seccion
 
 □ 9. Crear Pull Request en GitHub
       (ver instrucciones en Parte 4)
@@ -312,7 +312,7 @@ Cada participante:
 2. Click en **"Compare & pull request"** (o Pull requests → New)
 3. Configura:
    - **base**: `main`
-   - **compare**: tu rama
+   - **compare**: su rama
 4. Escribe título y descripción
 5. Click **"Create pull request"**
 
@@ -444,17 +444,17 @@ El artículo ahora tiene contribuciones de todos los participantes, con historia
 ### Preguntas frecuentes post-taller
 
 <details>
-<summary><strong>¿Qué hago si olvidé hacer pull y ahora tengo conflictos?</strong></summary>
+<summary><strong>¿Qué hacemos si olvidamos hacer pull y ahora tenemos conflictos?</strong></summary>
 
-1. Primero, guarda tu trabajo actual: `git stash`
-2. Actualiza: `git pull origin main`
-3. Recupera tu trabajo: `git stash pop`
-4. Resuelve conflictos si los hay (ver Parte 4)
+1. Primero, guarden su trabajo actual: `git stash`
+2. Actualicen: `git pull origin main`
+3. Recuperen su trabajo: `git stash pop`
+4. Resuelvan conflictos si los hay (ver Parte 4)
 
 </details>
 
 <details>
-<summary><strong>¿Cómo deshago mi último commit (sin perder cambios)?</strong></summary>
+<summary><strong>¿Cómo deshacemos nuestro último commit (sin perder cambios)?</strong></summary>
 
 ```bash
 git reset --soft HEAD~1
@@ -465,7 +465,7 @@ Esto "deshace" el commit pero mantiene los archivos modificados.
 </details>
 
 <details>
-<summary><strong>¿Cómo veo quién escribió cada línea?</strong></summary>
+<summary><strong>¿Cómo vemos quién escribió cada línea?</strong></summary>
 
 ```bash
 git blame archivo.tex
@@ -476,7 +476,7 @@ O en VS Code: instalar la extensión "GitLens" para ver autoría en tiempo real.
 </details>
 
 <details>
-<summary><strong>¿Puedo usar esto para proyectos que no son LaTeX?</strong></summary>
+<summary><strong>¿Podemos usar esto para proyectos que no son LaTeX?</strong></summary>
 
 ¡Absolutamente! Git funciona con cualquier tipo de archivo de texto:
 - Código (Python, R, JavaScript, etc.)
@@ -514,7 +514,7 @@ Han completado el taller y ahora tienen:
 
 ¿Cómo estuvo el taller? ¿Qué podemos mejorar?
 
-Comparte tus comentarios para mejorar futuras versiones.
+Compartan sus comentarios para mejorar futuras versiones.
 
 ---
 

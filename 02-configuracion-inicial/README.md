@@ -65,7 +65,7 @@ Si Mauricio ya tiene un proyecto en Overleaf que quiere usar:
 
 ### Verificar la conexión
 
-- En el menú de Overleaf, ahora verás opciones:
+- En el menú de Overleaf, ahora verán opciones:
   - **"Push Overleaf changes to GitHub"** — Subir cambios de Overleaf a GitHub
   - **"Pull GitHub changes into Overleaf"** — Traer cambios de GitHub a Overleaf
 
@@ -84,7 +84,7 @@ Mauricio debe compartir acceso de dos formas:
 3. Seleccionar permisos: **"Can Edit"**
 4. Click en **"Share"**
 
-> **Nota**: Con Overleaf Premium, puedes invitar colaboradores ilimitados.
+> **Nota**: Con Overleaf Premium, pueden invitar colaboradores ilimitados.
 
 ### B. Compartir en GitHub (necesario para el flujo Git)
 
@@ -112,7 +112,7 @@ José Miguel y Rodrigo deben:
 
 ### Elegir dónde guardar el proyecto
 
-Decide en qué carpeta quieres tener el proyecto. Recomendaciones:
+Decidan en qué carpeta quieren tener el proyecto. Recomendaciones:
 
 | Sistema | Carpeta sugerida |
 |---------|------------------|
@@ -125,7 +125,7 @@ Decide en qué carpeta quieres tener el proyecto. Recomendaciones:
 <summary><strong>🪟 Windows (PowerShell)</strong></summary>
 
 ```powershell
-# Navegar a la carpeta donde quieres el proyecto
+# Navegar a la carpeta donde quieren el proyecto
 cd C:\Users\TuNombre\Documents\proyectos
 
 # Clonar el repositorio
@@ -145,7 +145,7 @@ cd articulo-taller-colaboracion
 <summary><strong>🍎 macOS (Terminal)</strong></summary>
 
 ```bash
-# Navegar a la carpeta donde quieres el proyecto
+# Navegar a la carpeta donde quieren el proyecto
 cd ~/Documents/proyectos
 
 # Clonar el repositorio
@@ -157,7 +157,7 @@ cd articulo-taller-colaboracion
 
 **¿Cómo abrir Terminal?**
 - Presiona `Cmd + Espacio`, escribe "Terminal", presiona Enter
-- O ve a Finder → Aplicaciones → Utilidades → Terminal
+- O vayan a Finder → Aplicaciones → Utilidades → Terminal
 
 </details>
 
@@ -171,7 +171,7 @@ ls
 git status
 ```
 
-Deberías ver los archivos `.tex` del proyecto y un mensaje como:
+Deberían ver los archivos `.tex` del proyecto y un mensaje como:
 ```
 On branch main
 Your branch is up to date with 'origin/main'.
@@ -209,7 +209,7 @@ Hay **dos formas** de abrir el proyecto en VS Code:
 ### Opción B: Desde la terminal (más rápido una vez que te acostumbras)
 
 ```bash
-# Asegúrate de estar en la carpeta del proyecto
+# Asegúrense de estar en la carpeta del proyecto
 cd articulo-taller-colaboracion
 
 # Abrir VS Code en esta carpeta
@@ -220,9 +220,9 @@ code .
 
 ### Verificar que VS Code reconoce el proyecto
 
-Una vez abierto, deberías ver:
+Una vez abierto, deberían ver:
 - 📁 La estructura de archivos en el panel izquierdo (Explorer)
-- 📝 Puedes hacer click en cualquier archivo `.tex` para editarlo
+- 📝 Pueden hacer click en cualquier archivo `.tex` para editarlo
 - 🔀 El ícono de Git en la barra lateral (Source Control) - indica que VS Code detectó el repositorio
 
 ---
@@ -283,7 +283,7 @@ GitHub mostrará instrucciones. Usaremos las de "…or push an existing reposito
 <summary><strong>🪟 Windows (PowerShell)</strong></summary>
 
 ```powershell
-# Navegar a la carpeta de tu proyecto
+# Navegar a la carpeta de su proyecto
 cd C:\Users\TuNombre\Documents\mi-articulo
 
 # Inicializar Git
@@ -302,7 +302,7 @@ git commit -m "Versión inicial del artículo"
 <summary><strong>🍎 macOS (Terminal)</strong></summary>
 
 ```bash
-# Navegar a la carpeta de tu proyecto
+# Navegar a la carpeta de su proyecto
 cd ~/Documents/mi-articulo
 
 # Inicializar Git
@@ -320,7 +320,7 @@ git commit -m "Versión inicial del artículo"
 ### Paso 3: Conectar con GitHub y subir
 
 ```bash
-# Conectar con el repositorio remoto (reemplaza con tu URL)
+# Conectar con el repositorio remoto (reemplacen con su URL)
 git remote add origin https://github.com/TU_USUARIO/mi-articulo.git
 
 # Renombrar la rama a 'main' (por convención moderna)
@@ -333,15 +333,15 @@ git push -u origin main
 ### Paso 4: Verificar en GitHub
 
 1. Ir a `github.com/TU_USUARIO/mi-articulo`
-2. Deberías ver todos tus archivos `.tex`
+2. Deberían ver todos sus archivos `.tex`
 
 ### Paso 5: Conectar con Overleaf (opcional)
 
-Si quieres que el proyecto también esté en Overleaf:
+Si quieren que el proyecto también esté en Overleaf:
 
 1. En Overleaf, click en **"New Project"** → **"Import from GitHub"**
-2. Seleccionar el repositorio que acabas de crear
-3. ¡Listo! Ahora tienes el proyecto en ambos lugares
+2. Seleccionar el repositorio que acabaron de crear
+3. ¡Listo! Ahora tienen el proyecto en ambos lugares
 
 ---
 
@@ -363,9 +363,9 @@ Si quieres que el proyecto también esté en Overleaf:
 
 Antes de continuar a la Parte 3, verifica que:
 
-- [ ] El proyecto está clonado en tu computadora
-- [ ] Puedes abrir el proyecto en VS Code
-- [ ] El documento compila localmente (ves el PDF)
+- [ ] El proyecto está clonado en su computadora
+- [ ] Pueden abrir el proyecto en VS Code
+- [ ] El documento compila localmente (ven el PDF)
 - [ ] Git reconoce el repositorio (`git status` funciona)
 
 Si algo falla, pide ayuda antes de continuar.
