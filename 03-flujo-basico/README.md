@@ -20,7 +20,7 @@
 
 ## 3.1 El concepto de "tomarle una foto al proyecto"
 
-En Git, un **commit** es como tomar una **foto instantánea** de tu proyecto en un momento específico.
+En Git, un **commit** es como tomar una **foto instantánea** de su proyecto en un momento específico.
 
 ```
 📸 Foto 1: "Estructura inicial"
@@ -41,9 +41,9 @@ En Git, un **commit** es como tomar una **foto instantánea** de tu proyecto en 
 
 ### ¿Por qué es útil?
 
-- **Historial completo**: Puedes ver exactamente qué cambió, cuándo y quién lo hizo
-- **Máquina del tiempo**: Puedes volver a cualquier foto anterior si algo sale mal
-- **Propuestas de versión**: Puedes tener diferentes "álbumes" (ramas) con versiones alternativas del artículo
+- **Historial completo**: Pueden ver exactamente qué cambió, cuándo y quién lo hizo
+- **Máquina del tiempo**: Pueden volver a cualquier foto anterior si algo sale mal
+- **Propuestas de versión**: Pueden tener diferentes "álbumes" (ramas) con versiones alternativas del artículo
 
 ### Buenas prácticas para commits
 
@@ -57,7 +57,7 @@ En Git, un **commit** es como tomar una **foto instantánea** de tu proyecto en 
 
 ## 3.2 Archivo inicial del artículo (Mauricio)
 
-> **Mauricio**: Copia este contenido y pégalo en tu proyecto de Overleaf.
+> **Mauricio**: Copien este contenido y péguenlo en su proyecto de Overleaf.
 
 ### Estructura de archivos a crear
 
@@ -270,7 +270,7 @@ git pull origin main
 ls sections/
 ```
 
-Deberías ver: `introduction.tex  methods.tex  results.tex  conclusion.tex`
+Deberían ver: `introduction.tex  methods.tex  results.tex  conclusion.tex`
 
 ---
 
@@ -286,11 +286,11 @@ Ahora viene la parte práctica. Cada persona editará **localmente** en VS Code:
 
 ### Instrucciones para todos:
 
-1. Abre VS Code con el proyecto
-2. Navega a tu archivo en el panel izquierdo (Explorer)
-3. Haz tus ediciones
-4. Guarda frecuentemente (`Ctrl+S` / `Cmd+S`) para ver el PDF actualizado
-5. Cuando termines, **no cierres VS Code** — continuaremos con el commit
+1. Abran VS Code con el proyecto
+2. Naveguen a su archivo en el panel izquierdo (Explorer)
+3. Hagan sus ediciones
+4. Guarden frecuentemente (`Ctrl+S` / `Cmd+S`) para ver el PDF actualizado
+5. Cuando terminen, **no cierren VS Code** — continuaremos con el commit
 
 ### Ejemplo de edición (José Miguel)
 
@@ -335,7 +335,7 @@ Este artículo presenta un flujo de trabajo colaborativo que combina:
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
-│  Tu carpeta de trabajo (Working Directory)                  │
+│  Su carpeta de trabajo (Working Directory)                  │
 │                                                              │
 │  📄 introduction.tex  [MODIFICADO]                          │
 │  📄 methods.tex       [MODIFICADO]                          │
@@ -362,9 +362,9 @@ Este artículo presenta un flujo de trabajo colaborativo que combina:
 
 ### Regla de oro sobre `git add`
 
-> **Cualquier archivo NUEVO que quieras compartir, debes agregarlo explícitamente con `git add`.**
+> **Cualquier archivo NUEVO que quieran compartir, deben agregarlo explícitamente con `git add`.**
 > 
-> Los archivos que todavía no quieras compartir, simplemente **no les hagas `git add`**.
+> Los archivos que todavía no quieran compartir, simplemente **no les hagan `git add`**.
 
 ### Ejemplo concreto: José Miguel
 
@@ -414,9 +414,9 @@ git add .
 git add sections/introduction.tex sections/methods.tex
 ```
 
-### ¿Qué pasa si usé `git add .` por error?
+### ¿Qué pasa si usaron `git add .` por error?
 
-Si agregaste un archivo que no querías compartir, puedes **quitarlo del área de preparación** (sin perder tus cambios):
+Si agregaron un archivo que no querían compartir, pueden **quitarlo del área de preparación** (sin perder sus cambios):
 
 ```bash
 # "Des-trackear" un archivo antes de hacer commit
@@ -466,9 +466,9 @@ Una vez que hiciste commit, los cambios están guardados **localmente**. Para co
 git push origin main
 ```
 
-### Si alguien más subió cambios antes que tú
+### Si alguien más subió cambios antes que ustedes
 
-Git te dirá que primero debes bajar los cambios de los demás:
+Git les dirá que primero deben bajar los cambios de los demás:
 
 ```bash
 # Primero, obtener los cambios de otros
@@ -480,8 +480,8 @@ git push origin main
 
 ### Verificar en GitHub
 
-1. Ve a tu repositorio en GitHub
-2. Deberías ver tu commit reciente en la lista
+1. Vayan a su repositorio en GitHub
+2. Deberían ver su commit reciente en la lista
 3. Click en el commit para ver exactamente qué cambió
 
 ---
@@ -563,13 +563,13 @@ Después de que todos hayan subido sus cambios a GitHub y se hayan integrado en 
 
 ## Checkpoint ✅
 
-Antes de continuar a la Parte 4, verifica que:
+Antes de continuar a la Parte 4, verifiquen que:
 
-- [ ] Entiendes la diferencia entre `git add archivo.tex` y `git add .`
-- [ ] Sabes cómo quitar un archivo del staging si lo agregaste por error
-- [ ] Hiciste al menos un commit con tus cambios
-- [ ] Subiste tus cambios a GitHub con `git push`
-- [ ] Puedes ver tus cambios en la página de GitHub
+- [ ] Entienden la diferencia entre `git add archivo.tex` y `git add .`
+- [ ] Saben cómo quitar un archivo del staging si lo agregaron por error
+- [ ] Hicieron al menos un commit con sus cambios
+- [ ] Subieron sus cambios a GitHub con `git push`
+- [ ] Pueden ver sus cambios en la página de GitHub
 
 ---
 
