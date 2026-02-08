@@ -10,7 +10,7 @@
 | Paso | Descripción | Tiempo |
 |------|-------------|--------|
 | 4.1 | Entender qué son las ramas y por qué usarlas | 5 min |
-| 4.2 | Crear y trabajar en tu propia rama | 5 min |
+| 4.2 | Crear y trabajar en su propia rama | 5 min |
 | 4.3 | Crear un Pull Request en GitHub | 3 min |
 | 4.4 | Resolver conflictos (ejercicio guiado) | 5 min |
 | 4.5 | Usar ramas para versiones alternativas | 2 min |
@@ -19,7 +19,7 @@
 
 ## 4.1 ¿Qué son las ramas?
 
-Una **rama** (branch) es una línea paralela de desarrollo. Es como tener una **copia del proyecto** donde puedes experimentar sin afectar la versión principal.
+Una **rama** (branch) es una línea paralela de desarrollo. Es como tener una **copia del proyecto** donde pueden experimentar sin afectar la versión principal.
 
 ### Analogía: El árbol de versiones
 
@@ -42,7 +42,7 @@ main ●────●────●────●───────●─
 | Todos trabajan en `main` | Cada quien tiene su espacio |
 | Un error afecta a todos inmediatamente | Los errores se contienen en la rama |
 | No hay revisión antes de integrar | Pull Requests permiten revisar antes de integrar |
-| Difícil experimentar | Puedes probar ideas sin riesgo |
+| Difícil experimentar | Pueden probar ideas sin riesgo |
 
 ### Flujo de trabajo con ramas (GitHub Flow)
 
@@ -60,11 +60,11 @@ main ●────●────●────●───────●─
 
 ---
 
-## 4.2 Crear y trabajar en tu propia rama (Todos)
+## 4.2 Crear y trabajar en su propia rama (Todos)
 
 Cada participante creará su propia rama para trabajar de forma aislada.
 
-> 💡 El flujo sigue siendo el mismo: **editas local → commit → push a GitHub**. La única diferencia es que ahora subes a **tu rama** en vez de directamente a `main`, y usas un **Pull Request** para integrar.
+> 💡 El flujo sigue siendo el mismo: **editan local → commit → push a GitHub**. La única diferencia es que ahora suben a **su rama** en vez de directamente a `main`, y usan un **Pull Request** para integrar.
 
 ### Paso 1: Asegurarse de estar actualizado
 
@@ -76,25 +76,25 @@ git checkout main
 git pull origin main
 ```
 
-### Paso 2: Crear tu rama
+### Paso 2: Crear su rama
 
 El nombre de la rama debe ser descriptivo. Convención sugerida: `nombre-seccion` o `feature/descripcion`.
 
 <details>
-<summary><strong>José Miguel</strong></summary>
+<parameter name="summary"><strong>José Miguel</strong></summary>
 
 ```bash
 # Crear y cambiar a la nueva rama
 git checkout -b jose-introduccion
 
-# Verificar que estás en la rama correcta
+# Verificar que están en la rama correcta
 git branch
 ```
 
 Salida esperada:
 ```
   main
-* jose-introduccion    ← El asterisco indica tu rama actual
+* jose-introduccion    ← El asterisco indica su rama actual
 ```
 
 </details>
@@ -125,24 +125,24 @@ git branch
 
 </details>
 
-### Paso 3: Hacer cambios en tu rama
+### Paso 3: Hacer cambios en su rama
 
-1. Edita tu sección asignada en VS Code
-2. Guarda los cambios
-3. Haz commit:
+1. Editen su sección asignada en VS Code
+2. Guarden los cambios
+3. Hagan commit:
 
 ```bash
-git add sections/tu-seccion.tex
-git commit -m "Descripción de tus cambios"
+git add sections/su-seccion.tex
+git commit -m "Descripción de sus cambios"
 ```
 
-Puedes hacer **múltiples commits** en tu rama antes de compartirla.
+Pueden hacer **múltiples commits** en su rama antes de compartirla.
 
-### Paso 4: Subir tu rama a GitHub
+### Paso 4: Subir su rama a GitHub
 
 ```bash
-# Primera vez que subes esta rama
-git push -u origin nombre-de-tu-rama
+# Primera vez que suben esta rama
+git push -u origin nombre-de-su-rama
 ```
 
 Por ejemplo:
@@ -156,30 +156,30 @@ Por ejemplo:
 
 ## 4.3 Crear un Pull Request en GitHub
 
-Un **Pull Request (PR)** es una solicitud para integrar los cambios de tu rama a `main`. Permite que otros revisen tu trabajo antes de integrarlo.
+Un **Pull Request (PR)** es una solicitud para integrar los cambios de su rama a `main`. Permite que otros revisen su trabajo antes de integrarlo.
 
 ### Paso 1: Ir a GitHub
 
-1. Abre el repositorio en GitHub
-2. Verás un mensaje amarillo: **"nombre-de-tu-rama had recent pushes"**
+1. Abran el repositorio en GitHub
+2. Verán un mensaje amarillo: **"nombre-de-su-rama had recent pushes"**
 3. Click en **"Compare & pull request"**
 
-(Si no ves el mensaje, ve a la pestaña "Pull requests" → "New pull request")
+(Si no ven el mensaje, vayan a la pestaña "Pull requests" → "New pull request")
 
 ### Paso 2: Configurar el Pull Request
 
 | Campo | Qué poner |
 |-------|-----------|
 | **base** | `main` (la rama destino) |
-| **compare** | tu rama (ej: `jose-introduccion`) |
+| **compare** | su rama (ej: `jose-introduccion`) |
 | **Title** | Descripción breve: "Completé la sección de introducción" |
-| **Description** | Detalles de qué cambiaste, por qué, etc. |
+| **Description** | Detalles de qué cambiaron, por qué, etc. |
 
 ### Paso 3: Crear el PR
 
 1. Click en **"Create pull request"**
-2. GitHub mostrará los cambios que hiciste
-3. Tus compañeros pueden revisar, comentar y aprobar
+2. GitHub mostrará los cambios que hicieron
+3. Sus compañeros pueden revisar, comentar y aprobar
 
 ### Paso 4: Revisión (compañeros)
 
@@ -191,14 +191,17 @@ Los revisores pueden:
 
 ### Paso 5: Merge (después de aprobación)
 
+> ⚠️ **Tipo de merge correcto**: Asegúrense de usar **"Create a merge commit"** (no "Squash" ni "Rebase"). Esto preserva el historial completo de todos los commits de la rama, incluso si después la eliminan.
+
 Una vez aprobado:
-1. Click en **"Merge pull request"**
-2. Click en **"Confirm merge"**
-3. (Opcional) Click en **"Delete branch"** para limpiar
+1. Click en **"Merge pull request"** (botón verde)
+2. **Verificar el menú desplegable**: debe decir "Create a merge commit"
+3. Click en **"Confirm merge"**
+4. (Opcional) Click en **"Delete branch"** para limpiar — los commits permanecen en el historial
 
-### Paso 6: Actualizar tu copia local
+### Paso 6: Actualizar su copia local
 
-Después del merge, actualiza tu `main` local:
+Después del merge, actualicen su `main` local:
 
 ```bash
 git checkout main
@@ -232,7 +235,7 @@ Un conflicto ocurre cuando **dos personas modifican la misma línea** del mismo 
 
 | Tipo de conflicto | Responsable |
 |-------------------|-------------|
-| Conflicto en **tu rama** al hacer merge de main | **Tú** (el autor de la rama) |
+| Conflicto en **su rama** al hacer merge de main | **Ustedes** (el autor de la rama) |
 | Conflicto al hacer **merge del PR** a main | **Quien creó el PR** (con ayuda del owner si es complejo) |
 | Conflicto persistente o muy complejo | **Mauricio** como owner del proyecto |
 
@@ -255,7 +258,7 @@ git push origin main
 
 #### José Miguel (sin saber del cambio de Mauricio)
 
-1. En tu rama `jose-introduccion`, edita la misma línea 1:
+1. En su rama `jose-introduccion`, edita la misma línea 1:
 ```latex
 \section{Introducción y Motivación}
 ```
@@ -264,7 +267,7 @@ git push origin main
 git add sections/introduction.tex
 git commit -m "Actualicé título de introducción"
 ```
-3. Intenta hacer merge de main a tu rama:
+3. Intenta hacer merge de main a su rama:
 ```bash
 git pull origin main
 ```
@@ -309,15 +312,15 @@ VS Code detectará el conflicto y mostrará algo así:
 
 | Sección | Significado |
 |---------|-------------|
-| `<<<<<<< HEAD` | Inicio de TUS cambios (tu rama) |
+| `<<<<<<< HEAD` | Inicio de SUS cambios (su rama) |
 | `=======` | Separador entre las dos versiones |
 | `>>>>>>> origin/main` | Fin de los cambios de MAIN |
 
 #### Paso 3: Decidir cómo resolver
 
-Tienes tres opciones:
+Tienen tres opciones:
 
-**Opción A: Mantener TU versión**
+**Opción A: Mantener SU versión**
 ```latex
 \section{Introducción y Motivación}
 ```
@@ -334,9 +337,9 @@ Tienes tres opciones:
 
 #### Paso 4: Editar el archivo
 
-1. **Elimina** los marcadores de conflicto (`<<<<<<<`, `=======`, `>>>>>>>`)
-2. **Deja** el contenido que quieres mantener
-3. **Guarda** el archivo
+1. **Eliminen** los marcadores de conflicto (`<<<<<<<`, `=======`, `>>>>>>>`)
+2. **Dejen** el contenido que quieren mantener
+3. **Guarden** el archivo
 
 Resultado final:
 ```latex
@@ -355,18 +358,18 @@ git commit -m "Resuelto conflicto en título de introducción: combiné ambas ve
 
 #### Paso 6: Verificar que compila localmente
 
-Antes de subir, asegúrate de que el documento sigue compilando correctamente:
+Antes de subir, asegúrense de que el documento sigue compilando correctamente:
 
-1. Guarda el archivo en VS Code (`Ctrl+S` / `Cmd+S`)
-2. Revisa que el PDF se genere sin errores
-3. Si todo está bien, continúa:
+1. Guarden el archivo en VS Code (`Ctrl+S` / `Cmd+S`)
+2. Revisen que el PDF se genere sin errores
+3. Si todo está bien, continúen:
 
 ```bash
-# Subir tu rama actualizada
+# Subir su rama actualizada
 git push origin jose-introduccion
 ```
 
-> 💡 Recuerda: incluso al trabajar con ramas, el flujo sigue siendo **Local → GitHub → Overleaf**. Primero verificas que funciona en tu máquina, luego subes.
+> 💡 Recuerda: incluso al trabajar con ramas, el flujo sigue siendo **Local → GitHub → Overleaf**. Primero verifican que funciona en su máquina, luego suben.
 
 ### VS Code: Herramientas visuales para conflictos
 
@@ -383,7 +386,7 @@ VS Code ofrece botones para resolver conflictos fácilmente:
 
 | Botón | Acción |
 |-------|--------|
-| **Accept Current Change** | Mantener tu versión |
+| **Accept Current Change** | Mantener su versión |
 | **Accept Incoming Change** | Mantener la versión de main |
 | **Accept Both Changes** | Mantener ambas (una después de otra) |
 | **Compare Changes** | Ver lado a lado |
@@ -435,7 +438,7 @@ main                    ← Versión estable/actual
 | Beneficio | Descripción |
 |-----------|-------------|
 | **Preservación** | Las propuestas quedan guardadas para siempre |
-| **Comparación fácil** | Puedes comparar ramas en GitHub |
+| **Comparación fácil** | Pueden comparar ramas en GitHub |
 | **Reversibilidad** | Si eliges una y luego cambias de opinión, la otra sigue ahí |
 | **Colaboración** | Diferentes personas pueden trabajar en diferentes propuestas |
 
@@ -506,7 +509,7 @@ git checkout main
                       ▼
     ┌──────────────────────────────────────┐
     │  4. Decidir qué mantener             │
-    │     - Tu versión                     │
+    │     - Su versión                     │
     │     - La otra versión                │
     │     - Combinación de ambas           │
     └──────────────────────────────────────┘
@@ -529,13 +532,13 @@ git checkout main
 
 ## Checkpoint ✅
 
-Antes de continuar a la Parte 5, verifica que:
+Antes de continuar a la Parte 5, verifiquen que:
 
-- [ ] Creaste tu propia rama
-- [ ] Hiciste al menos un commit en tu rama
-- [ ] Subiste tu rama a GitHub
-- [ ] Entiendes cómo leer los marcadores de conflicto (`<<<<<<<`, `=======`, `>>>>>>>`)
-- [ ] Sabes cómo marcar un conflicto como resuelto (`git add` + `git commit`)
+- [ ] Crearon su propia rama
+- [ ] Hicieron al menos un commit en su rama
+- [ ] Subieron su rama a GitHub
+- [ ] Entienden cómo leer los marcadores de conflicto (`<<<<<<<`, `=======`, `>>>>>>>`)
+- [ ] Saben cómo marcar un conflicto como resuelto (`git add` + `git commit`)
 
 ---
 
