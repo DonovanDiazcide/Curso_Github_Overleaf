@@ -338,7 +338,17 @@ Cada participante revisa al menos UN PR de otro compañero:
 
 ## 5.4 Merge y sincronización final (3 minutos)
 
-### Hacer merge de los PRs (Mauricio como owner, o cada quien el suyo)
+### Hacer merge de los PRs
+
+> **Responsable de merge: Mauricio como owner del proyecto**
+>
+> En equipos de investigación pequeños como el laboratorio de LICS, la buena práctica (recomendada por Gentzkow & Shapiro en "Code and Data for the Social Sciences") es designar a **una persona como responsable principal** del repositorio. En este caso, **Mauricio** como owner del proyecto:
+> - Revisa que los PRs estén aprobados antes de hacer merge
+> - Decide el **orden de merge** para minimizar conflictos
+> - Verifica que el documento compile correctamente después de cada merge
+> - Solicita cambios si algo no está claro
+>
+> Esto no significa que solo Mauricio pueda hacer merge — cualquier miembro puede hacerlo para su propio PR una vez aprobado — pero Mauricio tiene la responsabilidad final de supervisar la integración.
 
 > ⚠️ **Importante: Tipo de merge para preservar el historial**
 >
@@ -360,9 +370,18 @@ Para cada PR aprobado:
 
 ### Orden sugerido de merge
 
-Para evitar conflictos, hacer merge en este orden:
-1. Primero: PR que modifica `main.tex` (José Miguel - agrega `\input`)
-2. Después: Los demás PRs
+Para minimizar conflictos, Mauricio (o quien coordine el merge) debe seguir este orden:
+
+1. **Primero**: PR que modifica `main.tex` (José Miguel - agrega `\input`)
+   - *Razón*: Este cambio afecta la estructura del documento y otros PRs podrían depender de él
+2. **Después**: Los demás PRs (Mauricio y Rodrigo), en cualquier orden
+   - *Razón*: Cada uno edita un archivo diferente, no hay dependencia entre ellos
+
+> 💡 **Regla general para el orden de merge**: Si no es trivial determinar el mejor orden, sigan esta guía:
+> 1. Primero los PRs que modifican archivos compartidos (como `main.tex`)
+> 2. Después los PRs que solo tocan archivos individuales
+> 3. Si dos PRs tocan el mismo archivo, coordinar entre los autores antes de hacer merge
+> 4. En caso de duda, pueden usar la vista "Files changed" de cada PR en GitHub para ver qué archivos se modifican y detectar posibles conflictos antes de hacer merge
 
 ### Actualizar copias locales (Todos)
 
