@@ -1,0 +1,55 @@
+name: Compilar LaTeX
+
+on:
+  push:
+    branches: [ main, copilot/** ]
+    paths:
+      - '**.tex'
+      - '**.bib'
+      - '.github/workflows/compile-latex.yml'
+  pull_request:
+    branches: [ main ]
+    paths:
+      - '**.tex'
+      - '**.bib'
+
+permissions:
+  contents: read
+
+jobs:
+  compile-latex:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        document:
+          - path: articulo-prueba
+            main: main.tex
+          - path: plantilla-articulo
+            main: main.tex
+    
+    steps:
+    - name: Checkout código
+      uses: actions/checkout@v4
+      
+    - name: Compilar LaTeX - ${{ matrix.document.path }}
+      uses: xu-cheng/latex-action@v3
+      with:
+        working_directory: ${{ matrix.document.path }}
+        root_file: ${{ matrix.document.main }}
+        args: -pdf -interaction=nonstopmode -file-line-error
+        
+    - name: Upload PDF como artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: PDF-${{ matrix.document.path }}
+        path: ${{ matrix.document.path }}/*.pdf
+        retention-days: 30
+        
+    - name: Verificar compilación exitosa
+      run: |
+        if [ -f "${{ matrix.document.path }}/*.pdf" ]; then
+          echo "✅ Compilación exitosa de ${{ matrix.document.path }}"
+        else
+          echo "❌ Error en compilación de ${{ matrix.document.path }}"
+          exit 1
+        fi

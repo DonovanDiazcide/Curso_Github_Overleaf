@@ -1,0 +1,89 @@
+# LaTeX auxiliary files
+*.aux
+*.lof
+*.log
+*.lot
+*.fls
+*.out
+*.toc
+*.fmt
+*.fot
+*.cb
+*.cb2
+.*.lb
+
+# LaTeX intermediate files
+*.dvi
+*.xdv
+*-converted-to.*
+
+# BibTeX files
+*.bbl
+*.bcf
+*.blg
+*-blx.aux
+*-blx.bib
+*.run.xml
+
+# Build tool auxiliary files
+*.fdb_latexmk
+*.synctex
+*.synctex(busy)
+*.synctex.gz
+*.synctex.gz(busy)
+*.pdfsync
+
+# Build directories
+*.pdf
+# EXCEPTION: Keep main PDFs in specific directories (uncomment if needed)
+# !articulo-prueba/main.pdf
+# !plantilla-articulo/main.pdf
+
+# LaTeX temporary files
+*.nav
+*.pre
+*.snm
+*.vrb
+
+# Python bytecode (if using Python scripts)
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Virtual environments
+venv/
+env/
+ENV/
+.venv
+
+# Editor specific files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# OS specific files
+Thumbs.db
+Desktop.ini
+
+# Temporary directories
+/tmp/
+*.tmp
+*.temp
+
+# Log files
+*.log
+
+# Backup files
+*.bak
+*.backup
+*~
+
+# Node modules (if using any JS tools)
+node_modules/
+
+# GitHub Actions artifacts (local)
+.github/artifacts/
