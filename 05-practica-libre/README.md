@@ -312,7 +312,7 @@ Cada participante:
 2. Click en **"Compare & pull request"** (o Pull requests → New)
 3. Configura:
    - **base**: `main`
-   - **compare**: tu rama
+   - **compare**: su rama
 4. Escribe título y descripción
 5. Click **"Create pull request"**
 

@@ -125,7 +125,7 @@ Decidan en qué carpeta quieren tener el proyecto. Recomendaciones:
 <summary><strong>🪟 Windows (PowerShell)</strong></summary>
 
 ```powershell
-# Navegar a la carpeta donde quieres el proyecto
+# Navegar a la carpeta donde quieren el proyecto
 cd C:\Users\TuNombre\Documents\proyectos
 
 # Clonar el repositorio
@@ -145,7 +145,7 @@ cd articulo-taller-colaboracion
 <summary><strong>🍎 macOS (Terminal)</strong></summary>
 
 ```bash
-# Navegar a la carpeta donde quieres el proyecto
+# Navegar a la carpeta donde quieren el proyecto
 cd ~/Documents/proyectos
 
 # Clonar el repositorio
@@ -209,7 +209,7 @@ Hay **dos formas** de abrir el proyecto en VS Code:
 ### Opción B: Desde la terminal (más rápido una vez que te acostumbras)
 
 ```bash
-# Asegúrate de estar en la carpeta del proyecto
+# Asegúrense de estar en la carpeta del proyecto
 cd articulo-taller-colaboracion
 
 # Abrir VS Code en esta carpeta
