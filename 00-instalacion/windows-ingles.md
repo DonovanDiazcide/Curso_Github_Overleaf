@@ -17,14 +17,7 @@
 | Visual Studio Code | ✅ | Opens from Start Menu |
 | MiKTeX | ✅ | `pdflatex --version` |
 | Strawberry Perl | ✅ | `perl --version` |
-| LaTeX Workshop Extension | ✅ | Icon appears in VS Code (though not necessarily) |
-
-> **💡 Already have GitHub, Git, and VS Code?** Quickly verify by opening **PowerShell** and running:
-> ```
-> git --version
-> code --version
-> ```
-> If both commands show a version and you can log in at [github.com](https://github.com), skip directly to **[Step 4: MiKTeX](#step-4-miktex-15-20-min)**!
+| LaTeX Workshop Extension | ✅ | Icon appears in VS Code |
 
 ---
 
@@ -54,7 +47,7 @@ During installation, you'll see several screens. Here are the key options:
 | Screen | Option to Select |
 |--------|------------------|
 | **Select Components** | Leave defaults |
-| **Choosing the default editor** | Select "Use Visual Studio Code as Git's default editor" *(we'll install it in Step 3, but the option is saved for later)* |
+| **Choosing the default editor** | Select "Use Visual Studio Code as Git's default editor" |
 | **Adjusting your PATH** | ⚠️ Select **"Git from the command line and also from 3rd-party software"** |
 | **Choosing SSH executable** | "Use bundled OpenSSH" |
 | **Choosing HTTPS transport backend** | "Use the OpenSSL library" |
@@ -154,18 +147,12 @@ code --version
 ### Post-Installation Update (Important!)
 
 1. Open **Start Menu** → Search **"MiKTeX Console"** → Open it
-2. **A message about updates may or may not appear**:
-   - If it appears, click **"Yes"** (or "Check"), and then **install** the updates it offers
-   - If it doesn't appear, don't worry — continue to the next point
-3. **Either way** (whether the message appeared or not), click **"Updates"** on the left panel
-4. Click **"Check for updates"**
-5. If packages appear listed below, click **"Update now"** to install all updates
-
-![MiKTeX Console showing available updates](miktex.png)
+2. If prompted about updates, click **"Check for updates"**
+3. Click **"Update now"** to install all updates
 
 ### Verify Installation
 
-**⚠️ Close and reopen PowerShell** (so it picks up the new PATH), then run:
+Open PowerShell:
 ```
 pdflatex --version
 ```
@@ -207,43 +194,28 @@ Expected output: `This is perl 5, version 38...` (or similar)
 ## Step 6: LaTeX Workshop Extension (2 min)
 
 1. Open **Visual Studio Code**
-2. Click the **Extensions icon** in the left sidebar (the icon with 3 squares and a diamond, or press `Ctrl+Shift+X`)
+2. Click the **Extensions icon** in the left sidebar (or press `Ctrl+Shift+X`)
 3. In the search box, type: **"LaTeX Workshop"**
 4. Find the extension by **James Yu** (should be the first result)
 5. Click **Install**
 
 ### Verify Installation
 
-Let's create a simple LaTeX file to check that everything works.
+- A **TeX icon** (looks like "TEX") should appear in the left sidebar
+- When you open a `.tex` file, you'll see LaTeX-specific options
 
-#### 1. Create the workshop folder
+> 📖 Official source: [LaTeX Workshop - Marketplace](https://marketplace.visualstudio.com/items?itemName=James-Yu.latex-workshop)
 
-1. Open **File Explorer** (the folder icon on the taskbar, or press `Win + E`)
-2. Navigate to your **Documents** folder, or to wherever you'd like to save this course
-3. Right-click on an empty space → **New** → **Folder**
-4. Name the folder **`curso_latex_github`**
+---
 
-> 💡 This folder will be your workspace throughout the entire workshop.
+## Final Verification Test (5 min)
 
-#### 2. Open the folder in VS Code
+### Create a test file
 
 1. Open **Visual Studio Code**
-2. Go to menu **File** → **Open Folder...**
-3. Find and select the **`curso_latex_github`** folder you just created
-4. Click **Select Folder**
-   - If VS Code asks whether you trust the authors of the folder, click **"Yes, I trust the authors"**
-
-#### 3. Create a test file
-
-1. In the **left sidebar** of VS Code you'll see your folder name (`CURSO_LATEX_GITHUB`)
-2. Hover your mouse over the folder name — small icons will appear
-3. Click the **file icon with a "+"** (New File)
-4. Type the name **`test.tex`** and press Enter
-   - ⚠️ Make sure the name ends in `.tex`
-
-#### 4. Write and compile
-
-1. The file `test.tex` will open in the editor. Copy and paste the following content:
+2. Press `Ctrl+N` to create a new file
+3. Press `Ctrl+S` to save, name it `test.tex`
+4. Paste this content:
 
 ```latex
 \documentclass{article}
@@ -254,28 +226,12 @@ This is a test document for the workshop.
 \end{document}
 ```
 
-2. Press `Ctrl+S` to save
-3. **Build**: Press `Ctrl+Alt+B`
-   - ⚠️ **The first time** you compile a LaTeX file, you must use `Ctrl+Alt+B`. After this first build, the document will recompile **automatically** every time you save with `Ctrl+S`.
-   - In the **bottom bar** of VS Code (the blue bar at the bottom) you'll see a spinning icon — this means LaTeX is building your document. **Wait a few seconds** until it finishes before continuing.
-4. **View the PDF**: Once the bottom bar stops showing activity, press `Ctrl+Alt+V` or click the **magnifying glass icon** in the top right
+5. Press `Ctrl+S` to save
 
-#### 5. Hide auxiliary files (optional but recommended)
+### Compile and View
 
-When compiling, LaTeX generates several auxiliary files (`.aux`, `.log`, `.fls`, etc.) that will clutter your file explorer in VS Code. To hide them **across all your LaTeX projects** (not just this folder):
-
-1. In VS Code, go to the menu **Terminal** → **New Terminal** — a terminal will open at the bottom of VS Code
-2. Copy and paste the following command and press **Enter**:
-
-```powershell
-$p="$env:APPDATA\Code\User\settings.json"; $s=Get-Content $p -Raw|ConvertFrom-Json; if(-not $s.'files.exclude'){$s|Add-Member -NotePropertyName 'files.exclude' -NotePropertyValue ([PSCustomObject]@{})}; @('**/*.aux','**/*.log','**/*.out','**/*.toc','**/*.synctex.gz','**/*.fls','**/*.fdb_latexmk','**/*.bbl','**/*.blg')|ForEach-Object{$s.'files.exclude'|Add-Member -NotePropertyName $_ -NotePropertyValue $true -Force}; $s|ConvertTo-Json -Depth 4|Set-Content -Encoding UTF8 $p; Write-Host "Done - auxiliary files hidden in VS Code"
-```
-
-> 💡 This command modifies your **global VS Code settings**, so it works for any folder you open in the future — you don't need to run it again.
->
-> If the command doesn't work or you prefer another way, you can copy this prompt into **ChatGPT** or any AI assistant:
->
-> *"I need to hide LaTeX auxiliary files (.aux, .log, .out, .toc, .synctex.gz, .fls, .fdb_latexmk, .bbl, .blg) from VS Code's file explorer on Windows. Give me the steps to do it from VS Code settings."*
+- To build the document: Press `Ctrl+Alt+B` (it also compiles **automatically** when you save)
+- To view the PDF: Press `Ctrl+Alt+V` or click the **magnifying glass icon** in the top right
 
 ### Expected Result
 
@@ -287,19 +243,48 @@ This is a test document for the workshop.
 
 If you see this, **everything is ready!** 🎉
 
-> If it didn't work, don't worry — there's a step-by-step troubleshooting guide right below.
-
 > **If the document doesn't compile** after 1-3 minutes:
 > 1. Verify that the **LaTeX Workshop** extension by James Yu is installed in VS Code
 > 2. Verify that **MiKTeX Console** has no pending updates
 > 3. Restart VS Code and try again
-> 4. Install the additional extensions shown in the screenshot below from the Extensions panel (the 3-squares-and-a-diamond icon in the left sidebar, or `Ctrl+Shift+X`). Then try compiling again with `Ctrl+Alt+B` and viewing the PDF with `Ctrl+Alt+V`:
->
-> ![Recommended extensions for LaTeX in VS Code](image.png)
->
-> After following these steps, **everything is ready!** 🎉
 
-> 📖 Official source: [LaTeX Workshop - Marketplace](https://marketplace.visualstudio.com/items?itemName=James-Yu.latex-workshop)
+---
+
+## Troubleshooting
+
+| Problem | Solution |
+|---------|----------|
+| `git` command not found | Restart PowerShell, or reinstall Git with "Add to PATH" option |
+| `pdflatex` not found | Restart computer, or add MiKTeX to PATH manually (ask an AI assistant for help on how to do that) |
+| `perl` not found | Restart PowerShell after installing Strawberry Perl |
+| LaTeX doesn't compile in VS Code | Check MiKTeX Console for updates, restart VS Code |
+| PDF doesn't appear | Wait a few seconds, or press `Ctrl+Alt+V` |
+
+---
+
+## What's Next?
+
+As the **project owner**, you will:
+1. Create the Overleaf project
+2. Connect it to GitHub (Menu → GitHub → Create repository)
+3. Share access with José Miguel and Rodrigo
+4. Sync changes between Overleaf and GitHub
+
+See you at the workshop! 🚀
+
+---
+
+## Important Paths on Windows
+
+If you need to find files or folders, here are the typical paths:
+
+| Element | Path on Windows |
+|---------|----------------|
+| User folder | `C:\Users\YourName\` |
+| Documents | `C:\Users\YourName\Documents\` |
+| Downloads | `C:\Users\YourName\Downloads\` |
+| MiKTeX | `C:\Users\YourName\AppData\Local\Programs\MiKTeX\` |
+| Git | `C:\Program Files\Git\` |
 
 ---
 

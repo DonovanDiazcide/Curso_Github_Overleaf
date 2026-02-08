@@ -58,7 +58,7 @@ Algunos equipos combinan múltiples herramientas. El enfoque que presentamos
 en este artículo sigue esta línea, integrando Overleaf, GitHub y editores locales.
 ```
 
-**No olvides** agregar `\input{sections/related-work}` en `main.tex` (después de introduction).
+**No olviden** agregar `\input{sections/related-work}` en `main.tex` (después de introduction).
 
 </details>
 
@@ -170,7 +170,7 @@ y colaboración durante el desarrollo de este ejercicio práctico.
 
 ## 5.2 Trabajo independiente (12 minutos)
 
-### El flujo completo que debes seguir:
+### El flujo completo que deben seguir:
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
@@ -181,27 +181,27 @@ y colaboración durante el desarrollo de este ejercicio práctico.
       git checkout main
       git pull origin main
 
-□ 2. Crear tu rama
-      git checkout -b tu-nombre-seccion
+□ 2. Crear su rama
+      git checkout -b su-nombre-seccion
 
-□ 3. Crear/editar tu archivo
+□ 3. Crear/editar su archivo
       (en VS Code)
 
 □ 4. Si es archivo nuevo, actualizar main.tex
-      Agregar: \input{sections/tu-seccion}
+      Agregar: \input{sections/su-seccion}
 
 □ 5. Verificar que compila
       Guardar y revisar el PDF
 
 □ 6. Agregar archivos al staging
-      git add sections/tu-seccion.tex
-      git add main.tex  (si lo modificaste)
+      git add sections/su-seccion.tex
+      git add main.tex  (si lo modificaron)
 
 □ 7. Hacer commit
-      git commit -m "Agregué sección de [tu sección]"
+      git commit -m "Agregué sección de [su sección]"
 
-□ 8. Subir tu rama
-      git push -u origin tu-nombre-seccion
+□ 8. Subir su rama
+      git push -u origin su-nombre-seccion
 
 □ 9. Crear Pull Request en GitHub
       (ver instrucciones en Parte 4)
@@ -312,7 +312,7 @@ Cada participante:
 2. Click en **"Compare & pull request"** (o Pull requests → New)
 3. Configura:
    - **base**: `main`
-   - **compare**: tu rama
+   - **compare**: su rama
 4. Escribe título y descripción
 5. Click **"Create pull request"**
 
@@ -338,18 +338,50 @@ Cada participante revisa al menos UN PR de otro compañero:
 
 ## 5.4 Merge y sincronización final (3 minutos)
 
-### Hacer merge de los PRs (Mauricio como owner, o cada quien el suyo)
+### Hacer merge de los PRs
+
+> **Responsable de merge: Mauricio como owner del proyecto**
+>
+> En equipos de investigación pequeños como el laboratorio de LICS, la buena práctica (recomendada por Gentzkow & Shapiro en "Code and Data for the Social Sciences") es designar a **una persona como responsable principal** del repositorio. En este caso, **Mauricio** como owner del proyecto:
+> - Revisa que los PRs estén aprobados antes de hacer merge
+> - Decide el **orden de merge** para minimizar conflictos
+> - Verifica que el documento compile correctamente después de cada merge
+> - Solicita cambios si algo no está claro
+>
+> Esto no significa que solo Mauricio pueda hacer merge — cualquier miembro puede hacerlo para su propio PR una vez aprobado — pero Mauricio tiene la responsabilidad final de supervisar la integración.
+
+> ⚠️ **Importante: Tipo de merge para preservar el historial**
+>
+> GitHub ofrece tres opciones de merge. Para mantener el historial completo de commits (incluso después de borrar ramas), **deben usar "Create a merge commit"**:
+>
+> | Opción | ¿Preserva historial? | Descripción |
+> |--------|---------------------|-------------|
+> | **Create a merge commit** ✅ | Sí | Todos los commits de la rama quedan accesibles |
+> | Squash and merge ❌ | No | Comprime todos los commits en uno solo |
+> | Rebase and merge ⚠️ | Parcial | Re-escribe commits con nuevos identificadores |
+>
+> Esto es fundamental para el control de versiones intencional: cada "foto" (commit) que tomaron durante su trabajo permanece en el historial del proyecto, documentando el "por qué" de cada cambio.
 
 Para cada PR aprobado:
-1. Click en **"Merge pull request"**
-2. Click en **"Confirm merge"**
-3. (Opcional) **"Delete branch"**
+1. Click en **"Merge pull request"** (botón verde)
+2. **Verificar que esté seleccionado "Create a merge commit"** (desplegable junto al botón)
+3. Click en **"Confirm merge"**
+4. (Opcional) **"Delete branch"** — los commits siguen accesibles gracias al merge commit
 
 ### Orden sugerido de merge
 
-Para evitar conflictos, hacer merge en este orden:
-1. Primero: PR que modifica `main.tex` (José Miguel - agrega `\input`)
-2. Después: Los demás PRs
+Para minimizar conflictos, Mauricio (o quien coordine el merge) debe seguir este orden:
+
+1. **Primero**: PR que modifica `main.tex` (José Miguel - agrega `\input`)
+   - *Razón*: Este cambio afecta la estructura del documento y otros PRs podrían depender de él
+2. **Después**: Los demás PRs (Mauricio y Rodrigo), en cualquier orden
+   - *Razón*: Cada uno edita un archivo diferente, no hay dependencia entre ellos
+
+> 💡 **Regla general para el orden de merge**: Si no es trivial determinar el mejor orden, sigan esta guía:
+> 1. Primero los PRs que modifican archivos compartidos (como `main.tex`)
+> 2. Después los PRs que solo tocan archivos individuales
+> 3. Si dos PRs tocan el mismo archivo, coordinar entre los autores antes de hacer merge
+> 4. En caso de duda, pueden usar la vista "Files changed" de cada PR en GitHub para ver qué archivos se modifican y detectar posibles conflictos antes de hacer merge
 
 ### Actualizar copias locales (Todos)
 
@@ -444,17 +476,17 @@ El artículo ahora tiene contribuciones de todos los participantes, con historia
 ### Preguntas frecuentes post-taller
 
 <details>
-<summary><strong>¿Qué hago si olvidé hacer pull y ahora tengo conflictos?</strong></summary>
+<summary><strong>¿Qué hacemos si olvidamos hacer pull y ahora tenemos conflictos?</strong></summary>
 
-1. Primero, guarda tu trabajo actual: `git stash`
-2. Actualiza: `git pull origin main`
-3. Recupera tu trabajo: `git stash pop`
-4. Resuelve conflictos si los hay (ver Parte 4)
+1. Primero, guarden su trabajo actual: `git stash`
+2. Actualicen: `git pull origin main`
+3. Recuperen su trabajo: `git stash pop`
+4. Resuelvan conflictos si los hay (ver Parte 4)
 
 </details>
 
 <details>
-<summary><strong>¿Cómo deshago mi último commit (sin perder cambios)?</strong></summary>
+<summary><strong>¿Cómo deshacemos nuestro último commit (sin perder cambios)?</strong></summary>
 
 ```bash
 git reset --soft HEAD~1
@@ -465,7 +497,7 @@ Esto "deshace" el commit pero mantiene los archivos modificados.
 </details>
 
 <details>
-<summary><strong>¿Cómo veo quién escribió cada línea?</strong></summary>
+<summary><strong>¿Cómo vemos quién escribió cada línea?</strong></summary>
 
 ```bash
 git blame archivo.tex
@@ -476,7 +508,7 @@ O en VS Code: instalar la extensión "GitLens" para ver autoría en tiempo real.
 </details>
 
 <details>
-<summary><strong>¿Puedo usar esto para proyectos que no son LaTeX?</strong></summary>
+<summary><strong>¿Podemos usar esto para proyectos que no son LaTeX?</strong></summary>
 
 ¡Absolutamente! Git funciona con cualquier tipo de archivo de texto:
 - Código (Python, R, JavaScript, etc.)
@@ -514,7 +546,7 @@ Han completado el taller y ahora tienen:
 
 ¿Cómo estuvo el taller? ¿Qué podemos mejorar?
 
-Comparte tus comentarios para mejorar futuras versiones.
+Compartan sus comentarios para mejorar futuras versiones.
 
 ---
 

@@ -20,7 +20,7 @@
 
 ## 3.1 El concepto de "tomarle una foto al proyecto"
 
-En Git, un **commit** es como tomar una **foto instantánea** de tu proyecto en un momento específico.
+En Git, un **commit** es como tomar una **foto instantánea** de su proyecto en un momento específico.
 
 ```
 📸 Foto 1: "Estructura inicial"
@@ -41,9 +41,9 @@ En Git, un **commit** es como tomar una **foto instantánea** de tu proyecto en 
 
 ### ¿Por qué es útil?
 
-- **Historial completo**: Puedes ver exactamente qué cambió, cuándo y quién lo hizo
-- **Máquina del tiempo**: Puedes volver a cualquier foto anterior si algo sale mal
-- **Propuestas de versión**: Puedes tener diferentes "álbumes" (ramas) con versiones alternativas del artículo
+- **Historial completo**: Pueden ver exactamente qué cambió, cuándo y quién lo hizo
+- **Máquina del tiempo**: Pueden volver a cualquier foto anterior si algo sale mal
+- **Propuestas de versión**: Pueden tener diferentes "álbumes" (ramas) con versiones alternativas del artículo
 
 ### Buenas prácticas para commits
 
@@ -57,7 +57,7 @@ En Git, un **commit** es como tomar una **foto instantánea** de tu proyecto en 
 
 ## 3.2 Archivo inicial del artículo (Mauricio)
 
-> **Mauricio**: Copia este contenido y pégalo en tu proyecto de Overleaf.
+> **Mauricio**: Copien este contenido y péguenlo en su proyecto de Overleaf.
 
 ### Estructura de archivos a crear
 
@@ -270,7 +270,7 @@ git pull origin main
 ls sections/
 ```
 
-Deberías ver: `introduction.tex  methods.tex  results.tex  conclusion.tex`
+Deberían ver: `introduction.tex  methods.tex  results.tex  conclusion.tex`
 
 ---
 
@@ -286,11 +286,11 @@ Ahora viene la parte práctica. Cada persona editará **localmente** en VS Code:
 
 ### Instrucciones para todos:
 
-1. Abre VS Code con el proyecto
-2. Navega a tu archivo en el panel izquierdo (Explorer)
-3. Haz tus ediciones
-4. Guarda frecuentemente (`Ctrl+S` / `Cmd+S`) para ver el PDF actualizado
-5. Cuando termines, **no cierres VS Code** — continuaremos con el commit
+1. Abran VS Code con el proyecto
+2. Naveguen a su archivo en el panel izquierdo (Explorer)
+3. Hagan sus ediciones
+4. Guarden frecuentemente (`Ctrl+S` / `Cmd+S`) para ver el PDF actualizado
+5. Cuando terminen, **no cierren VS Code** — continuaremos con el commit
 
 ### Ejemplo de edición (José Miguel)
 
@@ -325,6 +325,65 @@ Este artículo presenta un flujo de trabajo colaborativo que combina:
 \end{itemize}
 ```
 
+### Ejemplo de edición (Rodrigo)
+
+Rodrigo abre `sections/methods.tex` y lo cambia a:
+
+```latex
+\section{Metodología}
+
+Para este proyecto utilizamos un flujo de trabajo basado en herramientas 
+de código abierto que permiten la colaboración distribuida en documentos 
+académicos escritos en LaTeX.
+
+\subsection{Herramientas utilizadas}
+
+El flujo integra cuatro herramientas complementarias:
+\begin{itemize}
+    \item \textbf{Git}: Control de versiones local
+    \item \textbf{GitHub}: Repositorio remoto compartido
+    \item \textbf{Overleaf}: Compilación LaTeX en la nube
+    \item \textbf{VS Code}: Editor local con vista previa de PDF
+\end{itemize}
+
+\subsection{Flujo de trabajo}
+
+El ciclo diario de trabajo consiste en:
+\begin{enumerate}
+    \item Obtener cambios recientes (\texttt{git pull})
+    \item Editar localmente en VS Code
+    \item Preparar y guardar avances (\texttt{git add} + \texttt{git commit})
+    \item Compartir cambios (\texttt{git push})
+    \item Verificar en Overleaf (ocasionalmente)
+\end{enumerate}
+```
+
+### Ejemplo de edición (Mauricio)
+
+Mauricio abre `sections/results.tex` y lo cambia a:
+
+```latex
+\section{Resultados}
+
+Implementamos el flujo de trabajo propuesto durante el desarrollo de este 
+artículo. A continuación presentamos los resultados observados.
+
+\subsection{Beneficios de la colaboración}
+
+Durante las dos horas del taller, el equipo logró:
+\begin{itemize}
+    \item Configurar un entorno de trabajo compartido
+    \item Realizar múltiples contribuciones en paralelo
+    \item Mantener un historial completo de cambios
+\end{itemize}
+
+\subsection{Comparación con métodos tradicionales}
+
+El flujo basado en Git ofrece control de versiones intencional, historial 
+completo y trabajo simultáneo, a diferencia del enfoque tradicional basado 
+en enviar archivos por correo electrónico.
+```
+
 ---
 
 ## 3.5 Preparar y tomar la foto (git add + git commit)
@@ -335,15 +394,17 @@ Este artículo presenta un flujo de trabajo colaborativo que combina:
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
-│  Tu carpeta de trabajo (Working Directory)                  │
+│  Su carpeta de trabajo (Working Directory)                  │
 │                                                              │
 │  📄 introduction.tex  [MODIFICADO]                          │
 │  📄 methods.tex       [MODIFICADO]                          │
-│  📄 notas-personales.txt [NUEVO - no quiero compartir]      │
+│  📄 notas-personales.txt [NUEVO - en .gitignore, ignorado] │
 │  📄 borrador-idea.tex    [NUEVO - todavía no está listo]    │
 └─────────────────────────────────────────────────────────────┘
                             │
                             │ git add introduction.tex
+                            │ (o git add . si notas-personales
+                            │  ya está en .gitignore)
                             ▼
 ┌─────────────────────────────────────────────────────────────┐
 │  Área de preparación (Staging Area)                         │
@@ -360,11 +421,13 @@ Este artículo presenta un flujo de trabajo colaborativo que combina:
 └─────────────────────────────────────────────────────────────┘
 ```
 
+> 💡 **Sobre archivos personales en VS Code**: Es completamente normal y recomendable tener archivos personales (notas, borradores, ideas) en su carpeta de trabajo local. La clave es usar `.gitignore` para que Git los ignore automáticamente. De esta forma, pueden organizar todo su trabajo en un solo lugar sin riesgo de subir archivos privados al repositorio compartido.
+
 ### Regla de oro sobre `git add`
 
-> **Cualquier archivo NUEVO que quieras compartir, debes agregarlo explícitamente con `git add`.**
+> **Cualquier archivo NUEVO que quieran compartir, deben agregarlo explícitamente con `git add`.**
 > 
-> Los archivos que todavía no quieras compartir, simplemente **no les hagas `git add`**.
+> Los archivos que **nunca** quieran compartir, agréguenlos al `.gitignore` desde el momento en que los crean. Los archivos que todavía no estén listos, simplemente **no les hagan `git add`** hasta que lo estén.
 
 ### Ejemplo concreto: José Miguel
 
@@ -387,9 +450,51 @@ Untracked files:
         mis-notas-personales.txt
 ```
 
-### Tres formas de usar `git add`
+### Ejemplo concreto: Rodrigo
 
-#### Opción 1: Agregar UN archivo específico (RECOMENDADO)
+Rodrigo editó `methods.tex`:
+
+```bash
+git status
+```
+
+Salida:
+```
+On branch main
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+        modified:   sections/methods.tex
+```
+
+```bash
+git add sections/methods.tex
+git commit -m "Describí las herramientas y el flujo de trabajo en metodología"
+```
+
+### Ejemplo concreto: Mauricio
+
+Mauricio editó `results.tex`:
+
+```bash
+git status
+```
+
+Salida:
+```
+On branch main
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+        modified:   sections/results.tex
+```
+
+```bash
+git add sections/results.tex
+git commit -m "Agregué beneficios y comparación en resultados"
+```
+
+### Formas de usar `git add`
+
+#### Opción 1: Agregar UN archivo específico (RECOMENDADO para empezar)
 
 ```bash
 # Solo agregar el archivo que quiero compartir
@@ -414,9 +519,37 @@ git add .
 git add sections/introduction.tex sections/methods.tex
 ```
 
-### ¿Qué pasa si usé `git add .` por error?
+#### Opción 4: Usar `.gitignore` + `git add .` (RECOMENDADO para el día a día)
 
-Si agregaste un archivo que no querías compartir, puedes **quitarlo del área de preparación** (sin perder tus cambios):
+Si saben de antemano que ciertos archivos **nunca** deben subirse (notas personales, borradores privados, archivos temporales), pueden agregarlos al archivo `.gitignore` **antes** de usar `git add .`:
+
+```bash
+# Paso 1: Agregar el archivo a .gitignore
+echo "mis-notas-personales.txt" >> .gitignore
+```
+
+O abrir `.gitignore` en VS Code y agregar la línea manualmente:
+
+```
+# Archivos personales que no quiero compartir
+mis-notas-personales.txt
+borradores-privados/
+```
+
+```bash
+# Paso 2: Ahora git add . ignora automáticamente esos archivos
+git add .
+```
+
+**Resultado**: `introduction.tex` y `.gitignore` quedan preparados. `mis-notas-personales.txt` es **ignorado automáticamente** y nunca será rastreado por Git.
+
+> 💡 **Consejo**: Si desde que crean un archivo personal saben que nunca lo van a compartir, agréguenlo al `.gitignore` inmediatamente. Así pueden usar `git add .` con confianza sin preocuparse por subir cosas que no quieren.
+
+> 🔍 **¿Se les ocurren más formas de usar `git add`?** Seguro se puede. Están a un prompt de distancia de descubrir cómo hacerlo. Pregúntenle a su LLM de preferencia: *"¿Cómo puedo agregar solo archivos .tex con git add?"* o *"¿Cómo agrego todos los archivos excepto uno?"* — Git es muy flexible y hay muchas formas de controlar exactamente qué incluir.
+
+### ¿Qué pasa si usaron `git add .` por error?
+
+Si agregaron un archivo que no querían compartir, pueden **quitarlo del área de preparación** (sin perder sus cambios):
 
 ```bash
 # "Des-trackear" un archivo antes de hacer commit
@@ -466,9 +599,11 @@ Una vez que hiciste commit, los cambios están guardados **localmente**. Para co
 git push origin main
 ```
 
-### Si alguien más subió cambios antes que tú
+> 📌 **Nota sobre ramas**: En esta parte del taller, todos trabajan directamente sobre `main` porque cada quien edita un archivo diferente (sin riesgo de conflictos). En la **[Parte 4](../04_ramas_y_conflictos/README.md)**, aprenderán a trabajar en **ramas individuales** y usar **Pull Requests** para un flujo más profesional donde los cambios se revisan antes de integrarse a `main`. Si en algún momento al hacer `git push` surgen problemas inesperados, la Parte 4 también cubre cómo resolver conflictos.
 
-Git te dirá que primero debes bajar los cambios de los demás:
+### Si alguien más subió cambios antes que ustedes
+
+Git les dirá que primero deben bajar los cambios de los demás:
 
 ```bash
 # Primero, obtener los cambios de otros
@@ -480,8 +615,8 @@ git push origin main
 
 ### Verificar en GitHub
 
-1. Ve a tu repositorio en GitHub
-2. Deberías ver tu commit reciente en la lista
+1. Vayan a su repositorio en GitHub
+2. Deberían ver su commit reciente en la lista
 3. Click en el commit para ver exactamente qué cambió
 
 ---
@@ -554,6 +689,7 @@ Después de que todos hayan subido sus cambios a GitHub y se hayan integrado en 
 | Obtener cambios de otros | `git pull origin main` |
 | Agregar UN archivo | `git add ruta/archivo.tex` |
 | Agregar TODOS los cambios | `git add .` |
+| Ignorar un archivo permanentemente | Agregar al `.gitignore` |
 | Quitar archivo del staging | `git restore --staged archivo.tex` |
 | Tomar la foto | `git commit -m "mensaje"` |
 | Subir mis cambios | `git push origin main` |
@@ -563,13 +699,14 @@ Después de que todos hayan subido sus cambios a GitHub y se hayan integrado en 
 
 ## Checkpoint ✅
 
-Antes de continuar a la Parte 4, verifica que:
+Antes de continuar a la Parte 4, verifiquen que:
 
-- [ ] Entiendes la diferencia entre `git add archivo.tex` y `git add .`
-- [ ] Sabes cómo quitar un archivo del staging si lo agregaste por error
-- [ ] Hiciste al menos un commit con tus cambios
-- [ ] Subiste tus cambios a GitHub con `git push`
-- [ ] Puedes ver tus cambios en la página de GitHub
+- [ ] Entienden la diferencia entre `git add archivo.tex` y `git add .`
+- [ ] Saben cómo usar `.gitignore` para excluir archivos personales
+- [ ] Saben cómo quitar un archivo del staging si lo agregaron por error
+- [ ] Hicieron al menos un commit con sus cambios
+- [ ] Subieron sus cambios a GitHub con `git push`
+- [ ] Pueden ver sus cambios en la página de GitHub
 
 ---
 
