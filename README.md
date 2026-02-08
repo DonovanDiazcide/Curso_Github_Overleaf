@@ -7,6 +7,23 @@
 
 ---
 
+## 🆕 Workflow Mejorado Basado en Investigación Académica
+
+Este taller implementa las mejores prácticas del artículo **"GitHub is an effective platform for collaborative and reproducible laboratory research"** (arXiv:2408.09344), que demuestra que GitHub es efectivo para investigación colaborativa y reproducible.
+
+**Nuevas características implementadas:**
+
+- ✅ **Automatización con GitHub Actions**: Compilación automática de LaTeX en cada push/PR
+- ✅ **Templates estandarizados**: Para Issues (reportes, propuestas) y Pull Requests
+- ✅ **Documentación exhaustiva**: Guías paso a paso probadas con usuarios reales
+- ✅ **Workflow basado en branches**: Trabajo paralelo sin conflictos
+- ✅ **Revisión por pares integrada**: Pull Requests como mecanismo de control de calidad
+- ✅ **Validación completa**: 26 tests ejecutados en 3 perfiles de usuario diferentes
+
+📖 **Documentación completa:** Ver [WORKFLOW-COLABORATIVO.md](WORKFLOW-COLABORATIVO.md) para entender cómo cada parte del sistema fue probada y validada.
+
+---
+
 ## 🎯 Objetivo
 
 Establecer un flujo de trabajo colaborativo profesional para escribir artículos académicos en LaTeX, combinando:
@@ -65,7 +82,7 @@ pdflatex --version   # → pdfTeX 3.x (TeX Live 202x)
 
 ## 🔄 El Flujo de Trabajo
 
-El flujo va de **local → GitHub → Overleaf**:
+El flujo va de **local → GitHub → Overleaf**, con **automatización y revisión por pares**:
 
 ```
  ① TRABAJO LOCAL (donde todo empieza)
@@ -74,18 +91,24 @@ El flujo va de **local → GitHub → Overleaf**:
    │ VS Code   │        │ VS Code   │        │ VS Code   │
    │ LOCAL     │        │ LOCAL     │        │ LOCAL     │
    └─────┬─────┘        └─────┬─────┘        └─────┬─────┘
-         └──── push/pull ────┼──── push/pull ────┘
+         │                    │                    │
+         └──── push branch ───┼──── push branch ───┘
                               │
- ② GITHUB (repositorio compartido)
+ ② GITHUB (repositorio compartido + automatización)
    ┌─────────────────────────────────────────────┐
-   │  Backup • Pull Requests • Historial       │
+   │  • Pull Requests con revisión por pares    │
+   │  • GitHub Actions: Compilación automática  │
+   │  • Issues: Gestión de tareas               │
+   │  • Backup automático en la nube            │
    └─────────────────────────────────────────────┘
                               │ sync (Mauricio)
  ③ OVERLEAF (verificación final)
    ┌─────────────────────────────────────────────┐
-   │  Compilación en nube • Verificación final  │
+   │  Compilación en la nube • Verificación final│
    └─────────────────────────────────────────────┘
 ```
+
+> **🆕 Mejoras implementadas:** Este workflow ahora incluye automatización con GitHub Actions, templates para Issues y PRs, y documentación completa de pruebas. Ver [WORKFLOW-COLABORATIVO.md](WORKFLOW-COLABORATIVO.md) para detalles.
 
 ---
 
@@ -144,7 +167,11 @@ taller-colaboracion-latex/
 
 | Recurso | Descripción | Para quién |
 |---------|-------------|------------|
-| [**⭐ Guía Rápida**](recursos/guia-rapida.md) | Una página con todo lo esencial | Todos (imprimir) |
+| [**⭐ Guía Rápida**](guia-rapida.md) | Una página con todo lo esencial | Todos (imprimir) |
+| [**🎓 Guía para Principiantes**](GUIA-PRINCIPIANTES.md) | Tu primera contribución paso a paso | Nuevos usuarios |
+| [**🔧 Troubleshooting**](TROUBLESHOOTING.md) | Soluciones a problemas comunes | Todos |
+| [**📋 Workflow Colaborativo**](WORKFLOW-COLABORATIVO.md) | Documentación completa del flujo | Referencia avanzada |
+| [**✅ Pruebas y Validación**](PRUEBAS-VALIDACION.md) | Cómo se probó todo el sistema | Verificación |
 | [**Cheatsheet**](recursos/cheatsheet.md) | Comandos Git de referencia | Todos |
 | [**Notas Instructor**](recursos/notas-instructor.md) | Facilitación y troubleshooting | Instructor |
 | [**Fuentes Citadas**](recursos/fuentes-citadas.md) | Referencias oficiales | Verificación |
