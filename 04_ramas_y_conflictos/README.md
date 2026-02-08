@@ -191,10 +191,13 @@ Los revisores pueden:
 
 ### Paso 5: Merge (después de aprobación)
 
+> ⚠️ **Tipo de merge correcto**: Asegúrense de usar **"Create a merge commit"** (no "Squash" ni "Rebase"). Esto preserva el historial completo de todos los commits de la rama, incluso si después la eliminan.
+
 Una vez aprobado:
-1. Click en **"Merge pull request"**
-2. Click en **"Confirm merge"**
-3. (Opcional) Click en **"Delete branch"** para limpiar
+1. Click en **"Merge pull request"** (botón verde)
+2. **Verificar el menú desplegable**: debe decir "Create a merge commit"
+3. Click en **"Confirm merge"**
+4. (Opcional) Click en **"Delete branch"** para limpiar — los commits permanecen en el historial
 
 ### Paso 6: Actualizar su copia local
 

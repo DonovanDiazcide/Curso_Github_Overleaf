@@ -340,10 +340,23 @@ Cada participante revisa al menos UN PR de otro compañero:
 
 ### Hacer merge de los PRs (Mauricio como owner, o cada quien el suyo)
 
+> ⚠️ **Importante: Tipo de merge para preservar el historial**
+>
+> GitHub ofrece tres opciones de merge. Para mantener el historial completo de commits (incluso después de borrar ramas), **deben usar "Create a merge commit"**:
+>
+> | Opción | ¿Preserva historial? | Descripción |
+> |--------|---------------------|-------------|
+> | **Create a merge commit** ✅ | Sí | Todos los commits de la rama quedan accesibles |
+> | Squash and merge ❌ | No | Comprime todos los commits en uno solo |
+> | Rebase and merge ⚠️ | Parcial | Re-escribe commits con nuevos identificadores |
+>
+> Esto es fundamental para el control de versiones intencional: cada "foto" (commit) que tomaron durante su trabajo permanece en el historial del proyecto, documentando el "por qué" de cada cambio.
+
 Para cada PR aprobado:
-1. Click en **"Merge pull request"**
-2. Click en **"Confirm merge"**
-3. (Opcional) **"Delete branch"**
+1. Click en **"Merge pull request"** (botón verde)
+2. **Verificar que esté seleccionado "Create a merge commit"** (desplegable junto al botón)
+3. Click en **"Confirm merge"**
+4. (Opcional) **"Delete branch"** — los commits siguen accesibles gracias al merge commit
 
 ### Orden sugerido de merge
 

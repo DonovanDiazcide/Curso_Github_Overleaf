@@ -47,7 +47,16 @@ Ahora bien, muchos de ustedes ya usan **Overleaf** para colaborar. Parece mejor 
 - ❌ Historial limitado: difícil saber el "por qué" de cada cambio
 - ❌ No hay revisión formal antes de integrar cambios importantes
 
-**Solución**: Un sistema que gestione versiones **intencionalmente** (ustedes deciden cuándo guardar una "versión" significativa) y permita revisión colaborativa. Eso es **Git + GitHub + VS Code**, manteniendo Overleaf solo para verificación final. A lo largo del taller construiremos un flujo completo combinando varias piezas.
+**Solución**: Un sistema de **control de versiones intencional** donde ustedes deciden cuándo guardar una "versión" significativa. Esto es exactamente lo que recomienda la literatura sobre buenas prácticas de investigación reproducible (Gentzkow & Shapiro, "Code and Data for the Social Sciences").
+
+**¿Qué significa "intencional"?**
+- Cada "foto" (commit) la toman conscientemente, con un mensaje que explica el *por qué*
+- El historial completo se preserva: pueden ver quién cambió qué, cuándo y por qué
+- Pueden volver a cualquier momento anterior del proyecto
+
+**¿Se preserva todo el historial?** Sí, siempre que al integrar cambios (merge) usen la opción **"Create a merge commit"** en GitHub. Esto mantiene todos los commits de cada rama accesibles en el historial, incluso si luego borran las ramas. (Más detalles en la Parte 4 cuando veamos Pull Requests.)
+
+Eso es **Git + GitHub + VS Code**, manteniendo Overleaf solo para verificación final. A lo largo del taller construiremos un flujo completo combinando varias piezas.
 
 ---
 
