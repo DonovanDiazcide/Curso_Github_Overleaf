@@ -22,11 +22,12 @@ En la Parte 3, José Miguel y Rodrigo crearon Pull Requests. Ahora toca **revisa
 
 ### Asignación de revisiones
 
+> Recuerden: en la Parte 3, solo José Miguel y Rodrigo crearon Pull Requests. Mauricio subió sus cambios directamente a main.
+
 | Revisor | Revisa el PR de |
-|---------|-----------------|
-| José Miguel | Rodrigo |
-| Rodrigo | Mauricio (o José Miguel) |
-| Mauricio | José Miguel |
+|---------|------------------|
+| Rodrigo y Mauricio | José Miguel |
+| José Miguel y Mauricio | Rodrigo |
 
 ### Cómo revisar un PR
 
@@ -66,6 +67,8 @@ Aquí pueden ver exactamente qué se cambió:
    | 💬 **Comment** | Tengo sugerencias pero no bloqueo la integración |
    | 🔄 **Request changes** | Necesita correcciones antes de integrar |
 4. Click en **"Submit review"**
+
+> 💡 **Tip**: GitHub envía notificaciones por correo electrónico cuando alguien comenta en su PR o les solicita una revisión. Revisen su bandeja de entrada si no ven actividad en GitHub.
 
 ---
 

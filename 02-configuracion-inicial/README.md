@@ -59,7 +59,9 @@ Si Mauricio ya tiene un proyecto en Overleaf que quiere usar:
    | Campo | Valor sugerido |
    |-------|----------------|
    | **Repository name** | `articulo-taller-colaboracion` |
-   | **Visibility** | Private (o Public si prefieren) |
+   | **Visibility** | Public (recomendado para el taller) |
+
+   > 💡 **¿Public o Private?** Para el taller, Public es más sencillo porque permite que José Miguel y Rodrigo hagan fork sin pasos extra. Si eligen Private, Mauricio debe agregar a José Miguel y Rodrigo como colaboradores en GitHub **antes** de que ellos puedan hacer fork (ver paso 2.7).
 
 5. Click en **"Create"**
 
@@ -175,7 +177,7 @@ Mauricio ahora tiene **3 proyectos** en Overleaf:
 
 ## 2.7 Compartir acceso en GitHub — repo principal (Mauricio)
 
-Para que José Miguel y Rodrigo puedan crear Pull Requests y participar en revisiones:
+Para que José Miguel y Rodrigo puedan ser asignados como revisores, gestionar Issues y tener acceso completo al repositorio:
 
 1. Ir al repositorio **principal** en GitHub: `mauricio/articulo-taller-colaboracion`
 2. Click en **"Settings"** → **"Collaborators"**
@@ -266,7 +268,7 @@ Antes de continuar a la Parte 3, verifiquen que:
 - [ ] Rodrigo puede editar y sincronizar su proyecto Overleaf
 - [ ] Todos pueden ver el repo principal en GitHub
 
-Si algo falla, pida ayuda antes de continuar.
+Si algo falla, pidan ayuda antes de continuar.
 
 ---
 

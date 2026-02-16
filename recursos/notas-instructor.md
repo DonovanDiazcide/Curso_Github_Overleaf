@@ -1,6 +1,6 @@
 # Notas para el Instructor
 
-> Guía de facilitación para el taller (~1.5 horas)  
+> Guía de facilitación para el taller (~2 horas)  
 > **Versión 2**: Flujo 100% en el navegador (sin VS Code ni instalaciones locales)
 
 ---
@@ -42,8 +42,10 @@
 | 0:20 | 20 min | Parte 2: Configuración | **Crítico**: ir paso a paso, compartir pantalla. Muchas cosas que hacer |
 | 0:40 | 25 min | Parte 3: Flujo básico | **Lo más importante**: que todos hagan Push y creen un PR |
 | 1:05 | 15 min | Parte 4: Revisión y conflictos | Demostrar revisión de PR. Provocar conflicto como demo |
-| 1:20 | 20 min | Parte 5: Práctica libre | Dejar que trabajen solos, estar disponible para dudas |
-| 1:40 | 5 min | Cierre | Compartir guía rápida, agradecer, preguntar dudas finales |
+| 1:20 | 15 min | Parte 5: Práctica libre | Dejar que trabajen solos, estar disponible para dudas |
+| 1:35 | 5 min | Cierre | Compartir guía rápida, agradecer, preguntar dudas finales |
+
+> **Tiempo total estimado**: ~1 hora 45 minutos (incluyendo verificación y buffer). Reserven ~2 horas para tener margen.
 
 ### Tips de facilitación
 
@@ -55,7 +57,7 @@
 
 ### Ventaja clave de esta versión del curso
 
-A diferencia de la versión con VS Code (rama `main`), en esta versión:
+A diferencia de la versión v1 del taller (rama `main` de este repositorio, que usa VS Code + Git local), en esta versión:
 - **No hay problemas de instalación**: No Git, no MiKTeX, no LaTeX Workshop, no Perl
 - **No hay terminal**: Todo se hace con clicks en el navegador
 - **No hay configuración local**: No `git config`, no PATH, no extensiones

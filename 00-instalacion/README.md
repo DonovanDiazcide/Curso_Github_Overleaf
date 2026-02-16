@@ -70,4 +70,6 @@ Si todo está listo, **¡están preparados para el taller!** 🎉
 
 ---
 
-[← Volver al índice principal](../README.md)
+**Anterior**: [← Índice principal](../README.md)
+
+**Siguiente**: [Parte 1 - Conceptos Fundamentales →](../01-conceptos/README.md)

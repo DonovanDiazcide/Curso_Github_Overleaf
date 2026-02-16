@@ -44,21 +44,21 @@
 ## 🏗️ Arquitectura
 
 ```
- Overleaf                              GitHub
- ════════                              ══════
+ OVERLEAF (Navegador)                 GITHUB (Navegador)
+ ════════════════════                 ═══════════════════
 
- Articulo-Main        ←── sync ──→     mauricio/articulo (main)
- (versión oficial)                            ↑
-                                        Pull Requests
-                                     ┌────────┼────────┐
- Articulo-JM          ←── sync ──→   │ josem/ │        │
- Workspace                            │ articulo       │
-                                      │ (fork) │        │
-                                      │        │        │
- Articulo-Rodrigo     ←── sync ──→            │ rodrigo/
- Workspace                                     │ articulo
-                                               │ (fork)
-                                               │
+ ┌──────────────────┐           ┌─────────────────────────┐
+ │ Articulo-Main    │ ← sync → │ mauricio/articulo (main) │
+ │ (versión oficial)│           └────────────┬────────────┘
+ └──────────────────┘                        │
+                                   ┌─────────┼──────────┐
+                                   │  PRs    │    PRs   │
+                                   │         │          │
+ ┌──────────────────┐    ┌────────┴───┐  ┌──┴─────────┐
+ │ Articulo-JM      │←→ │ josemiguel/ │  │ rodrigo/   │ ←→┌──────────────────┐
+ │ Workspace        │    │ articulo    │  │ articulo   │    │ Articulo-Rodrigo │
+ └──────────────────┘    │ (fork)      │  │ (fork)     │    │ Workspace        │
+                         └────────────┘  └────────────┘    └──────────────────┘
 ```
 
 ---

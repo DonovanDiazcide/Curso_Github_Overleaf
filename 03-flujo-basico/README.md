@@ -86,7 +86,7 @@ articulo-taller-colaboracion/
 \usepackage[margin=2.5cm]{geometry}
 
 % Título y autores
-\title{Artículo de Práctica: Colaboración con Git y LaTeX}
+\title{Artículo de Práctica: Colaboración con GitHub, Overleaf y LaTeX}
 \author{
     Mauricio\textsuperscript{1} \and 
     José Miguel\textsuperscript{1} \and 
@@ -218,7 +218,7 @@ Después de crear todos los archivos en el proyecto "Main" de Overleaf:
 1. En Overleaf, ir a **Menu** → **GitHub**
 2. Click en **"Push Overleaf changes to GitHub"**
 3. Escribir mensaje: `"Estructura inicial del artículo con secciones asignadas"`
-4. Click en **"Push"** (o "Commit")
+4. Click en **"Push"**
 
 ---
 
@@ -463,4 +463,4 @@ Antes de continuar a la Parte 4, verifiquen que:
 
 **Anterior**: [← Parte 2 - Configuración Inicial](../02-configuracion-inicial/README.md)
 
-**Siguiente**: [Parte 4 - Pull Requests y Conflictos →](../04_ramas_y_conflictos/README.md)
+**Siguiente**: [Parte 4 - Pull Requests, Revisión y Conflictos →](../04_ramas_y_conflictos/README.md)

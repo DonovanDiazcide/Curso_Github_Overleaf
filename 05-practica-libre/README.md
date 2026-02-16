@@ -1,6 +1,6 @@
 # Parte 5: Práctica Libre y Cierre
 
-> **Duración**: 20 minutos (15 práctica + 5 cierre)  
+> **Duración**: 20 minutos  
 > **Objetivo**: Aplicar todo lo aprendido de forma independiente — 100% en el navegador
 
 ---
@@ -172,23 +172,23 @@ y colaboración durante el desarrollo de este ejercicio práctico.
 │  CHECKLIST DE TRABAJO INDEPENDIENTE                         │
 └─────────────────────────────────────────────────────────────┘
 
-□ 1. SINCRONIZAR (antes de empezar)
+- [ ] 1. SINCRONIZAR (antes de empezar)
       GitHub: ir a su fork → "Sync fork" → "Update branch"
       Overleaf: Menu → GitHub → "Pull GitHub changes into Overleaf"
 
-□ 2. EDITAR (en su proyecto Overleaf)
+- [ ] 2. EDITAR (en su proyecto Overleaf)
       Crear/editar su archivo .tex
       Si es archivo nuevo, actualizar main.tex:
         Agregar: \input{sections/su-seccion}
 
-□ 3. COMPILAR
+- [ ] 3. COMPILAR
       Verificar que el PDF se genera correctamente en Overleaf
 
-□ 4. SUBIR (Push a GitHub)
+- [ ] 4. SUBIR (Push a GitHub)
       Overleaf: Menu → GitHub → "Push Overleaf changes to GitHub"
       Mensaje: "Completé la sección de [su sección]"
 
-□ 5. PROPONER (Pull Request)
+- [ ] 5. PROPONER (Pull Request)
       GitHub: ir a su fork → "Contribute" → "Open pull request"
       Escribir título y descripción del PR
 ```
@@ -225,7 +225,7 @@ y colaboración durante el desarrollo de este ejercicio práctico.
 2. **Compilar**: Verificar PDF
 3. **Push**: Menu → GitHub → Push → Mensaje: `"Completé Results con tabla comparativa"`
 
-> ⚠️ **Nota**: En este ejercicio, Mauricio edita directamente en "Main" para simplificar. En un flujo real, incluso Mauricio debería usar su propio fork para que sus cambios pasen por revisión.
+> ⚠️ **Recordatorio**: Mauricio edita directamente en "Main" para simplificar (ver nota en Parte 3). En un flujo real, usaría su propio fork para que sus cambios también pasen por revisión.
 
 </details>
 
@@ -381,7 +381,7 @@ Una vez que hiciste Push to GitHub desde Overleaf, los cambios están en tu fork
 <details>
 <summary><strong>¿Qué pasa si quiero trabajar offline?</strong></summary>
 
-Overleaf requiere internet. Si necesitan capacidad de trabajo offline, pueden explorar la versión alternativa de este curso (rama `main` del repositorio) que usa VS Code como editor local con Git en la terminal.
+Overleaf requiere internet. Si necesitan capacidad de trabajo offline, existe una versión alternativa de este taller que usa un editor local con Git en la terminal. Consulten con el instructor.
 
 </details>
 

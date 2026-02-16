@@ -39,7 +39,7 @@ Ahora bien, muchos de ustedes ya usan **Overleaf** para colaborar. Parece mejor 
 
 **Problemas comunes cuando todos editan el mismo proyecto Overleaf:**
 - ❌ Conflictos cuando dos personas editan el mismo archivo simultáneamente
-- ❌ Solo una persona puede compilar a la vez
+- ❌ Compilación compartida: el servidor se satura cuando varios compilan simultáneamente
 - ❌ Historial limitado: difícil saber el "por qué" de cada cambio
 - ❌ No hay revisión formal antes de integrar cambios importantes
 - ❌ No hay separación clara entre "trabajo en progreso" y "versión aprobada"
@@ -128,7 +128,7 @@ Si solo usan un proyecto Overleaf compartido entre todos, siguen teniendo estos 
 | **Todo el mundo edita "main"** | No hay separación entre trabajo en progreso y versión aprobada |
 | **Sin revisión formal** | No hay Pull Requests para revisar cambios antes de integrarlos |
 | **Historial menos detallado** | El historial de Overleaf no captura el "por qué" tan bien como GitHub |
-| **Compilación simultánea** | Solo una persona puede compilar a la vez |
+| **Compilación compartida** | Recursos del servidor se comparten — con varios editores puede ser lenta |
 
 > 💡 **La buena noticia**: en este taller vamos a resolver exactamente estas limitaciones. Cada persona tendrá **su propio proyecto de Overleaf** conectado a su propio fork en GitHub. Así conservan todas las ventajas de Overleaf, pero agregan revisión formal, historial detallado y separación de espacios de trabajo.
 
@@ -136,7 +136,7 @@ Si solo usan un proyecto Overleaf compartido entre todos, siguen teniendo estos 
 
 ## 🧠 Trivia 1: Comprensión de Overleaf y sus Limitaciones
 
-**Pregunta 1:** José Miguel y Rodrigo están editando la introducción al mismo tiempo en un proyecto Overleaf compartido. José Miguel agrega un párrafo nuevo, y Rodrigo modifica el mismo párrafo sin saber que José Miguel ya lo editó. ¿Qué sucede?
+**Pregunta 1:** José Miguel y Rodrigo están editando la introducción al mismo tiempo en un proyecto Overleaf compartido. José Miguel modifica un párrafo de la introducción, y Rodrigo modifica el mismo párrafo sin saber que José Miguel ya lo editó. ¿Qué sucede?
 - A) Overleaf fusiona automáticamente ambos cambios sin problemas
 - B) Puede haber un conflicto donde se pierdan los cambios de uno de los dos
 - C) Overleaf bloquea el archivo para que solo uno pueda editarlo
@@ -429,7 +429,7 @@ Google Docs no soporta LaTeX. Para documentos académicos con ecuaciones, tablas
 Solo el **owner del proyecto** (Mauricio) necesita Premium para la sincronización con GitHub. Los colaboradores no necesitan cuenta Premium — al ser invitados a un proyecto creado por un usuario Premium, pueden usar la función de sincronización.
 
 ### ¿Puedo trabajar offline?
-No directamente — Overleaf requiere internet. Si necesitan capacidad offline, consideren la versión alternativa de este taller que usa VS Code como editor local (rama `main` de este repositorio).
+No directamente — Overleaf requiere internet. Si necesitan capacidad offline, existe una versión alternativa de este taller que usa un editor local con Git en la terminal. Consulten con el instructor.
 
 ### ¿Qué pasa si quiero editar directamente en el proyecto "Main" de Overleaf?
 No es recomendable. El proyecto "Main" debe recibir cambios solo a través de Pull Requests aprobados. Editar directamente ahí saltaría el proceso de revisión.
@@ -437,15 +437,20 @@ No es recomendable. El proyecto "Main" debe recibir cambios solo a través de Pu
 ### ¿Puedo tener múltiples Pull Requests abiertos al mismo tiempo?
 En este flujo, cada fork tiene una sola "rama" (main). Todos los cambios que hagas Push desde Overleaf se acumulan en tu fork. Si ya tienes un PR abierto, los nuevos Push se agregan automáticamente a ese PR. Por esto, es mejor terminar un ciclo de trabajo (PR → revisión → merge) antes de comenzar uno nuevo.
 
+### ¿Qué pasa si la cuenta Premium de Mauricio expira?
+La sincronización con GitHub dejará de funcionar en todos los proyectos vinculados. Los archivos en Overleaf seguirán ahí, pero no podrán hacer Push ni Pull. Asegúrense de que Mauricio haga Push de todos los cambios pendientes antes de que expire, así todo queda respaldado en GitHub.
+
 ---
 
 ## Referencias
 
 - [GitHub Flow](https://docs.github.com/en/get-started/using-github/github-flow): Flujo oficial de GitHub
 - [Overleaf GitHub Synchronization](https://docs.overleaf.com/integrations-and-add-ons/git-integration-and-github-synchronization/github): Documentación oficial
-- [Pro Git Book](https://git-scm.com/book/en/v2): Libro gratuito y oficial de Git
-- [Noble Lab: 10 Tips for Collaborative Writing](https://willfondrie.com/2024/02/10-tips-for-collaborative-writing-with-latex-and-github/): Universidad de Washington
+- [Pro Git Book](https://git-scm.com/book/en/v2): Libro gratuito y oficial de Git (para quienes quieran profundizar en Git de línea de comandos más adelante)
+- [Fondrie, W. (2024): "10 Tips for Collaborative Writing with LaTeX and GitHub"](https://willfondrie.com/2024/02/10-tips-for-collaborative-writing-with-latex-and-github/): Universidad de Washington
 
 ---
+
+**Anterior**: [← Configuración Previa](../00-instalacion/README.md)
 
 **Siguiente**: [Parte 2 - Configuración Inicial →](../02-configuracion-inicial/README.md)

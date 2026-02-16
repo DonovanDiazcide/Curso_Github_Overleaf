@@ -1,9 +1,9 @@
 # Taller: GitHub + Overleaf para Artículos Académicos en LaTeX
 
 > **Versión 2**: Flujo 100% en el navegador (sin VS Code ni instalaciones locales)  
-> **Duración total**: ~1.5 horas  
+> **Duración total**: ~2 horas  
 > **Audiencia**: Investigadores y estudiantes que colaboran en artículos LaTeX  
-> **Prerequisito**: Completar la [configuración previa](00-instalacion/README.md) (15-20 min antes del taller)
+> **Prerrequisito**: Completar la [configuración previa](00-instalacion/README.md) (15-20 min antes del taller)
 
 ---
 
@@ -21,14 +21,14 @@ Este enfoque está alineado con las buenas prácticas de investigación reproduc
 
 ## Estructura del Taller
 
-| Parte | Contenido | Duración | Archivo |
-|-------|-----------|----------|---------|
-| **Instalación** | Crear cuentas antes del taller | 15-20 min | [00-instalacion/](00-instalacion/README.md) |
-| **Parte 1** | Conceptos fundamentales: Overleaf, GitHub, flujo de trabajo | 15 min | [01-conceptos/](01-conceptos/README.md) |
-| **Parte 2** | Configuración inicial: Overleaf → GitHub → Forks | 20 min | [02-configuracion-inicial/](02-configuracion-inicial/README.md) |
-| **Parte 3** | Flujo básico: Editar → Push → Pull Request → Sync | 25 min | [03-flujo-basico/](03-flujo-basico/README.md) |
-| **Parte 4** | Pull Requests, revisión y resolución de conflictos | 15 min | [04_ramas_y_conflictos/](04_ramas_y_conflictos/README.md) |
-| **Parte 5** | Práctica libre y cierre | 20 min | [05-practica-libre/](05-practica-libre/README.md) |
+| Parte | Contenido | Duración | Enlace |
+|-------|-----------|----------|--------|
+| **Instalación** | Crear cuentas antes del taller | 15-20 min | [Configuración previa](00-instalacion/README.md) |
+| **Parte 1** | Conceptos fundamentales: Overleaf, GitHub, flujo de trabajo | 15 min | [Conceptos](01-conceptos/README.md) |
+| **Parte 2** | Configuración inicial: Overleaf → GitHub → Forks | 20 min | [Configuración inicial](02-configuracion-inicial/README.md) |
+| **Parte 3** | Flujo básico: Editar → Push → Pull Request → Sync | 25 min | [Flujo básico](03-flujo-basico/README.md) |
+| **Parte 4** | Pull Requests, revisión y resolución de conflictos | 15 min | [Revisión y conflictos](04_ramas_y_conflictos/README.md) |
+| **Parte 5** | Práctica libre y cierre | 20 min | [Práctica libre](05-practica-libre/README.md) |
 
 ---
 
