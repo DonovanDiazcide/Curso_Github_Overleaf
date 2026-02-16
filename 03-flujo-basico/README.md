@@ -1,7 +1,7 @@
 # Parte 3: Flujo de Trabajo Básico
 
-> **Duración**: 30 minutos  
-> **Objetivo**: Dominar el ciclo diario de trabajo: Editar → Commit → Push → Sync
+> **Duración**: 25 minutos  
+> **Objetivo**: Dominar el ciclo diario: Editar en Overleaf → Push a GitHub → Pull Request → Merge
 
 ---
 
@@ -9,57 +9,54 @@
 
 | Paso | Descripción | Tiempo |
 |------|-------------|--------|
-| 3.1 | Entender el concepto de "foto" (commit) | 5 min |
-| 3.2 | Mauricio crea el archivo inicial en Overleaf | 5 min |
-| 3.3 | Todos sincronizan y obtienen el archivo | 3 min |
-| 3.4 | Cada quien edita su sección localmente | 10 min |
-| 3.5 | Preparar y tomar la foto (add + commit) | 5 min |
-| 3.6 | Subir cambios (push) | 2 min |
+| 3.1 | Entender el ciclo de trabajo | 3 min |
+| 3.2 | Mauricio crea la estructura del artículo | 5 min |
+| 3.3 | Todos sincronizan y obtienen los archivos | 3 min |
+| 3.4 | Cada quien edita su sección en su Overleaf | 8 min |
+| 3.5 | Subir cambios a GitHub (Push) | 3 min |
+| 3.6 | Crear Pull Request | 3 min |
 
 ---
 
-## 3.1 El concepto de "tomarle una foto al proyecto"
+## 3.1 El ciclo de trabajo
 
-En Git, un **commit** es como tomar una **foto instantánea** de su proyecto en un momento específico.
+En nuestro flujo, cada "versión" que suben a GitHub es intencional — incluye un mensaje que explica el *por qué* del cambio.
 
 ```
-📸 Foto 1: "Estructura inicial"
+📸 Versión 1: "Estructura inicial del artículo"
     Estado: main.tex, introduction.tex (vacíos)
-    Fecha: 2024-01-15 10:00
     Autor: Mauricio
 
-📸 Foto 2: "Agregué contenido a la introducción"  
+📸 Versión 2: "Completé la sección de introducción"
     Estado: introduction.tex (con 3 párrafos)
-    Fecha: 2024-01-15 11:30
     Autor: José Miguel
 
-📸 Foto 3: "Completé la metodología"
+📸 Versión 3: "Describí la metodología y herramientas"
     Estado: methods.tex (con contenido)
-    Fecha: 2024-01-15 12:00
     Autor: Rodrigo
 ```
 
 ### ¿Por qué es útil?
 
 - **Historial completo**: Pueden ver exactamente qué cambió, cuándo y quién lo hizo
-- **Máquina del tiempo**: Pueden volver a cualquier foto anterior si algo sale mal
-- **Propuestas de versión**: Pueden tener diferentes "álbumes" (ramas) con versiones alternativas del artículo
+- **Mensajes descriptivos**: Cada versión tiene una explicación del "por qué"
+- **Reversibilidad**: Si algo sale mal, pueden ver el estado anterior en GitHub
 
-### Buenas prácticas para commits
+### Buenas prácticas para los mensajes de Push
 
 | ✅ Hacer | ❌ Evitar |
 |----------|----------|
-| Commits pequeños y frecuentes | Un solo commit gigante con todo |
-| Mensajes descriptivos: "Agregué análisis de resultados" | Mensajes vagos: "cambios" o "asdf" |
-| Un commit por idea/tarea completada | Mezclar cambios no relacionados |
+| Mensajes descriptivos: "Completé análisis de resultados" | Mensajes vagos: "cambios" o "actualización" |
+| Un Push por tarea completada | Acumular muchos cambios sin hacer Push |
+| Hacer Push cuando tienen un avance coherente | Hacer Push con cambios a medias que rompen compilación |
 
 ---
 
-## 3.2 Archivo inicial del artículo (Mauricio)
+## 3.2 Estructura del artículo (Mauricio)
 
-> **Mauricio**: Copien este contenido y péguenlo en su proyecto de Overleaf.
+> **Mauricio**: Crea estos archivos en el proyecto **"Articulo-Main"** de Overleaf.
 
-### Estructura de archivos a crear
+### Estructura de archivos
 
 ```
 articulo-taller-colaboracion/
@@ -69,8 +66,7 @@ articulo-taller-colaboracion/
 │   ├── methods.tex          ← Rodrigo editará esto
 │   ├── results.tex          ← Mauricio editará esto
 │   └── conclusion.tex       ← Para después
-├── references.bib           ← Bibliografía
-└── .gitignore               ← Ignorar archivos auxiliares
+└── references.bib           ← Bibliografía
 ```
 
 ### Archivo: `main.tex`
@@ -103,7 +99,7 @@ articulo-taller-colaboracion/
 \maketitle
 
 \begin{abstract}
-Este documento es un ejercicio práctico para aprender a colaborar en artículos académicos usando Git, GitHub, Overleaf y VS Code. Cada autor contribuirá una sección diferente.
+Este documento es un ejercicio práctico para aprender a colaborar en artículos académicos usando GitHub y Overleaf. Cada autor contribuirá una sección diferente.
 \end{abstract}
 
 % Incluir secciones desde archivos separados
@@ -152,7 +148,7 @@ Rodrigo reemplazará este contenido con una descripción del flujo de trabajo pr
 
 \subsection{Herramientas utilizadas}
 
-[Pendiente: describir Git, GitHub, Overleaf, VS Code]
+[Pendiente: describir GitHub y Overleaf]
 
 \subsection{Flujo de trabajo}
 
@@ -215,86 +211,57 @@ Mauricio agregará contenido sobre los beneficios observados del flujo de trabaj
 }
 ```
 
-### Archivo: `.gitignore`
+### Subir la estructura a GitHub
 
-```
-# Archivos auxiliares de LaTeX
-*.aux
-*.log
-*.out
-*.toc
-*.lof
-*.lot
-*.bbl
-*.blg
-*.synctex.gz
-*.fdb_latexmk
-*.fls
-
-# Archivos de respaldo
-*.bak
-*~
-
-# Carpeta de output de algunos editores
-output/
-
-# Archivos del sistema
-.DS_Store
-Thumbs.db
-```
-
----
-
-## 3.3 Sincronizar y obtener el archivo (Todos)
-
-Una vez que Mauricio ha creado los archivos en Overleaf y los ha subido a GitHub:
-
-### Mauricio: Subir cambios de Overleaf a GitHub
+Después de crear todos los archivos en el proyecto "Main" de Overleaf:
 
 1. En Overleaf, ir a **Menu** → **GitHub**
 2. Click en **"Push Overleaf changes to GitHub"**
-3. Escribir un mensaje: "Estructura inicial del artículo"
-4. Click en **"Push"**
+3. Escribir mensaje: `"Estructura inicial del artículo con secciones asignadas"`
+4. Click en **"Push"** (o "Commit")
 
-### José Miguel y Rodrigo: Obtener los archivos
+---
 
-En la terminal (dentro de la carpeta del proyecto):
+## 3.3 Sincronizar y obtener los archivos (José Miguel y Rodrigo)
 
-```bash
-git pull origin main
-```
+Ahora que la estructura está en GitHub (`mauricio/articulo`), JM y Rodrigo necesitan traerla a sus forks y proyectos Overleaf.
 
-**Verificar** que llegaron los archivos:
+### Paso 1: Sincronizar el fork en GitHub
 
-```bash
-ls sections/
-```
+1. Ir a su fork en GitHub (ej: `josemiguel/articulo-taller-colaboracion`)
+2. Verán un mensaje: **"This branch is X commits behind mauricio:main"**
+3. Click en **"Sync fork"** → **"Update branch"**
+4. Su fork ahora tiene los mismos archivos que el repositorio principal
 
-Deberían ver: `introduction.tex  methods.tex  results.tex  conclusion.tex`
+### Paso 2: Traer los archivos a Overleaf
+
+1. Abrir su proyecto Overleaf (ej: `Articulo-JM-Workspace`)
+2. Ir a **Menu** → **GitHub**
+3. Click en **"Pull GitHub changes into Overleaf"**
+4. Los archivos del artículo aparecerán en su proyecto
+
+### Verificar
+
+- Deberían ver `main.tex`, la carpeta `sections/` con todos los archivos `.tex`, y `references.bib`
+- Al compilar, el PDF debería generarse correctamente
 
 ---
 
 ## 3.4 Cada quien edita su sección (Todos)
 
-Ahora viene la parte práctica. Cada persona editará **localmente** en VS Code:
+Ahora viene la parte práctica. Cada persona edita **en su propio proyecto Overleaf**:
 
-| Persona | Archivo a editar | Tarea |
-|---------|------------------|-------|
-| **José Miguel** | `sections/introduction.tex` | Escribir 2-3 párrafos de introducción |
-| **Rodrigo** | `sections/methods.tex` | Describir las herramientas y el flujo |
-| **Mauricio** | `sections/results.tex` | Agregar beneficios y una tabla comparativa |
+| Persona | Proyecto Overleaf | Archivo a editar | Tarea |
+|---------|-------------------|------------------|-------|
+| **José Miguel** | Articulo-JM-Workspace | `sections/introduction.tex` | Escribir 2-3 párrafos de introducción |
+| **Rodrigo** | Articulo-Rodrigo-Workspace | `sections/methods.tex` | Describir las herramientas y el flujo |
+| **Mauricio** | Articulo-Main | `sections/results.tex` | Agregar beneficios y comparación |
 
-### Instrucciones para todos:
-
-1. Abran VS Code con el proyecto
-2. Naveguen a su archivo en el panel izquierdo (Explorer)
-3. Hagan sus ediciones
-4. Guarden frecuentemente (`Ctrl+S` / `Cmd+S`) para ver el PDF actualizado
-5. Cuando terminen, **no cierren VS Code** — continuaremos con el commit
+> ⚠️ **Nota para Mauricio**: En este ejercicio, Mauricio edita directamente en "Main" para simplificar. En un flujo real, incluso Mauricio debería tener su propio fork/workspace para que sus cambios también pasen por revisión.
 
 ### Ejemplo de edición (José Miguel)
 
-José Miguel abre `sections/introduction.tex` y lo cambia a:
+José Miguel abre `sections/introduction.tex` en su proyecto Overleaf y lo cambia a:
 
 ```latex
 \section{Introducción}
@@ -318,319 +285,117 @@ dificultad para rastrear quién modificó qué.
 
 Este artículo presenta un flujo de trabajo colaborativo que combina:
 \begin{itemize}
-    \item Git para control de versiones
-    \item GitHub para almacenamiento y revisión
-    \item Overleaf para compilación en la nube
-    \item VS Code para edición local eficiente
+    \item GitHub para control de versiones y revisión
+    \item Overleaf para edición y compilación de LaTeX en la nube
 \end{itemize}
 ```
 
 ### Ejemplo de edición (Rodrigo)
 
-Rodrigo abre `sections/methods.tex` y lo cambia a:
+Rodrigo abre `sections/methods.tex` en su proyecto Overleaf:
 
 ```latex
 \section{Metodología}
 
 Para este proyecto utilizamos un flujo de trabajo basado en herramientas 
-de código abierto que permiten la colaboración distribuida en documentos 
+en la nube que permiten la colaboración distribuida en documentos 
 académicos escritos en LaTeX.
 
 \subsection{Herramientas utilizadas}
 
-El flujo integra cuatro herramientas complementarias:
+El flujo integra dos herramientas complementarias:
 \begin{itemize}
-    \item \textbf{Git}: Control de versiones local
-    \item \textbf{GitHub}: Repositorio remoto compartido
-    \item \textbf{Overleaf}: Compilación LaTeX en la nube
-    \item \textbf{VS Code}: Editor local con vista previa de PDF
+    \item \textbf{Overleaf}: Editor de LaTeX en la nube con compilación instantánea
+    \item \textbf{GitHub}: Repositorio compartido con revisión de cambios vía Pull Requests
 \end{itemize}
 
 \subsection{Flujo de trabajo}
 
 El ciclo diario de trabajo consiste en:
 \begin{enumerate}
-    \item Obtener cambios recientes (\texttt{git pull})
-    \item Editar localmente en VS Code
-    \item Preparar y guardar avances (\texttt{git add} + \texttt{git commit})
-    \item Compartir cambios (\texttt{git push})
-    \item Verificar en Overleaf (ocasionalmente)
+    \item Sincronizar el fork con la versión principal (GitHub: Sync fork)
+    \item Traer cambios al editor (Overleaf: Pull from GitHub)
+    \item Editar y compilar en Overleaf
+    \item Subir cambios al fork (Overleaf: Push to GitHub)
+    \item Solicitar revisión (GitHub: Pull Request)
 \end{enumerate}
 ```
 
-### Ejemplo de edición (Mauricio)
+---
 
-Mauricio abre `sections/results.tex` y lo cambia a:
+## 3.5 Subir cambios a GitHub (Push)
 
-```latex
-\section{Resultados}
+Cuando terminaron de editar y la compilación funciona correctamente:
 
-Implementamos el flujo de trabajo propuesto durante el desarrollo de este 
-artículo. A continuación presentamos los resultados observados.
+### José Miguel (en su Overleaf):
 
-\subsection{Beneficios de la colaboración}
+1. Verificar que el PDF compila correctamente
+2. Ir a **Menu** → **GitHub**
+3. Click en **"Push Overleaf changes to GitHub"**
+4. Escribir un mensaje descriptivo: `"Completé la introducción con motivación y objetivos"`
+5. Click en **"Push"** (o "Commit")
 
-Durante las dos horas del taller, el equipo logró:
-\begin{itemize}
-    \item Configurar un entorno de trabajo compartido
-    \item Realizar múltiples contribuciones en paralelo
-    \item Mantener un historial completo de cambios
-\end{itemize}
+### Rodrigo (en su Overleaf):
 
-\subsection{Comparación con métodos tradicionales}
+1. Verificar compilación
+2. **Menu** → **GitHub** → **"Push Overleaf changes to GitHub"**
+3. Mensaje: `"Describí las herramientas y el flujo de trabajo en metodología"`
+4. Click en **"Push"**
 
-El flujo basado en Git ofrece control de versiones intencional, historial 
-completo y trabajo simultáneo, a diferencia del enfoque tradicional basado 
-en enviar archivos por correo electrónico.
-```
+### Mauricio (en Overleaf "Main"):
+
+1. Verificar compilación
+2. **Menu** → **GitHub** → **"Push Overleaf changes to GitHub"**
+3. Mensaje: `"Agregué beneficios y comparación en resultados"`
+4. Click en **"Push"**
+
+### ¿Qué pasó?
+
+| Persona | Los cambios se subieron a... |
+|---------|------------------------------|
+| José Miguel | `josemiguel/articulo-taller-colaboracion` (su fork) |
+| Rodrigo | `rodrigo/articulo-taller-colaboracion` (su fork) |
+| Mauricio | `mauricio/articulo-taller-colaboracion` (directamente a main) |
+
+> Los cambios de JM y Rodrigo están en sus forks, pero **todavía no están en main**. Para eso necesitan crear un Pull Request.
 
 ---
 
-## 3.5 Preparar y tomar la foto (git add + git commit)
+## 3.6 Crear Pull Request (José Miguel y Rodrigo)
 
-> ⚠️ **CONCEPTO IMPORTANTE**: Esta sección explica cómo controlar exactamente qué archivos incluir en cada "foto".
+Un **Pull Request** es una solicitud para integrar los cambios de su fork al repositorio principal.
 
-### El proceso de dos pasos
+### Paso 1: Ir a su fork en GitHub
 
-```
-┌─────────────────────────────────────────────────────────────┐
-│  Su carpeta de trabajo (Working Directory)                  │
-│                                                              │
-│  📄 introduction.tex  [MODIFICADO]                          │
-│  📄 methods.tex       [MODIFICADO]                          │
-│  📄 notas-personales.txt [NUEVO - en .gitignore, ignorado] │
-│  📄 borrador-idea.tex    [NUEVO - todavía no está listo]    │
-└─────────────────────────────────────────────────────────────┘
-                            │
-                            │ git add introduction.tex
-                            │ (o git add . si notas-personales
-                            │  ya está en .gitignore)
-                            ▼
-┌─────────────────────────────────────────────────────────────┐
-│  Área de preparación (Staging Area)                         │
-│                                                              │
-│  📄 introduction.tex  ← Listo para la foto                  │
-└─────────────────────────────────────────────────────────────┘
-                            │
-                            │ git commit -m "mensaje"
-                            ▼
-┌─────────────────────────────────────────────────────────────┐
-│  Historial de Git (Repository)                              │
-│                                                              │
-│  📸 "Completé la introducción" ← Nueva foto guardada        │
-└─────────────────────────────────────────────────────────────┘
-```
+1. Abrir GitHub en el navegador
+2. Ir a su fork: `github.com/josemiguel/articulo-taller-colaboracion`
+3. Verán un banner: **"This branch is X commit(s) ahead of mauricio:main"**
+4. Click en **"Contribute"** → **"Open pull request"**
 
-> 💡 **Sobre archivos personales en VS Code**: Es completamente normal y recomendable tener archivos personales (notas, borradores, ideas) en su carpeta de trabajo local. La clave es usar `.gitignore` para que Git los ignore automáticamente. De esta forma, pueden organizar todo su trabajo en un solo lugar sin riesgo de subir archivos privados al repositorio compartido.
+### Paso 2: Configurar el Pull Request
 
-### Regla de oro sobre `git add`
+| Campo | Qué poner |
+|-------|-----------|
+| **base repository** | `mauricio/articulo-taller-colaboracion` |
+| **base** | `main` |
+| **head repository** | `josemiguel/articulo-taller-colaboracion` (su fork) |
+| **compare** | `main` |
+| **Title** | "Completé la sección de introducción" |
+| **Description** | Detalles de qué cambió, por qué, qué issues resuelve |
 
-> **Cualquier archivo NUEVO que quieran compartir, deben agregarlo explícitamente con `git add`.**
-> 
-> Los archivos que **nunca** quieran compartir, agréguenlos al `.gitignore` desde el momento en que los crean. Los archivos que todavía no estén listos, simplemente **no les hagan `git add`** hasta que lo estén.
+### Paso 3: Crear el PR
 
-### Ejemplo concreto: José Miguel
+1. Revisar los cambios mostrados (diff) — verificar que son correctos
+2. Click en **"Create pull request"**
 
-José Miguel editó `introduction.tex` y también creó un archivo de notas personales que NO quiere subir:
+### Resultado
 
-```bash
-# Ver qué archivos cambiaron
-git status
-```
+El PR ahora está visible en el repositorio principal. Los compañeros pueden:
+- 👀 Ver los cambios línea por línea
+- 💬 Agregar comentarios
+- ✅ Aprobar o 🔄 pedir cambios
 
-Salida:
-```
-On branch main
-Changes not staged for commit:
-  (use "git add <file>..." to update what will be committed)
-        modified:   sections/introduction.tex
-
-Untracked files:
-  (use "git add <file>..." to include in what will be committed)
-        mis-notas-personales.txt
-```
-
-### Ejemplo concreto: Rodrigo
-
-Rodrigo editó `methods.tex`:
-
-```bash
-git status
-```
-
-Salida:
-```
-On branch main
-Changes not staged for commit:
-  (use "git add <file>..." to update what will be committed)
-        modified:   sections/methods.tex
-```
-
-```bash
-git add sections/methods.tex
-git commit -m "Describí las herramientas y el flujo de trabajo en metodología"
-```
-
-### Ejemplo concreto: Mauricio
-
-Mauricio editó `results.tex`:
-
-```bash
-git status
-```
-
-Salida:
-```
-On branch main
-Changes not staged for commit:
-  (use "git add <file>..." to update what will be committed)
-        modified:   sections/results.tex
-```
-
-```bash
-git add sections/results.tex
-git commit -m "Agregué beneficios y comparación en resultados"
-```
-
-### Formas de usar `git add`
-
-#### Opción 1: Agregar UN archivo específico (RECOMENDADO para empezar)
-
-```bash
-# Solo agregar el archivo que quiero compartir
-git add sections/introduction.tex
-```
-
-**Resultado**: Solo `introduction.tex` está preparado. `mis-notas-personales.txt` NO se subirá.
-
-#### Opción 2: Agregar TODOS los archivos modificados y nuevos
-
-```bash
-# ⚠️ CUIDADO: Esto agrega TODO
-git add .
-```
-
-**Resultado**: Tanto `introduction.tex` como `mis-notas-personales.txt` quedan preparados.
-
-#### Opción 3: Agregar varios archivos específicos
-
-```bash
-# Agregar múltiples archivos por nombre
-git add sections/introduction.tex sections/methods.tex
-```
-
-#### Opción 4: Usar `.gitignore` + `git add .` (RECOMENDADO para el día a día)
-
-Si saben de antemano que ciertos archivos **nunca** deben subirse (notas personales, borradores privados, archivos temporales), pueden agregarlos al archivo `.gitignore` **antes** de usar `git add .`:
-
-```bash
-# Paso 1: Agregar el archivo a .gitignore
-echo "mis-notas-personales.txt" >> .gitignore
-```
-
-O abrir `.gitignore` en VS Code y agregar la línea manualmente:
-
-```
-# Archivos personales que no quiero compartir
-mis-notas-personales.txt
-borradores-privados/
-```
-
-```bash
-# Paso 2: Ahora git add . ignora automáticamente esos archivos
-git add .
-```
-
-**Resultado**: `introduction.tex` y `.gitignore` quedan preparados. `mis-notas-personales.txt` es **ignorado automáticamente** y nunca será rastreado por Git.
-
-> 💡 **Consejo**: Si desde que crean un archivo personal saben que nunca lo van a compartir, agréguenlo al `.gitignore` inmediatamente. Así pueden usar `git add .` con confianza sin preocuparse por subir cosas que no quieren.
-
-> 🔍 **¿Se les ocurren más formas de usar `git add`?** Seguro se puede. Están a un prompt de distancia de descubrir cómo hacerlo. Pregúntenle a su LLM de preferencia: *"¿Cómo puedo agregar solo archivos .tex con git add?"* o *"¿Cómo agrego todos los archivos excepto uno?"* — Git es muy flexible y hay muchas formas de controlar exactamente qué incluir.
-
-### ¿Qué pasa si usaron `git add .` por error?
-
-Si agregaron un archivo que no querían compartir, pueden **quitarlo del área de preparación** (sin perder sus cambios):
-
-```bash
-# "Des-trackear" un archivo antes de hacer commit
-git restore --staged mis-notas-personales.txt
-```
-
-Ahora ese archivo ya no está preparado y no se incluirá en el commit.
-
-### Verificar qué está preparado
-
-```bash
-git status
-```
-
-Salida después de agregar solo `introduction.tex`:
-```
-On branch main
-Changes to be committed:
-  (use "git restore --staged <file>..." to unstage)
-        modified:   sections/introduction.tex
-
-Untracked files:
-  (use "git add <file>..." to include in what will be committed)
-        mis-notas-personales.txt
-```
-
-✅ Solo `introduction.tex` se incluirá en el commit.
-
-### Tomar la foto (commit)
-
-```bash
-git commit -m "Completé la sección de introducción con motivación y objetivos"
-```
-
-**Buenas prácticas para mensajes de commit:**
-- Usar verbos en pasado o infinitivo: "Agregué...", "Corregí...", "Agregar..."
-- Ser específico: qué sección, qué cambio principal
-- Máximo 50-72 caracteres en la primera línea
-
----
-
-## 3.6 Subir cambios a GitHub (git push)
-
-Una vez que hiciste commit, los cambios están guardados **localmente**. Para compartirlos:
-
-```bash
-git push origin main
-```
-
-> 📌 **Nota sobre ramas**: En esta parte del taller, todos trabajan directamente sobre `main` porque cada quien edita un archivo diferente (sin riesgo de conflictos). En la **[Parte 4](../04_ramas_y_conflictos/README.md)**, aprenderán a trabajar en **ramas individuales** y usar **Pull Requests** para un flujo más profesional donde los cambios se revisan antes de integrarse a `main`. Si en algún momento al hacer `git push` surgen problemas inesperados, la Parte 4 también cubre cómo resolver conflictos.
-
-### Si alguien más subió cambios antes que ustedes
-
-Git les dirá que primero deben bajar los cambios de los demás:
-
-```bash
-# Primero, obtener los cambios de otros
-git pull origin main
-
-# Luego, subir los tuyos
-git push origin main
-```
-
-### Verificar en GitHub
-
-1. Vayan a su repositorio en GitHub
-2. Deberían ver su commit reciente en la lista
-3. Click en el commit para ver exactamente qué cambió
-
----
-
-## 3.7 Verificación final: Sincronizar Overleaf (Mauricio)
-
-Después de que todos hayan subido sus cambios a GitHub y se hayan integrado en `main`:
-
-> 💡 Este es el **último paso** del flujo: Local → GitHub → **Overleaf**. Solo se sincroniza una vez que los cambios ya están en `main`.
-
-1. En Overleaf, ir a **Menu** → **GitHub**
-2. Click en **"Pull GitHub changes into Overleaf"**
-3. Overleaf descargará todos los cambios de José Miguel y Rodrigo
-4. Compilar para verificar que todo funciona junto en la nube
+> 💡 **En este punto**, los cambios de JM están propuestos pero NO integrados. Veremos la revisión y el merge en la Parte 4.
 
 ---
 
@@ -638,62 +403,49 @@ Después de que todos hayan subido sus cambios a GitHub y se hayan integrado en 
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
-│                  CICLO DIARIO DE TRABAJO                     │
+│              CICLO DE TRABAJO (todo en navegador)            │
 └─────────────────────────────────────────────────────────────┘
 
     ┌──────────────────────────────────────┐
-    │  1. INICIO: Obtener cambios recientes │
-    │     git pull origin main              │
+    │  1. SYNC: Actualizar fork            │
+    │     GitHub → Sync fork →             │
+    │     Update branch                    │
     └──────────────────────────────────────┘
                       │
                       ▼
     ┌──────────────────────────────────────┐
-    │  2. TRABAJAR: Editar en VS Code       │
-    │     - Guardar frecuentemente (Ctrl+S) │
-    │     - Ver PDF actualizado             │
+    │  2. PULL: Traer a Overleaf           │
+    │     Overleaf → Menu → GitHub →       │
+    │     Pull from GitHub                 │
     └──────────────────────────────────────┘
                       │
                       ▼
     ┌──────────────────────────────────────┐
-    │  3. PREPARAR: Elegir qué compartir    │
-    │     git add archivo.tex               │
-    │     (o git add . para todo)           │
+    │  3. EDITAR: Trabajar en Overleaf     │
+    │     Escribir, compilar, verificar    │
     └──────────────────────────────────────┘
                       │
                       ▼
     ┌──────────────────────────────────────┐
-    │  4. FOTO: Guardar el avance           │
-    │     git commit -m "descripción"       │
+    │  4. PUSH: Subir a GitHub             │
+    │     Overleaf → Menu → GitHub →       │
+    │     Push to GitHub + mensaje         │
     └──────────────────────────────────────┘
                       │
                       ▼
     ┌──────────────────────────────────────┐
-    │  5. COMPARTIR: Subir a GitHub         │
-    │     git push origin main              │
+    │  5. PR: Solicitar revisión           │
+    │     GitHub fork → Contribute →       │
+    │     Open pull request                │
     └──────────────────────────────────────┘
                       │
                       ▼
     ┌──────────────────────────────────────┐
-    │  6. VERIFICAR: Sincronizar Overleaf   │
-    │     (Mauricio: Pull from GitHub)      │
+    │  6. REVIEW + MERGE                   │
+    │     Compañeros revisan y aprueban    │
+    │     Mauricio hace merge              │
     └──────────────────────────────────────┘
 ```
-
----
-
-## Comandos rápidos de referencia
-
-| Qué quiero hacer | Comando |
-|------------------|---------|
-| Ver estado actual | `git status` |
-| Obtener cambios de otros | `git pull origin main` |
-| Agregar UN archivo | `git add ruta/archivo.tex` |
-| Agregar TODOS los cambios | `git add .` |
-| Ignorar un archivo permanentemente | Agregar al `.gitignore` |
-| Quitar archivo del staging | `git restore --staged archivo.tex` |
-| Tomar la foto | `git commit -m "mensaje"` |
-| Subir mis cambios | `git push origin main` |
-| Ver historial de fotos | `git log --oneline` |
 
 ---
 
@@ -701,15 +453,14 @@ Después de que todos hayan subido sus cambios a GitHub y se hayan integrado en 
 
 Antes de continuar a la Parte 4, verifiquen que:
 
-- [ ] Entienden la diferencia entre `git add archivo.tex` y `git add .`
-- [ ] Saben cómo usar `.gitignore` para excluir archivos personales
-- [ ] Saben cómo quitar un archivo del staging si lo agregaron por error
-- [ ] Hicieron al menos un commit con sus cambios
-- [ ] Subieron sus cambios a GitHub con `git push`
-- [ ] Pueden ver sus cambios en la página de GitHub
+- [ ] Editaron su sección asignada en su proyecto Overleaf
+- [ ] El documento compila correctamente
+- [ ] Hicieron Push a GitHub desde Overleaf con un mensaje descriptivo
+- [ ] Crearon un Pull Request en GitHub (JM y Rodrigo)
+- [ ] Pueden ver sus cambios en la pestaña "Files changed" del PR
 
 ---
 
 **Anterior**: [← Parte 2 - Configuración Inicial](../02-configuracion-inicial/README.md)
 
-**Siguiente**: [Parte 4 - Ramas y Conflictos →](../04_ramas_y_conflictos/README.md)
+**Siguiente**: [Parte 4 - Pull Requests y Conflictos →](../04_ramas_y_conflictos/README.md)

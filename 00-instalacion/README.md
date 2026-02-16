@@ -1,79 +1,72 @@
-# Guías de Instalación
+# Configuración Previa
 
-> **Tiempo estimado**: 45-60 minutos  
+> **Tiempo estimado**: 15-20 minutos  
 > **Cuándo**: Completar ANTES del taller
 
 ---
 
-## Encuentra tu guía
+## ¿Qué necesitas?
 
-| Tu Sistema Operativo | Idioma del Sistema | Tu Guía |
-|---------------------|-------------------|---------|
-| Windows | Inglés | [windows-ingles.md](windows-ingles.md) |
-| Windows | Español | [windows-espanol.md](windows-espanol.md) |
-| macOS | Español | [mac-espanol.md](mac-espanol.md) |
-
----
-
-## ¿Qué vas a instalar?
+A diferencia de un flujo con herramientas locales, este taller se hace **100% en el navegador**. Solo necesitas dos cuentas:
 
 | Herramienta | ¿Para qué? | Tiempo |
 |-------------|------------|--------|
-| **Cuenta de GitHub** | Almacenar y compartir el proyecto | 2 min |
-| **Git** | Control de versiones en tu computadora | 10 min |
-| **Visual Studio Code** | Editor de código | 5 min |
-| **MiKTeX** (Windows) / **MacTeX** (Mac) | Compilar documentos LaTeX | 15-30 min |
-| **Strawberry Perl** (solo Windows) | Requerido por LaTeX Workshop | 5 min |
-| **Extensión LaTeX Workshop** | Integrar LaTeX con VS Code | 2 min |
+| **Cuenta de GitHub** | Almacenar, compartir y revisar cambios del proyecto | 5 min |
+| **Cuenta de Overleaf** | Escribir y compilar LaTeX en la nube | 5 min |
+
+> 💡 **Solo una persona necesita Overleaf Premium**: Mauricio (el owner del proyecto). José Miguel y Rodrigo solo necesitan una cuenta gratuita de Overleaf — Mauricio creará los proyectos y los compartirá, dándoles acceso a las funciones Premium dentro de esos proyectos.
+
+---
+
+## Paso 1: Crear cuenta de GitHub
+
+1. Ir a [github.com](https://github.com)
+2. Click en **"Sign up"**
+3. Seguir los pasos (correo, contraseña, username)
+4. Verificar el correo electrónico
+
+> 📝 **Anoten su username de GitHub** — lo necesitarán para que Mauricio los agregue como colaboradores.
+
+---
+
+## Paso 2: Crear cuenta de Overleaf
+
+1. Ir a [overleaf.com](https://www.overleaf.com)
+2. Click en **"Register"**
+3. Pueden registrarse con su correo o directamente con su cuenta de Google/institucional
+
+> 💡 **Cuenta gratuita es suficiente** para José Miguel y Rodrigo. La función de sincronización con GitHub la provee el proyecto de Mauricio (Premium).
+
+---
+
+## Paso 3: Vincular GitHub con Overleaf (solo Mauricio)
+
+> **Solo Mauricio** necesita hacer esto antes del taller.
+
+1. En Overleaf, ir a **Account** → **Account Settings**
+2. En la sección **"Project Integrations"**, buscar **GitHub**
+3. Click en **"Link"** y autorizar la conexión con GitHub
 
 ---
 
 ## Verificación rápida
 
-Después de instalar todo, abre una terminal y ejecuta:
+| ✅ Verificación | Estado |
+|----------------|--------|
+| Puedo entrar a github.com con mi cuenta | ☐ |
+| Puedo entrar a overleaf.com con mi cuenta | ☐ |
+| Anoté mi username de GitHub | ☐ |
+| (Solo Mauricio) Vinculé GitHub con Overleaf | ☐ |
 
-### Windows (PowerShell)
-```powershell
-git --version
-pdflatex --version
-perl --version
-```
-
-### macOS (Terminal)
-```bash
-git --version
-pdflatex --version
-```
-
-Si todos los comandos muestran una versión, ¡estás listo!
-
----
-
-## Prueba final
-
-1. Crea un archivo `test.tex` en VS Code con este contenido:
-```latex
-\documentclass{article}
-\begin{document}
-Hola, \LaTeX!
-\end{document}
-```
-
-2. Guarda el archivo (Ctrl+S en Windows, Cmd+S en Mac)
-3. El PDF debe generarse automáticamente
-4. Presiona Ctrl+Alt+V (Windows) o Cmd+Option+V (Mac) para ver el PDF
-
-Si ves "Hola, LATEX!" en el PDF, **¡todo funciona!** 🎉
+Si todo está listo, **¡están preparados para el taller!** 🎉
 
 ---
 
 ## ¿Problemas?
 
-Cada guía tiene una sección de "Solución de Problemas" al final. Si algo no funciona:
-
-1. Revisa esa sección primero
-2. Reinicia tu computadora (muchos problemas se resuelven así)
-3. Contacta al instructor antes del taller
+1. **No puedo crear cuenta de GitHub**: Asegúrense de tener acceso al correo electrónico para verificar la cuenta
+2. **No puedo vincular GitHub con Overleaf**: Verificar que tienen cuenta Premium activa (solo Mauricio)
+3. **Otros problemas**: Contacten al instructor antes del taller
 
 ---
 

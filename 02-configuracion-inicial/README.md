@@ -1,9 +1,9 @@
 # Parte 2: Configuración Inicial
 
 > **Duración**: 20 minutos  
-> **Objetivo**: Tener el proyecto listo para colaborar
+> **Objetivo**: Tener los 3 proyectos Overleaf y sus forks listos para colaborar
 
-> 💡 **Nota**: El orden de configuración inicial (Overleaf → GitHub → Local) es diferente al flujo diario de trabajo. Aquí partimos desde Overleaf porque ahí se crea la plantilla del proyecto. Una vez configurado todo, el flujo diario será : **Local → GitHub → Overleaf** (como vimos en la Parte 1).
+> 💡 **Nota**: La configuración se hace una sola vez. Una vez que los 3 proyectos estén conectados, el flujo diario es mucho más sencillo (lo veremos en la Parte 3).
 
 ---
 
@@ -11,16 +11,18 @@
 
 | Paso | Quién lo hace | Tiempo |
 |------|---------------|--------|
-| 2.1 Crear proyecto en Overleaf | Mauricio (Owner) | 3 min |
-| 2.2 Conectar Overleaf a GitHub | Mauricio (Owner) | 3 min |
-| 2.3 Compartir acceso en Overleaf | Mauricio (Owner) | 2 min |
-| 2.4 Clonar repositorio localmente | Todos | 5 min |
-| 2.5 Abrir proyecto en VS Code | Todos | 2 min |
-| 2.6 Verificar compilación local | Todos | 5 min |
+| 2.1 Crear proyecto "Main" en Overleaf | Mauricio (Owner Premium) | 3 min |
+| 2.2 Conectar Overleaf "Main" a GitHub | Mauricio (Owner) | 3 min |
+| 2.3 Crear forks en GitHub | José Miguel y Rodrigo | 2 min |
+| 2.4 Dar acceso a Mauricio en los forks | José Miguel y Rodrigo | 2 min |
+| 2.5 Crear proyectos Overleaf desde los forks | Mauricio (Owner) | 3 min |
+| 2.6 Compartir proyectos en Overleaf | Mauricio (Owner) | 2 min |
+| 2.7 Compartir acceso en GitHub (repo principal) | Mauricio (Owner) | 2 min |
+| 2.8 Verificar que todo funciona | Todos | 3 min |
 
 ---
 
-## 2.1 Crear proyecto en Overleaf (Mauricio)
+## 2.1 Crear proyecto "Main" en Overleaf (Mauricio)
 
 > **Solo Mauricio** realiza este paso. Los demás observan.
 
@@ -29,7 +31,7 @@
 1. Ir a [overleaf.com](https://www.overleaf.com) e iniciar sesión
 2. Click en **"New Project"** (botón verde)
 3. Seleccionar **"Blank Project"** o una plantilla de journal
-4. Nombrar el proyecto: `articulo-taller-colaboracion`
+4. Nombrar el proyecto: `Articulo-Main`
 
 ### Opción B: Usar proyecto existente
 
@@ -39,9 +41,9 @@ Si Mauricio ya tiene un proyecto en Overleaf que quiere usar:
 
 ---
 
-## 2.2 Conectar Overleaf a GitHub (Mauricio)
+## 2.2 Conectar Overleaf "Main" a GitHub (Mauricio)
 
-> **Requisito**: Cuenta Overleaf Premium o institucional
+> **Requisito**: Cuenta Overleaf Premium y GitHub vinculado (paso de instalación previa)
 
 ### Pasos:
 
@@ -61,7 +63,7 @@ Si Mauricio ya tiene un proyecto en Overleaf que quiere usar:
 
 5. Click en **"Create"**
 
-6. **¡Listo!** El proyecto ahora está sincronizado con GitHub
+6. **¡Listo!** El proyecto "Main" ahora está sincronizado con GitHub
 
 ### Verificar la conexión
 
@@ -69,306 +71,202 @@ Si Mauricio ya tiene un proyecto en Overleaf que quiere usar:
   - **"Push Overleaf changes to GitHub"** — Subir cambios de Overleaf a GitHub
   - **"Pull GitHub changes into Overleaf"** — Traer cambios de GitHub a Overleaf
 
-> 📖 Fuente oficial: [Overleaf GitHub Synchronization](https://www.overleaf.com/learn/how-to/GitHub_Synchronization)
+> 📖 Fuente oficial: [Overleaf GitHub Synchronization](https://docs.overleaf.com/integrations-and-add-ons/git-integration-and-github-synchronization/github)
 
 ---
 
-## 2.3 Compartir acceso (Mauricio)
+## 2.3 Crear forks en GitHub (José Miguel y Rodrigo)
 
-Mauricio debe compartir acceso de dos formas:
+> **José Miguel y Rodrigo** realizan este paso cada uno.
 
-### A. Compartir en Overleaf (opcional, para edición en navegador)
+Un **fork** es una copia del repositorio principal en su propia cuenta de GitHub. Es su espacio personal para trabajar.
 
-1. En el proyecto, click en **"Share"** (botón arriba a la derecha)
-2. Ingresar los correos de José Miguel y Rodrigo
-3. Seleccionar permisos: **"Can Edit"**
-4. Click en **"Share"**
+### Pasos:
 
-> **Nota**: Con Overleaf Premium, pueden invitar colaboradores ilimitados.
+1. Ir al repositorio principal en GitHub: `github.com/mauricio-username/articulo-taller-colaboracion`
+   - Mauricio les compartirá el enlace
+2. Click en el botón **"Fork"** (esquina superior derecha)
+3. En la pantalla de creación del fork:
+   - **Owner**: Su cuenta personal de GitHub
+   - **Repository name**: Dejar el mismo nombre (`articulo-taller-colaboracion`)
+   - ✅ Asegurarse de que "Copy the `main` branch only" esté marcado
+4. Click en **"Create fork"**
 
-### B. Compartir en GitHub (necesario para el flujo Git)
+### Resultado
 
-1. Ir al repositorio en GitHub: `github.com/mauricio/articulo-taller-colaboracion`
+Ahora cada uno tiene su propia copia del repositorio:
+- José Miguel: `github.com/josemiguel-username/articulo-taller-colaboracion`
+- Rodrigo: `github.com/rodrigo-username/articulo-taller-colaboracion`
+
+> 💡 **El fork es una copia independiente**: Pueden modificarlo libremente sin afectar el repositorio principal. Los cambios solo llegan al principal cuando crean un Pull Request y es aprobado.
+
+---
+
+## 2.4 Dar acceso a Mauricio en los forks (José Miguel y Rodrigo)
+
+> **¿Por qué?** Para que Mauricio pueda importar sus forks a Overleaf (especialmente si el repositorio es privado).
+
+### Pasos (cada uno en su fork):
+
+1. Ir a su fork en GitHub
 2. Click en **"Settings"** → **"Collaborators"**
 3. Click en **"Add people"**
-4. Buscar por username o correo de GitHub de José Miguel y Rodrigo
+4. Buscar el username de Mauricio
 5. Enviar invitación
 
-José Miguel y Rodrigo deben:
-1. Revisar su correo o notificaciones de GitHub
-2. Aceptar la invitación
+> Mauricio debe aceptar las invitaciones desde sus notificaciones de GitHub.
 
 ---
 
-## 2.4 Clonar el repositorio (Todos)
+## 2.5 Crear proyectos Overleaf desde los forks (Mauricio)
 
-> **Todos** realizan este paso en su computadora.
+> **Solo Mauricio** realiza este paso. Es el paso clave que habilita la sincronización para todos.
 
-### Obtener la URL del repositorio
-
-1. Ir al repositorio en GitHub
-2. Click en el botón verde **"Code"**
-3. Copiar la URL HTTPS (se ve así: `https://github.com/mauricio/articulo-taller-colaboracion.git`)
-
-### Elegir dónde guardar el proyecto
-
-Decidan en qué carpeta quieren tener el proyecto. Recomendaciones:
-
-| Sistema | Carpeta sugerida |
-|---------|------------------|
-| Windows | `C:\Users\TuNombre\Documents\proyectos\` |
-| macOS | `~/Documents/proyectos/` |
-
-### Clonar desde terminal
-
-<details>
-<summary><strong>🪟 Windows (PowerShell)</strong></summary>
-
-```powershell
-# Navegar a la carpeta donde quieren el proyecto
-cd C:\Users\TuNombre\Documents\proyectos
-
-# Clonar el repositorio
-git clone https://github.com/mauricio/articulo-taller-colaboracion.git
-
-# Entrar a la carpeta del proyecto
-cd articulo-taller-colaboracion
-```
-
-**¿Cómo abrir PowerShell?**
-- Presiona `Win + X` → Selecciona "Windows PowerShell"
-- O busca "PowerShell" en el menú Inicio
-
-</details>
-
-<details>
-<summary><strong>🍎 macOS (Terminal)</strong></summary>
-
-```bash
-# Navegar a la carpeta donde quieren el proyecto
-cd ~/Documents/proyectos
-
-# Clonar el repositorio
-git clone https://github.com/mauricio/articulo-taller-colaboracion.git
-
-# Entrar a la carpeta del proyecto
-cd articulo-taller-colaboracion
-```
-
-**¿Cómo abrir Terminal?**
-- Presiona `Cmd + Espacio`, escribe "Terminal", presiona Enter
-- O vayan a Finder → Aplicaciones → Utilidades → Terminal
-
-</details>
-
-### Verificar que se clonó correctamente
-
-```bash
-# Ver los archivos
-ls
-
-# Ver el estado de Git
-git status
-```
-
-Deberían ver los archivos `.tex` del proyecto y un mensaje como:
-```
-On branch main
-Your branch is up to date with 'origin/main'.
-nothing to commit, working tree clean
-```
-
----
-
-## 2.5 Abrir el proyecto en VS Code (Todos)
-
-Hay **dos formas** de abrir el proyecto en VS Code:
-
-### Opción A: Desde la interfaz gráfica (recomendada para principiantes)
-
-<details>
-<summary><strong>🪟 Windows</strong></summary>
-
-1. Abrir **Visual Studio Code** desde el menú Inicio
-2. Click en **"File"** → **"Open Folder..."** (o en español: **"Archivo"** → **"Abrir carpeta..."**)
-3. Navegar a `C:\Users\TuNombre\Documents\proyectos\articulo-taller-colaboracion`
-4. Click en **"Seleccionar carpeta"** (o "Select Folder")
-
-</details>
-
-<details>
-<summary><strong>🍎 macOS</strong></summary>
-
-1. Abrir **Visual Studio Code** desde el Launchpad o Finder → Aplicaciones
-2. Click en **"File"** → **"Open Folder..."** (o **"Archivo"** → **"Abrir carpeta..."**)
-3. Navegar a `Documents/proyectos/articulo-taller-colaboracion`
-4. Click en **"Open"** (Abrir)
-
-</details>
-
-### Opción B: Desde la terminal (más rápido una vez que te acostumbras)
-
-```bash
-# Asegúrense de estar en la carpeta del proyecto
-cd articulo-taller-colaboracion
-
-# Abrir VS Code en esta carpeta
-code .
-```
-
-> **Nota**: El punto (`.`) significa "la carpeta actual".
-
-### Verificar que VS Code reconoce el proyecto
-
-Una vez abierto, deberían ver:
-- 📁 La estructura de archivos en el panel izquierdo (Explorer)
-- 📝 Pueden hacer click en cualquier archivo `.tex` para editarlo
-- 🔀 El ícono de Git en la barra lateral (Source Control) - indica que VS Code detectó el repositorio
-
----
-
-## 2.6 Verificar compilación local (Todos)
-
-### Abrir el archivo principal
-
-1. En VS Code, click en `main.tex` (o el archivo principal del proyecto)
-2. El archivo se abrirá en el editor
-
-### Compilar el documento
-
-**Opción A: Automático al guardar**
-- Simplemente guarda el archivo: `Ctrl+S` (Windows) o `Cmd+S` (Mac)
-- LaTeX Workshop compilará automáticamente
-
-**Opción B: Manual**
-- Presiona `Ctrl+Alt+B` (Windows) o `Cmd+Option+B` (Mac)
-- O click en el ícono ▶️ de LaTeX en la barra lateral izquierda → "Build LaTeX project"
-
-### Ver el PDF
-
-- Presiona `Ctrl+Alt+V` (Windows) o `Cmd+Option+V` (Mac)
-- O click en el ícono de lupa 🔍 en la esquina superior derecha del editor
-
-### ¿Qué hacer si no compila?
-
-| Problema | Solución |
-|----------|----------|
-| "Recipe terminated with error" | Revisar el panel "Output" → "LaTeX Workshop" para ver el error específico |
-| "pdflatex not found" | MiKTeX/MacTeX no está en PATH. Reiniciar VS Code o la computadora |
-| Falta un paquete | MiKTeX debería instalarlo automáticamente. Si no, abrir MiKTeX Console y buscar el paquete |
-| El PDF no aparece | Esperar unos segundos. Si no aparece, presionar `Ctrl+Alt+V` / `Cmd+Option+V` |
-
----
-
-## Caso especial: Conectar un proyecto LOCAL existente a GitHub
-
-> **Escenario**: Mauricio tiene archivos LaTeX en su computadora (no en Overleaf) y quiere subirlos a GitHub para colaborar.
-
-### Paso 1: Crear repositorio vacío en GitHub
-
-1. Ir a [github.com](https://github.com) → Click en **"+"** → **"New repository"**
-2. Configurar:
-   - **Repository name**: `mi-articulo`
-   - **Description**: (opcional)
-   - **Visibility**: Private o Public
-   - ⚠️ **NO marcar** "Add a README file"
-   - ⚠️ **NO seleccionar** .gitignore ni license
-3. Click en **"Create repository"**
-
-GitHub mostrará instrucciones. Usaremos las de "…or push an existing repository from the command line".
-
-### Paso 2: Inicializar Git en la carpeta local
-
-<details>
-<summary><strong>🪟 Windows (PowerShell)</strong></summary>
-
-```powershell
-# Navegar a la carpeta de su proyecto
-cd C:\Users\TuNombre\Documents\mi-articulo
-
-# Inicializar Git
-git init
-
-# Agregar todos los archivos
-git add .
-
-# Crear el primer commit
-git commit -m "Versión inicial del artículo"
-```
-
-</details>
-
-<details>
-<summary><strong>🍎 macOS (Terminal)</strong></summary>
-
-```bash
-# Navegar a la carpeta de su proyecto
-cd ~/Documents/mi-articulo
-
-# Inicializar Git
-git init
-
-# Agregar todos los archivos
-git add .
-
-# Crear el primer commit
-git commit -m "Versión inicial del artículo"
-```
-
-</details>
-
-### Paso 3: Conectar con GitHub y subir
-
-```bash
-# Conectar con el repositorio remoto (reemplacen con su URL)
-git remote add origin https://github.com/TU_USUARIO/mi-articulo.git
-
-# Renombrar la rama a 'main' (por convención moderna)
-git branch -M main
-
-# Subir el proyecto a GitHub
-git push -u origin main
-```
-
-### Paso 4: Verificar en GitHub
-
-1. Ir a `github.com/TU_USUARIO/mi-articulo`
-2. Deberían ver todos sus archivos `.tex`
-
-### Paso 5: Conectar con Overleaf (opcional)
-
-Si quieren que el proyecto también esté en Overleaf:
+### Para el workspace de José Miguel:
 
 1. En Overleaf, click en **"New Project"** → **"Import from GitHub"**
-2. Seleccionar el repositorio que acabaron de crear
-3. ¡Listo! Ahora tienen el proyecto en ambos lugares
+2. En la lista de repositorios, buscar `josemiguel-username/articulo-taller-colaboracion` (el fork de JM)
+3. Click en **"Import"**
+4. Overleaf creará un nuevo proyecto con los contenidos del fork de JM
+5. Renombrar el proyecto a: `Articulo-JM-Workspace`
+
+### Para el workspace de Rodrigo:
+
+1. Repetir el mismo proceso con el fork de Rodrigo
+2. Buscar `rodrigo-username/articulo-taller-colaboracion`
+3. Renombrar a: `Articulo-Rodrigo-Workspace`
+
+### Resultado
+
+Mauricio ahora tiene **3 proyectos** en Overleaf:
+
+| Proyecto Overleaf | Conectado a GitHub | Propósito |
+|-------------------|-------------------|-----------|
+| `Articulo-Main` | `mauricio/articulo-taller-colaboracion` | Versión oficial del artículo |
+| `Articulo-JM-Workspace` | `josemiguel/articulo-taller-colaboracion` (fork) | Espacio de trabajo de José Miguel |
+| `Articulo-Rodrigo-Workspace` | `rodrigo/articulo-taller-colaboracion` (fork) | Espacio de trabajo de Rodrigo |
+
+> ⚠️ **Importante**: Cada proyecto Overleaf está vinculado permanentemente a un repositorio GitHub específico. No se puede cambiar después. Por eso es importante hacer bien este paso.
 
 ---
 
-## Resumen de comandos
+## 2.6 Compartir proyectos en Overleaf (Mauricio)
 
-| Acción | Comando |
-|--------|---------|
-| Clonar repositorio | `git clone URL` |
-| Ver estado | `git status` |
-| Ver archivos | `ls` (Mac/Linux) o `dir` (Windows) |
-| Abrir VS Code | `code .` |
-| Inicializar repo nuevo | `git init` |
-| Conectar a GitHub | `git remote add origin URL` |
-| Subir por primera vez | `git push -u origin main` |
+### Compartir cada workspace con su dueño:
+
+**Proyecto "JM Workspace":**
+1. Abrir el proyecto `Articulo-JM-Workspace`
+2. Click en **"Share"** (botón arriba a la derecha)
+3. Ingresar el correo de José Miguel
+4. Seleccionar permisos: **"Can Edit"**
+5. Click en **"Share"**
+
+**Proyecto "Rodrigo Workspace":**
+1. Abrir el proyecto `Articulo-Rodrigo-Workspace`
+2. Repetir el proceso con el correo de Rodrigo
+
+**Proyecto "Main" (opcional - solo lectura):**
+1. Si quieren que todos puedan ver (pero no editar) el proyecto Main:
+2. Compartir con **"Can View"** para José Miguel y Rodrigo
+
+> 💡 **¿Por qué "Can Edit" en los workspaces?** Para que cada persona pueda escribir en su proyecto de Overleaf y usar la función de "Push to GitHub" / "Pull from GitHub". La función de sincronización con GitHub funciona porque Mauricio (Premium) es el owner del proyecto.
+
+---
+
+## 2.7 Compartir acceso en GitHub — repo principal (Mauricio)
+
+Para que José Miguel y Rodrigo puedan crear Pull Requests y participar en revisiones:
+
+1. Ir al repositorio **principal** en GitHub: `mauricio/articulo-taller-colaboracion`
+2. Click en **"Settings"** → **"Collaborators"**
+3. Click en **"Add people"**
+4. Agregar a José Miguel y Rodrigo por username o correo
+5. Enviar invitaciones
+
+> José Miguel y Rodrigo deben aceptar las invitaciones.
+
+---
+
+## 2.8 Verificar que todo funciona (Todos)
+
+### José Miguel verifica:
+
+1. ✅ Puede abrir su proyecto `Articulo-JM-Workspace` en Overleaf
+2. ✅ Puede editar archivos en el proyecto
+3. ✅ En Menu → GitHub, ve las opciones de Push/Pull
+4. ✅ En GitHub, puede ver su fork: `josemiguel/articulo-taller-colaboracion`
+
+### Rodrigo verifica:
+
+1. ✅ Puede abrir su proyecto `Articulo-Rodrigo-Workspace` en Overleaf
+2. ✅ Puede editar archivos en el proyecto
+3. ✅ En Menu → GitHub, ve las opciones de Push/Pull
+4. ✅ En GitHub, puede ver su fork: `rodrigo/articulo-taller-colaboracion`
+
+### Mauricio verifica:
+
+1. ✅ Puede abrir los 3 proyectos en Overleaf
+2. ✅ El proyecto "Main" sincroniza con `mauricio/articulo-taller-colaboracion`
+3. ✅ En GitHub, ve los forks de JM y Rodrigo
+
+---
+
+## Diagrama Resumen de la Arquitectura
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│                    ARQUITECTURA COMPLETA                        │
+└─────────────────────────────────────────────────────────────────┘
+
+ OVERLEAF (Navegador)                  GITHUB (Navegador)
+ ════════════════════                  ═══════════════════
+
+ ┌────────────────────┐           ┌────────────────────────┐
+ │ Articulo-Main      │  ← sync → │ mauricio/articulo      │
+ │ (Owner: Mauricio)  │           │ (repo principal)       │
+ │ Solo Pull from GH  │           │                        │
+ └────────────────────┘           └───────────┬────────────┘
+                                              │
+                                    ┌─────────┼─────────┐
+                                    │ PRs     │     PRs │
+                                    │         │         │
+ ┌────────────────────┐    ┌───────┴──┐   ┌──┴───────┐
+ │ Articulo-JM        │←→ │ josem/   │   │ rodrigo/ │ ←→┌────────────────────┐
+ │ Workspace          │    │ articulo │   │ articulo │    │ Articulo-Rodrigo   │
+ │ (Compartido con JM)│    │ (fork)   │   │ (fork)   │    │ Workspace          │
+ └────────────────────┘    └──────────┘   └──────────┘    └────────────────────┘
+
+ Leyenda:
+ ←sync→  = Push to GitHub / Pull from GitHub (en Overleaf)
+ PRs     = Pull Requests (de fork a repo principal)
+```
+
+---
+
+## Resumen de acciones de configuración
+
+| Acción | Quién | Dónde |
+|--------|-------|-------|
+| Crear proyecto Main y conectar a GitHub | Mauricio | Overleaf |
+| Crear fork del repo principal | JM y Rodrigo | GitHub |
+| Dar acceso a Mauricio en sus forks | JM y Rodrigo | GitHub |
+| Importar forks como proyectos Overleaf | Mauricio | Overleaf |
+| Compartir proyectos Overleaf | Mauricio | Overleaf |
+| Agregar colaboradores al repo principal | Mauricio | GitHub |
 
 ---
 
 ## Checkpoint ✅
 
-Antes de continuar a la Parte 3, verifica que:
+Antes de continuar a la Parte 3, verifiquen que:
 
-- [ ] El proyecto está clonado en su computadora
-- [ ] Pueden abrir el proyecto en VS Code
-- [ ] El documento compila localmente (ven el PDF)
-- [ ] Git reconoce el repositorio (`git status` funciona)
+- [ ] Existen 3 proyectos en Overleaf (Main, JM Workspace, Rodrigo Workspace)
+- [ ] Cada proyecto está conectado a su repositorio GitHub correspondiente
+- [ ] JM puede editar y sincronizar su proyecto Overleaf
+- [ ] Rodrigo puede editar y sincronizar su proyecto Overleaf
+- [ ] Todos pueden ver el repo principal en GitHub
 
-Si algo falla, pide ayuda antes de continuar.
+Si algo falla, pida ayuda antes de continuar.
 
 ---
 

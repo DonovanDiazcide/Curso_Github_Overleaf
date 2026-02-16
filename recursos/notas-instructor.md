@@ -1,6 +1,7 @@
 # Notas para el Instructor
 
-> Guía de facilitación para el taller de 2 horas
+> Guía de facilitación para el taller (~1.5 horas)  
+> **Versión 2**: Flujo 100% en el navegador (sin VS Code ni instalaciones locales)
 
 ---
 
@@ -8,28 +9,25 @@
 
 ### Una semana antes
 
-- [ ] Enviar guías de instalación a los participantes
-  - Mauricio: `00-instalacion/windows-ingles.md`
-  - José Miguel: `00-instalacion/windows-espanol.md`
-  - Rodrigo: `00-instalacion/mac-espanol.md`
-- [ ] Pedir que completen la instalación y envíen captura de `git --version` y `pdflatex --version`
-- [ ] Crear el repositorio en GitHub (o pedirle a Mauricio que lo haga)
+- [ ] Enviar instrucciones de configuración previa a los participantes: [00-instalacion/README.md](../00-instalacion/README.md)
+  - Todos: Crear cuenta de GitHub y de Overleaf
+  - Solo Mauricio: Vincular GitHub con Overleaf (Premium)
+- [ ] Pedir que envíen su **username de GitHub** para poder agregarlos como colaboradores
 - [ ] Verificar que Mauricio tiene Overleaf Premium activo
 
 ### Un día antes
 
 - [ ] Enviar recordatorio con:
   - Link de la videollamada (si es remoto)
-  - Link del repositorio de GitHub
   - Agenda del taller
-- [ ] Preparar la plantilla del artículo en Overleaf (Mauricio)
-- [ ] Conectar Overleaf con GitHub (Mauricio)
+  - Recordar: solo necesitan un navegador web
+- [ ] Verificar que las cuentas de todos funcionan
 
-### 30 minutos antes
+### 30 minutos antes (Preparación del instructor + Mauricio)
 
-- [ ] Abrir todos los recursos que vas a compartir pantalla
-- [ ] Tener el cheatsheet (`recursos/cheatsheet.md`) listo para compartir
-- [ ] Probar que tu LaTeX compila localmente
+- [ ] Abrir Overleaf, GitHub y los materiales del taller en pestañas separadas
+- [ ] Tener la [guía rápida](../guia-rapida.md) lista para compartir
+- [ ] Preparar el repositorio base si aún no existe (o hacerlo en vivo como parte de la Parte 2)
 
 ---
 
@@ -39,111 +37,114 @@
 
 | Tiempo | Duración | Parte | Notas para el instructor |
 |--------|----------|-------|--------------------------|
-| 0:00 | 10 min | Verificación | Resolver problemas de instalación pendientes |
-| 0:10 | 15 min | Parte 1: Conceptos | Usar analogías, no abrumar con comandos |
-| 0:25 | 20 min | Parte 2: Configuración | Compartir pantalla, ir paso a paso |
-| 0:45 | 30 min | Parte 3: Flujo básico | **Más importante**: asegurar que todos hagan commit+push |
-| 1:15 | 20 min | Parte 4: Ramas y conflictos | Provocar conflicto intencional como demo |
-| 1:35 | 20 min | Parte 5: Práctica libre | Dejar que trabajen solos, estar disponible para dudas |
-| 1:55 | 5 min | Cierre | Compartir cheatsheet, agradecer |
+| 0:00 | 5 min | Verificación | Confirmar que todos tienen cuentas funcionando |
+| 0:05 | 15 min | Parte 1: Conceptos | Usar analogías. Enfatizar problemas de Overleaf compartido |
+| 0:20 | 20 min | Parte 2: Configuración | **Crítico**: ir paso a paso, compartir pantalla. Muchas cosas que hacer |
+| 0:40 | 25 min | Parte 3: Flujo básico | **Lo más importante**: que todos hagan Push y creen un PR |
+| 1:05 | 15 min | Parte 4: Revisión y conflictos | Demostrar revisión de PR. Provocar conflicto como demo |
+| 1:20 | 20 min | Parte 5: Práctica libre | Dejar que trabajen solos, estar disponible para dudas |
+| 1:40 | 5 min | Cierre | Compartir guía rápida, agradecer, preguntar dudas finales |
 
 ### Tips de facilitación
 
 1. **Compartir pantalla frecuentemente**: Especialmente en Partes 2 y 3
-2. **Ir más lento de lo que crees necesario**: Git es nuevo para muchos
-3. **Verificar antes de avanzar**: "¿Todos ven el mismo output?"
-4. **Usar el chat/audio**: Pedir que digan "listo" cuando completen cada paso
-5. **Tener paciencia con errores**: Son oportunidades de aprendizaje
+2. **Ir más lento de lo que crees necesario**: El concepto de forks es nuevo para muchos
+3. **Verificar antes de avanzar**: "¿Todos ven la opción de GitHub en el menú de Overleaf?"
+4. **Repetir el flujo verbalmente**: Antes de cada paso, decir "ahora vamos a..." para que todos sepan dónde están
+5. **Celebrar cada logro**: "¡Excelente, ya crearon su primer Pull Request!"
+
+### Ventaja clave de esta versión del curso
+
+A diferencia de la versión con VS Code (rama `main`), en esta versión:
+- **No hay problemas de instalación**: No Git, no MiKTeX, no LaTeX Workshop, no Perl
+- **No hay terminal**: Todo se hace con clicks en el navegador
+- **No hay configuración local**: No `git config`, no PATH, no extensiones
+- **Errores más predecibles**: Los pocos errores posibles son de permisos o configuración de cuentas
+
+Esto reduce drásticamente el tiempo que típicamente se pierde resolviendo problemas de instalación.
 
 ---
 
 ## Problemas comunes y soluciones
 
-### Instalación
+### Cuentas y acceso
 
 | Problema | Síntoma | Solución |
 |----------|---------|----------|
-| Git no está en PATH (Windows) | `git: command not found` | Reinstalar Git marcando "Git from command line and 3rd-party software" |
-| MiKTeX no está en PATH | `pdflatex: command not found` | Abrir MiKTeX Console → Settings → agregar a PATH, reiniciar terminal |
-| MacTeX no está en PATH | `pdflatex: command not found` | Ejecutar: `echo 'export PATH="/usr/local/texlive/2025/bin/universal-darwin:$PATH"' >> ~/.zshrc && source ~/.zshrc` |
-| Perl falta (Windows) | LaTeX Workshop falla al compilar | Instalar Strawberry Perl, reiniciar VS Code |
-| VS Code no detecta LaTeX | No aparece ícono TEX | Reinstalar extensión LaTeX Workshop, reiniciar VS Code |
+| No vinculó GitHub con Overleaf | No aparece opción GitHub en Overleaf Menu | Solo Mauricio necesita vincular. Settings → Project Integrations → GitHub → Link |
+| No puede ver el fork | 404 al ir a su fork | Verificar que hizo fork correctamente. El fork está en `github.com/SU-USUARIO/nombre-repo` |
+| No puede editar en Overleaf | Proyecto es "View only" | Mauricio debe compartir con permisos "Can Edit" |
+| No puede crear PR | No ve opción "Contribute" | Verificar que hizo Push primero y que su fork tiene cambios respecto a main |
 
-### Git
-
-| Problema | Síntoma | Solución |
-|----------|---------|----------|
-| Push rechazado | `rejected - non-fast-forward` | Hacer `git pull origin main` primero, resolver conflictos si hay |
-| No configuró user.name | `Please tell me who you are` | Ejecutar `git config --global user.name "Nombre"` y `git config --global user.email "email"` |
-| Rama incorrecta | Commits en main en lugar de rama | Crear rama ahora: `git checkout -b mi-rama`, los commits se llevan |
-| Archivo no trackeado | `git status` muestra archivo pero no se sube | Hacer `git add archivo.tex` explícitamente |
-| Conflicto de merge | `CONFLICT in archivo.tex` | Ver Parte 4, resolver manualmente, `git add` + `git commit` |
-
-### Overleaf
+### Sincronización Overleaf ↔ GitHub
 
 | Problema | Síntoma | Solución |
 |----------|---------|----------|
-| No aparece opción GitHub | Menu no muestra GitHub | Verificar que tiene cuenta Premium/institucional |
-| Sync falla | Error al push/pull | Verificar que el repo existe en GitHub, que tiene permisos |
-| Cambios no aparecen | Editó en Overleaf pero no en GitHub | Hacer "Push Overleaf changes to GitHub" |
-| Cambios de GitHub no aparecen | Otros subieron pero no ve | Hacer "Pull GitHub changes into Overleaf" |
+| Push falla | Error al hacer Push to GitHub | Hacer Pull from GitHub primero para sincronizar |
+| Pull no trae cambios | Overleaf no se actualiza | Verificar que hizo "Sync fork" en GitHub ANTES del Pull en Overleaf |
+| Conflicto al hacer Push | Overleaf reporta conflicto | Overleaf creará una rama temporal. Resolver en GitHub y luego Pull |
+| "Nothing to push" | No hay cambios que subir | Verificar que editó algo en Overleaf después del último Pull |
 
-### LaTeX
+### GitHub
 
 | Problema | Síntoma | Solución |
 |----------|---------|----------|
-| Paquete faltante | `File 'paquete.sty' not found` | MiKTeX: debería instalar auto. Si no, abrir MiKTeX Console → Packages → buscar e instalar |
-| Error de compilación | PDF no se genera | Ver panel Output → LaTeX Workshop para el error específico |
-| Bibliografía no aparece | Referencias como `[?]` | Compilar dos veces, o usar latexmk (LaTeX Workshop lo hace auto) |
-| Encoding incorrecto | Caracteres raros (ñ, á) | Agregar `\usepackage[utf8]{inputenc}` y guardar archivo como UTF-8 |
+| Sync fork no aparece | No ve el botón | Su fork ya está actualizado, o está viendo el repo principal en vez de su fork |
+| PR tiene conflictos | "This branch has conflicts" | Resolver en GitHub web: click "Resolve conflicts", editar, commit |
+| PR no se puede mergear | Botón de merge no está verde | Necesita al menos una aprobación, o hay conflictos pendientes |
+| Fork desactualizado | "X commits behind main" | Ir a GitHub → fork → "Sync fork" → "Update branch" |
+
+### LaTeX (en Overleaf)
+
+| Problema | Síntoma | Solución |
+|----------|---------|----------|
+| No compila | Error en la compilación | Revisar el log de errores en Overleaf (click en "Logs and output files") |
+| Bibliografía no aparece | Referencias como `[?]` | Verificar que `references.bib` existe y que los `\cite{}` coinciden con las keys del .bib |
+| Sección no aparece en PDF | Falta contenido | Verificar que `\input{sections/archivo}` está en `main.tex` |
+| Caracteres raros | ñ, á se ven mal | Agregar `\usepackage[utf8]{inputenc}` en el preámbulo |
 
 ---
 
 ## Respuestas a preguntas frecuentes
 
-### "¿Por qué no usar solo Overleaf?"
+### "¿Por qué no editar todos en el mismo proyecto de Overleaf?"
 
-> Overleaf es excelente para edición rápida, pero:
+> Overleaf compartido funciona para equipos pequeños con baja frecuencia de edición.
+> Pero cuando tres personas editan activamente:
 > - Solo una persona puede compilar a la vez
-> - El historial es menos detallado que Git
-> - No hay Pull Requests para revisión formal
-> - Depende 100% de internet
+> - El historial no captura el "por qué" de cada cambio
+> - No hay revisión formal antes de integrar cambios
+> - Un error afecta a todos inmediatamente
 >
-> Nuestro flujo usa Overleaf para verificación final, pero el trabajo diario es local.
+> Con forks, cada quien tiene su espacio. Los cambios se revisan antes de llegar a la versión oficial.
 
-### "¿Qué pasa si hago algo mal y rompo todo?"
+### "¿Necesito aprender Git de línea de comandos?"
 
-> Git guarda todo. Siempre puedes:
-> - Ver el historial: `git log`
-> - Volver a un commit anterior: `git checkout abc123`
-> - Deshacer cambios: `git reset`
+> No para este flujo. Todo se hace con clicks:
+> - Overleaf: Push/Pull con botones en el menú
+> - GitHub: Sync fork, PRs, revisiones — todo en la web
 >
-> Es casi imposible perder trabajo de verdad con Git.
+> Si quieren aprender Git de terminal más adelante, será un complemento útil pero no es requisito.
 
-### "¿Necesito internet para trabajar?"
+### "¿Qué pasa si alguien edita directamente en el proyecto Main de Overleaf?"
 
-> No. Git funciona 100% local. Solo necesitas internet para:
-> - `git push` (subir cambios)
-> - `git pull` (bajar cambios)
-> - Sincronizar con Overleaf
->
-> Puedes trabajar offline todo el día y sincronizar al final.
+> Eso saltaría el proceso de revisión. La disciplina es:
+> - Main solo recibe cambios vía Pull Requests aprobados
+> - Si Mauricio necesita hacer cambios, idealmente debería tener su propio fork también
+> - En la práctica, para cambios menores (como corregir un typo), Mauricio puede editar Main directamente si el equipo está de acuerdo
 
-### "¿Esto sirve para otros proyectos que no son LaTeX?"
+### "¿Esto sirve para proyectos que no son LaTeX?"
 
-> ¡Sí! Git funciona con cualquier archivo de texto:
-> - Código (Python, R, etc.)
-> - Markdown
-> - Datos CSV
->
-> Solo cambia la parte de Overleaf por el entorno correspondiente.
+> ¡Sí! El modelo de forks + Pull Requests funciona con cualquier archivo de texto.
+> Solo cambiaría Overleaf por otro editor. GitHub sigue siendo el centro de colaboración.
 
-### "¿Qué hago si alguien no vino al taller pero quiere unirse al proyecto?"
+### "¿Qué hago si alguien nuevo quiere unirse al proyecto?"
 
-> 1. Agregarlos como colaborador en GitHub
-> 2. Compartirles las guías de instalación
-> 3. Que clonen el repo: `git clone URL`
-> 4. Repasar Parte 3 (flujo básico) con ellos
+> 1. Que cree cuenta de GitHub (y de Overleaf si va a editar LaTeX)
+> 2. Que haga fork del repositorio principal
+> 3. Mauricio importa el fork como nuevo proyecto en Overleaf y lo comparte
+> 4. Agregarle como colaborador en el repo principal de GitHub
+> 5. Compartir la guía rápida y el material de Partes 1-3
 
 ---
 
@@ -151,48 +152,37 @@
 
 ### Setup del conflicto intencional
 
-**Objetivo**: Que todos vean un conflicto real y aprendan a resolverlo.
+**Objetivo**: Que todos vean un conflicto real y aprendan a resolverlo en GitHub web.
 
-**Preparación** (tú o Mauricio):
-1. En `main`, editar línea 1 de `sections/introduction.tex`:
-   ```latex
-   \section{Introducción al Trabajo Colaborativo}
-   ```
-2. Commit y push:
-   ```bash
-   git add sections/introduction.tex
-   git commit -m "Cambié título de introducción (para demo de conflicto)"
-   git push origin main
-   ```
+**Preparación** (antes de la Parte 4):
 
-**Instrucción a José Miguel** (sin decirle del cambio):
-1. En tu rama, edita la misma línea 1:
-   ```latex
-   \section{Introducción y Motivación}
-   ```
-2. Commit:
-   ```bash
-   git commit -am "Actualicé título"
-   ```
-3. Intenta traer main:
-   ```bash
-   git pull origin main
-   ```
+1. **Mauricio** edita `sections/introduction.tex` en el proyecto "Main" de Overleaf:
+   - Cambiar el título de la sección a: `\section{Introducción al Trabajo Colaborativo}`
+   - Push to GitHub con mensaje: `"Cambié título de introducción (para demo de conflicto)"`
 
-**Resultado**: Conflicto. Resolver en vivo mostrando:
-- Los marcadores `<<<<<<<`, `=======`, `>>>>>>>`
-- Cómo decidir qué mantener
-- `git add` + `git commit` para completar
+2. **José Miguel** (sin saber del cambio de Mauricio) edita el mismo título en su Overleaf:
+   - Cambiar a: `\section{Introducción y Motivación}`
+   - Push to GitHub con mensaje: `"Actualicé título de introducción"`
+
+3. José Miguel intenta crear PR → GitHub mostrará **"This branch has conflicts"**
+
+**Resolución en vivo** (demostrar en pantalla compartida):
+1. Click en **"Resolve conflicts"** en GitHub
+2. Mostrar los marcadores `<<<<<<<`, `=======`, `>>>>>>>`
+3. Decidir qué versión mantener (o combinar)
+4. Click en "Mark as resolved" → "Commit merge"
+5. Ahora sí se puede hacer Merge normalmente
+
+> 💡 **Tip**: Si el tiempo es corto, el instructor puede hacer la demo solo con pantalla compartida en vez de que José Miguel lo haga él mismo.
 
 ---
 
 ## Checklist de cierre
 
-- [ ] Todos hicieron al menos un commit
-- [ ] Todos hicieron push exitosamente
+- [ ] Todos hicieron al menos un Push desde Overleaf
 - [ ] Al menos un PR fue creado y merged
-- [ ] Overleaf tiene la versión final sincronizada
-- [ ] Compartiste el cheatsheet
+- [ ] Todos sincronizaron y ven la versión final en su Overleaf
+- [ ] Compartiste la guía rápida
 - [ ] Preguntaste si hay dudas finales
 - [ ] Agradeciste la participación
 
@@ -201,22 +191,28 @@
 ## Después del taller
 
 - [ ] Enviar email de seguimiento con:
-  - Link al repositorio del taller (este material)
-  - Link al cheatsheet
-  - Recursos adicionales (Pro Git Book, GitHub Skills)
+  - Link a este repositorio (material del taller)
+  - Link a la guía rápida
+  - Recursos adicionales (Pro Git Book, GitHub Skills, Overleaf Docs)
 - [ ] Pedir feedback sobre el taller
 - [ ] Estar disponible para dudas en los siguientes días
+- [ ] Considerar si vale la pena que Mauricio también trabaje con fork propio (en vez de editar Main directamente) para proyectos reales post-taller
 
 ---
 
-## Contacto para problemas
+## Comparación con la v1 del curso (rama `main`)
 
-Si el instructor tiene problemas durante el taller:
+| Aspecto | v1 (VS Code + Git local) | v2 (Overleaf + GitHub web) |
+|---------|--------------------------|----------------------------|
+| **Instalaciones** | Git, MiKTeX/MacTeX, VS Code, Perl, extensiones | Solo cuentas web |
+| **Tiempo de setup** | 30-60 min (con problemas frecuentes) | 15-20 min |
+| **Curva de aprendizaje** | Alta (terminal, Git commands, editor nuevo) | Baja (clicks en navegador) |
+| **Capacidad offline** | ✅ Sí | ❌ No |
+| **Control granular** | ✅ Ramas locales, stash, rebase | ⚠️ Limitado a un Push por sesión |
+| **Público ideal** | Personas técnicas o dispuestas a aprender herramientas | Investigadores que quieren colaborar sin fricción extra |
 
-1. **Git/GitHub**: [GitHub Community](https://github.community/)
-2. **Overleaf**: [Overleaf Support](https://www.overleaf.com/contact)
-3. **LaTeX Workshop**: [GitHub Issues](https://github.com/James-Yu/LaTeX-Workshop/issues)
+> Usa v1 si el equipo quiere invertir en aprender herramientas de desarrollo. Usa v2 si la prioridad es empezar a colaborar rápido con la menor barrera de entrada.
 
 ---
 
-*Estas notas son para el instructor. No compartir con participantes.*
+*Estas notas son para el instructor. No compartir directamente con participantes.*
