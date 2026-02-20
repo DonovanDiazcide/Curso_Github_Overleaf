@@ -69,6 +69,9 @@ articulo-taller-colaboracion/
 └── references.bib           ← Bibliografía
 ```
 
+<!-- 📸 CAPTURA: Panel izquierdo de Overleaf mostrando el árbol de archivos del proyecto (main.tex, carpeta sections/ con los .tex, references.bib) -->
+![Árbol de archivos del proyecto en Overleaf](img/01-overleaf-estructura-archivos.png)
+
 ### Archivo: `main.tex`
 
 ```latex
@@ -217,6 +220,10 @@ Después de crear todos los archivos en el proyecto "Main" de Overleaf:
 
 1. En Overleaf, ir a **Menu** → **GitHub**
 2. Click en **"Push Overleaf changes to GitHub"**
+
+<!-- 📸 CAPTURA: Diálogo de Push en Overleaf mostrando el campo para escribir el mensaje de commit y el botón Push -->
+![Diálogo Push to GitHub en Overleaf](img/02-overleaf-push-dialog.png)
+
 3. Escribir mensaje: `"Estructura inicial del artículo con secciones asignadas"`
 4. Click en **"Push"**
 
@@ -230,6 +237,10 @@ Ahora que la estructura está en GitHub (`mauricio/articulo`), JM y Rodrigo nece
 
 1. Ir a su fork en GitHub (ej: `josemiguel/articulo-taller-colaboracion`)
 2. Verán un mensaje: **"This branch is X commits behind mauricio:main"**
+
+<!-- 📸 CAPTURA: Fork en GitHub mostrando el menú "Sync fork" con el botón "Update branch" -->
+![Menú Sync fork en GitHub con botón Update branch](img/04-github-sync-fork.png)
+
 3. Click en **"Sync fork"** → **"Update branch"**
 4. Su fork ahora tiene los mismos archivos que el repositorio principal
 
@@ -238,6 +249,10 @@ Ahora que la estructura está en GitHub (`mauricio/articulo`), JM y Rodrigo nece
 1. Abrir su proyecto Overleaf (ej: `Articulo-JM-Workspace`)
 2. Ir a **Menu** → **GitHub**
 3. Click en **"Pull GitHub changes into Overleaf"**
+
+<!-- 📸 CAPTURA: Diálogo de Pull en Overleaf mostrando los cambios que se van a traer de GitHub -->
+![Diálogo Pull from GitHub en Overleaf](img/05-overleaf-pull-dialog.png)
+
 4. Los archivos del artículo aparecerán en su proyecto
 
 ### Verificar
@@ -370,6 +385,10 @@ Un **Pull Request** es una solicitud para integrar los cambios de su fork al rep
 1. Abrir GitHub en el navegador
 2. Ir a su fork: `github.com/josemiguel/articulo-taller-colaboracion`
 3. Verán un banner: **"This branch is X commit(s) ahead of mauricio:main"**
+
+<!-- 📸 CAPTURA: Fork en GitHub mostrando banner "X commits ahead" con el botón "Contribute" y la opción "Open pull request" -->
+![Fork en GitHub con banner de commits ahead y botón Contribute](img/03-github-fork-ahead.png)
+
 4. Click en **"Contribute"** → **"Open pull request"**
 
 ### Paso 2: Configurar el Pull Request
@@ -385,6 +404,9 @@ Un **Pull Request** es una solicitud para integrar los cambios de su fork al rep
 
 ### Paso 3: Crear el PR
 
+<!-- 📸 CAPTURA: Formulario de creación de Pull Request en GitHub con campos title, description, y la vista del diff abajo -->
+![Formulario de creación de Pull Request en GitHub](img/06-github-create-pr.png)
+
 1. Revisar los cambios mostrados (diff) — verificar que son correctos
 2. Click en **"Create pull request"**
 
@@ -394,6 +416,9 @@ El PR ahora está visible en el repositorio principal. Los compañeros pueden:
 - 👀 Ver los cambios línea por línea
 - 💬 Agregar comentarios
 - ✅ Aprobar o 🔄 pedir cambios
+
+<!-- 📸 CAPTURA: Vista "Files changed" de un Pull Request mostrando el diff con líneas verdes (agregadas) y rojas (eliminadas) -->
+![Vista Files Changed de un PR mostrando el diff](img/07-github-pr-files-changed.png)
 
 > 💡 **En este punto**, los cambios de JM están propuestos pero NO integrados. Veremos la revisión y el merge en la Parte 4.
 

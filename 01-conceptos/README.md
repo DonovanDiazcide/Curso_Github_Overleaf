@@ -109,6 +109,9 @@ Ahora que ya tienen la imagen completa, vamos a entender cada pieza del rompecab
 
 **Overleaf es un editor de LaTeX en línea con compilador en la nube.**
 
+<!-- 📸 CAPTURA: Editor de Overleaf mostrando código LaTeX a la izquierda y vista previa del PDF a la derecha -->
+![Editor de Overleaf con código LaTeX y vista previa del PDF](img/04-overleaf-editor.png)
+
 Ya lo conocen y probablemente es donde escriben sus artículos. En nuestro flujo, Overleaf es la **herramienta principal de edición** — donde pasan la mayor parte del tiempo:
 
 | Característica | Beneficio |
@@ -175,6 +178,9 @@ Con Overleaf tenemos un excelente editor de LaTeX. Pero necesitamos una platafor
 
 **GitHub es una plataforma en la nube para almacenar y compartir repositorios con control de versiones.**
 
+<!-- 📸 CAPTURA: Vista de un repositorio en GitHub mostrando lista de archivos, commits recientes y barra de navegación -->
+![Vista de un repositorio en GitHub](img/01-github-repo-ejemplo.png)
+
 ### ¿Por qué GitHub además de Overleaf?
 
 Overleaf por sí solo no tiene un sistema de revisión formal. GitHub agrega exactamente eso:
@@ -186,6 +192,9 @@ Overleaf por sí solo no tiene un sistema de revisión formal. GitHub agrega exa
 | Historial automático sin contexto | **Commits con mensaje**: cada versión tiene una explicación del "por qué" |
 | Si alguien rompe la compilación, todos lo sufren | Los errores se contienen en el fork de cada persona |
 | No hay lista de tareas compartida | **Issues**: lista de pendientes visible para todos |
+
+<!-- 📸 CAPTURA: Vista de un Pull Request en GitHub mostrando conversación, revisión y comentarios -->
+![Ejemplo de un Pull Request en GitHub](img/03-github-pr-ejemplo.png)
 
 > 💡 **Nota sobre Issues y Pull Requests:** Un Pull Request puede resolver múltiples Issues a la vez. En el mensaje del PR pueden escribir: `fix #1, fix #2, fix #3` (o `closes #1, resolves #2`) y GitHub automáticamente cerrará esos Issues cuando el PR sea fusionado.
 
@@ -215,6 +224,9 @@ Piensen en el proyecto como un **restaurante**:
 ### El Concepto de "Fork" (Bifurcación)
 
 Un **fork** es una copia personal de un repositorio en GitHub. Es como tener tu propia versión del proyecto donde puedes experimentar libremente:
+
+<!-- 📸 CAPTURA: Vista de un repositorio en GitHub con el botón "Fork" resaltado (arriba a la derecha, junto a Star y Watch) -->
+![Botón Fork en un repositorio de GitHub](img/02-github-fork-button.png)
 
 ```
     ┌─────────────────────────────────────────────┐

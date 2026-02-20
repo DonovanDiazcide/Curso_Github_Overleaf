@@ -22,8 +22,15 @@ A diferencia de un flujo con herramientas locales, este taller se hace **100% en
 
 1. Ir a [github.com](https://github.com)
 2. Click en **"Sign up"**
+
+<!-- 📸 CAPTURA: Página principal de github.com con el botón "Sign up" visible arriba a la derecha -->
+![Página principal de GitHub con botón Sign up](img/01-github-signup.png)
+
 3. Seguir los pasos (correo, contraseña, username)
 4. Verificar el correo electrónico
+
+<!-- 📸 CAPTURA: Pantalla de verificación de correo de GitHub (el puzzle o la confirmación) -->
+![Pantalla de verificación de correo en GitHub](img/02-github-verificar.png)
 
 > 📝 **Anoten su username de GitHub** — lo necesitarán para que Mauricio los agregue como colaboradores.
 
@@ -33,6 +40,10 @@ A diferencia de un flujo con herramientas locales, este taller se hace **100% en
 
 1. Ir a [overleaf.com](https://www.overleaf.com)
 2. Click en **"Register"**
+
+<!-- 📸 CAPTURA: Página principal de overleaf.com con el botón "Register" visible -->
+![Página principal de Overleaf con botón Register](img/03-overleaf-register.png)
+
 3. Pueden registrarse con su correo o directamente con su cuenta de Google/institucional
 
 > 💡 **Cuenta gratuita es suficiente** para José Miguel y Rodrigo. La función de sincronización con GitHub la provee el proyecto de Mauricio (Premium).
@@ -45,7 +56,14 @@ A diferencia de un flujo con herramientas locales, este taller se hace **100% en
 
 1. En Overleaf, ir a **Account** → **Account Settings**
 2. En la sección **"Project Integrations"**, buscar **GitHub**
+
+<!-- 📸 CAPTURA: Página Account Settings de Overleaf, sección "Project Integrations" mostrando la opción GitHub -->
+![Overleaf Account Settings - sección Project Integrations con GitHub](img/04-overleaf-account-settings.png)
+
 3. Click en **"Link"** y autorizar la conexión con GitHub
+
+<!-- 📸 CAPTURA: Botón "Link" de GitHub en Overleaf y/o la pantalla de autorización de GitHub -->
+![Botón Link para vincular GitHub con Overleaf](img/05-overleaf-github-link.png)
 
 ---
 

@@ -281,8 +281,15 @@ Para cada PR aprobado:
 
 **José Miguel y Rodrigo** (sus workspaces):
 1. GitHub → su fork → "Sync fork" → "Update branch"
+
+<!-- 📸 CAPTURA: Fork en GitHub mostrando "This branch is X commits behind" con el menú Sync fork desplegado -->
+![Fork mostrando commits behind con Sync fork](img/01-github-fork-behind.png)
+
 2. Overleaf → Menu → GitHub → "Pull from GitHub"
 3. Compilar → verificar que ven el artículo completo
+
+<!-- 📸 CAPTURA: Overleaf mostrando el artículo completo compilado en PDF (con todas las secciones integradas) -->
+![Artículo completo compilado en Overleaf](img/02-overleaf-compilar-pdf.png)
 
 ### ¡Ciclo completado! 🎉
 

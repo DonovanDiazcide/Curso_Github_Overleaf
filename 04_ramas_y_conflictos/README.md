@@ -33,6 +33,10 @@ En la Parte 3, José Miguel y Rodrigo crearon Pull Requests. Ahora toca **revisa
 
 1. Ir al repositorio principal en GitHub: `mauricio/articulo-taller-colaboracion`
 2. Click en la pestaña **"Pull requests"**
+
+<!-- 📸 CAPTURA: Pestaña "Pull requests" de un repositorio en GitHub mostrando la lista de PRs abiertos -->
+![Pestaña Pull Requests con lista de PRs abiertos](img/01-github-pr-review-tab.png)
+
 3. Seleccionar el PR a revisar
 
 ### Pestaña "Files changed"
@@ -53,12 +57,20 @@ Aquí pueden ver exactamente qué se cambió:
 
 1. Pasar el cursor sobre una línea que quieran comentar
 2. Click en el ícono **"+"** que aparece
+
+<!-- 📸 CAPTURA: Vista Files Changed con un comentario inline abierto sobre una línea de código, mostrando el campo de texto y los botones -->
+![Agregar comentario inline en Files Changed](img/02-github-files-changed-comment.png)
+
 3. Escribir su comentario (ej: "¿Podrías agregar una cita aquí?")
 4. Click en **"Start a review"** o **"Add single comment"**
 
 ### Enviar la revisión
 
 1. Click en **"Review changes"** (botón verde arriba a la derecha)
+
+<!-- 📸 CAPTURA: Diálogo "Review changes" mostrando las 3 opciones: Approve, Comment, Request changes -->
+![Diálogo Review Changes con opciones Approve, Comment, Request changes](img/03-github-review-changes.png)
+
 2. Escribir un resumen general
 3. Seleccionar una opción:
    | Opción | Cuándo usarla |
@@ -88,6 +100,9 @@ Aquí pueden ver exactamente qué se cambió:
 | Squash and merge ❌ | No | Comprime todos los cambios en uno solo |
 | Rebase and merge ⚠️ | Parcial | Re-escribe el historial |
 
+<!-- 📸 CAPTURA: Menú desplegable del botón Merge mostrando las 3 opciones (Create a merge commit, Squash and merge, Rebase and merge) -->
+![Menú desplegable con las 3 opciones de merge](img/05-github-merge-options.png)
+
 ### Pasos para hacer merge
 
 Para cada PR aprobado:
@@ -95,6 +110,10 @@ Para cada PR aprobado:
 1. Ir al PR en GitHub
 2. Verificar que tiene al menos una aprobación
 3. Click en **"Merge pull request"** (botón verde)
+
+<!-- 📸 CAPTURA: Botón verde "Merge pull request" en la parte inferior de un PR, con el menú desplegable mostrando "Create a merge commit" -->
+![Botón Merge pull request en GitHub](img/04-github-merge-button.png)
+
 4. **Verificar el menú desplegable**: debe decir "Create a merge commit"
 5. Click en **"Confirm merge"**
 6. (Opcional) Click en **"Delete branch"** — en nuestro caso esto limpia ramas automáticas, no afecta los forks
@@ -134,9 +153,15 @@ Un conflicto ocurre cuando **dos personas modifican la misma línea** del mismo 
 
 Cuando un PR tiene conflictos, GitHub mostrará: **"This branch has conflicts that must be resolved"**
 
+<!-- 📸 CAPTURA: Banner de conflictos en un PR mostrando "This branch has conflicts that must be resolved" con botón "Resolve conflicts" -->
+![Banner de conflictos en un Pull Request](img/06-github-conflict-warning.png)
+
 #### Paso 1: Click en "Resolve conflicts"
 
 GitHub abrirá un editor web mostrando los marcadores de conflicto:
+
+<!-- 📸 CAPTURA: Editor web de GitHub mostrando los marcadores de conflicto (<<<<<<<, =======, >>>>>>>) con las dos versiones del código -->
+![Editor de resolución de conflictos en GitHub](img/07-github-resolve-conflicts.png)
 
 ```latex
 <<<<<<< josemiguel/articulo:main
@@ -178,6 +203,10 @@ Tienen tres opciones:
 1. **Eliminar** los marcadores de conflicto (`<<<<<<<`, `=======`, `>>>>>>>`)
 2. **Dejar** el contenido que quieren mantener
 3. Click en **"Mark as resolved"**
+
+<!-- 📸 CAPTURA: Botón "Mark as resolved" en el editor de conflictos de GitHub, después de resolver un conflicto -->
+![Botón Mark as resolved en el editor de conflictos](img/08-github-mark-resolved.png)
+
 4. Repetir para todos los archivos con conflicto
 5. Click en **"Commit merge"**
 

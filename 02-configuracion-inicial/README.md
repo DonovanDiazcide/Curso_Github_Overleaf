@@ -30,6 +30,10 @@
 
 1. Ir a [overleaf.com](https://www.overleaf.com) e iniciar sesión
 2. Click en **"New Project"** (botón verde)
+
+<!-- 📸 CAPTURA: Dashboard de Overleaf mostrando el botón verde "New Project" con su menú desplegable (Blank Project, Example Project, Upload, Import from GitHub) -->
+![Menú New Project en Overleaf](img/01-overleaf-new-project.png)
+
 3. Seleccionar **"Blank Project"** o una plantilla de journal
 4. Nombrar el proyecto: `Articulo-Main`
 
@@ -51,9 +55,15 @@ Si Mauricio ya tiene un proyecto en Overleaf que quiere usar:
 
 2. En la sección "Sync", buscar **"GitHub"**
 
+<!-- 📸 CAPTURA: Menú lateral de Overleaf abierto, mostrando la sección "Sync" con la opción "GitHub" -->
+![Menú de Overleaf mostrando la sección Sync con GitHub](img/02-overleaf-menu-github.png)
+
 3. Click en **"Create a GitHub Repository"**
    - Si es la primera vez, Overleaf pedirá autorización para conectar con GitHub
    - Autorizar la conexión
+
+<!-- 📸 CAPTURA: Diálogo de Overleaf "Create a GitHub Repository" con los campos Repository name y Visibility -->
+![Diálogo para crear repositorio de GitHub desde Overleaf](img/03-overleaf-create-repo.png)
 
 4. Configurar el repositorio:
    | Campo | Valor sugerido |
@@ -73,6 +83,9 @@ Si Mauricio ya tiene un proyecto en Overleaf que quiere usar:
   - **"Push Overleaf changes to GitHub"** — Subir cambios de Overleaf a GitHub
   - **"Pull GitHub changes into Overleaf"** — Traer cambios de GitHub a Overleaf
 
+<!-- 📸 CAPTURA: Menú de Overleaf mostrando las opciones "Push Overleaf changes to GitHub" y "Pull GitHub changes into Overleaf" -->
+![Opciones Push y Pull de GitHub en el menú de Overleaf](img/04-overleaf-push-pull-options.png)
+
 > 📖 Fuente oficial: [Overleaf GitHub Synchronization](https://docs.overleaf.com/integrations-and-add-ons/git-integration-and-github-synchronization/github)
 
 ---
@@ -88,6 +101,10 @@ Un **fork** es una copia del repositorio principal en su propia cuenta de GitHub
 1. Ir al repositorio principal en GitHub: `github.com/mauricio-username/articulo-taller-colaboracion`
    - Mauricio les compartirá el enlace
 2. Click en el botón **"Fork"** (esquina superior derecha)
+
+<!-- 📸 CAPTURA: Pantalla de creación de fork en GitHub mostrando campos Owner, Repository name y checkbox "Copy the main branch only" -->
+![Pantalla de creación de fork en GitHub](img/05-github-fork-create.png)
+
 3. En la pantalla de creación del fork:
    - **Owner**: Su cuenta personal de GitHub
    - **Repository name**: Dejar el mismo nombre (`articulo-taller-colaboracion`)
@@ -112,6 +129,10 @@ Ahora cada uno tiene su propia copia del repositorio:
 
 1. Ir a su fork en GitHub
 2. Click en **"Settings"** → **"Collaborators"**
+
+<!-- 📸 CAPTURA: Página Settings > Collaborators de un repositorio en GitHub con el botón "Add people" -->
+![Página de Collaborators en GitHub Settings](img/06-github-settings-collaborators.png)
+
 3. Click en **"Add people"**
 4. Buscar el username de Mauricio
 5. Enviar invitación
@@ -127,6 +148,10 @@ Ahora cada uno tiene su propia copia del repositorio:
 ### Para el workspace de José Miguel:
 
 1. En Overleaf, click en **"New Project"** → **"Import from GitHub"**
+
+<!-- 📸 CAPTURA: Diálogo de Overleaf "Import from GitHub" mostrando la lista de repositorios disponibles para importar -->
+![Diálogo Import from GitHub en Overleaf](img/07-overleaf-import-github.png)
+
 2. En la lista de repositorios, buscar `josemiguel-username/articulo-taller-colaboracion` (el fork de JM)
 3. Click en **"Import"**
 4. Overleaf creará un nuevo proyecto con los contenidos del fork de JM
@@ -148,6 +173,9 @@ Mauricio ahora tiene **3 proyectos** en Overleaf:
 | `Articulo-JM-Workspace` | `josemiguel/articulo-taller-colaboracion` (fork) | Espacio de trabajo de José Miguel |
 | `Articulo-Rodrigo-Workspace` | `rodrigo/articulo-taller-colaboracion` (fork) | Espacio de trabajo de Rodrigo |
 
+<!-- 📸 CAPTURA: Dashboard de Overleaf mostrando los 3 proyectos creados: Articulo-Main, Articulo-JM-Workspace, Articulo-Rodrigo-Workspace -->
+![Dashboard de Overleaf con los 3 proyectos del taller](img/09-tres-proyectos-overleaf.png)
+
 > ⚠️ **Importante**: Cada proyecto Overleaf está vinculado permanentemente a un repositorio GitHub específico. No se puede cambiar después. Por eso es importante hacer bien este paso.
 
 ---
@@ -159,6 +187,9 @@ Mauricio ahora tiene **3 proyectos** en Overleaf:
 **Proyecto "JM Workspace":**
 1. Abrir el proyecto `Articulo-JM-Workspace`
 2. Click en **"Share"** (botón arriba a la derecha)
+
+<!-- 📸 CAPTURA: Diálogo "Share" de Overleaf mostrando el campo para ingresar email y los permisos (Can Edit / Can View) -->
+![Diálogo Share de Overleaf](img/08-overleaf-share-button.png)
 3. Ingresar el correo de José Miguel
 4. Seleccionar permisos: **"Can Edit"**
 5. Click en **"Share"**
