@@ -1,8 +1,18 @@
 # Guía Individual: LaTeX con Overleaf + VS Code como respaldo
 
 > **Duración**: 10–15 minutos  
-> **Para quién**: Personas que trabajan en Overleaf y necesitan un plan B cuando algo se rompe.  
-> **Idea central**: Tu herramienta principal es **Overleaf**. Cuando algo deje de funcionar ahí (citas rotas, errores de compilación, etc.), te pasas a **VS Code + LaTeX Workshop** en tu computadora, que es más tolerante con errores y te da más control para diagnosticar y arreglar problemas.
+> **Para quién**: Personas que trabajan en Overleaf y necesitan una alternativa confiable cuando Overleaf no compila bien.  
+> **Idea central**: **Overleaf** es tu herramienta principal y ahí es donde vas a seguir trabajando. Pero a veces Overleaf tiene problemas para procesar ciertos paquetes o citas que son perfectamente válidos. Cuando eso pase, **VS Code + LaTeX Workshop** en tu computadora lo va a compilar sin problema. Es simplemente un compilador más robusto.
+
+---
+
+## Antes de empezar: Esto NO es tu culpa
+
+Si tu documento compilaba bien y de repente deja de funcionar en Overleaf, o si las citas se rompen aunque ya estaban bien, **no es algo que hayas hecho mal**. Overleaf a veces tiene limitaciones con ciertos paquetes o configuraciones que son completamente válidos en LaTeX.
+
+La solución es sencilla: **descargar tu proyecto y compilarlo en VS Code**, que es más tolerante y procesa prácticamente todo sin problemas. Es como tener un segundo horno de respaldo — no es que la receta esté mal, es que el primer horno a veces no llega a la temperatura correcta.
+
+**Y si ni en VS Code funciona**, no te preocupes: mándanos tu proyecto (los archivos `.tex` y `.bib`) y lo revisamos juntos. Eso es completamente normal y para eso estamos. No te quedes con la duda.
 
 ---
 
@@ -10,11 +20,11 @@
 
 1. Instalar las herramientas necesarias en tu computadora (una sola vez)
 2. Descargar tu proyecto de Overleaf para abrirlo en VS Code
-3. Compilar y ver el PDF localmente
-4. Arreglar lo que se rompió
-5. Subir el proyecto corregido de vuelta a Overleaf
+3. Compilar y ver el PDF en tu computadora (muchas veces eso es todo lo que se necesita)
+4. Subir el PDF y/o archivos de vuelta a Overleaf
+5. Saber cuándo pedir ayuda (y sentirte cómoda haciéndolo)
 
-> **No vamos a ver Git, GitHub, ni colaboración.** Solo el flujo: Overleaf → VS Code → arreglar → Overleaf.
+> **No vamos a ver Git, GitHub, ni colaboración.** Solo: Overleaf → VS Code → compila → listo.
 
 ---
 
@@ -66,7 +76,9 @@ Si ambas cosas funcionan, la instalación está completa.
 
 ## Paso 1 — Descargar tu proyecto de Overleaf (2 min)
 
-**Propósito**: Traer una copia de tu proyecto a tu computadora para poder trabajar en VS Code.
+**Propósito**: Traer una copia de tu proyecto a tu computadora para compilarlo en VS Code.
+
+**¿Cuándo hacer esto?** Cuando Overleaf te marque errores que no puedes resolver, cuando las citas se rompan, o cuando simplemente no compile. No necesitas entender qué salió mal — solo descárgalo y VS Code se encarga.
 
 ### Qué hacer
 
@@ -107,7 +119,7 @@ En la **barra lateral izquierda** (Explorer) debes ver todos tus archivos: `main
 
 ## Paso 3 — Compilar y ver tu PDF (3 min)
 
-**Propósito**: Generar el PDF a partir de tu código LaTeX y visualizarlo dentro de VS Code.
+**Propósito**: Generar el PDF a partir de tu código LaTeX y visualizarlo dentro de VS Code. En muchos casos, **esto es todo lo que necesitas** — el mismo documento que Overleaf no podía compilar, VS Code lo compila sin problemas.
 
 ### Los atajos dependen de tu sistema
 
@@ -171,9 +183,9 @@ Haces un cambio en tu `.tex`, guardas, y el PDF se actualiza solo.
 
 ---
 
-## Paso 5 — Subir el proyecto corregido a Overleaf (2 min)
+## Paso 5 — Subir el resultado a Overleaf (2 min)
 
-**Propósito**: Una vez que arreglaste el problema en VS Code, regresar a Overleaf con tu proyecto funcionando.
+**Propósito**: Ahora que VS Code generó tu PDF correctamente, puedes subir el resultado a Overleaf para tenerlo ahí también.
 
 ### Qué hacer
 
@@ -185,9 +197,13 @@ Haces un cambio en tu `.tex`, guardas, y el PDF se actualiza solo.
 
 > **Tip**: Solo sube los archivos `.tex` y `.bib` que hayas modificado. No subas los archivos auxiliares (`.aux`, `.log`, `.bbl`, etc.) — esos los genera Overleaf automáticamente.
 
+> **¿Y si no necesitas subirlo a Overleaf?** Si lo único que necesitabas era el PDF (por ejemplo, para entregarlo), lo puedes encontrar en la misma carpeta donde está tu `main.tex`. El archivo se llama `main.pdf`. Puedes enviarlo directamente sin pasar por Overleaf.
+
 ---
 
 ## Problemas comunes y cómo resolverlos
+
+> **Recuerda**: La mayoría de estos problemas **no son errores tuyos**. Son limitaciones de las herramientas o cosas que pasan normalmente al trabajar con LaTeX. Todos los que usamos LaTeX hemos pasado por esto.
 
 ### 🔴 Regla de oro para VS Code
 
@@ -203,14 +219,27 @@ Haces un cambio en tu `.tex`, guardas, y el PDF se actualiza solo.
 | Problema | Causa probable | Solución |
 |----------|---------------|----------|
 | **El PDF no se actualiza aunque guardo** | El PDF está abierto en WPS Office, Adobe u otro programa | Cierra el PDF en el otro programa. Solo velo dentro de VS Code |
-| **Las citas aparecen como `[?]`** | Compilación incompleta o nombre del `.bib` incorrecto | 1) Verifica que `\bibliography{biblio}` coincida con tu archivo `biblio.bib`. 2) Recompila con el atajo de Build |
-| **Las citas funcionaban y de repente se rompieron** | Probablemente un error de sintaxis en el `.bib` (una coma faltante, una llave sin cerrar) | Abre tu archivo `.bib` en VS Code y revisa que cada entrada tenga sus llaves `{ }` bien cerradas y comas entre campos |
+| **Las citas aparecen como `[?]`** | Compilación incompleta o nombre del `.bib` incorrecto | 1) Verifica que `\bibliography{biblio}` coincida con tu archivo `biblio.bib`. 2) Recompila con el atajo de Build. Esto es muy común y se resuelve fácil |
+| **Las citas funcionaban y de repente se rompieron** | A veces Overleaf no procesa bien ciertos formatos de `.bib`. No es tu culpa | Descarga y compila en VS Code. Si ahí funciona, ya tienes tu PDF. Si no: revisa que cada entrada en el `.bib` tenga sus llaves `{ }` cerradas y comas entre campos |
 | **Error: "File 'paquete.sty' not found"** | Un paquete de LaTeX no está instalado | MiKTeX lo instala solo. Si no: abre **MiKTeX Console → Packages → busca el paquete → instalar**. En Mac, MacTeX ya incluye todo |
 | **La compilación tarda mucho** | Primera vez, MiKTeX descarga paquetes | Normal. Espera. Las siguientes veces será rápido |
 | **Aparecen errores rojos en la barra inferior** | Error de sintaxis en tu `.tex` | Haz clic en el número de errores (barra inferior) para ver qué línea tiene el problema |
 | **El PDF se ve pero el contenido es viejo** | VS Code muestra versión en caché | Cierra la pestaña del PDF y ábrela de nuevo con el atajo de Ver PDF |
 | **"I found no \\citation commands"** | No hay ningún `\cite{...}` en el texto | Agrega al menos una cita en el cuerpo del documento |
 | **"I found no \\bibstyle command"** | Falta `\bibliographystyle{...}` en tu `.tex` | Agrega `\bibliographystyle{apalike}` antes de `\bibliography{biblio}` |
+
+### 🟢 ¿Y si nada de esto funciona?
+
+**Está perfectamente bien pedir ayuda.** Si seguiste los pasos y ni Overleaf ni VS Code compilan tu documento, mándanos lo siguiente:
+
+1. Tu archivo `main.tex`
+2. Tu archivo `.bib` (por ejemplo, `biblio.bib`)
+3. Cualquier otro archivo que use tu proyecto (imágenes, otros `.tex`, etc.)
+4. Una descripción breve de qué pasa: "le doy compilar y sale este error" o "las citas salen como [?]"
+
+**Puedes mandarlo por Overleaf** (compartiéndonos el proyecto) **o por correo** (en un .zip con los archivos).
+
+No tienes que resolverlo sola. A veces el error está en un lugar que no es obvio, y entre todos lo encontramos más rápido. **Para eso estamos.**
 
 ---
 
@@ -231,7 +260,7 @@ En la carpeta [`ejemplo/`](ejemplo/) de esta guía hay dos archivos listos para 
 6. Cambia algo en el texto (por ejemplo, agrega una oración)
 7. Guarda y observa cómo el PDF se actualiza solo
 
-Si todo funciona, ya estás lista para usar VS Code como respaldo de Overleaf.
+Si todo funciona, ya estás lista para usar VS Code cuando Overleaf te dé problemas. Y si algo falla en este ejercicio, mándanos un mensaje — eso nos ayuda a saber si hay algo que ajustar en la instalación.
 
 ---
 
@@ -243,21 +272,28 @@ Si todo funciona, ya estás lista para usar VS Code como respaldo de Overleaf.
                      │     en Overleaf           │
                      └─────────┬────────────────┘
                                │
-                    ¿Algo se rompió?
+                  ¿Overleaf no compila?
                        │           │
                       No          Sí
                        │           │
                   Sigue en     ┌───▼───────────────────┐
-                  Overleaf     │ 1. Overleaf → Menu     │
-                               │    → Download Source   │
-                               │ 2. Descomprimir .zip   │
-                               │ 3. VS Code → Open      │
-                               │    Folder              │
-                               │ 4. Compilar + arreglar │
-                               │ 5. Subir archivos      │
-                               │    corregidos a        │
-                               │    Overleaf            │
-                               └───────────────────────┘
+                  Overleaf     │ 1. Descargar Source    │
+                               │ 2. Abrir carpeta en   │
+                               │    VS Code            │
+                               │ 3. Compilar (Ctrl+    │
+                               │    Alt+B / Cmd+Opt+B) │
+                               └───────┬───────────────┘
+                                       │
+                              ¿Compiló en VS Code?
+                                 │           │
+                                Sí          No
+                                 │           │
+                           ¡Listo!       Manda tu proyecto
+                           Tienes tu     al equipo. No es
+                           PDF.          tu culpa, y para
+                           Súbelo a      eso estamos.
+                           Overleaf si
+                           lo necesitas.
 ```
 
 ---
@@ -269,8 +305,7 @@ Si todo funciona, ya estás lista para usar VS Code como respaldo de Overleaf.
 ║         LaTeX: Overleaf + VS Code — Referencia              ║
 ╠══════════════════════════════════════════════════════════════╣
 ║                                                              ║
-║  FLUJO NORMAL: Trabajar en Overleaf                          ║
-║  SI SE ROMPE:  Descargar → VS Code → Arreglar → Subir       ║
+║  FLUJO:  Overleaf → ¿no compila? → VS Code → ¡listo!        ║
 ║                                                              ║
 ╠══════════════════════════════════════════════════════════════╣
 ║                     ATAJOS EN VS CODE                        ║
@@ -287,5 +322,9 @@ Si todo funciona, ya estás lista para usar VS Code como respaldo de Overleaf.
 ║  Si las citas salen como [?]:                                ║
 ║     → Recompilar con el atajo de Build                       ║
 ║     → Verificar nombre en \bibliography{...}                 ║
+║                                                              ║
+║  Si nada funciona:                                           ║
+║     → Mándanos tu main.tex + .bib y lo vemos juntos.         ║
+║       Para eso estamos.                                      ║
 ╚══════════════════════════════════════════════════════════════╝
 ```
