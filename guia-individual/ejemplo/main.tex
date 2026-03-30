@@ -1,0 +1,45 @@
+\documentclass[12pt,a4paper]{article}
+
+% === Paquetes básicos ===
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{natbib}
+
+% Márgenes
+\usepackage[margin=2.5cm]{geometry}
+
+% === Título ===
+\title{Mi primer documento en \LaTeX}
+\author{Tu Nombre}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section{Introducción}
+
+Este es un documento de ejemplo para practicar el flujo de trabajo en VS Code.
+Lo único que necesitas recordar es:
+
+\begin{itemize}
+    \item \textbf{Ctrl+Alt+B} para compilar la primera vez.
+    \item \textbf{Ctrl+Alt+V} para ver el PDF.
+    \item \textbf{Ctrl+S} para guardar y recompilar automáticamente.
+\end{itemize}
+
+\section{Ejemplo de citas}
+
+Según \citet{chacon2014pro}, Git es una herramienta fundamental para el control de versiones en proyectos de investigación. Otros autores también han explorado el uso de plataformas colaborativas en el ámbito académico \citep{perez2024github}.
+
+\section{Conclusión}
+
+Si puedes ver este PDF con las citas resueltas correctamente (no aparecen como [?]), tu instalación funciona perfectamente.
+
+% === Bibliografía ===
+\bibliographystyle{apalike}
+\bibliography{biblio}
+
+\end{document}

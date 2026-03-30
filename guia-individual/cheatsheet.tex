@@ -1,0 +1,207 @@
+\documentclass[10pt,a4paper,landscape]{article}
+
+% --- Paquetes ---
+\usepackage[utf8]{inputenc}
+\usepackage[spanish,es-noshorthands]{babel}
+\usepackage[margin=1.5cm]{geometry}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{positioning,calc,shapes.geometric}
+\usepackage{enumitem}
+\usepackage{fontawesome5}
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{multicol}
+\usepackage{hyperref}
+
+% --- Colores ---
+\definecolor{accentblue}{HTML}{2563EB}
+\definecolor{accentred}{HTML}{DC2626}
+\definecolor{accentgreen}{HTML}{16A34A}
+\definecolor{lightgray}{HTML}{F3F4F6}
+\definecolor{darktext}{HTML}{1F2937}
+\definecolor{medgray}{HTML}{6B7280}
+
+% --- Sin numeración de páginas ---
+\pagestyle{empty}
+
+% --- Fuente ---
+\renewcommand{\familydefault}{\sfdefault}
+
+% --- Comandos de estilo ---
+\newcommand{\sectiontitle}[2]{%
+  \noindent\colorbox{accentblue}{\parbox{\dimexpr\linewidth-2\fboxsep}{%
+    \centering\color{white}\bfseries\large #1\quad #2%
+  }}%
+  \vspace{6pt}%
+}
+
+\newcommand{\keystroke}[1]{%
+  \tikz[baseline=(key.base)]{%
+    \node[fill=lightgray, draw=medgray, rounded corners=3pt, 
+          inner xsep=3pt, inner ysep=2pt, font=\bfseries\ttfamily\scriptsize] (key) {#1};%
+  }%
+}
+
+\newcommand{\warningbox}[1]{%
+  \noindent\colorbox{accentred!10}{\parbox{\dimexpr\linewidth-2\fboxsep}{%
+    \color{accentred}\bfseries\faExclamationTriangle\quad #1%
+  }}%
+}
+
+\newcommand{\tipbox}[1]{%
+  \noindent\colorbox{accentgreen!10}{\parbox{\dimexpr\linewidth-2\fboxsep}{%
+    \color{accentgreen!80!black}\bfseries\faCheckCircle\quad #1%
+  }}%
+}
+
+\begin{document}
+
+% --- Título ---
+\begin{center}
+  {\color{accentblue}\rule{\linewidth}{2pt}}\\[6pt]
+  {\Huge\bfseries\color{darktext} \LaTeX: Overleaf + VS Code}\\[4pt]
+  {\large\color{medgray} Tarjeta de referencia rápida}\\[4pt]
+  {\color{accentblue}\rule{\linewidth}{2pt}}
+\end{center}
+
+\vspace{8pt}
+
+\begin{multicols}{3}
+
+% ============================================================
+% COLUMNA 1: Flujo principal + Atajos
+% ============================================================
+
+\sectiontitle{\faRoute}{Flujo de trabajo}
+
+\begin{center}
+\begin{tikzpicture}[
+  node distance=0.6cm,
+  every node/.style={font=\small},
+  box/.style={rectangle, rounded corners=5pt, draw=accentblue, 
+              fill=accentblue!8, text width=4.2cm, align=center,
+              minimum height=0.7cm, font=\small},
+  decision/.style={diamond, draw=accentred, fill=accentred!8,
+                   text width=2cm, align=center, font=\small\bfseries,
+                   inner sep=1pt},
+  arrow/.style={->, thick, >=stealth, color=medgray}
+]
+  \node[box] (work) {Trabajar en \textbf{Overleaf}};
+  \node[decision, below=of work] (broke) {¿Se rompió?};
+  \node[box, below left=0.5cm and -0.8cm of broke] (no) {Seguir en Overleaf};
+  \node[box, below right=0.5cm and -0.8cm of broke] (yes) {Pasar a VS Code};
+  \node[box, below=of yes] (fix) {Arreglar y resubir};
+  
+  \draw[arrow] (work) -- (broke);
+  \draw[arrow] (broke) -- node[left, font=\scriptsize] {No} (no);
+  \draw[arrow] (broke) -- node[right, font=\scriptsize] {Sí} (yes);
+  \draw[arrow] (yes) -- (fix);
+  \draw[arrow] (fix.south) .. controls +(0,-0.4) and +(0,-0.4) .. 
+    node[below, font=\scriptsize] {Volver} +(-2.5,0) |- (work.west);
+\end{tikzpicture}
+\end{center}
+
+\vspace{8pt}
+
+\sectiontitle{\faKeyboard}{Atajos en VS Code}
+
+\vspace{2pt}
+
+\renewcommand{\arraystretch}{1.6}
+\begin{tabularx}{\linewidth}{@{}lXX@{}}
+  \toprule
+  \textbf{Acción} & \textbf{Windows} & \textbf{Mac} \\
+  \midrule
+  \faHammer~Compilar & \keystroke{Ctrl+Alt+B} & \keystroke{Cmd+Opt+B} \\
+  \faFilePdf~Ver PDF & \keystroke{Ctrl+Alt+V} & \keystroke{Cmd+Opt+V} \\
+  \faSave~Guardar & \keystroke{Ctrl+S} & \keystroke{Cmd+S} \\
+  \bottomrule
+\end{tabularx}
+
+\vspace{6pt}
+
+\tipbox{Después del primer Build, Ctrl+S guarda Y compila automáticamente.}
+
+% ============================================================
+% COLUMNA 2: Pasos para rescate + Regla de oro
+% ============================================================
+
+\sectiontitle{\faLifeRing}{Rescate: Overleaf → VS Code}
+
+\begin{enumerate}[leftmargin=*, itemsep=3pt, font=\bfseries\color{accentblue}]
+  \item \textbf{Descargar} de Overleaf:\\
+    {\small Menu → Download → \textbf{Source} (.zip)}
+  \item \textbf{Descomprimir} el .zip:\\
+    {\small Win: clic derecho → Extraer todo\\
+    Mac: doble clic}
+  \item \textbf{Abrir} en VS Code:\\
+    {\small File → \textbf{Open Folder} → la carpeta}\\
+    {\small\color{accentred} ¡La carpeta, NO el archivo!}
+  \item \textbf{Compilar}: atajo de Build\\
+    {\small Primera vez tarda 1--3 min (normal)}
+  \item \textbf{Ver PDF}: atajo de Ver PDF
+  \item \textbf{Arreglar} el problema y guardar
+  \item \textbf{Subir} a Overleaf:\\
+    {\small Upload → seleccionar archivos modificados → reemplazar}
+\end{enumerate}
+
+\vspace{6pt}
+
+\warningbox{El PDF SOLO se ve dentro de VS Code.}
+
+\vspace{4pt}
+
+\noindent{\small\color{darktext} Si el PDF está abierto en \textbf{WPS Office}, \textbf{Adobe} u otro programa, VS Code no puede actualizarlo. Cierra el PDF en el otro programa primero.}
+
+% ============================================================
+% COLUMNA 3: Troubleshooting
+% ============================================================
+
+\sectiontitle{\faWrench}{Solución de problemas}
+
+\vspace{2pt}
+
+\renewcommand{\arraystretch}{1.4}
+{\small
+\begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}p{2.8cm}X@{}}
+  \toprule
+  \textbf{Problema} & \textbf{Solución} \\
+  \midrule
+  PDF no se actualiza & 
+    Cerrar PDF en WPS/Adobe. Solo verlo en VS Code \\
+  \addlinespace
+  Citas como~{[?]} & 
+    1) Verificar \texttt{\textbackslash bibliography\{nombre\}} coincida con archivo .bib\newline
+    2) Recompilar con atajo de Build \\
+  \addlinespace
+  Citas se rompieron de repente &
+    Revisar el .bib: llaves \{ \} cerradas, comas entre campos \\
+  \addlinespace
+  Paquete no encontrado &
+    MiKTeX lo instala solo. Si no: MiKTeX Console → Packages \\
+  \addlinespace
+  Primera compilación lenta &
+    Normal. Esperar. Después será rápido \\
+  \addlinespace
+  Errores rojos abajo &
+    Clic en el número → ver línea del error → corregir \\
+  \bottomrule
+\end{tabularx}
+}
+
+\vspace{10pt}
+
+\sectiontitle{\faBookOpen}{Recuerda}
+
+\begin{itemize}[leftmargin=*, itemsep=4pt]
+  \item[\color{accentgreen}\faCheckCircle] \textbf{Overleaf} es tu herramienta principal
+  \item[\color{accentblue}\faCheckCircle] \textbf{VS Code} es tu plan B cuando algo se rompe
+  \item[\color{accentgreen}\faCheckCircle] \keystroke{Ctrl+S} / \keystroke{Cmd+S} = guardar + compilar
+  \item[\color{accentred}\faTimesCircle] \textbf{Nunca} abrir el PDF fuera de VS Code
+  \item[\color{accentgreen}\faCheckCircle] Si citas salen como {[?]} → recompilar
+\end{itemize}
+
+\end{multicols}
+
+\end{document}
