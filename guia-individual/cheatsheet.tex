@@ -36,10 +36,19 @@
   \vspace{6pt}%
 }
 
+% ── \keystroke: dibuja una "tecla" inline (ej. Ctrl+S) ──
+% baseline=(key.base) alinea verticalmente la tecla con el texto circundante.
+% inner xsep/ysep controlan el padding horizontal/vertical dentro de la tecla.
+% rounded corners da las esquinas redondeadas estilo keycap.
 \newcommand{\keystroke}[1]{%
   \tikz[baseline=(key.base)]{%
-    \node[fill=lightgray, draw=medgray, rounded corners=3pt, 
-          inner xsep=3pt, inner ysep=2pt, font=\bfseries\ttfamily\scriptsize] (key) {#1};%
+    \node[fill=lightgray,          % fondo gris claro (simula tecla física)
+          draw=medgray,             % borde gris medio
+          rounded corners=3pt,      % esquinas redondeadas (radio 3pt)
+          inner xsep=3pt,           % padding horizontal
+          inner ysep=2pt,           % padding vertical
+          font=\bfseries\ttfamily\scriptsize  % negrita + monoespaciada + pequeña
+    ] (key) {#1};%
   }%
 }
 
@@ -76,27 +85,84 @@
 \sectiontitle{\faRoute}{Flujo de trabajo}
 
 \begin{center}
+% ═══════════════════════════════════════════════════════════════
+% DIAGRAMA DE FLUJO — Decisión Overleaf → VS Code
+%
+% Estructura planificada:
+%   [Overleaf] → ◇¿No compila?◇ → No: [Seguir]  |  Sí: [VS Code]
+%                                                       ↓
+%                                             [¡Quédate en VS Code!]
+%
+% Ancho de columna disponible ≈ 8.7 cm (landscape A4, 3 columnas).
+% Las cajas usan text width=3.6cm con xshift=±2.3cm → total ≈ 8.2cm.
+% ═══════════════════════════════════════════════════════════════
 \begin{tikzpicture}[
-  node distance=0.6cm,
+  % ── Separación vertical por defecto entre nodos consecutivos ──
+  node distance=0.7cm,
+  % ── Fuente base para todo nodo que no defina la suya ──
   every node/.style={font=\small},
-  box/.style={rectangle, rounded corners=5pt, draw=accentblue, 
-              fill=accentblue!8, text width=4.2cm, align=center,
-              minimum height=0.7cm, font=\small},
-  decision/.style={diamond, draw=accentred, fill=accentred!8,
-                   text width=2cm, align=center, font=\small\bfseries,
-                   inner sep=1pt},
-  arrow/.style={->, thick, >=stealth, color=medgray}
+  % ── Estilo "box": rectángulo azul redondeado (pasos del flujo) ──
+  box/.style={
+    rectangle,
+    rounded corners=5pt,      % esquinas redondeadas
+    draw=accentblue,           % borde azul
+    fill=accentblue!8,         % relleno azul 8% (casi blanco)
+    text width=3.6cm,          % ancho fijo del texto dentro de la caja
+    align=center,              % texto centrado
+    minimum height=0.7cm,      % altura mínima
+    font=\small
+  },
+  % ── Estilo "decision": rombo rojo (pregunta sí/no) ──
+  decision/.style={
+    diamond,
+    aspect=2.5,                % ensancha el rombo (ancho = 2.5× alto)
+                               %   sin esto el rombo es muy puntiagudo
+    draw=accentred,
+    fill=accentred!8,
+    text width=2.2cm,          % ancho del texto dentro del rombo
+    align=center,
+    font=\small\bfseries,
+    inner sep=3pt              % margen interno (respiro alrededor del texto)
+  },
+  % ── Estilo "arrow": flecha gris con punta stealth ──
+  arrow/.style={->, thick, >=stealth, color=medgray},
+  % ── Estilo para la flecha de la rama recomendada (Sí → verde) ──
+  greenarrow/.style={->, thick, >=stealth, color=accentgreen}
 ]
+
+  % ── Nodo 1: punto de partida ──
   \node[box] (work) {Trabajar en \textbf{Overleaf}};
-  \node[decision, below=of work] (broke) {\small ¿No compila?};
-  \node[box, below left=0.5cm and -0.8cm of broke] (no) {Seguir en Overleaf};
-  \node[box, below right=0.5cm and -0.8cm of broke] (yes) {Compilar en VS Code};
-  \node[box, below=of yes, fill=accentgreen!15, draw=accentgreen] (fix) {¡Quédate en VS Code!};
-  
-  \draw[arrow] (work) -- (broke);
-  \draw[arrow] (broke) -- node[left, font=\scriptsize] {No} (no);
-  \draw[arrow] (broke) -- node[right, font=\scriptsize] {Sí} (yes);
-  \draw[arrow] (yes) -- (fix);
+
+  % ── Nodo 2: pregunta de decisión ──
+  %    "below=of work" lo coloca 0.7cm debajo (node distance)
+  \node[decision, below=of work] (broke) {¿No compila?};
+
+  % ── Nodo 3 (rama izquierda): camino "No" ──
+  %    below=1cm of broke → 1cm debajo del rombo
+  %    xshift=-2.3cm       → desplazado 2.3cm a la IZQUIERDA
+  \node[box, below=1cm of broke, xshift=-2.3cm] (no)
+    {Seguir en Overleaf};
+
+  % ── Nodo 4 (rama derecha): camino "Sí" — acción de rescate ──
+  %    xshift=+2.3cm → desplazado 2.3cm a la DERECHA
+  \node[box, below=1cm of broke, xshift=2.3cm] (yes)
+    {Compilar en VS Code};
+
+  % ── Nodo 5: conclusión verde (destino final de la ruta recomendada) ──
+  %    fill/draw en verde para resaltar visualmente como meta
+  %    line width=1.5pt → borde más grueso que las cajas azules
+  \node[box, below=of yes,
+        fill=accentgreen!15, draw=accentgreen,
+        line width=1.5pt,
+        font=\small\bfseries       % negrita para enfatizar la conclusión
+  ] (fix) {¡Quédate en VS Code!};
+
+  % ── Flechas ──
+  \draw[arrow]      (work)  -- (broke);                                           % inicio → decisión
+  \draw[arrow]      (broke) -- node[left,  font=\scriptsize\color{medgray}]  {No}  (no);   % rama izq (gris, camino pasivo)
+  \draw[greenarrow] (broke) -- node[right, font=\scriptsize\bfseries] {Sí}         (yes);  % rama der (verde, camino recomendado)
+  \draw[greenarrow] (yes)   -- (fix);                                              % rescate → quedarse
+
 \end{tikzpicture}
 \end{center}
 
