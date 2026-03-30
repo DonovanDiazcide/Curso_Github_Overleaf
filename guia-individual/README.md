@@ -1,8 +1,8 @@
-# Guía Individual: LaTeX con Overleaf + VS Code como respaldo
+# Guía Individual: De Overleaf a VS Code — compila todo, gratis y rápido
 
 > **Duración**: 10–15 minutos (si ya tienes todo instalado)  
-> **Para quién**: Personas que trabajan en Overleaf y necesitan una alternativa confiable cuando Overleaf no compila bien.  
-> **Idea central**: **Overleaf** es tu herramienta principal y ahí es donde vas a seguir trabajando. Pero a veces Overleaf tiene problemas para procesar ciertos paquetes o citas que son perfectamente válidos. Cuando eso pase, **VS Code + LaTeX Workshop** en tu computadora lo va a compilar sin problema. Es simplemente un compilador más robusto.
+> **Para quién**: Personas que trabajan en Overleaf y quieren una herramienta más confiable y potente.  
+> **Idea central**: **Overleaf** funciona bien para empezar, pero tiene limitaciones reales: a veces no compila ciertos paquetes o citas que son perfectamente válidos, y la versión gratuita tiene tiempos de compilación lentos. **VS Code + LaTeX Workshop** en tu computadora es gratuito, compila prácticamente todo sin problemas, y tiene tiempos de compilación comparables a la versión de paga de Overleaf (~$100 USD/año). **Cuando Overleaf te falle, migra a VS Code y quédate ahí** — no hay razón para volver.
 
 ---
 
@@ -25,7 +25,9 @@ Después, con calma, instala las herramientas siguiendo esta guía para que la p
 
 Si tu documento compilaba bien y de repente deja de funcionar en Overleaf, o si las citas se rompen aunque ya estaban bien, **no es algo que hayas hecho mal**. Overleaf a veces tiene limitaciones con ciertos paquetes o configuraciones que son completamente válidos en LaTeX.
 
-La solución es sencilla: **descargar tu proyecto y compilarlo en VS Code**, que es más tolerante y procesa prácticamente todo sin problemas. Es como tener un segundo horno de respaldo — no es que la receta esté mal, es que el primer horno a veces no llega a la temperatura correcta.
+La solución es sencilla: **descargar tu proyecto y compilarlo en VS Code**, que es más tolerante y procesa prácticamente todo sin problemas. Y una vez que funcione en VS Code, **quédate ahí** — es más rápido, más estable, y completamente gratis. No necesitas volver a Overleaf.
+
+> **💰 Bonus**: VS Code + LaTeX Workshop te da tiempos de compilación similares a Overleaf Pro (~$100 USD/año) pero **sin pagar nada**. En Overleaf gratis, documentos grandes pueden tardar 30+ segundos. En VS Code, los mismos documentos compilan en 2–5 segundos.
 
 **Y si ni en VS Code funciona**, no te preocupes: mándanos tu proyecto (los archivos `.tex` y `.bib`) y lo revisamos juntos. Eso es completamente normal y para eso estamos. No te quedes con la duda.
 
@@ -53,10 +55,10 @@ Si algo no funciona, sigue leyendo paso a paso abajo.
 1. Instalar las herramientas necesarias en tu computadora (una sola vez)
 2. Descargar tu proyecto de Overleaf para abrirlo en VS Code
 3. Compilar y ver el PDF en tu computadora (muchas veces eso es todo lo que se necesita)
-4. Subir el PDF y/o archivos de vuelta a Overleaf
+4. Seguir trabajando en VS Code de aquí en adelante
 5. Saber cuándo pedir ayuda (y sentirte cómoda haciéndolo)
 
-> **No vamos a ver Git, GitHub, ni colaboración.** Solo: Overleaf → VS Code → compila → listo.
+> **No vamos a ver Git, GitHub, ni colaboración.** Solo: Overleaf → VS Code → compila → quédate en VS Code.
 
 ---
 
@@ -234,21 +236,30 @@ Haces un cambio en tu `.tex`, guardas, y el PDF se actualiza solo.
 
 ---
 
-## Paso 5 — Subir el resultado a Overleaf (2 min)
+## Paso 5 — Quédate en VS Code (¡ya no necesitas Overleaf!)
 
-**Propósito**: Ahora que VS Code generó tu PDF correctamente, puedes subir el resultado a Overleaf para tenerlo ahí también.
+**Propósito**: Ahora que VS Code compila tu documento sin problemas, **no hay razón para volver a Overleaf**. Puedes seguir trabajando directamente en VS Code.
 
-### Qué hacer
+### ¿Por qué quedarte en VS Code?
 
-1. En Overleaf, abre tu proyecto
-2. Haz clic en el botón de **Upload** (ícono de flecha hacia arriba, arriba del panel de archivos)
-3. Selecciona los archivos que modificaste (por ejemplo, `main.tex` y/o `biblio.bib`)
-4. Overleaf te preguntará si quieres **reemplazar** los archivos existentes — di que **sí**
-5. Compila en Overleaf para verificar que todo funciona de nuevo
+| | Overleaf (gratis) | Overleaf Pro (~$100 USD/año) | VS Code + LaTeX Workshop |
+|---|---|---|---|
+| **Precio** | Gratis | ~$100 USD/año | **Gratis** |
+| **Compilación** | Lenta (30+ seg en docs grandes) | Rápida (~5 seg) | **Rápida (2–5 seg)** |
+| **Paquetes** | Limitados, a veces falla | Más estable | **Todo funciona** |
+| **Funciona sin internet** | No | No | **Sí** |
+| **Timeout de compilación** | 1 min (gratis) / 4 min (pro) | 4 min | **Sin límite** |
 
-> **Tip**: Solo sube los archivos `.tex` y `.bib` que hayas modificado. No subas los archivos auxiliares (`.aux`, `.log`, `.bbl`, etc.) — esos los genera Overleaf automáticamente.
+### Tu flujo de trabajo ahora
 
-> **¿Y si no necesitas subirlo a Overleaf?** Si lo único que necesitabas era el PDF (por ejemplo, para entregarlo), lo puedes encontrar en la misma carpeta donde está tu `main.tex`. El archivo se llama `main.pdf`. Puedes enviarlo directamente sin pasar por Overleaf.
+1. Edita tu `.tex` directamente en VS Code
+2. Guarda (`Ctrl+S` / `Cmd+S`) — el PDF se actualiza automáticamente
+3. Cuando termines, tu PDF está en la misma carpeta como `main.pdf`
+4. Envía el PDF directamente (correo, plataforma, etc.) — no necesitas pasar por Overleaf
+
+> **¿Y si necesito colaborar con alguien en Overleaf?** Si tu coautor o equipo usa Overleaf, puedes subir tus archivos actualizados: Upload → seleccionar archivos `.tex` y `.bib` → reemplazar. Pero para tu trabajo individual, VS Code es más rápido y confiable.
+
+> **¿Puedo usar ambos?** Sí, pero no al mismo tiempo. Si decides editar en Overleaf otra vez, descarga Source antes de volver a VS Code para no perder cambios.
 
 ---
 
@@ -335,7 +346,7 @@ Si todo funciona, ya estás lista para usar VS Code cuando Overleaf te dé probl
                        │           │
                   Sigue en     ┌───▼───────────────────┐
                   Overleaf     │ 1. Descargar Source    │
-                               │ 2. Abrir carpeta en   │
+                  (por ahora)  │ 2. Abrir carpeta en   │
                                │    VS Code            │
                                │ 3. Compilar (Ctrl+    │
                                │    Alt+B / Cmd+Opt+B) │
@@ -345,12 +356,11 @@ Si todo funciona, ya estás lista para usar VS Code cuando Overleaf te dé probl
                                  │           │
                                 Sí          No
                                  │           │
-                           ¡Listo!       Manda tu proyecto
-                           Tienes tu     al equipo. No es
-                           PDF.          tu culpa, y para
-                           Súbelo a      eso estamos.
-                           Overleaf si
-                           lo necesitas.
+                           ¡Quédate en   Manda tu proyecto
+                           VS Code!     al equipo. No es
+                           Es gratis,   tu culpa, y para
+                           rápido, y    eso estamos.
+                           más estable.
 ```
 
 ---
@@ -362,7 +372,7 @@ Si todo funciona, ya estás lista para usar VS Code cuando Overleaf te dé probl
 ║         LaTeX: Overleaf + VS Code — Referencia              ║
 ╠══════════════════════════════════════════════════════════════╣
 ║                                                              ║
-║  FLUJO:  Overleaf → ¿no compila? → VS Code → ¡listo!        ║
+║  FLUJO:  Overleaf → ¿no compila? → VS Code → ¡quédate!    ║
 ║                                                              ║
 ╠══════════════════════════════════════════════════════════════╣
 ║                     ATAJOS EN VS CODE                        ║
@@ -383,5 +393,8 @@ Si todo funciona, ya estás lista para usar VS Code cuando Overleaf te dé probl
 ║  Si nada funciona:                                           ║
 ║     → Mándanos tu main.tex + .bib y lo vemos juntos.         ║
 ║       Para eso estamos.                                      ║
+║                                                              ║
+║  VS Code es gratis y compila tan rápido como Overleaf Pro.   ║
+║  ¡Quédate en VS Code!                                        ║
 ╚══════════════════════════════════════════════════════════════╝
 ```
