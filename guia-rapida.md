@@ -39,6 +39,26 @@
 | Subir mis cambios a GitHub | Mi proyecto Overleaf | **Menu** → **GitHub** → **"Push Overleaf changes to GitHub"** → escribir mensaje |
 | Compilar el PDF | Mi proyecto Overleaf | Click en **"Recompile"** (o se auto-compila) |
 
+### Capturas esenciales
+
+![Boton Sync fork para actualizar el fork desde main](recursos/capturas/github/sync-fork-dropdown.png)
+*1) Sync fork en GitHub.*
+
+![Modal de GitHub en Overleaf con opciones Pull y Push](recursos/capturas/overleaf/overleaf-github-modal.png)
+*2) Pull/Push en Overleaf.*
+
+![Pantalla de comparacion previa para Open pull request](recursos/capturas/github/pull-request-compare-pull-request.png)
+*3) Open pull request.*
+
+![Boton Review changes para aprobar o comentar un PR](recursos/capturas/github/review-changes-button.png)
+*4) Review changes.*
+
+![Opciones de merge disponibles en un Pull Request](recursos/capturas/github/merge-pull-request-options.png)
+*5) Merge pull request (usar merge commit).*
+
+![Boton Resolve conflicts para iniciar la resolucion de conflictos](recursos/capturas/github/resolve-merge-conflicts-button.png)
+*6) Resolve conflicts.*
+
 ---
 
 ## 🏗️ Arquitectura

@@ -193,6 +193,26 @@ y colaboración durante el desarrollo de este ejercicio práctico.
       Escribir título y descripción del PR
 ```
 
+### Galería rápida de ejecución (5.2)
+
+![Sync fork para traer cambios recientes de main](../recursos/capturas/github/sync-fork-dropdown.png)
+*Sync fork en GitHub antes de empezar a editar.*
+
+![Modal de GitHub en Overleaf para Pull y Push](../recursos/capturas/overleaf/overleaf-github-modal.png)
+*Pull/Push desde Overleaf durante el trabajo independiente.*
+
+![Pantalla de comparacion para abrir Pull Request](../recursos/capturas/github/pull-request-compare-pull-request.png)
+*Open pull request al terminar el avance.*
+
+![Boton Review changes en la interfaz de PR](../recursos/capturas/github/review-changes-button.png)
+*Review changes para aprobar o solicitar ajustes.*
+
+![Opciones de merge en GitHub Pull Request](../recursos/capturas/github/merge-pull-request-options.png)
+*Merge pull request con "Create a merge commit".*
+
+![Boton Resolve conflicts para casos de conflicto](../recursos/capturas/github/resolve-merge-conflicts-button.png)
+*Resolve conflicts cuando GitHub detecta conflicto.*
+
 ### Pasos específicos por participante
 
 <details>
@@ -259,6 +279,17 @@ José Miguel y Rodrigo:
 2. Revisar los cambios (líneas verdes = agregadas, rojas = eliminadas)
 3. Agregar comentarios si tienen sugerencias
 4. Click en **"Review changes"** → **"Approve"** → **"Submit review"**
+
+### Galería rápida de revisión (5.3)
+
+![Pestana Files changed en un Pull Request](../recursos/capturas/github/pull-request-tabs-changed-files.png)
+*Inspección de cambios línea por línea.*
+
+![Boton Review changes para enviar aprobacion o comentarios](../recursos/capturas/github/review-changes-button.png)
+*Cierre formal de la revisión.*
+
+![Opciones de merge del Pull Request en GitHub](../recursos/capturas/github/merge-pull-request-options.png)
+*Validar método de merge antes de confirmar.*
 
 ---
 

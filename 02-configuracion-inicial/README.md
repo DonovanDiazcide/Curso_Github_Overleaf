@@ -44,6 +44,11 @@ Si Mauricio ya tiene un proyecto en Overleaf que quiere usar:
 ## 2.2 Conectar Overleaf "Main" a GitHub (Mauricio)
 
 > **Requisito**: Cuenta Overleaf Premium y GitHub vinculado (paso de instalación previa)
+>
+> 💡 **Compatibilidad de interfaz**: Overleaf tiene "diseño nuevo" (Integrations en barra lateral) y "diseño anterior" (GitHub dentro de Menu). Ambas rutas llevan a la misma sincronización.
+
+![Acceso a GitHub desde el menu del proyecto en Overleaf (diseno anterior)](../recursos/capturas/overleaf/overleaf-project-menu-github.png)
+*Captura de referencia: ruta en diseño anterior de Overleaf.*
 
 ### Pasos:
 
@@ -54,6 +59,9 @@ Si Mauricio ya tiene un proyecto en Overleaf que quiere usar:
 3. Click en **"Create a GitHub Repository"**
    - Si es la primera vez, Overleaf pedirá autorización para conectar con GitHub
    - Autorizar la conexión
+
+![Panel de Integrations en Overleaf para iniciar la conexion con GitHub](../recursos/capturas/overleaf/overleaf-integrations-github.png)
+*Captura de referencia: punto de entrada a GitHub en Overleaf.*
 
 4. Configurar el repositorio:
    | Campo | Valor sugerido |
@@ -73,6 +81,9 @@ Si Mauricio ya tiene un proyecto en Overleaf que quiere usar:
   - **"Push Overleaf changes to GitHub"** — Subir cambios de Overleaf a GitHub
   - **"Pull GitHub changes into Overleaf"** — Traer cambios de GitHub a Overleaf
 
+![Modal de integración de GitHub en Overleaf con opciones de Push y Pull](../recursos/capturas/overleaf/overleaf-github-modal.png)
+*Captura de referencia: modal de sincronización Push/Pull en Overleaf.*
+
 > 📖 Fuente oficial: [Overleaf GitHub Synchronization](https://docs.overleaf.com/integrations-and-add-ons/git-integration-and-github-synchronization/github)
 
 ---
@@ -88,6 +99,9 @@ Un **fork** es una copia del repositorio principal en su propia cuenta de GitHub
 1. Ir al repositorio principal en GitHub: `github.com/mauricio-username/articulo-taller-colaboracion`
    - Mauricio les compartirá el enlace
 2. Click en el botón **"Fork"** (esquina superior derecha)
+
+![Botón Fork en la cabecera del repositorio en GitHub](../recursos/capturas/github/fork-button.png)
+*Captura de referencia: inicio de creación de fork en GitHub.*
 3. En la pantalla de creación del fork:
    - **Owner**: Su cuenta personal de GitHub
    - **Repository name**: Dejar el mismo nombre (`articulo-taller-colaboracion`)
@@ -116,6 +130,9 @@ Ahora cada uno tiene su propia copia del repositorio:
 4. Buscar el username de Mauricio
 5. Enviar invitación
 
+![Pestaña Settings del repositorio en GitHub para gestionar colaboradores](../recursos/capturas/github/repo-actions-settings.png)
+*Captura de referencia: acceso a configuración/collaborators del repositorio.*
+
 > Mauricio debe aceptar las invitaciones desde sus notificaciones de GitHub.
 
 ---
@@ -131,6 +148,9 @@ Ahora cada uno tiene su propia copia del repositorio:
 3. Click en **"Import"**
 4. Overleaf creará un nuevo proyecto con los contenidos del fork de JM
 5. Renombrar el proyecto a: `Articulo-JM-Workspace`
+
+![Opcion Import from GitHub al crear un nuevo proyecto en Overleaf](../recursos/capturas/overleaf/create-new-github-repo.png)
+*Captura de referencia: importación de repositorio GitHub hacia Overleaf.*
 
 ### Para el workspace de Rodrigo:
 

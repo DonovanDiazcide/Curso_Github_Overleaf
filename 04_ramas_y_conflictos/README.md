@@ -49,6 +49,9 @@ Aquí pueden ver exactamente qué se cambió:
 - Las líneas en **rojo** (con `-`) fueron eliminadas
 - Las líneas en **verde** (con `+`) fueron agregadas
 
+![Pestana Files changed en un Pull Request de GitHub](../recursos/capturas/github/pull-request-tabs-changed-files.png)
+*Captura de referencia: revisión de cambios línea por línea en el PR.*
+
 ### Agregar comentarios
 
 1. Pasar el cursor sobre una línea que quieran comentar
@@ -67,6 +70,9 @@ Aquí pueden ver exactamente qué se cambió:
    | 💬 **Comment** | Tengo sugerencias pero no bloqueo la integración |
    | 🔄 **Request changes** | Necesita correcciones antes de integrar |
 4. Click en **"Submit review"**
+
+![Boton Review changes para aprobar o solicitar cambios en un PR](../recursos/capturas/github/review-changes-button.png)
+*Captura de referencia: envío de revisión en GitHub.*
 
 > 💡 **Tip**: GitHub envía notificaciones por correo electrónico cuando alguien comenta en su PR o les solicita una revisión. Revisen su bandeja de entrada si no ven actividad en GitHub.
 
@@ -98,6 +104,9 @@ Para cada PR aprobado:
 4. **Verificar el menú desplegable**: debe decir "Create a merge commit"
 5. Click en **"Confirm merge"**
 6. (Opcional) Click en **"Delete branch"** — en nuestro caso esto limpia ramas automáticas, no afecta los forks
+
+![Opciones de Merge pull request en GitHub](../recursos/capturas/github/merge-pull-request-options.png)
+*Captura de referencia: verificar que se use "Create a merge commit".*
 
 ### Orden sugerido de merge
 
@@ -135,6 +144,9 @@ Un conflicto ocurre cuando **dos personas modifican la misma línea** del mismo 
 Cuando un PR tiene conflictos, GitHub mostrará: **"This branch has conflicts that must be resolved"**
 
 #### Paso 1: Click en "Resolve conflicts"
+
+![Boton Resolve conflicts en un PR con conflictos](../recursos/capturas/github/resolve-merge-conflicts-button.png)
+*Captura de referencia: inicio de resolución de conflictos en GitHub.*
 
 GitHub abrirá un editor web mostrando los marcadores de conflicto:
 
@@ -181,6 +193,12 @@ Tienen tres opciones:
 4. Repetir para todos los archivos con conflicto
 5. Click en **"Commit merge"**
 
+![Boton Mark as resolved en el editor de conflictos de GitHub](../recursos/capturas/github/mark-as-resolved-button.png)
+*Captura de referencia: marcar archivo como resuelto.*
+
+![Confirmacion Commit merge despues de resolver conflictos](../recursos/capturas/github/merge-conflict-commit-changes.png)
+*Captura de referencia: confirmar commit de resolución de conflicto.*
+
 #### Paso 4: El PR ya puede ser merged
 
 Después de resolver los conflictos, el PR mostrará que no hay conflictos pendientes y puede ser fusionado normalmente.
@@ -194,6 +212,9 @@ Cuando esto sucede, Overleaf:
 2. **Muestra un mensaje** indicando que hay conflictos que resolver
 3. En GitHub, pueden crear un **PR desde esa rama temporal** y resolver conflictos ahí
 4. Después de resolver, hacer **"Pull from GitHub"** en Overleaf para sincronizar
+
+![Mensaje de conflicto de sincronizacion entre Overleaf y GitHub](../recursos/capturas/overleaf/overleaf-github-conflict.png)
+*Captura de referencia: conflicto detectado por Overleaf durante sincronización.*
 
 > 📖 Fuente oficial: [Overleaf - Resolving merge conflicts](https://docs.overleaf.com/integrations-and-add-ons/git-integration-and-github-synchronization/github#resolving-merge-conflicts)
 

@@ -233,12 +233,18 @@ Ahora que la estructura está en GitHub (`mauricio/articulo`), JM y Rodrigo nece
 3. Click en **"Sync fork"** → **"Update branch"**
 4. Su fork ahora tiene los mismos archivos que el repositorio principal
 
+![Botón Sync fork en la vista del repositorio fork en GitHub](../recursos/capturas/github/sync-fork-dropdown.png)
+*Captura de referencia: actualización del fork desde main.*
+
 ### Paso 2: Traer los archivos a Overleaf
 
 1. Abrir su proyecto Overleaf (ej: `Articulo-JM-Workspace`)
 2. Ir a **Menu** → **GitHub**
 3. Click en **"Pull GitHub changes into Overleaf"**
 4. Los archivos del artículo aparecerán en su proyecto
+
+![Modal de GitHub en Overleaf mostrando opción de Pull y Push](../recursos/capturas/overleaf/overleaf-github-modal.png)
+*Captura de referencia: traer cambios de GitHub a Overleaf con Pull.*
 
 ### Verificar
 
@@ -349,6 +355,9 @@ Cuando terminaron de editar y la compilación funciona correctamente:
 3. Mensaje: `"Agregué beneficios y comparación en resultados"`
 4. Click en **"Push"**
 
+![Modal de GitHub en Overleaf para enviar cambios con Push](../recursos/capturas/overleaf/overleaf-github-modal.png)
+*Captura de referencia: subir cambios desde Overleaf al fork o repositorio principal.*
+
 ### ¿Qué pasó?
 
 | Persona | Los cambios se subieron a... |
@@ -387,6 +396,20 @@ Un **Pull Request** es una solicitud para integrar los cambios de su fork al rep
 
 1. Revisar los cambios mostrados (diff) — verificar que son correctos
 2. Click en **"Create pull request"**
+
+### Referencia visual del flujo de PR
+
+![Enlace Compare across forks para abrir comparación entre repositorios](../recursos/capturas/github/compare-across-forks-link.png)
+*Paso visual 1: habilitar comparación entre fork y repositorio base.*
+
+![Selector de repositorio base y rama base en GitHub](../recursos/capturas/github/choose-base-fork-and-branch.png)
+*Paso visual 2: confirmar `base repository` y rama `main` del repositorio principal.*
+
+![Selector de head repository y rama compare en GitHub](../recursos/capturas/github/choose-head-fork-compare-branch.png)
+*Paso visual 3: elegir el fork del autor como `head repository`.*
+
+![Pantalla de comparación previa al Create pull request](../recursos/capturas/github/pull-request-compare-pull-request.png)
+*Paso visual 4: revisar diff y abrir el Pull Request.*
 
 ### Resultado
 
