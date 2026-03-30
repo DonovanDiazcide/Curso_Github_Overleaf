@@ -1,8 +1,23 @@
 # Guía Individual: LaTeX con Overleaf + VS Code como respaldo
 
-> **Duración**: 10–15 minutos  
+> **Duración**: 10–15 minutos (si ya tienes todo instalado)  
 > **Para quién**: Personas que trabajan en Overleaf y necesitan una alternativa confiable cuando Overleaf no compila bien.  
 > **Idea central**: **Overleaf** es tu herramienta principal y ahí es donde vas a seguir trabajando. Pero a veces Overleaf tiene problemas para procesar ciertos paquetes o citas que son perfectamente válidos. Cuando eso pase, **VS Code + LaTeX Workshop** en tu computadora lo va a compilar sin problema. Es simplemente un compilador más robusto.
+
+---
+
+## 🚨 ¿Necesitas tu PDF URGENTE y no tienes nada instalado?
+
+Si tienes una fecha de entrega encima y no puedes instalar nada ahorita, **no intentes seguir esta guía ahora**. En su lugar:
+
+> **Mándanos tu proyecto inmediatamente** (tus archivos `.tex` y `.bib`) y nosotros lo compilamos por ti. Te regresamos el PDF.  
+> Puedes compartirlo por Overleaf (comparte el proyecto con nosotros) o mandarlo como `.zip` por correo/WhatsApp.
+
+**Mensaje que puedes copiar y pegar:**
+
+> *Hola, tengo un problema con mi documento en Overleaf: [describe brevemente qué pasa, ej: "las citas salen como [?]" o "no compila y me da error"]. Les comparto mi proyecto para que me ayuden a compilarlo. ¡Gracias!*
+
+Después, con calma, instala las herramientas siguiendo esta guía para que la próxima vez puedas resolverlo tú misma en 2 minutos.
 
 ---
 
@@ -13,6 +28,23 @@ Si tu documento compilaba bien y de repente deja de funcionar en Overleaf, o si 
 La solución es sencilla: **descargar tu proyecto y compilarlo en VS Code**, que es más tolerante y procesa prácticamente todo sin problemas. Es como tener un segundo horno de respaldo — no es que la receta esté mal, es que el primer horno a veces no llega a la temperatura correcta.
 
 **Y si ni en VS Code funciona**, no te preocupes: mándanos tu proyecto (los archivos `.tex` y `.bib`) y lo revisamos juntos. Eso es completamente normal y para eso estamos. No te quedes con la duda.
+
+---
+
+## Si ya tienes todo instalado — Ruta rápida (30 segundos)
+
+Si ya completaste la instalación y solo quieres el recordatorio:
+
+1. **Overleaf** → Menu → Download → **Source** (descarga .zip)
+2. Descomprimir el .zip
+3. **VS Code** → File → **Open Folder** → seleccionar la **carpeta** (NO el archivo)
+4. Abrir `main.tex` → **Compilar**: `Ctrl+Alt+B` (Win) / `Cmd+Option+B` (Mac)
+5. **Ver PDF**: `Ctrl+Alt+V` (Win) / `Cmd+Option+V` (Mac)
+6. ¿Funciona? ¡Listo! Tu PDF está en la misma carpeta como `main.pdf`
+
+> ¿El atajo no funciona? → `Ctrl+Shift+P` (Win) / `Cmd+Shift+P` (Mac) → escribe **"LaTeX Build"** → Enter
+
+Si algo no funciona, sigue leyendo paso a paso abajo.
 
 ---
 
@@ -59,7 +91,15 @@ Primero, identifica qué computadora y en qué idioma la tienes, y sigue la guí
 | **Strawberry Perl** (solo Windows) | Necesario para que LaTeX Workshop funcione | 5 min |
 | **LaTeX Workshop** (extensión de VS Code) | La extensión que conecta VS Code con LaTeX | 2 min |
 
-> **No necesitas instalar Git ni crear cuenta de GitHub.** Esas partes de las guías de instalación las puedes saltar. Solo instala: VS Code, MiKTeX/MacTeX, Perl (si Windows) y la extensión LaTeX Workshop.
+> **No necesitas instalar Git ni crear cuenta de GitHub.** De las guías de instalación, solo sigue los pasos para estos 4 programas:
+>
+> ✅ **Instala estos (y nada más):**
+> 1. VS Code
+> 2. MiKTeX (Windows) o MacTeX (Mac)
+> 3. Strawberry Perl (solo Windows)
+> 4. La extensión "LaTeX Workshop" dentro de VS Code
+>
+> ❌ **Salta todo lo que diga:** Git, GitHub, cuenta de GitHub, SSH, token, terminal de Git, "clonar repositorio"
 
 ### ✅ Verificación de la instalación
 
@@ -70,7 +110,11 @@ Cuando termines la instalación, abre VS Code y verifica:
 3. Abre una terminal dentro de VS Code: **Terminal → New Terminal** (o **Ctrl + `**)
 4. Escribe `pdflatex --version` y presiona Enter — debe mostrar un número de versión
 
-Si ambas cosas funcionan, la instalación está completa.
+Si ambas cosas funcionan, la instalación está completa. ¡Muy bien, ya hiciste lo más tardado!
+
+> **¿Te trabaste en algún paso de la instalación?** No intentes forzar nada — mándanos un mensaje describiendo dónde te quedaste y te ayudamos. La instalación debería ser directa y si no lo está, probablemente hay algo específico de tu computadora que podemos resolver rápido.  
+> 
+> *Mensaje sugerido: "Hola, estoy siguiendo la guía de instalación y me trabé en [describe el paso]. Me aparece [describe qué ves]. ¿Me pueden ayudar?"*
 
 ---
 
@@ -90,9 +134,11 @@ Si ambas cosas funcionan, la instalación está completa.
    - **Mac**: Doble clic en el `.zip`
 5. Mueve la carpeta descomprimida a un lugar donde la puedas encontrar (por ejemplo, `Documentos/mi-articulo/`)
 
+> **Nota**: A veces al descomprimir se crea una carpeta dentro de otra carpeta (ej: `mi-articulo/mi-articulo/`). Si eso pasa, abre la carpeta de **adentro** — esa es la que tiene tus archivos.
+
 ### ✅ Verificación
 
-Abre la carpeta descomprimida. Debes ver tus archivos: `main.tex`, tu archivo `.bib`, y cualquier otra cosa que tengas en Overleaf.
+Abre la carpeta descomprimida. Debes ver tus archivos: `main.tex`, tu archivo `.bib`, y cualquier otra cosa que tengas en Overleaf. Si los ves, vas perfecto.
 
 ---
 
@@ -100,20 +146,21 @@ Abre la carpeta descomprimida. Debes ver tus archivos: `main.tex`, tu archivo `.
 
 **Propósito**: Que VS Code reconozca tu proyecto completo, no solo un archivo suelto.
 
+### ⚠️ Importante (léelo antes de empezar)
+
+**Siempre abre la carpeta, nunca el archivo suelto.** Si abres solo `main.tex` arrastrándolo a VS Code, el programa no va a encontrar los otros archivos de tu proyecto (como tu `.bib` o las carpetas de secciones) y la compilación va a fallar.
+
 ### Qué hacer
 
 1. Abre **VS Code**
 2. Ve a **File → Open Folder** (Archivo → Abrir Carpeta)
 3. Navega hasta la **carpeta** que descomprimiste en el paso anterior
 4. Selecciona la **carpeta** (no un archivo individual) y haz clic en **Seleccionar carpeta** / **Select Folder**
-
-### ⚠️ Importante
-
-**Siempre abre la carpeta, nunca el archivo suelto.** Si abres solo `main.tex` arrastrándolo a VS Code, el programa no va a encontrar los otros archivos de tu proyecto (como tu `.bib` o las carpetas de secciones) y la compilación va a fallar.
+5. Si VS Code te pregunta **"Do you trust the authors of the files in this folder?"** — haz clic en **"Yes, I trust the authors"**. Esto es normal y solo aparece la primera vez que abres una carpeta nueva.
 
 ### ✅ Verificación
 
-En la **barra lateral izquierda** (Explorer) debes ver todos tus archivos: `main.tex`, tu archivo `.bib`, y cualquier otra carpeta o archivo de tu proyecto.
+En la **barra lateral izquierda** (Explorer) debes ver todos tus archivos: `main.tex`, tu archivo `.bib`, y cualquier otra carpeta o archivo de tu proyecto. Si los ves, todo va bien.
 
 ---
 
@@ -129,6 +176,8 @@ En la **barra lateral izquierda** (Explorer) debes ver todos tus archivos: `main
 | **Ver PDF** (View) | `Ctrl + Alt + V` | `Cmd + Option + V` |
 | **Guardar + compilar auto** | `Ctrl + S` | `Cmd + S` |
 
+> **¿El atajo de teclado no funciona?** Puedes compilar desde el menú de comandos: presiona `Ctrl+Shift+P` (Win) / `Cmd+Shift+P` (Mac), escribe **"LaTeX Build"** y selecciona **"LaTeX Workshop: Build LaTeX project"**. Para ver el PDF: escribe **"LaTeX PDF"** y selecciona **"LaTeX Workshop: View LaTeX PDF"**.
+
 ### Qué hacer
 
 1. Haz clic en `main.tex` en el Explorer para abrirlo
@@ -140,7 +189,9 @@ El PDF se abre en un panel a la derecha del código.
 
 ### ⏳ La primera vez tarda — es normal
 
-Cuando compilas por primera vez, **MiKTeX/MacTeX descarga automáticamente los paquetes que necesita** tu documento. Esto puede tardar entre **1 y 3 minutos** dependiendo de tu internet.
+Cuando compilas por primera vez, **MiKTeX/MacTeX descarga automáticamente los paquetes que necesita** tu documento. Esto puede tardar entre **1 y 3 minutos** dependiendo de tu internet. Esto le pasa a todos la primera vez.
+
+> **📦 Si aparece una ventana de MiKTeX pidiéndote permiso para instalar paquetes**, haz clic en **"Install"** o **"Yes"**. Esto es completamente normal — MiKTeX necesita descargar los componentes que tu documento usa. Si te pregunta varias veces, di que sí cada vez. Solo pasa la primera vez.
 
 Mientras tanto:
 - Verás un ícono girando en la barra inferior de VS Code
@@ -149,7 +200,7 @@ Mientras tanto:
 
 ### ✅ Verificación
 
-Ves tu documento PDF dentro de VS Code, en un panel a la derecha del código fuente.
+Ves tu documento PDF dentro de VS Code, en un panel a la derecha del código fuente. **¡Felicidades! Ya lograste lo más importante.** De aquí en adelante es puro `Ctrl+S`.
 
 ---
 
@@ -216,6 +267,8 @@ Haces un cambio en tu `.tex`, guardas, y el PDF se actualiza solo.
 
 ### Tabla de problemas frecuentes
 
+> **¿No quieres diagnosticar tú misma?** Está bien. Salta esta tabla y ve directo a la [sección verde (🟢)](#-y-si-nada-de-esto-funciona) más abajo para mandarnos tu proyecto.
+
 | Problema | Causa probable | Solución |
 |----------|---------------|----------|
 | **El PDF no se actualiza aunque guardo** | El PDF está abierto en WPS Office, Adobe u otro programa | Cierra el PDF en el otro programa. Solo velo dentro de VS Code |
@@ -240,6 +293,10 @@ Haces un cambio en tu `.tex`, guardas, y el PDF se actualiza solo.
 **Puedes mandarlo por Overleaf** (compartiéndonos el proyecto) **o por correo** (en un .zip con los archivos).
 
 No tienes que resolverlo sola. A veces el error está en un lugar que no es obvio, y entre todos lo encontramos más rápido. **Para eso estamos.**
+
+**Mensaje que puedes copiar y pegar:**
+
+> *Hola, tengo un problema con mi documento. En Overleaf [describe qué pasa, ej: "las citas salen como [?]" o "no compila"]. Intenté compilar en VS Code y [describe qué pasó, ej: "salió el mismo error" o "no sé cómo hacerlo"]. Les comparto mis archivos para que me ayuden. ¡Gracias!*
 
 ---
 
